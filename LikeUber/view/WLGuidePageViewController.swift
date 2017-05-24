@@ -16,12 +16,24 @@ class WLGuidePageViewController: WLBasePageViewController {
     var videoPlayer:AVPlayer!
     var playerItem:AVPlayerItem!
     var location:WLLocation!
+    var appDelegate:AppDelegate?
+    var isCreated:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        initGuideVideoPlayer()
-        showGuideAnimation()
+        appDelegate = UIApplication.shared.delegate as? AppDelegate
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        if !isCreated {
+            isCreated = true
+            
+            initGuideVideoPlayer()
+            showGuideAnimation()
+        }
     }
     
     //启动动画
@@ -86,12 +98,15 @@ class WLGuidePageViewController: WLBasePageViewController {
     @IBAction func btLoginPressed(_ sender: Any) {
         if location == nil {
             location = WLLocation()
+            location.startLocation()
         }
-        location.startLocation()
         
-        if (location.curLocationString != nil) {
-            LCProgressHUD.showInfoMsg(location.curLocationString)
-        }
+        
+//        if (location.curLocationString != nil) {
+//            LCProgressHUD.showInfoMsg(location.curLocationString)
+//        }
+        appDelegate?.showHomePage()
+        
     }
     
 

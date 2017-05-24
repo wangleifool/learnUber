@@ -14,6 +14,7 @@ import UIKit
 let iOS8:Float = 8.0
 let ScreenHeight = UIScreen.main.bounds.size.height
 let ScreenWidth  = UIScreen.main.bounds.size.width
+let NavigationBarHeight = 64
 
 //调试打印方法
 func WlLog(_ message:String, file:String = #file, function:String = #function, line:Int = #line) {

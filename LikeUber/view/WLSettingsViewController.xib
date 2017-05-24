@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLSettingsViewController" customModule="LikeUber" customModuleProvider="target">
+            <connections>
+                <outlet property="mainScrollView" destination="6Xw-IZ-BQn" id="kgC-nb-uxW"/>
+                <outlet property="userBackView" destination="GwA-Fg-Tfw" id="iqd-93-dcF"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Xw-IZ-BQn">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6Xw-IZ-BQn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="22H-OL-0I3"/>
+                <constraint firstItem="6Xw-IZ-BQn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NWu-Pl-PCn"/>
+                <constraint firstAttribute="bottom" secondItem="6Xw-IZ-BQn" secondAttribute="bottom" id="Tth-MJ-BaU"/>
+                <constraint firstAttribute="trailing" secondItem="6Xw-IZ-BQn" secondAttribute="trailing" id="sS8-8y-hB5"/>
+            </constraints>
+            <point key="canvasLocation" x="26.5" y="52.5"/>
+        </view>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="GwA-Fg-Tfw">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="1156"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AccountBack.png" translatesAutoresizingMaskIntoConstraints="NO" id="aqy-iK-avC">
+                    <rect key="frame" x="16" y="20" width="343" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="l2j-n8-oPN"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FeiYongBack.png" translatesAutoresizingMaskIntoConstraints="NO" id="leO-On-f8a">
+                    <rect key="frame" x="16" y="184" width="343" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="vv9-Ve-eYo"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AccountBack.png" translatesAutoresizingMaskIntoConstraints="NO" id="tV3-Sa-LlK">
+                    <rect key="frame" x="16" y="342" width="343" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="qQT-Ys-pdw"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CarInfoBack.png" translatesAutoresizingMaskIntoConstraints="NO" id="1QJ-dc-gvR">
+                    <rect key="frame" x="16" y="519" width="343" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="XwW-Bq-pcP"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AccountBack.png" translatesAutoresizingMaskIntoConstraints="NO" id="rA3-FA-bmc">
+                    <rect key="frame" x="16" y="685" width="343" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="OuV-I5-qMy"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CarInfoBack.png" translatesAutoresizingMaskIntoConstraints="NO" id="tcU-7d-3Bn">
+                    <rect key="frame" x="16" y="845" width="343" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="nKI-Ck-XuA"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AccountBack.png" translatesAutoresizingMaskIntoConstraints="NO" id="WPO-ny-ulv">
+                    <rect key="frame" x="16" y="1008" width="343" height="128"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="WPO-ny-ulv" firstAttribute="top" secondItem="tcU-7d-3Bn" secondAttribute="bottom" constant="35" id="0Su-p9-4Ia"/>
+                <constraint firstItem="aqy-iK-avC" firstAttribute="centerX" secondItem="GwA-Fg-Tfw" secondAttribute="centerX" id="2CR-G5-qGx"/>
+                <constraint firstItem="1QJ-dc-gvR" firstAttribute="trailing" secondItem="rA3-FA-bmc" secondAttribute="trailing" id="2GX-Iz-XyN"/>
+                <constraint firstItem="tV3-Sa-LlK" firstAttribute="leading" secondItem="1QJ-dc-gvR" secondAttribute="leading" id="2P4-44-MrH"/>
+                <constraint firstItem="tcU-7d-3Bn" firstAttribute="top" secondItem="rA3-FA-bmc" secondAttribute="bottom" constant="32" id="3x7-nH-bDq"/>
+                <constraint firstItem="rA3-FA-bmc" firstAttribute="top" secondItem="1QJ-dc-gvR" secondAttribute="bottom" constant="38" id="4MB-RD-QiZ"/>
+                <constraint firstItem="leO-On-f8a" firstAttribute="trailing" secondItem="tV3-Sa-LlK" secondAttribute="trailing" id="4R6-Ug-gSk"/>
+                <constraint firstItem="aqy-iK-avC" firstAttribute="trailing" secondItem="leO-On-f8a" secondAttribute="trailing" id="F9t-d6-BH6"/>
+                <constraint firstItem="tcU-7d-3Bn" firstAttribute="trailing" secondItem="WPO-ny-ulv" secondAttribute="trailing" id="FAw-GU-RQ6"/>
+                <constraint firstAttribute="bottom" secondItem="WPO-ny-ulv" secondAttribute="bottom" constant="20" id="Hs5-BP-Pvk"/>
+                <constraint firstItem="1QJ-dc-gvR" firstAttribute="leading" secondItem="rA3-FA-bmc" secondAttribute="leading" id="Vqy-EB-g9e"/>
+                <constraint firstItem="aqy-iK-avC" firstAttribute="leading" secondItem="GwA-Fg-Tfw" secondAttribute="leading" constant="16" id="Wt8-c4-pbL"/>
+                <constraint firstItem="aqy-iK-avC" firstAttribute="leading" secondItem="leO-On-f8a" secondAttribute="leading" id="ZA0-N2-IwG"/>
+                <constraint firstItem="tV3-Sa-LlK" firstAttribute="trailing" secondItem="1QJ-dc-gvR" secondAttribute="trailing" id="bmf-aU-PpV"/>
+                <constraint firstItem="1QJ-dc-gvR" firstAttribute="top" secondItem="tV3-Sa-LlK" secondAttribute="bottom" constant="49" id="g50-Yi-sQd"/>
+                <constraint firstItem="aqy-iK-avC" firstAttribute="top" secondItem="GwA-Fg-Tfw" secondAttribute="top" constant="20" id="gcs-BU-Hqt"/>
+                <constraint firstItem="tV3-Sa-LlK" firstAttribute="top" secondItem="leO-On-f8a" secondAttribute="bottom" constant="30" id="mk0-5w-n3p"/>
+                <constraint firstItem="leO-On-f8a" firstAttribute="leading" secondItem="tV3-Sa-LlK" secondAttribute="leading" id="o4i-BG-CV0"/>
+                <constraint firstItem="rA3-FA-bmc" firstAttribute="trailing" secondItem="tcU-7d-3Bn" secondAttribute="trailing" id="ole-70-OrR"/>
+                <constraint firstItem="rA3-FA-bmc" firstAttribute="leading" secondItem="tcU-7d-3Bn" secondAttribute="leading" id="pzC-6E-gIu"/>
+                <constraint firstItem="leO-On-f8a" firstAttribute="top" secondItem="aqy-iK-avC" secondAttribute="bottom" constant="36" id="s12-J6-wZY"/>
+                <constraint firstItem="tcU-7d-3Bn" firstAttribute="leading" secondItem="WPO-ny-ulv" secondAttribute="leading" id="z33-i3-Hkn"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="24.5" y="1033"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="AccountBack.png" width="238" height="97"/>
+        <image name="CarInfoBack.png" width="293" height="160"/>
+        <image name="FeiYongBack.png" width="290" height="158"/>
+    </resources>
+</document>

@@ -507,6 +507,15 @@
 		3B226BCC1ECEC2A3005E7ED6 /* WLBasePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B226BCB1ECEC2A3005E7ED6 /* WLBasePageViewController.swift */; };
 		3B226BCE1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B226BCD1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift */; };
 		3B226BD01ECEC341005E7ED6 /* WLGuidePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B226BCF1ECEC341005E7ED6 /* WLGuidePageViewController.xib */; };
+		3B6C4ABE1ED56CCF001A001D /* WLHomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C4ABC1ED56CCE001A001D /* WLHomePageViewController.swift */; };
+		3B6C4ABF1ED56CCF001A001D /* WLHomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6C4ABD1ED56CCE001A001D /* WLHomePageViewController.xib */; };
+		3B6C4AC41ED5765A001A001D /* KYDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C4AC11ED5765A001A001D /* KYDrawerController.swift */; };
+		3B6C4AC51ED5765A001A001D /* KYEmbedDrawerControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C4AC21ED5765A001A001D /* KYEmbedDrawerControllerSegue.swift */; };
+		3B6C4AC61ED5765A001A001D /* KYEmbedMainControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C4AC31ED5765A001A001D /* KYEmbedMainControllerSegue.swift */; };
+		3B6C4AC81ED5766A001A001D /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C4AC71ED5766A001A001D /* DrawerViewController.swift */; };
+		3B6C4ACA1ED57AFE001A001D /* DrawerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6C4AC91ED57AFE001A001D /* DrawerViewController.xib */; };
+		3B6C4ACD1ED58461001A001D /* WLSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C4ACB1ED58461001A001D /* WLSettingsViewController.swift */; };
+		3B6C4ACE1ED58461001A001D /* WLSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6C4ACC1ED58461001A001D /* WLSettingsViewController.xib */; };
 		3B9B37381ED2B2BF006C7406 /* WLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B37371ED2B2BF006C7406 /* WLLocation.swift */; };
 		3B9B37411ED2BA58006C7406 /* LCProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B373A1ED2BA58006C7406 /* LCProgressHUD.m */; };
 		3B9B37421ED2BA58006C7406 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B373C1ED2BA58006C7406 /* MBProgressHUD.m */; };
@@ -1025,6 +1034,15 @@
 		3B226BCB1ECEC2A3005E7ED6 /* WLBasePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLBasePageViewController.swift; path = view/WLBasePageViewController.swift; sourceTree = "<group>"; };
 		3B226BCD1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLGuidePageViewController.swift; path = view/WLGuidePageViewController.swift; sourceTree = "<group>"; };
 		3B226BCF1ECEC341005E7ED6 /* WLGuidePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLGuidePageViewController.xib; path = resource/xib/WLGuidePageViewController.xib; sourceTree = "<group>"; };
+		3B6C4ABC1ED56CCE001A001D /* WLHomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLHomePageViewController.swift; path = view/WLHomePageViewController.swift; sourceTree = "<group>"; };
+		3B6C4ABD1ED56CCE001A001D /* WLHomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLHomePageViewController.xib; path = view/WLHomePageViewController.xib; sourceTree = "<group>"; };
+		3B6C4AC11ED5765A001A001D /* KYDrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYDrawerController.swift; sourceTree = "<group>"; };
+		3B6C4AC21ED5765A001A001D /* KYEmbedDrawerControllerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYEmbedDrawerControllerSegue.swift; sourceTree = "<group>"; };
+		3B6C4AC31ED5765A001A001D /* KYEmbedMainControllerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYEmbedMainControllerSegue.swift; sourceTree = "<group>"; };
+		3B6C4AC71ED5766A001A001D /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
+		3B6C4AC91ED57AFE001A001D /* DrawerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DrawerViewController.xib; path = resource/xib/DrawerViewController.xib; sourceTree = "<group>"; };
+		3B6C4ACB1ED58461001A001D /* WLSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLSettingsViewController.swift; path = view/WLSettingsViewController.swift; sourceTree = "<group>"; };
+		3B6C4ACC1ED58461001A001D /* WLSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLSettingsViewController.xib; path = view/WLSettingsViewController.xib; sourceTree = "<group>"; };
 		3B9B37371ED2B2BF006C7406 /* WLLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WLLocation.swift; sourceTree = "<group>"; };
 		3B9B37391ED2BA57006C7406 /* LikeUber-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LikeUber-Bridging-Header.h"; sourceTree = "<group>"; };
 		3B9B373A1ED2BA58006C7406 /* LCProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LCProgressHUD.m; path = ThirdSDK/LCProgressHUD.m; sourceTree = "<group>"; };
@@ -1043,6 +1061,9 @@
 		3B9B37541ED2D17A006C7406 /* FxString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FxString.m; sourceTree = "<group>"; };
 		3B9B37561ED2DA37006C7406 /* WLUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLUserInfoViewController.swift; path = view/WLUserInfoViewController.swift; sourceTree = "<group>"; };
 		3B9B37571ED2DA37006C7406 /* WLUserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLUserInfoViewController.xib; path = view/WLUserInfoViewController.xib; sourceTree = "<group>"; };
+		40F6CB3F765527612C11E522 /* Pods-LikeUber.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeUber.release.xcconfig"; path = "Pods/Target Support Files/Pods-LikeUber/Pods-LikeUber.release.xcconfig"; sourceTree = "<group>"; };
+		AA5395CAB2200CC5BEE30710 /* Pods_LikeUber.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeUber.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F02D2C23326DE4FF580D5DD6 /* Pods-LikeUber.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeUber.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LikeUber/Pods-LikeUber.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1056,11 +1077,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F5DD49067DF5E6B2D678824 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA5395CAB2200CC5BEE30710 /* Pods_LikeUber.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3B2267B71ECE9743005E7ED6 = {
 			isa = PBXGroup;
 			children = (
 				3B2267C21ECE9743005E7ED6 /* LikeUber */,
 				3B2267C11ECE9743005E7ED6 /* Products */,
+				CEF6A06F76637E1A83582FED /* Pods */,
+				0F5DD49067DF5E6B2D678824 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1109,6 +1140,7 @@
 			isa = PBXGroup;
 			children = (
 				3B226BC71ECEC266005E7ED6 /* WLBaseViewController.swift */,
+				3B226BCB1ECEC2A3005E7ED6 /* WLBasePageViewController.swift */,
 				3B226BC91ECEC270005E7ED6 /* page */,
 			);
 			name = View;
@@ -1131,6 +1163,7 @@
 		3B2267DA1ECEB4A5005E7ED6 /* ThirdSDK */ = {
 			isa = PBXGroup;
 			children = (
+				3B6C4AC01ED57648001A001D /* navigation drawer */,
 				3B9B37511ED2D160006C7406 /* indicator */,
 			);
 			name = ThirdSDK;
@@ -1164,6 +1197,8 @@
 				3B9B37461ED2C222006C7406 /* WLCreateAccountViewController.xib */,
 				3B9B374A1ED2CE7E006C7406 /* WLSelectCountryViewController.xib */,
 				3B9B37571ED2DA37006C7406 /* WLUserInfoViewController.xib */,
+				3B6C4ABD1ED56CCE001A001D /* WLHomePageViewController.xib */,
+				3B6C4AC91ED57AFE001A001D /* DrawerViewController.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -1767,13 +1802,26 @@
 		3B226BC91ECEC270005E7ED6 /* page */ = {
 			isa = PBXGroup;
 			children = (
-				3B226BCB1ECEC2A3005E7ED6 /* WLBasePageViewController.swift */,
 				3B226BCD1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift */,
 				3B9B37451ED2C222006C7406 /* WLCreateAccountViewController.swift */,
 				3B9B37491ED2CE7E006C7406 /* WLSelectCountryViewController.swift */,
 				3B9B37561ED2DA37006C7406 /* WLUserInfoViewController.swift */,
+				3B6C4ABC1ED56CCE001A001D /* WLHomePageViewController.swift */,
+				3B6C4AC71ED5766A001A001D /* DrawerViewController.swift */,
+				3B6C4ACB1ED58461001A001D /* WLSettingsViewController.swift */,
+				3B6C4ACC1ED58461001A001D /* WLSettingsViewController.xib */,
 			);
 			name = page;
+			sourceTree = "<group>";
+		};
+		3B6C4AC01ED57648001A001D /* navigation drawer */ = {
+			isa = PBXGroup;
+			children = (
+				3B6C4AC11ED5765A001A001D /* KYDrawerController.swift */,
+				3B6C4AC21ED5765A001A001D /* KYEmbedDrawerControllerSegue.swift */,
+				3B6C4AC31ED5765A001A001D /* KYEmbedMainControllerSegue.swift */,
+			);
+			name = "navigation drawer";
 			sourceTree = "<group>";
 		};
 		3B9B37511ED2D160006C7406 /* indicator */ = {
@@ -1797,6 +1845,15 @@
 				3B9B37541ED2D17A006C7406 /* FxString.m */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		CEF6A06F76637E1A83582FED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F02D2C23326DE4FF580D5DD6 /* Pods-LikeUber.debug.xcconfig */,
+				40F6CB3F765527612C11E522 /* Pods-LikeUber.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1951,6 +2008,7 @@
 				3B226B371ECEBE2E005E7ED6 /* logo-022@2x.png in Resources */,
 				3B226B2A1ECEBE2E005E7ED6 /* logo-018.png in Resources */,
 				3B226A671ECEBE2E005E7ED6 /* IS.png in Resources */,
+				3B6C4ACE1ED58461001A001D /* WLSettingsViewController.xib in Resources */,
 				3B226B7A1ECEBE2E005E7ED6 /* logo-044@3x.png in Resources */,
 				3B2267CE1ECE9743005E7ED6 /* LaunchScreen.storyboard in Resources */,
 				3B226AED1ECEBE2E005E7ED6 /* XK.png in Resources */,
@@ -2210,6 +2268,7 @@
 				3B226AB41ECEBE2E005E7ED6 /* PY.png in Resources */,
 				3B226BB21ECEBE2F005E7ED6 /* logo-063@2x.png in Resources */,
 				3B226A731ECEBE2E005E7ED6 /* KP.png in Resources */,
+				3B6C4ACA1ED57AFE001A001D /* DrawerViewController.xib in Resources */,
 				3B226A081ECEBE2E005E7ED6 /* AT.png in Resources */,
 				3B226AC51ECEBE2E005E7ED6 /* SL.png in Resources */,
 				3B226B081ECEBE2E005E7ED6 /* logo-006@3x.png in Resources */,
@@ -2222,6 +2281,7 @@
 				3B226BA11ECEBE2F005E7ED6 /* logo-057@3x.png in Resources */,
 				3B226BB41ECEBE2F005E7ED6 /* logo-064.png in Resources */,
 				3B226B4E1ECEBE2E005E7ED6 /* logo-030.png in Resources */,
+				3B6C4ABF1ED56CCF001A001D /* WLHomePageViewController.xib in Resources */,
 				3B226B191ECEBE2E005E7ED6 /* logo-012@2x.png in Resources */,
 				3B226AA61ECEBE2E005E7ED6 /* OM.png in Resources */,
 				3B226B891ECEBE2F005E7ED6 /* logo-049@3x.png in Resources */,
@@ -2370,7 +2430,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B6C4AC41ED5765A001A001D /* KYDrawerController.swift in Sources */,
 				3B226BCC1ECEC2A3005E7ED6 /* WLBasePageViewController.swift in Sources */,
+				3B6C4AC81ED5766A001A001D /* DrawerViewController.swift in Sources */,
+				3B6C4AC61ED5765A001A001D /* KYEmbedMainControllerSegue.swift in Sources */,
+				3B6C4ACD1ED58461001A001D /* WLSettingsViewController.swift in Sources */,
 				3B226BCE1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift in Sources */,
 				3B9B37501ED2D0E0006C7406 /* CountryInfo.swift in Sources */,
 				3B2267E31ECEB565005E7ED6 /* WLGlobalDefine.swift in Sources */,
@@ -2380,9 +2444,11 @@
 				3B9B37411ED2BA58006C7406 /* LCProgressHUD.m in Sources */,
 				3B9B37381ED2B2BF006C7406 /* WLLocation.swift in Sources */,
 				3B9B374B1ED2CE7E006C7406 /* WLSelectCountryViewController.swift in Sources */,
+				3B6C4AC51ED5765A001A001D /* KYEmbedDrawerControllerSegue.swift in Sources */,
 				3B226BC81ECEC266005E7ED6 /* WLBaseViewController.swift in Sources */,
 				3B2267C41ECE9743005E7ED6 /* AppDelegate.swift in Sources */,
 				3B9B37431ED2BA58006C7406 /* MBProgressHUD+NJ.m in Sources */,
+				3B6C4ABE1ED56CCF001A001D /* WLHomePageViewController.swift in Sources */,
 				3B9B37421ED2BA58006C7406 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2498,6 +2564,7 @@
 		};
 		3B2267D31ECE9743005E7ED6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F02D2C23326DE4FF580D5DD6 /* Pods-LikeUber.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2516,6 +2583,7 @@
 		};
 		3B2267D41ECE9743005E7ED6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40F6CB3F765527612C11E522 /* Pods-LikeUber.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

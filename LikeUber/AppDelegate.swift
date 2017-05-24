@@ -27,6 +27,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = guidePage
         self.window?.makeKeyAndVisible()
     }
+    
+    func showHomePage() {
+        
+        let mainViewController   = WLHomePageViewController()
+        let drawerViewController = DrawerViewController()
+        let drawerController     = KYDrawerController(drawerDirection: .left, drawerWidth: ScreenWidth*270/320)
+        drawerController.mainViewController = UINavigationController(
+            rootViewController: mainViewController
+        )
+        drawerController.drawerViewController = drawerViewController
+        
+        /* Customize
+         drawerController.drawerDirection = .Right
+         drawerController.drawerWidth     = 200
+         */
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = drawerController
+        window?.makeKeyAndVisible()
+        
+    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
