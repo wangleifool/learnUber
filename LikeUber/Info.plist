@@ -2,8 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>本应用需要你的相册的访问权限，你可以在&quot;设置&quot;中修改权限</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>本应用需要你的地理位置的访问权限，你可以在&quot;设置&quot;中修改权限</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
+	<key>NSCameraUsageDescription</key>
+	<string>本应用需要你的相机的访问权限，你可以在&quot;设置&quot;中修改权限</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

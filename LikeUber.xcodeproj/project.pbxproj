@@ -507,6 +507,19 @@
 		3B226BCC1ECEC2A3005E7ED6 /* WLBasePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B226BCB1ECEC2A3005E7ED6 /* WLBasePageViewController.swift */; };
 		3B226BCE1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B226BCD1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift */; };
 		3B226BD01ECEC341005E7ED6 /* WLGuidePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B226BCF1ECEC341005E7ED6 /* WLGuidePageViewController.xib */; };
+		3B9B37381ED2B2BF006C7406 /* WLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B37371ED2B2BF006C7406 /* WLLocation.swift */; };
+		3B9B37411ED2BA58006C7406 /* LCProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B373A1ED2BA58006C7406 /* LCProgressHUD.m */; };
+		3B9B37421ED2BA58006C7406 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B373C1ED2BA58006C7406 /* MBProgressHUD.m */; };
+		3B9B37431ED2BA58006C7406 /* MBProgressHUD+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B373E1ED2BA58006C7406 /* MBProgressHUD+NJ.m */; };
+		3B9B37441ED2BA58006C7406 /* LCProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3B9B373F1ED2BA58006C7406 /* LCProgressHUD.bundle */; };
+		3B9B37471ED2C222006C7406 /* WLCreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B37451ED2C222006C7406 /* WLCreateAccountViewController.swift */; };
+		3B9B37481ED2C222006C7406 /* WLCreateAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B9B37461ED2C222006C7406 /* WLCreateAccountViewController.xib */; };
+		3B9B374B1ED2CE7E006C7406 /* WLSelectCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B37491ED2CE7E006C7406 /* WLSelectCountryViewController.swift */; };
+		3B9B374C1ED2CE7E006C7406 /* WLSelectCountryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B9B374A1ED2CE7E006C7406 /* WLSelectCountryViewController.xib */; };
+		3B9B37501ED2D0E0006C7406 /* CountryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B374F1ED2D0E0006C7406 /* CountryInfo.swift */; };
+		3B9B37551ED2D17A006C7406 /* FxString.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B37541ED2D17A006C7406 /* FxString.m */; };
+		3B9B37581ED2DA37006C7406 /* WLUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B37561ED2DA37006C7406 /* WLUserInfoViewController.swift */; };
+		3B9B37591ED2DA37006C7406 /* WLUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B9B37571ED2DA37006C7406 /* WLUserInfoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1012,6 +1025,24 @@
 		3B226BCB1ECEC2A3005E7ED6 /* WLBasePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLBasePageViewController.swift; path = view/WLBasePageViewController.swift; sourceTree = "<group>"; };
 		3B226BCD1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLGuidePageViewController.swift; path = view/WLGuidePageViewController.swift; sourceTree = "<group>"; };
 		3B226BCF1ECEC341005E7ED6 /* WLGuidePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLGuidePageViewController.xib; path = resource/xib/WLGuidePageViewController.xib; sourceTree = "<group>"; };
+		3B9B37371ED2B2BF006C7406 /* WLLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WLLocation.swift; sourceTree = "<group>"; };
+		3B9B37391ED2BA57006C7406 /* LikeUber-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LikeUber-Bridging-Header.h"; sourceTree = "<group>"; };
+		3B9B373A1ED2BA58006C7406 /* LCProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LCProgressHUD.m; path = ThirdSDK/LCProgressHUD.m; sourceTree = "<group>"; };
+		3B9B373B1ED2BA58006C7406 /* LCProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LCProgressHUD.h; path = ThirdSDK/LCProgressHUD.h; sourceTree = "<group>"; };
+		3B9B373C1ED2BA58006C7406 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = ThirdSDK/MBProgressHUD.m; sourceTree = "<group>"; };
+		3B9B373D1ED2BA58006C7406 /* MBProgressHUD+NJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+NJ.h"; path = "ThirdSDK/MBProgressHUD+NJ.h"; sourceTree = "<group>"; };
+		3B9B373E1ED2BA58006C7406 /* MBProgressHUD+NJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+NJ.m"; path = "ThirdSDK/MBProgressHUD+NJ.m"; sourceTree = "<group>"; };
+		3B9B373F1ED2BA58006C7406 /* LCProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = LCProgressHUD.bundle; path = ThirdSDK/LCProgressHUD.bundle; sourceTree = "<group>"; };
+		3B9B37401ED2BA58006C7406 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = ThirdSDK/MBProgressHUD.h; sourceTree = "<group>"; };
+		3B9B37451ED2C222006C7406 /* WLCreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLCreateAccountViewController.swift; path = view/WLCreateAccountViewController.swift; sourceTree = "<group>"; };
+		3B9B37461ED2C222006C7406 /* WLCreateAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLCreateAccountViewController.xib; path = view/WLCreateAccountViewController.xib; sourceTree = "<group>"; };
+		3B9B37491ED2CE7E006C7406 /* WLSelectCountryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLSelectCountryViewController.swift; path = view/WLSelectCountryViewController.swift; sourceTree = "<group>"; };
+		3B9B374A1ED2CE7E006C7406 /* WLSelectCountryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLSelectCountryViewController.xib; path = view/WLSelectCountryViewController.xib; sourceTree = "<group>"; };
+		3B9B374F1ED2D0E0006C7406 /* CountryInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryInfo.swift; sourceTree = "<group>"; };
+		3B9B37531ED2D17A006C7406 /* FxString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FxString.h; sourceTree = "<group>"; };
+		3B9B37541ED2D17A006C7406 /* FxString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FxString.m; sourceTree = "<group>"; };
+		3B9B37561ED2DA37006C7406 /* WLUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLUserInfoViewController.swift; path = view/WLUserInfoViewController.swift; sourceTree = "<group>"; };
+		3B9B37571ED2DA37006C7406 /* WLUserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLUserInfoViewController.xib; path = view/WLUserInfoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1044,6 +1075,7 @@
 		3B2267C21ECE9743005E7ED6 /* LikeUber */ = {
 			isa = PBXGroup;
 			children = (
+				3B9B37521ED2D173006C7406 /* Utility */,
 				3B2267DC1ECEB4D9005E7ED6 /* Resource */,
 				3B2267DB1ECEB4C3005E7ED6 /* Global */,
 				3B2267DA1ECEB4A5005E7ED6 /* ThirdSDK */,
@@ -1053,6 +1085,7 @@
 				3B2267D61ECEB481005E7ED6 /* Operation */,
 				3B2267D51ECEB479005E7ED6 /* Model */,
 				3B2267C31ECE9743005E7ED6 /* AppDelegate.swift */,
+				3B9B37391ED2BA57006C7406 /* LikeUber-Bridging-Header.h */,
 			);
 			path = LikeUber;
 			sourceTree = "<group>";
@@ -1060,6 +1093,7 @@
 		3B2267D51ECEB479005E7ED6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3B9B374F1ED2D0E0006C7406 /* CountryInfo.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1097,6 +1131,7 @@
 		3B2267DA1ECEB4A5005E7ED6 /* ThirdSDK */ = {
 			isa = PBXGroup;
 			children = (
+				3B9B37511ED2D160006C7406 /* indicator */,
 			);
 			name = ThirdSDK;
 			sourceTree = "<group>";
@@ -1105,6 +1140,7 @@
 			isa = PBXGroup;
 			children = (
 				3B2267E21ECEB565005E7ED6 /* WLGlobalDefine.swift */,
+				3B9B37371ED2B2BF006C7406 /* WLLocation.swift */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -1125,6 +1161,9 @@
 			children = (
 				3B2267CC1ECE9743005E7ED6 /* LaunchScreen.storyboard */,
 				3B226BCF1ECEC341005E7ED6 /* WLGuidePageViewController.xib */,
+				3B9B37461ED2C222006C7406 /* WLCreateAccountViewController.xib */,
+				3B9B374A1ED2CE7E006C7406 /* WLSelectCountryViewController.xib */,
+				3B9B37571ED2DA37006C7406 /* WLUserInfoViewController.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -1730,8 +1769,34 @@
 			children = (
 				3B226BCB1ECEC2A3005E7ED6 /* WLBasePageViewController.swift */,
 				3B226BCD1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift */,
+				3B9B37451ED2C222006C7406 /* WLCreateAccountViewController.swift */,
+				3B9B37491ED2CE7E006C7406 /* WLSelectCountryViewController.swift */,
+				3B9B37561ED2DA37006C7406 /* WLUserInfoViewController.swift */,
 			);
 			name = page;
+			sourceTree = "<group>";
+		};
+		3B9B37511ED2D160006C7406 /* indicator */ = {
+			isa = PBXGroup;
+			children = (
+				3B9B373A1ED2BA58006C7406 /* LCProgressHUD.m */,
+				3B9B373B1ED2BA58006C7406 /* LCProgressHUD.h */,
+				3B9B373C1ED2BA58006C7406 /* MBProgressHUD.m */,
+				3B9B373D1ED2BA58006C7406 /* MBProgressHUD+NJ.h */,
+				3B9B373E1ED2BA58006C7406 /* MBProgressHUD+NJ.m */,
+				3B9B373F1ED2BA58006C7406 /* LCProgressHUD.bundle */,
+				3B9B37401ED2BA58006C7406 /* MBProgressHUD.h */,
+			);
+			name = indicator;
+			sourceTree = "<group>";
+		};
+		3B9B37521ED2D173006C7406 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				3B9B37531ED2D17A006C7406 /* FxString.h */,
+				3B9B37541ED2D17A006C7406 /* FxString.m */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1768,6 +1833,7 @@
 					3B2267BF1ECE9743005E7ED6 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = P44EYH8J9B;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1810,6 +1876,7 @@
 				3B226AAA1ECEBE2E005E7ED6 /* PG.png in Resources */,
 				3B226A471ECEBE2E005E7ED6 /* GB.png in Resources */,
 				3B226AA51ECEBE2E005E7ED6 /* NZ.png in Resources */,
+				3B9B37591ED2DA37006C7406 /* WLUserInfoViewController.xib in Resources */,
 				3B226ACF1ECEBE2E005E7ED6 /* TD.png in Resources */,
 				3B226A7C1ECEBE2E005E7ED6 /* LK.png in Resources */,
 				3B226A9B1ECEBE2E005E7ED6 /* NC.png in Resources */,
@@ -1860,6 +1927,7 @@
 				3B226BAC1ECEBE2F005E7ED6 /* logo-061@2x.png in Resources */,
 				3B226BC41ECEBE2F005E7ED6 /* CreditCard@2x.png in Resources */,
 				3B226A301ECEBE2E005E7ED6 /* CY.png in Resources */,
+				3B9B37481ED2C222006C7406 /* WLCreateAccountViewController.xib in Resources */,
 				3B226A621ECEBE2E005E7ED6 /* IM.png in Resources */,
 				3B226ACA1ECEBE2E005E7ED6 /* ST.png in Resources */,
 				3B226B491ECEBE2E005E7ED6 /* logo-028@2x.png in Resources */,
@@ -1892,6 +1960,7 @@
 				3B226B6E1ECEBE2E005E7ED6 /* logo-040@3x.png in Resources */,
 				3B226B441ECEBE2E005E7ED6 /* logo-026@3x.png in Resources */,
 				3B226A751ECEBE2E005E7ED6 /* KW.png in Resources */,
+				3B9B37441ED2BA58006C7406 /* LCProgressHUD.bundle in Resources */,
 				3B226A3B1ECEBE2E005E7ED6 /* EH.png in Resources */,
 				3B226B361ECEBE2E005E7ED6 /* logo-022.png in Resources */,
 				3B226B591ECEBE2E005E7ED6 /* logo-033@3x.png in Resources */,
@@ -2215,6 +2284,7 @@
 				3B226ABF1ECEBE2E005E7ED6 /* SE.png in Resources */,
 				3B226AB21ECEBE2E005E7ED6 /* PT.png in Resources */,
 				3B226B331ECEBE2E005E7ED6 /* logo-021.png in Resources */,
+				3B9B374C1ED2CE7E006C7406 /* WLSelectCountryViewController.xib in Resources */,
 				3B226AF51ECEBE2E005E7ED6 /* logo-000@2x.png in Resources */,
 				3B226A991ECEBE2E005E7ED6 /* MZ.png in Resources */,
 				3B226A821ECEBE2E005E7ED6 /* LY.png in Resources */,
@@ -2302,9 +2372,18 @@
 			files = (
 				3B226BCC1ECEC2A3005E7ED6 /* WLBasePageViewController.swift in Sources */,
 				3B226BCE1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift in Sources */,
+				3B9B37501ED2D0E0006C7406 /* CountryInfo.swift in Sources */,
 				3B2267E31ECEB565005E7ED6 /* WLGlobalDefine.swift in Sources */,
+				3B9B37551ED2D17A006C7406 /* FxString.m in Sources */,
+				3B9B37471ED2C222006C7406 /* WLCreateAccountViewController.swift in Sources */,
+				3B9B37581ED2DA37006C7406 /* WLUserInfoViewController.swift in Sources */,
+				3B9B37411ED2BA58006C7406 /* LCProgressHUD.m in Sources */,
+				3B9B37381ED2B2BF006C7406 /* WLLocation.swift in Sources */,
+				3B9B374B1ED2CE7E006C7406 /* WLSelectCountryViewController.swift in Sources */,
 				3B226BC81ECEC266005E7ED6 /* WLBaseViewController.swift in Sources */,
 				3B2267C41ECE9743005E7ED6 /* AppDelegate.swift in Sources */,
+				3B9B37431ED2BA58006C7406 /* MBProgressHUD+NJ.m in Sources */,
+				3B9B37421ED2BA58006C7406 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2421,12 +2500,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = P44EYH8J9B;
 				INFOPLIST_FILE = LikeUber/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.burgett.LikeUber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LikeUber/LikeUber-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2436,12 +2518,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = P44EYH8J9B;
 				INFOPLIST_FILE = LikeUber/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.burgett.LikeUber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LikeUber/LikeUber-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2466,6 +2550,7 @@
 				3B2267D41ECE9743005E7ED6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
