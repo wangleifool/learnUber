@@ -28,9 +28,7 @@ class DrawerViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func btSettingPressed(_ sender: Any) {
-        WlLog("Setting pressed")
-        
+    @IBAction func btSettingPressed(_ sender: Any) {                
         let page = WLSettingsViewController()
         let nav  = UINavigationController(rootViewController: page)
         self.present(nav, animated: true, completion: nil)

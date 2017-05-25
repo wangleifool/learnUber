@@ -8,9 +8,10 @@
 
 import UIKit
 
-class WLHomePageViewController: WLBasePageViewController {
+class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate {
 
     var appDelegate:AppDelegate?
+    var mapView:BMKMapView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +23,29 @@ class WLHomePageViewController: WLBasePageViewController {
         let imageView = UIImageView(image: UIImage(contentsOfFile: logoUrl!))
         self.navigationItem.titleView = imageView
         setNavigationItem(title: "account_icon_up@2x.png", selector: #selector(self.settingPressed(sender:)), isRight: false)
+        
+        //添加百度地图视图
+        addBaiduMapView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mapView?.delegate = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        mapView?.delegate = nil
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func addBaiduMapView() {
+        mapView = BMKMapView(frame: self.view.bounds)
+        self.view.addSubview(mapView!)
     }
     
     

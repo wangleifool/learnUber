@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var mapManager: BMKMapManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -43,10 +43,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          drawerController.drawerWidth     = 200
          */
         
+        addMap() //添加百度地图服务
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = drawerController
         window?.makeKeyAndVisible()
         
+    }
+    
+    func addMap() {
+        mapManager = BMKMapManager()
+        let ret = mapManager?.start("ufMFSlns6SQoTKsIXYgRURpIrFoqbNql", generalDelegate: nil)
+        if !ret! {
+            print("start baidu map service fail")
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
