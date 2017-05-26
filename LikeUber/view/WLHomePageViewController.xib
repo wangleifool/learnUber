@@ -11,6 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLHomePageViewController" customModule="LikeUber" customModuleProvider="target">
             <connections>
+                <outlet property="btMyLocation" destination="dLG-Tf-gYr" id="Vgc-6L-z8g"/>
+                <outlet property="btTuDing" destination="e8W-yz-Xlv" id="gV6-xT-6j5"/>
+                <outlet property="textFieldAddress" destination="Rjc-rW-IH3" id="Nqp-MT-0Du"/>
+                <outlet property="topSearchView" destination="59P-F4-lbV" id="EuC-FR-IY0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,7 +22,69 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8W-yz-Xlv" userLabel="tuDing">
+                    <rect key="frame" x="154" y="305" width="66" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="66" id="GAj-oJ-4p6"/>
+                        <constraint firstAttribute="height" constant="56" id="N9A-ED-8eV"/>
+                    </constraints>
+                    <state key="normal" image="TuDing.png"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59P-F4-lbV">
+                    <rect key="frame" x="16" y="70" width="343" height="55"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TopBack.png" translatesAutoresizingMaskIntoConstraints="NO" id="11y-Fn-aLI">
+                            <rect key="frame" x="0.0" y="0.0" width="343" height="55"/>
+                        </imageView>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rjc-rW-IH3">
+                            <rect key="frame" x="49" y="0.0" width="286" height="55"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="11y-Fn-aLI" secondAttribute="bottom" id="6UB-oa-ZfN"/>
+                        <constraint firstAttribute="trailing" secondItem="Rjc-rW-IH3" secondAttribute="trailing" constant="8" id="FcU-y6-Eh0"/>
+                        <constraint firstItem="Rjc-rW-IH3" firstAttribute="top" secondItem="59P-F4-lbV" secondAttribute="top" id="HwA-pO-azV"/>
+                        <constraint firstItem="Rjc-rW-IH3" firstAttribute="leading" secondItem="59P-F4-lbV" secondAttribute="leading" constant="49" id="IO6-0R-Oye"/>
+                        <constraint firstAttribute="trailing" secondItem="11y-Fn-aLI" secondAttribute="trailing" id="TAk-4v-RVE"/>
+                        <constraint firstAttribute="height" constant="55" id="bYo-Xf-tKc"/>
+                        <constraint firstItem="11y-Fn-aLI" firstAttribute="leading" secondItem="59P-F4-lbV" secondAttribute="leading" id="kmr-jO-Glu"/>
+                        <constraint firstAttribute="bottom" secondItem="Rjc-rW-IH3" secondAttribute="bottom" id="scw-uI-Cqt"/>
+                        <constraint firstItem="11y-Fn-aLI" firstAttribute="top" secondItem="59P-F4-lbV" secondAttribute="top" id="tOm-1o-Cke"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLG-Tf-gYr" userLabel="myLocation">
+                    <rect key="frame" x="327" y="619" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="2rb-wU-zic"/>
+                        <constraint firstAttribute="height" constant="32" id="rxa-z9-LBu"/>
+                    </constraints>
+                    <state key="normal" image="myLocation"/>
+                    <connections>
+                        <action selector="btMyLocationPressed:" destination="-1" eventType="touchUpInside" id="xnq-9j-O2l"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="dLG-Tf-gYr" secondAttribute="bottom" constant="16" id="PmR-cV-7ZO"/>
+                <constraint firstAttribute="trailing" secondItem="dLG-Tf-gYr" secondAttribute="trailing" constant="16" id="Uwh-sm-12W"/>
+                <constraint firstItem="e8W-yz-Xlv" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ZzW-Gy-4L3"/>
+                <constraint firstAttribute="trailing" secondItem="59P-F4-lbV" secondAttribute="trailing" constant="16" id="dcd-0K-gyk"/>
+                <constraint firstItem="e8W-yz-Xlv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ng9-xw-t7B"/>
+                <constraint firstItem="59P-F4-lbV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="pqT-i5-F6D"/>
+                <constraint firstItem="59P-F4-lbV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="tsv-qI-IXC"/>
+            </constraints>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="TopBack.png" width="299" height="50"/>
+        <image name="TuDing.png" width="76" height="66"/>
+        <image name="myLocation" width="32" height="32"/>
+    </resources>
 </document>

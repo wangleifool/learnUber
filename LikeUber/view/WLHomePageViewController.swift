@@ -8,10 +8,19 @@
 
 import UIKit
 
-class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate {
+class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate {
 
     var appDelegate:AppDelegate?
     var mapView:BMKMapView?
+    var localService:BMKLocationService?
+    var curLocation:BMKUserLocation?
+    
+    var geoCode:BMKGeoCodeSearch? //地理编码 查询
+    
+    @IBOutlet weak var textFieldAddress: UITextField!
+    @IBOutlet weak var btTuDing: UIButton!
+    @IBOutlet weak var btMyLocation: UIButton!
+    @IBOutlet weak var topSearchView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,31 +31,43 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate {
         let logoUrl = Bundle.main.path(forResource: "logo_uber_grey_zh_CN@2x", ofType: "png")
         let imageView = UIImageView(image: UIImage(contentsOfFile: logoUrl!))
         self.navigationItem.titleView = imageView
-        setNavigationItem(title: "account_icon_up@2x.png", selector: #selector(self.settingPressed(sender:)), isRight: false)
+        setNavigationItem(title: "account_icon_up.png", selector: #selector(self.settingPressed(sender:)), isRight: false)
         
-        //添加百度地图视图
-        addBaiduMapView()
+        
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //添加百度地图视图
+        addBaiduMapView()
+        
+        //view 上的子视图
+        self.view.bringSubview(toFront: btTuDing)
+        self.view.bringSubview(toFront: btMyLocation)
+        self.view.bringSubview(toFront: topSearchView)
+        
         mapView?.delegate = self
+        geoCode?.delegate = self
+        localService?.startUserLocationService() //开启定位服务
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         mapView?.delegate = nil
+        geoCode?.delegate = nil
+        localService?.stopUserLocationService() //停止定位服务
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func addBaiduMapView() {
-        mapView = BMKMapView(frame: self.view.bounds)
-        self.view.addSubview(mapView!)
-    }
+   
     
     
     func settingPressed(sender:Any) {
@@ -61,5 +82,6 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate {
     }
 
     
+
 
 }
