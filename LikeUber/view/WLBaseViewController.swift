@@ -37,5 +37,14 @@ class WLBaseViewController: UIViewController {
             self.navigationItem.leftBarButtonItem  = barButtonItem
         }
     }
+    
+    
+    //base function
+    func showOneButtonDialog(title: String, description: String) {
+        let alertController :UIAlertController = UIAlertController(title: title, message: description, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            
+        self.present(alertController, animated: true, completion: nil)
+    }
 
 }

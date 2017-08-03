@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import ReactiveCocoa
+import ReactiveSwift
+import Result
+import enum Result.NoError
 
-class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate {
+
+
+class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UITextFieldDelegate {
 
     var appDelegate:AppDelegate?
     var mapView:BMKMapView?
@@ -22,6 +28,9 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
     @IBOutlet weak var btMyLocation: UIButton!
     @IBOutlet weak var topSearchView: UIView!
     
+    
+    @IBOutlet weak var btTimer: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +43,10 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
         setNavigationItem(title: "account_icon_up.png", selector: #selector(self.settingPressed(sender:)), isRight: false)
         
         
-       
+        //
+        self.listenAddressTextFiledInput()
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,10 +59,14 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
         self.view.bringSubview(toFront: btTuDing)
         self.view.bringSubview(toFront: btMyLocation)
         self.view.bringSubview(toFront: topSearchView)
+        self.view.bringSubview(toFront: btTimer)
         
         mapView?.delegate = self
         geoCode?.delegate = self
         localService?.startUserLocationService() //开启定位服务
+        
+        //add some test view
+        self.addStarView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -82,6 +98,11 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
     }
 
     
-
+    @IBAction func btTimerClicked(_ sender: Any) {
+        let timerVC = WLTimeCounterViewController()
+        self.navigationController?.pushViewController(timerVC, animated: true)
+    }
+    
+    
 
 }

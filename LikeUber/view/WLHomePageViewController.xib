@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLHomePageViewController" customModule="LikeUber" customModuleProvider="target">
             <connections>
                 <outlet property="btMyLocation" destination="dLG-Tf-gYr" id="Vgc-6L-z8g"/>
+                <outlet property="btTimer" destination="Inv-EI-R9F" id="8nZ-Qg-R2t"/>
                 <outlet property="btTuDing" destination="e8W-yz-Xlv" id="gV6-xT-6j5"/>
                 <outlet property="textFieldAddress" destination="Rjc-rW-IH3" id="Nqp-MT-0Du"/>
                 <outlet property="topSearchView" destination="59P-F4-lbV" id="EuC-FR-IY0"/>
@@ -68,15 +69,27 @@
                         <action selector="btMyLocationPressed:" destination="-1" eventType="touchUpInside" id="xnq-9j-O2l"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Inv-EI-R9F">
+                    <rect key="frame" x="311" y="150" width="40" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="S12-Kj-47d"/>
+                    </constraints>
+                    <state key="normal" title="Timer"/>
+                    <connections>
+                        <action selector="btTimerClicked:" destination="-1" eventType="touchUpInside" id="Ljn-Mw-BtF"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="dLG-Tf-gYr" secondAttribute="bottom" constant="16" id="PmR-cV-7ZO"/>
                 <constraint firstAttribute="trailing" secondItem="dLG-Tf-gYr" secondAttribute="trailing" constant="16" id="Uwh-sm-12W"/>
                 <constraint firstItem="e8W-yz-Xlv" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ZzW-Gy-4L3"/>
+                <constraint firstItem="Inv-EI-R9F" firstAttribute="trailing" secondItem="Rjc-rW-IH3" secondAttribute="trailing" id="dCu-Y5-iun"/>
                 <constraint firstAttribute="trailing" secondItem="59P-F4-lbV" secondAttribute="trailing" constant="16" id="dcd-0K-gyk"/>
                 <constraint firstItem="e8W-yz-Xlv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ng9-xw-t7B"/>
                 <constraint firstItem="59P-F4-lbV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="pqT-i5-F6D"/>
+                <constraint firstItem="Inv-EI-R9F" firstAttribute="top" secondItem="59P-F4-lbV" secondAttribute="bottom" constant="25" id="qLh-tb-TGR"/>
                 <constraint firstItem="59P-F4-lbV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="tsv-qI-IXC"/>
             </constraints>
             <point key="canvasLocation" x="24.5" y="51.5"/>
