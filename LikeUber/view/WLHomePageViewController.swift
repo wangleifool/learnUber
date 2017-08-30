@@ -12,7 +12,8 @@ import ReactiveSwift
 import Result
 import enum Result.NoError
 
-
+//图钉针尖位置
+let TuDingTipScale:CGFloat = (1.52/5.36)
 
 class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UITextFieldDelegate {
 
@@ -24,26 +25,29 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
     var geoCode:BMKGeoCodeSearch? //地理编码 查询
     
     @IBOutlet weak var textFieldAddress: UITextField!
-    @IBOutlet weak var btTuDing: UIButton!
+//    @IBOutlet weak var btTuDing: UIButton!
+    
     @IBOutlet weak var btMyLocation: UIButton!
     @IBOutlet weak var topSearchView: UIView!
     
     
-    @IBOutlet weak var btTimer: UIButton!
+    lazy var btTuding: UIButton = {
+        return self.createTudingButton()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         appDelegate = UIApplication.shared.delegate as? AppDelegate
 
-//        self.title = "Home"
+
         let logoUrl = Bundle.main.path(forResource: "logo_uber_grey_zh_CN@2x", ofType: "png")
         let imageView = UIImageView(image: UIImage(contentsOfFile: logoUrl!))
         self.navigationItem.titleView = imageView
-        setNavigationItem(title: "account_icon_up.png", selector: #selector(self.settingPressed(sender:)), isRight: false)
-        
-        
-        //
+        setNavigationItem(title: "icon_touxiang.png", selector: #selector(self.settingPressed(sender:)), isRight: false)
+        setNavigationItem(title: "Timer", selector: #selector(self.btTimerClicked(_:)), isRight: true)
+                
+        //监控地址查询输入框中
         self.listenAddressTextFiledInput()
         
         
@@ -56,17 +60,17 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
         addBaiduMapView()
         
         //view 上的子视图
-        self.view.bringSubview(toFront: btTuDing)
+        self.view.addSubview(self.btTuding)
+        self.view.bringSubview(toFront: self.btTuding)
         self.view.bringSubview(toFront: btMyLocation)
         self.view.bringSubview(toFront: topSearchView)
-        self.view.bringSubview(toFront: btTimer)
         
         mapView?.delegate = self
         geoCode?.delegate = self
         localService?.startUserLocationService() //开启定位服务
         
         //add some test view
-        self.addStarView()
+//        self.addStarView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -83,9 +87,32 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
         // Dispose of any resources that can be recreated.
     }
     
-   
+    
+    //目的是把图钉的针尖放到父视图的center位置
+    func createTudingButton() -> UIButton{
+        let tudingImage = UIImage(named: "TuDing")
+        assert(tudingImage != nil,"图钉图片加载失败")
+        
+        //设置frame为父视图的中心
+        var frame = CGRect(x: 0, y: 0, width: tudingImage!.size.width, height: tudingImage!.size.height)
+        frame.origin.x = (ScreenWidth-frame.width)/2
+        frame.origin.y = (ScreenHeight-frame.height)/2
+        
+        
+        //移动针尖儿到父视图中心
+        let xOffset = frame.width*TuDingTipScale //先得到针尖的相对x值
+        let yOffset = frame.height/2
+        frame.origin.x += ((frame.width/2)-xOffset) //想中间移动合适的距离
+        frame.origin.y -= yOffset
+        
+        let button = UIButton(frame: frame)
+        button.setImage(tudingImage, for: .normal)
+        
+        return button
+    }
     
     
+    // #MARK: action
     func settingPressed(sender:Any) {
         //得到父级视图控制器drawerController
         if let drawerController = appDelegate?.window?.rootViewController as? KYDrawerController {

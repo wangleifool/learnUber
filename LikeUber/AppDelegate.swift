@@ -30,6 +30,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func showHomePage() {
         
+        UIView.transition(with: self.window!, duration: 0.5, options: UIViewAnimationOptions.transitionFlipFromLeft, animations: {
+            
+            self.createHomePage()
+            
+        }, completion: nil)
+        
+        
+    }
+    
+    func createHomePage() {
         let mainViewController   = WLHomePageViewController()
         let drawerViewController = DrawerViewController()
         let drawerController     = KYDrawerController(drawerDirection: .left, drawerWidth: ScreenWidth*270/320)
@@ -45,10 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         addMap() //添加百度地图服务
         
-        window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = drawerController
-        window?.makeKeyAndVisible()
-        
+
     }
     
     func addMap() {

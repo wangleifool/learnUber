@@ -59,14 +59,17 @@ extension WLHomePageViewController {
         if ((localService?.userLocation.location) != nil) {
             mapView?.setCenter((localService?.userLocation.location.coordinate)!, animated: true)
             mapView?.updateLocationData(localService?.userLocation)
+            
+            self.curLocation = localService?.userLocation
         }
         
     }
     
-    // #MARK: 图钉反地理编码
+    // #MARK: 通过图钉的位置，反馈地址信息
     func mapView(_ mapView: BMKMapView!, regionDidChangeAnimated animated: Bool) {
         
-        let point = mapView?.convert(btTuDing.center, toCoordinateFrom: self.view)
+        //图钉的针尖放在self.view.center位置
+        let point = mapView?.convert(self.view.center, toCoordinateFrom: self.view)
         
         let option = BMKReverseGeoCodeOption()
         option.reverseGeoPoint = point!
@@ -78,23 +81,27 @@ extension WLHomePageViewController {
     
     //代理反馈，查询到反地理编码的地址
     func onGetReverseGeoCodeResult(_ searcher: BMKGeoCodeSearch!, result: BMKReverseGeoCodeResult!, errorCode error: BMKSearchErrorCode) {
-        if let addr = result.address {
+        if let addr = result?.address {
             textFieldAddress.placeholder = addr
         }
         
     }
     
-    //输入地址信息，检索地理坐标
-    func searchPlaceWithAddrress(addr :String) -> Bool {
+    // #MARK: 搜索框中输入地址信息，检索地理坐标
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.searchPlaceWithAddrress(addr: textField.text!)
+        return true
+    }
+    
+    func searchPlaceWithAddrress(addr :String) {
         let geoCodeSearchOption: BMKGeoCodeSearchOption  = BMKGeoCodeSearchOption()
-        geoCodeSearchOption.address = addr
+        geoCodeSearchOption.address = addr //输入textfiled中的地址
+        
         let flag = geoCode?.geoCode(geoCodeSearchOption)
         if flag! {
             print("检索成功")
-            return true
         } else {
             print("检索失败")
-            return false
         }
     }
     
@@ -114,7 +121,7 @@ extension WLHomePageViewController {
         }
     }
     
-    // #MARK: 查询输入框判断
+    // #MARK: 监控地址输入框的内容是否合理
     func listenAddressTextFiledInput() {
         self.textFieldAddress.delegate = self
         self.textFieldAddress.returnKeyType = .search
@@ -140,8 +147,4 @@ extension WLHomePageViewController {
         return (addr.utf16.count) > 2
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.searchPlaceWithAddrress(addr: textField.text!)
-        return true
-    }
 }

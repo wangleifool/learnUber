@@ -496,7 +496,6 @@
 		3B226BBD1ECEBE2F005E7ED6 /* logo-067.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2269CF1ECEBE2E005E7ED6 /* logo-067.png */; };
 		3B226BBE1ECEBE2F005E7ED6 /* logo-067@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2269D01ECEBE2E005E7ED6 /* logo-067@2x.png */; };
 		3B226BBF1ECEBE2F005E7ED6 /* logo-067@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2269D11ECEBE2E005E7ED6 /* logo-067@3x.png */; };
-		3B226BC01ECEBE2F005E7ED6 /* account_icon_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2269D31ECEBE2E005E7ED6 /* account_icon_up@2x.png */; };
 		3B226BC11ECEBE2F005E7ED6 /* logo_uber_grey_zh_CN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2269D41ECEBE2E005E7ED6 /* logo_uber_grey_zh_CN@2x.png */; };
 		3B226BC21ECEBE2F005E7ED6 /* AliPay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2269D61ECEBE2E005E7ED6 /* AliPay@2x.png */; };
 		3B226BC31ECEBE2F005E7ED6 /* BaiDuWallet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2269D71ECEBE2E005E7ED6 /* BaiDuWallet@2x.png */; };
@@ -536,6 +535,7 @@
 		3B6C4AF21ED6629F001A001D /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6C4AF01ED6629F001A001D /* libcrypto.a */; };
 		3B6C4AF31ED6629F001A001D /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6C4AF11ED6629F001A001D /* libssl.a */; };
 		3B6C4AF81ED6641A001A001D /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3B6C4AF71ED6641A001A001D /* mapapi.bundle */; };
+		3B798EFF1F566AC30038D20B /* icon_touxiang.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B798EFE1F566AC30038D20B /* icon_touxiang.png */; };
 		3B9B37381ED2B2BF006C7406 /* WLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B37371ED2B2BF006C7406 /* WLLocation.swift */; };
 		3B9B37411ED2BA58006C7406 /* LCProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B373A1ED2BA58006C7406 /* LCProgressHUD.m */; };
 		3B9B37421ED2BA58006C7406 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B373C1ED2BA58006C7406 /* MBProgressHUD.m */; };
@@ -1051,7 +1051,6 @@
 		3B2269CF1ECEBE2E005E7ED6 /* logo-067.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-067.png"; sourceTree = "<group>"; };
 		3B2269D01ECEBE2E005E7ED6 /* logo-067@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-067@2x.png"; sourceTree = "<group>"; };
 		3B2269D11ECEBE2E005E7ED6 /* logo-067@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-067@3x.png"; sourceTree = "<group>"; };
-		3B2269D31ECEBE2E005E7ED6 /* account_icon_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_icon_up@2x.png"; sourceTree = "<group>"; };
 		3B2269D41ECEBE2E005E7ED6 /* logo_uber_grey_zh_CN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_uber_grey_zh_CN@2x.png"; sourceTree = "<group>"; };
 		3B2269D61ECEBE2E005E7ED6 /* AliPay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AliPay@2x.png"; sourceTree = "<group>"; };
 		3B2269D71ECEBE2E005E7ED6 /* BaiDuWallet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BaiDuWallet@2x.png"; sourceTree = "<group>"; };
@@ -1091,6 +1090,7 @@
 		3B6C4AF01ED6629F001A001D /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		3B6C4AF11ED6629F001A001D /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		3B6C4AF71ED6641A001A001D /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = ThirdSDK/baiduMap/BaiduMapAPI_Map.framework/Resources/mapapi.bundle; sourceTree = "<group>"; };
+		3B798EFE1F566AC30038D20B /* icon_touxiang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_touxiang.png; sourceTree = "<group>"; };
 		3B9B37371ED2B2BF006C7406 /* WLLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WLLocation.swift; sourceTree = "<group>"; };
 		3B9B37391ED2BA57006C7406 /* LikeUber-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LikeUber-Bridging-Header.h"; sourceTree = "<group>"; };
 		3B9B373A1ED2BA58006C7406 /* LCProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LCProgressHUD.m; path = ThirdSDK/LCProgressHUD.m; sourceTree = "<group>"; };
@@ -1189,6 +1189,7 @@
 		3B2267C21ECE9743005E7ED6 /* LikeUber */ = {
 			isa = PBXGroup;
 			children = (
+				3B798EFD1F5660A00038D20B /* Others */,
 				3B9B37521ED2D173006C7406 /* Utility */,
 				3B2267DC1ECEB4D9005E7ED6 /* Resource */,
 				3B2267DB1ECEB4C3005E7ED6 /* Global */,
@@ -1198,8 +1199,6 @@
 				3B2267D71ECEB493005E7ED6 /* View */,
 				3B2267D61ECEB481005E7ED6 /* Operation */,
 				3B2267D51ECEB479005E7ED6 /* Model */,
-				3B2267C31ECE9743005E7ED6 /* AppDelegate.swift */,
-				3B9B37391ED2BA57006C7406 /* LikeUber-Bridging-Header.h */,
 			);
 			path = LikeUber;
 			sourceTree = "<group>";
@@ -1222,6 +1221,7 @@
 		3B2267D71ECEB493005E7ED6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3B798F001F5688BC0038D20B /* uncorrelatedLearningPage */,
 				3BBE93FA1EF389CF00CEEF0C /* custom */,
 				3B226BC71ECEC266005E7ED6 /* WLBaseViewController.swift */,
 				3B226BCB1ECEC2A3005E7ED6 /* WLBasePageViewController.swift */,
@@ -1857,7 +1857,7 @@
 		3B2269D21ECEBE2E005E7ED6 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				3B2269D31ECEBE2E005E7ED6 /* account_icon_up@2x.png */,
+				3B798EFE1F566AC30038D20B /* icon_touxiang.png */,
 				3B2269D41ECEBE2E005E7ED6 /* logo_uber_grey_zh_CN@2x.png */,
 			);
 			name = Navigation;
@@ -1929,6 +1929,22 @@
 			);
 			name = baiduMap;
 			path = ThirdSDK/baiduMap;
+			sourceTree = "<group>";
+		};
+		3B798EFD1F5660A00038D20B /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				3B2267C31ECE9743005E7ED6 /* AppDelegate.swift */,
+				3B9B37391ED2BA57006C7406 /* LikeUber-Bridging-Header.h */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
+		3B798F001F5688BC0038D20B /* uncorrelatedLearningPage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = uncorrelatedLearningPage;
 			sourceTree = "<group>";
 		};
 		3B9B37511ED2D160006C7406 /* indicator */ = {
@@ -2168,7 +2184,6 @@
 				3B226A3E1ECEBE2E005E7ED6 /* ET.png in Resources */,
 				3B226A441ECEBE2E005E7ED6 /* FR.png in Resources */,
 				3B226B781ECEBE2E005E7ED6 /* logo-044.png in Resources */,
-				3B226BC01ECEBE2F005E7ED6 /* account_icon_up@2x.png in Resources */,
 				3B226A171ECEBE2E005E7ED6 /* BN.png in Resources */,
 				3B226AFF1ECEBE2E005E7ED6 /* logo-003@3x.png in Resources */,
 				3B2269E81ECEBE2E005E7ED6 /* map-black.png in Resources */,
@@ -2390,6 +2405,7 @@
 				3B226B601ECEBE2E005E7ED6 /* logo-036.png in Resources */,
 				3B226AB41ECEBE2E005E7ED6 /* PY.png in Resources */,
 				3B226BB21ECEBE2F005E7ED6 /* logo-063@2x.png in Resources */,
+				3B798EFF1F566AC30038D20B /* icon_touxiang.png in Resources */,
 				3B226A731ECEBE2E005E7ED6 /* KP.png in Resources */,
 				3B6C4ACA1ED57AFE001A001D /* DrawerViewController.xib in Resources */,
 				3B226A081ECEBE2E005E7ED6 /* AT.png in Resources */,
@@ -2758,7 +2774,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LikeUber/ThirdSDK/baiduMap",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.burgett.LikeUber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LikeUber/LikeUber-Bridging-Header.h";
@@ -2786,7 +2805,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LikeUber/ThirdSDK/baiduMap",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.burgett.LikeUber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LikeUber/LikeUber-Bridging-Header.h";

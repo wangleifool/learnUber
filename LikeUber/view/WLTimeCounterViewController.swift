@@ -26,7 +26,7 @@ class WLTimeCounterViewController: UIViewController {
     }
 
     func rotateStopWatchHand() {
-        UIView.animate(withDuration: 2.0, delay: 0, options: .curveLinear, animations: {
+        UIView.animate(withDuration: 15.0, delay: 0, options: .curveLinear, animations: {
             self.stopWatchHand.transform =
                 self.stopWatchHand.transform.rotated(by: CGFloat(Double.pi/2))
         }, completion: { finished in
