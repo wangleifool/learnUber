@@ -8,6 +8,7 @@
 
 import Foundation
 
+let defaultZoomLevel:Float = 18.0
 
 extension WLHomePageViewController {
 
@@ -18,8 +19,7 @@ extension WLHomePageViewController {
             
             //其他设置
             mapView?.showMapScaleBar   = true
-            mapView?.isTrafficEnabled  = true
-            mapView?.zoomLevel = 15
+            mapView?.zoomLevel = defaultZoomLevel
             
             geoCode = BMKGeoCodeSearch() //地理编码查询
             showMyLocation()
@@ -59,8 +59,10 @@ extension WLHomePageViewController {
         if ((localService?.userLocation.location) != nil) {
             mapView?.setCenter((localService?.userLocation.location.coordinate)!, animated: true)
             mapView?.updateLocationData(localService?.userLocation)
+            mapView?.zoomLevel = defaultZoomLevel
             
             self.curLocation = localService?.userLocation
+            
         }
         
     }
@@ -76,13 +78,14 @@ extension WLHomePageViewController {
         
         geoCode?.reverseGeoCode(option)
         
-        textFieldAddress.resignFirstResponder()
+        textFieldStartAddress.resignFirstResponder()
+        textFieldTargetAddress.resignFirstResponder()
     }
     
     //代理反馈，查询到反地理编码的地址
     func onGetReverseGeoCodeResult(_ searcher: BMKGeoCodeSearch!, result: BMKReverseGeoCodeResult!, errorCode error: BMKSearchErrorCode) {
         if let addr = result?.address {
-            textFieldAddress.placeholder = addr
+            textFieldStartAddress.text = addr
         }
         
     }
@@ -90,6 +93,14 @@ extension WLHomePageViewController {
     // #MARK: 搜索框中输入地址信息，检索地理坐标
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.searchPlaceWithAddrress(addr: textField.text!)
+        if textField == textFieldStartAddress {
+            self.isSearchStartAddress = true
+        } else {
+            self.isSearchStartAddress = false
+        }
+        
+        
+        
         return true
     }
     
@@ -112,8 +123,10 @@ extension WLHomePageViewController {
 //            let point = mapView?.convert(result.location, toPointTo: self.view)
 //            self.view.center = point!
             
-            
-            mapView?.setCenter(result.location, animated: true)
+            //只有起点才会移动图钉
+            if isSearchStartAddress {
+                mapView?.setCenter(result.location, animated: true)
+            }
         }
         else {
             print("未找到结果")
@@ -123,11 +136,13 @@ extension WLHomePageViewController {
     
     // #MARK: 监控地址输入框的内容是否合理
     func listenAddressTextFiledInput() {
-        self.textFieldAddress.delegate = self
-        self.textFieldAddress.returnKeyType = .search
+        self.textFieldTargetAddress.delegate = self
+        self.textFieldStartAddress.delegate  = self
+        self.textFieldStartAddress.returnKeyType  = .search
+        self.textFieldTargetAddress.returnKeyType = .search
         
         //创建一个 判断是否是有效地址的 textfiled 监控信号
-        let isValidAddressSignal = self.textFieldAddress.reactive.continuousTextValues.map({
+        let isValidAddressSignal = self.textFieldTargetAddress.reactive.continuousTextValues.map({
             inputText in
             return self.isValidAddress(addr: inputText!)
         })
@@ -138,7 +153,7 @@ extension WLHomePageViewController {
             
             return isValid ? UIColor.black : UIColor.red
         }).observeValues ({ (textColor) in
-            self.textFieldAddress.textColor = textColor
+            self.textFieldTargetAddress.textColor = textColor
         })
         
     }

@@ -24,7 +24,10 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
     
     var geoCode:BMKGeoCodeSearch? //地理编码 查询
     
-    @IBOutlet weak var textFieldAddress: UITextField!
+    @IBOutlet weak var textFieldStartAddress: UITextField!
+    @IBOutlet weak var textFieldTargetAddress: UITextField!
+    var isSearchStartAddress:Bool = true
+    
 //    @IBOutlet weak var btTuDing: UIButton!
     
     @IBOutlet weak var btMyLocation: UIButton!
