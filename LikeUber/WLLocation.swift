@@ -36,10 +36,14 @@ class WLLocation: NSObject, CLLocationManagerDelegate {
         let corder = CLGeocoder() //地理反编码 核心类
         corder.reverseGeocodeLocation(location) { (marks:[CLPlacemark]?, error:Error?) in
             if marks != nil {
-                for mark in marks! {
-                    WlLog("My location :"+mark.name!)
-                    self.curLocationString = mark.country!+mark.administrativeArea!+mark.locality!+mark.subLocality!+mark.name!
-                }
+                let mark = marks![0]
+                self.curLocationString = mark.country!+mark.administrativeArea!+mark.locality!
+                WlLog("My location :"+self.curLocationString!)
+                
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.myLocationRegion = self.curLocationString
+                appDelegate.myLocationCoordinate = location.coordinate
+                
             }
         }
     }

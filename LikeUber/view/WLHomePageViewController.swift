@@ -15,7 +15,7 @@ import enum Result.NoError
 //图钉针尖位置
 let TuDingTipScale:CGFloat = (1.52/5.36)
 
-class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UITextFieldDelegate {
+class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UITextFieldDelegate,BMKPoiSearchDelegate,BMKCloudSearchDelegate,BMKSuggestionSearchDelegate {
 
     var appDelegate:AppDelegate?
     var mapView:BMKMapView?
@@ -23,6 +23,10 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
     var curLocation:BMKUserLocation?
     
     var geoCode:BMKGeoCodeSearch? //地理编码 查询
+    var poiSearch:BMKPoiSearch?   //热点搜索
+    var cloudSearch:BMKCloudSearch? //LBS云检索
+    var suggestionSearch:BMKSuggestionSearch? //推荐查询
+    
     
     @IBOutlet weak var textFieldStartAddress: UITextField!
     @IBOutlet weak var textFieldTargetAddress: UITextField!
@@ -37,6 +41,11 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
     lazy var btTuding: UIButton = {
         return self.createTudingButton()
     }()
+    
+    //查询的时候，实时显示推荐的位置信息
+    lazy var suggestionPlaceTableView : UITableView = UITableView()
+    var suggestionPlaceArray = [BMKPoiInfo]()
+    var isReverseGeoFromShwoSuggestionPlace:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,15 +70,22 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
         
         //添加百度地图视图
         addBaiduMapView()
-        
+
         //view 上的子视图
         self.view.addSubview(self.btTuding)
         self.view.bringSubview(toFront: self.btTuding)
         self.view.bringSubview(toFront: btMyLocation)
         self.view.bringSubview(toFront: topSearchView)
         
+        //添加查询结果tableView
+        setupSuggestionPlaceTableView()
+        
+        localService?.delegate = self
         mapView?.delegate = self
         geoCode?.delegate = self
+        poiSearch?.delegate = self
+        cloudSearch?.delegate = self
+        suggestionSearch?.delegate = self
         localService?.startUserLocationService() //开启定位服务
         
         //add some test view
@@ -80,6 +96,10 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
         super.viewWillDisappear(animated)
         mapView?.delegate = nil
         geoCode?.delegate = nil
+        poiSearch?.delegate = nil
+        cloudSearch?.delegate = nil
+        suggestionSearch?.delegate = nil
+        localService?.delegate = nil
         localService?.stopUserLocationService() //停止定位服务
     }
     
