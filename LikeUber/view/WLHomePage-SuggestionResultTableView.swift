@@ -77,7 +77,15 @@ extension WLHomePageViewController :UITableViewDataSource,UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let placeInfo: BMKPoiInfo = self.suggestionPlaceArray[indexPath.row]
-        mapView?.setCenter(placeInfo.pt, animated: true)
+        
+        if self.isSearchStartAddress {
+            mapView?.setCenter(placeInfo.pt, animated: true)
+            self.textFieldStartAddress.text = placeInfo.name
+        } else {
+            self.textFieldTargetAddress.text = placeInfo.name
+            
+//            self.startCallDriver()
+        }
         
         self.hideTableView()
     }

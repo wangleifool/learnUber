@@ -508,6 +508,8 @@
 		3B226BD01ECEC341005E7ED6 /* WLGuidePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B226BCF1ECEC341005E7ED6 /* WLGuidePageViewController.xib */; };
 		3B349CF41ED6D576004CE7DE /* WLHomePage-Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B349CF31ED6D576004CE7DE /* WLHomePage-Map.swift */; };
 		3B52C2D91F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B52C2D81F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift */; };
+		3B52C2DB1F580300000CBEA7 /* WLHomePage-DriversLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B52C2DA1F580300000CBEA7 /* WLHomePage-DriversLogic.swift */; };
+		3B52C2DD1F5803FF000CBEA7 /* WLUberDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B52C2DC1F5803FF000CBEA7 /* WLUberDriver.swift */; };
 		3B6C4ABE1ED56CCF001A001D /* WLHomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C4ABC1ED56CCE001A001D /* WLHomePageViewController.swift */; };
 		3B6C4ABF1ED56CCF001A001D /* WLHomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6C4ABD1ED56CCE001A001D /* WLHomePageViewController.xib */; };
 		3B6C4AC41ED5765A001A001D /* KYDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C4AC11ED5765A001A001D /* KYDrawerController.swift */; };
@@ -1064,6 +1066,8 @@
 		3B226BCF1ECEC341005E7ED6 /* WLGuidePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLGuidePageViewController.xib; path = resource/xib/WLGuidePageViewController.xib; sourceTree = "<group>"; };
 		3B349CF31ED6D576004CE7DE /* WLHomePage-Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WLHomePage-Map.swift"; path = "view/WLHomePage-Map.swift"; sourceTree = "<group>"; };
 		3B52C2D81F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WLHomePage-SuggestionResultTableView.swift"; path = "view/WLHomePage-SuggestionResultTableView.swift"; sourceTree = "<group>"; };
+		3B52C2DA1F580300000CBEA7 /* WLHomePage-DriversLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WLHomePage-DriversLogic.swift"; path = "view/WLHomePage-DriversLogic.swift"; sourceTree = "<group>"; };
+		3B52C2DC1F5803FF000CBEA7 /* WLUberDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLUberDriver.swift; path = Model/WLUberDriver.swift; sourceTree = "<group>"; };
 		3B6C4ABC1ED56CCE001A001D /* WLHomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLHomePageViewController.swift; path = view/WLHomePageViewController.swift; sourceTree = "<group>"; };
 		3B6C4ABD1ED56CCE001A001D /* WLHomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLHomePageViewController.xib; path = view/WLHomePageViewController.xib; sourceTree = "<group>"; };
 		3B6C4AC11ED5765A001A001D /* KYDrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYDrawerController.swift; sourceTree = "<group>"; };
@@ -1209,6 +1213,7 @@
 			isa = PBXGroup;
 			children = (
 				3B9B374F1ED2D0E0006C7406 /* CountryInfo.swift */,
+				3B52C2DC1F5803FF000CBEA7 /* WLUberDriver.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1898,6 +1903,7 @@
 				3B52C2D81F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift */,
 				3B349CF31ED6D576004CE7DE /* WLHomePage-Map.swift */,
 				3BBE93FD1EF3B25700CEEF0C /* WLHomePage-Test.swift */,
+				3B52C2DA1F580300000CBEA7 /* WLHomePage-DriversLogic.swift */,
 				3B6C4AC71ED5766A001A001D /* DrawerViewController.swift */,
 				3B6C4ACB1ED58461001A001D /* WLSettingsViewController.swift */,
 				3B6C4ACC1ED58461001A001D /* WLSettingsViewController.xib */,
@@ -2624,7 +2630,9 @@
 				3B226BCC1ECEC2A3005E7ED6 /* WLBasePageViewController.swift in Sources */,
 				3BBE93FE1EF3B25700CEEF0C /* WLHomePage-Test.swift in Sources */,
 				3B6C4AC81ED5766A001A001D /* DrawerViewController.swift in Sources */,
+				3B52C2DB1F580300000CBEA7 /* WLHomePage-DriversLogic.swift in Sources */,
 				3B6C4AC61ED5765A001A001D /* KYEmbedMainControllerSegue.swift in Sources */,
+				3B52C2DD1F5803FF000CBEA7 /* WLUberDriver.swift in Sources */,
 				3B349CF41ED6D576004CE7DE /* WLHomePage-Map.swift in Sources */,
 				3B6C4ACD1ED58461001A001D /* WLSettingsViewController.swift in Sources */,
 				3BBE94041EF3CAC500CEEF0C /* WLStopWatchHand.swift in Sources */,

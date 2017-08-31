@@ -22,6 +22,7 @@ extension WLHomePageViewController {
             mapView?.zoomLevel = defaultZoomLevel
             mapView?.showMapPoi = true
             
+            
             geoCode = BMKGeoCodeSearch() //地理编码查询
             
             poiSearch = BMKPoiSearch() //热点查询
@@ -295,6 +296,7 @@ extension WLHomePageViewController {
         isValidAddressSignal.map({
             isValid in            
             
+            self.isSearchStartAddress = false
             if isValid {
                 self.searchSuggestionPlace(keyWord: self.textFieldTargetAddress.text!)
             }
@@ -307,6 +309,7 @@ extension WLHomePageViewController {
         //创建一个 判断是否是有效地址的 textfiled 监控信号
         let isValidAddressSignalForTextfield1 = self.textFieldStartAddress.reactive.continuousTextValues.map({
             inputText in
+            
             return self.isValidAddress(addr: inputText!)
         })
         
@@ -314,6 +317,7 @@ extension WLHomePageViewController {
         isValidAddressSignalForTextfield1.map({
             isValid in
             
+            self.isSearchStartAddress = true
             if isValid {
                 self.searchSuggestionPlace(keyWord: self.textFieldStartAddress.text!)
             }
