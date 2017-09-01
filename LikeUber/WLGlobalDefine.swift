@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 
+//顺时针
+enum carDirections: Int {
+    case faceNorth = 0
+    case faceEast  = 1
+    case faceSouth = 2
+    case faceWest  = 3
+}
 
 //常量
 let iOS8:Float = 8.0

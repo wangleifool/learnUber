@@ -12,6 +12,7 @@ import ReactiveSwift
 import Result
 import enum Result.NoError
 
+
 //图钉针尖位置
 let TuDingTipScale:CGFloat = (1.52/5.36)
 
@@ -47,6 +48,17 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
     var suggestionPlaceArray = [BMKPoiInfo]()
     var isReverseGeoFromShwoSuggestionPlace:Bool = false
     
+    //位置信息
+    var startPoiPlace: BMKPoiInfo?
+    var targetPoiPlace: BMKPoiInfo?
+    
+    //模拟司机的位置更新
+    var driverTimer:Timer?
+    var driver:WLUberDriver?    
+    var driverCarDirection:carDirections! = .faceNorth //默认朝上走
+    let postionOffsetUnit:CLLocationDegrees = 0.00001
+    
+    // #MARK: - VC 生命周期
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,6 +75,8 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
         self.listenAddressTextFiledInput()
         
         
+        //添加定时器
+        self.addDriverUpdateLocationTimer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,6 +115,8 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
         suggestionSearch?.delegate = nil
         localService?.delegate = nil
         localService?.stopUserLocationService() //停止定位服务
+        
+        self.cancelDriverUpdateLocationTimer()
     }
     
     

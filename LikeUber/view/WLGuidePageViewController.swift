@@ -24,6 +24,11 @@ class WLGuidePageViewController: WLBasePageViewController {
 
         appDelegate = UIApplication.shared.delegate as? AppDelegate
         
+        if location == nil {
+            location = WLLocation()
+            location.startLocation()
+        }
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -53,7 +58,7 @@ class WLGuidePageViewController: WLBasePageViewController {
         self.backgroundImageView.startAnimating()
         
         //过渡动画
-        UIView.animate(withDuration: 1.0, delay: 1.0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseInOut, animations: {
             self.backView.alpha = 1.0
             self.videoPlayer.play()
         }, completion: nil)
@@ -96,10 +101,6 @@ class WLGuidePageViewController: WLBasePageViewController {
     }
     
     @IBAction func btLoginPressed(_ sender: Any) {
-        if location == nil {
-            location = WLLocation()
-            location.startLocation()
-        }
         
         
 //        if (location.curLocationString != nil) {

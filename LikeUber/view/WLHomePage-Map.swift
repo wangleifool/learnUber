@@ -8,7 +8,7 @@
 
 import Foundation
 
-let defaultZoomLevel:Float = 16.0
+let defaultZoomLevel:Float = 18.0
 
 extension WLHomePageViewController {
 
@@ -156,8 +156,9 @@ extension WLHomePageViewController {
     }
     
     @IBAction func btMyLocationPressed(_ sender: Any) {
-        if ((localService?.userLocation.location) != nil) {
-            mapView?.setCenter((localService?.userLocation.location.coordinate)!, animated: true)
+//        if ((localService?.userLocation.location) != nil)        {
+        if let location = localService?.userLocation.location {
+            mapView?.setCenter(location.coordinate, animated: true)
             mapView?.updateLocationData(localService?.userLocation)
             mapView?.zoomLevel = defaultZoomLevel
             
@@ -207,12 +208,26 @@ extension WLHomePageViewController {
     //代理反馈，查询到反地理编码的地址
     func onGetReverseGeoCodeResult(_ searcher: BMKGeoCodeSearch!, result: BMKReverseGeoCodeResult!, errorCode error: BMKSearchErrorCode) {
         
-            
+        if result == nil {
+            return
+        }
+        
         //如果是要收集 推荐的地址信息，逻辑和其他代码无关
         if isReverseGeoFromShwoSuggestionPlace {
             
         } else {
-            textFieldStartAddress.text = result?.address
+            //记录查询的地址信息
+            let poiInfo = BMKPoiInfo()
+            poiInfo.name = result?.sematicDescription
+            poiInfo.address = result?.address
+            poiInfo.pt   = (result?.location)!
+            
+            textFieldStartAddress.text = result?.sematicDescription
+            self.startPoiPlace = poiInfo
+            
+            let annotationArray = self.mapView?.annotations
+            self.mapView?.removeAnnotations(annotationArray)
+            self.showNearbyDrivers() //显示附近的车辆
         }
         
 //            DispatchQueue.global().async {

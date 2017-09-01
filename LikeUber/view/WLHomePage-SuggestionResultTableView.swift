@@ -81,10 +81,10 @@ extension WLHomePageViewController :UITableViewDataSource,UITableViewDelegate {
         if self.isSearchStartAddress {
             mapView?.setCenter(placeInfo.pt, animated: true)
             self.textFieldStartAddress.text = placeInfo.name
+            self.startPoiPlace = placeInfo
         } else {
             self.textFieldTargetAddress.text = placeInfo.name
-            
-//            self.startCallDriver()
+            self.targetPoiPlace = placeInfo            
         }
         
         self.hideTableView()

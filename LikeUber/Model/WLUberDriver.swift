@@ -16,8 +16,8 @@ class WLUberDriver: NSObject {
     var driverCarBrand: String!
     var driverCarColor: String?
     
-    var driverCarAnnotation: BMKAnnotation!
-    var driverCarLocation: CLLocationCoordinate2D!
+    var driverCarAnnotation: BMKPointAnnotation!
+    var driverCarAnnotationView: WLCarAnnotationView!
     var driverCarAddress: String?
     
 }
