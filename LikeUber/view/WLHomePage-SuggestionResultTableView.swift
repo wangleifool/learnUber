@@ -45,6 +45,7 @@ extension WLHomePageViewController :UITableViewDataSource,UITableViewDelegate {
         suggestionPlaceTableView.reloadData()
     }
     
+    // #MARK: - tableview datasource & delegate
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -84,10 +85,12 @@ extension WLHomePageViewController :UITableViewDataSource,UITableViewDelegate {
             self.startPoiPlace = placeInfo
         } else {
             self.textFieldTargetAddress.text = placeInfo.name
-            self.targetPoiPlace = placeInfo            
+            self.targetPoiPlace = placeInfo
+            self.startSchemRoute()
         }
         
-        self.hideTableView()
+        self.hideVirtualKeyBoard()
+        self.hideTableView()        
     }
     
 }

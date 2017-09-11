@@ -19,7 +19,7 @@ let TuDingTipScale:CGFloat = (1.52/5.36)
 class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UITextFieldDelegate,BMKPoiSearchDelegate,BMKCloudSearchDelegate,BMKSuggestionSearchDelegate {
 
     var appDelegate:AppDelegate?
-    var mapView:BMKMapView?
+    var mapView:BMKMapView!
     var localService:BMKLocationService?
     var curLocation:BMKUserLocation?
     
@@ -58,6 +58,9 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
     var driverCarDirection:carDirections! = .faceNorth //默认朝上走
     let postionOffsetUnit:CLLocationDegrees = 0.00001
     
+    //路径规划
+    var driverRouteSearch: BMKRouteSearch!
+    
     // #MARK: - VC 生命周期
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,35 +94,26 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
         self.view.bringSubview(toFront: btMyLocation)
         self.view.bringSubview(toFront: topSearchView)
         
+        addAllMapServiceDelegate()
+        
         //添加查询结果tableView
         setupSuggestionPlaceTableView()
         
-        localService?.delegate = self
-        mapView?.delegate = self
-        geoCode?.delegate = self
-        poiSearch?.delegate = self
-        cloudSearch?.delegate = self
-        suggestionSearch?.delegate = self
+        
         localService?.startUserLocationService() //开启定位服务
         
         //add some test view
 //        self.addStarView()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        mapView?.delegate = nil
-        geoCode?.delegate = nil
-        poiSearch?.delegate = nil
-        cloudSearch?.delegate = nil
-        suggestionSearch?.delegate = nil
-        localService?.delegate = nil
-        localService?.stopUserLocationService() //停止定位服务
+       
+    deinit {
+        print("HomePage View controller dealloced")
         
+        removeAllMapServiceDelegate()
+        localService?.stopUserLocationService() //停止定位服务
         self.cancelDriverUpdateLocationTimer()
     }
-    
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -29,18 +29,120 @@ extension WLHomePageViewController {
         self.mapView?.addAnnotation(point)
         
         
+        
+//        let driverAnnotation1 = BMKPointAnnotation()
+//        
+//        //实际开发，司机的经纬度是由服务器反馈的
+//        driverAnnotation1.coordinate = CLLocationCoordinate2D(latitude: (self.startPoiPlace?.pt.latitude)!+0.002, longitude: (self.startPoiPlace?.pt.longitude)!+0.001)
+//        
+//        let driverAnnotation2 = BMKPointAnnotation()
+//        
+//        //实际开发，司机的经纬度是由服务器反馈的
+//        driverAnnotation2.coordinate = CLLocationCoordinate2D(latitude: (self.startPoiPlace?.pt.latitude)!-0.004, longitude: (self.startPoiPlace?.pt.longitude)!+0.0012)
+//        
+//        let driverAnnotation3 = BMKPointAnnotation()
+//        
+//        //实际开发，司机的经纬度是由服务器反馈的
+//        driverAnnotation3.coordinate = CLLocationCoordinate2D(latitude: (self.startPoiPlace?.pt.latitude)!+0.0012, longitude: (self.startPoiPlace?.pt.longitude)!-0.001)
+//        let driverAnnotation4 = BMKPointAnnotation()
+//        
+//        //实际开发，司机的经纬度是由服务器反馈的
+//        driverAnnotation4.coordinate = CLLocationCoordinate2D(latitude: (self.startPoiPlace?.pt.latitude)!+0.0012, longitude: (self.startPoiPlace?.pt.longitude)!-0.0012)
+//        
+//        let dirverArray:[BMKPointAnnotation] = [driverAnnotation1,driverAnnotation2,driverAnnotation3,driverAnnotation4]
+//        self.mapView?.addAnnotations(dirverArray)
     }
     
-    //指定自定义 annotation view 的代理
+    // #MARK: 指定自定义 annotation view 的代理
     func mapView(_ mapView: BMKMapView!, viewFor annotation: BMKAnnotation!) -> BMKAnnotationView! {
         
-        let car = WLCarAnnotationView(annotation: annotation, reuseIdentifier: "PID")
-        car?.isDraggable = false
+        if annotation is BMKPointAnnotation {
         
-        driver?.driverCarAnnotationView = car //记录下annotationView
+        }
         
-        return car
+        if let wlAnnotation = annotation as! WLAnnotation? {
+            return getViewForRouteAnnotation(wlAnnotation)
+        }
+        
+        return nil
     }
+    
+    func getViewForRouteAnnotation(_ wlAnnotation: WLAnnotation!) -> BMKAnnotationView? {
+        var view: BMKAnnotationView?
+        
+        var imageName: String?
+        switch wlAnnotation.type {
+        case 0:
+            imageName = "nav_start"
+        case 1:
+            imageName = "nav_end"
+        case 2:
+            imageName = "nav_bus"
+        case 3:
+            imageName = "nav_rail"
+        case 4:
+            imageName = "direction"
+        case 5:
+            imageName = "nav_waypoint"
+        case 6:
+            //车辆annotation需要单独提供view
+            var car = mapView.dequeueReusableAnnotationView(withIdentifier: "PID")
+            if car == nil {
+                car = WLCarAnnotationView(annotation: wlAnnotation, reuseIdentifier: "PID")
+                car?.isDraggable = false
+                driver?.driverCarAnnotationView = car as! WLCarAnnotationView //记录下annotationView
+            }
+            
+            
+            return car
+        default:
+            return nil
+        }
+        
+        let identifier = "\(String(describing: imageName))_annotation"
+        view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        if view == nil {
+            view = BMKAnnotationView(annotation: wlAnnotation, reuseIdentifier: identifier)
+            view?.centerOffset = CGPoint(x: 0, y: -(view!.frame.size.height * 0.5))
+            view?.canShowCallout = true
+        }
+        
+        view?.annotation = wlAnnotation
+        
+        let bundlePath = (Bundle.main.resourcePath)! + "/mapapi.bundle/"
+        let bundle = Bundle(path: bundlePath)
+        var tmpBundle : String?
+        tmpBundle = (bundle?.resourcePath)! + "/images/icon_\(imageName!).png"
+        if let imagePath = tmpBundle {
+            var image = UIImage(contentsOfFile: imagePath)
+            if wlAnnotation.type == 4 {
+                image = imageRotated(image, degrees: wlAnnotation.degree)
+            }
+            if image != nil {
+                view?.image = image
+            }
+        }
+        
+        return view
+    }
+    
+    //旋转图片
+    func imageRotated(_ image: UIImage!, degrees: Int!) -> UIImage {
+        let width = image.cgImage?.width
+        let height = image.cgImage?.height
+        let rotatedSize = CGSize(width: width!, height: height!)
+        UIGraphicsBeginImageContext(rotatedSize);
+        let bitmap = UIGraphicsGetCurrentContext();
+        bitmap?.translateBy(x: rotatedSize.width/2, y: rotatedSize.height/2);
+        bitmap?.rotate(by: CGFloat(Double(degrees) * Double.pi / 180.0));
+        bitmap?.rotate(by: CGFloat(Double.pi));
+        bitmap?.scaleBy(x: -1.0, y: 1.0);
+        bitmap?.draw(image.cgImage!, in: CGRect(x: -rotatedSize.width/2, y: -rotatedSize.height/2, width: rotatedSize.width, height: rotatedSize.height));
+        let newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return newImage!;
+    }
+
     
     func showSuggestDriver() {
         
@@ -67,6 +169,14 @@ extension WLHomePageViewController {
     func cancelDriverUpdateLocationTimer() {
         driverTimer?.invalidate()
         driverTimer = nil
+    }
+    
+    func pauseDriverUpdateLocationTimer() {
+        driverTimer?.fireDate = Date.distantFuture
+    }
+    
+    func resumeDriverUpdateLocationTimer() {
+        driverTimer?.fireDate = Date()
     }
     
     func timerEvent() {
@@ -165,4 +275,28 @@ extension WLHomePageViewController {
 
         return carAnnotation
     }
+    
+    // #MARK: - 规划路线
+    func startSchemRoute() {
+        schemRouteFromDriverToMe()
+        
+//        self.carRouteSearch(start: self.startPoiPlace!, target: self.targetPoiPlace!)
+//        self.btTuding.isHidden = true
+    }
+    
+    //附近司机到我的路线
+    func schemRouteFromDriverToMe() {
+        
+        if let driverPt = self.driver?.driverCarAnnotation {
+            pauseDriverUpdateLocationTimer()
+            let driverPoiInfo = BMKPoiInfo()
+            driverPoiInfo.pt  = driverPt.coordinate
+            self.carRouteSearch(start: driverPoiInfo, target: self.startPoiPlace!)
+        } else {
+            print("附近没有合适的司机")
+        }
+        
+    }
+    
+    
 }
