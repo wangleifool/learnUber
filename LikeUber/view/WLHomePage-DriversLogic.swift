@@ -13,7 +13,9 @@ import Foundation
 extension WLHomePageViewController {
     
     func showNearbyDrivers() {
-        let point = BMKPointAnnotation()
+//        let point = BMKPointAnnotation()
+        let point = WLAnnotation()                
+        point.type = 6
         
         //实际开发，司机的经纬度是由服务器反馈的
         point.coordinate = CLLocationCoordinate2D(latitude: (self.startPoiPlace?.pt.latitude)!-0.002, longitude: (self.startPoiPlace?.pt.longitude)!+0.001)
@@ -53,12 +55,26 @@ extension WLHomePageViewController {
 //        self.mapView?.addAnnotations(dirverArray)
     }
     
+    func addDriverToMap(coordinate: CLLocationCoordinate2D) {
+        let point = WLAnnotation()
+        point.type = 6
+        
+        //实际开发，司机的经纬度是由服务器反馈的
+        point.coordinate = coordinate
+        
+        //初始化一个driver的model对象
+        driver?.driverCarAnnotation = point
+        
+        self.mapView?.addAnnotation(point)
+    }
+    
     // #MARK: 指定自定义 annotation view 的代理
     func mapView(_ mapView: BMKMapView!, viewFor annotation: BMKAnnotation!) -> BMKAnnotationView! {
         
-        if annotation is BMKPointAnnotation {
+//        if annotation is WLAnnotation {
+//            print("annotation is BMKPointAnnotation")
+//        }      
         
-        }
         
         if let wlAnnotation = annotation as! WLAnnotation? {
             return getViewForRouteAnnotation(wlAnnotation)
@@ -181,21 +197,6 @@ extension WLHomePageViewController {
     
     func timerEvent() {
         
-//        if let oldCarAnnotation = self.driver?.driverCarAnnotation {
-//            
-//            //计算新的值
-//            let newCarAnnotation = self.simulateCaculateCarLocation(oldCarAnnotation: oldCarAnnotation)
-//            
-//            DispatchQueue.main.async {
-//                //移除旧的annotation
-//                self.mapView?.removeAnnotation(oldCarAnnotation)
-//                
-//                //添加新的annotation
-//                self.mapView?.addAnnotation(newCarAnnotation)
-//                self.driver?.driverCarAnnotation = newCarAnnotation //更新car annotation
-//            }
-//        }
-        
         //不需要从地图上移除annotation，直接更新他的坐标即可
         if let oldCarAnnotation = self.driver?.driverCarAnnotation {
             //计算新的值
@@ -207,9 +208,7 @@ extension WLHomePageViewController {
         
     }
     
-    //模拟车的位置
-    func simulateCaculateCarLocation(oldCarAnnotation: BMKPointAnnotation) -> BMKPointAnnotation {
-        
+    func simulateDriveToAnywhereCarLocation(oldCarAnnotation: BMKPointAnnotation) -> BMKPointAnnotation {
         let theCarLastCoordinate = oldCarAnnotation.coordinate
         
         let carAnnotation = BMKPointAnnotation()
@@ -218,14 +217,14 @@ extension WLHomePageViewController {
         // 调试结果证明，同一水平线， latitude 相同 Top‘s latitude > tottom's latitude
         // 同一垂直线， longitude 相同 ， Right's longitude > Left's longitude
         let leftTopCoordinate = mapView?.convert(CGPoint(x: 0,y: 0), toCoordinateFrom: self.view)
-//        let leftBottomCoordinate = mapView?.convert(CGPoint(x: 0,y: self.view.bounds.height), toCoordinateFrom: self.view)
-//        let rightTopCoordinate = mapView?.convert(CGPoint(x: self.view.bounds.width,y: 0), toCoordinateFrom: self.view)
+        //        let leftBottomCoordinate = mapView?.convert(CGPoint(x: 0,y: self.view.bounds.height), toCoordinateFrom: self.view)
+        //        let rightTopCoordinate = mapView?.convert(CGPoint(x: self.view.bounds.width,y: 0), toCoordinateFrom: self.view)
         let rightBottomCoordinate = mapView?.convert(CGPoint(x: self.view.bounds.width,y: self.view.bounds.height), toCoordinateFrom: self.view)
         
-//        print("leftTopCoordinate: (\(String(describing: leftTopCoordinate!.latitude)) , car longitude: \(String(describing: leftTopCoordinate!.longitude)))")
-//        print("leftBottomCoordinate: (\(String(describing: leftBottomCoordinate!.latitude)) , car longitude: \(String(describing: leftBottomCoordinate!.longitude)))")
-//        print("rightTopCoordinate: (\(String(describing: rightTopCoordinate!.latitude)) , car longitude: \(String(describing: rightTopCoordinate!.longitude)))")
-//        print("rightBottomCoordinate: (\(String(describing: rightBottomCoordinate!.latitude)) , car longitude: \(String(describing: rightBottomCoordinate!.longitude)))")
+        //        print("leftTopCoordinate: (\(String(describing: leftTopCoordinate!.latitude)) , car longitude: \(String(describing: leftTopCoordinate!.longitude)))")
+        //        print("leftBottomCoordinate: (\(String(describing: leftBottomCoordinate!.latitude)) , car longitude: \(String(describing: leftBottomCoordinate!.longitude)))")
+        //        print("rightTopCoordinate: (\(String(describing: rightTopCoordinate!.latitude)) , car longitude: \(String(describing: rightTopCoordinate!.longitude)))")
+        //        print("rightBottomCoordinate: (\(String(describing: rightBottomCoordinate!.latitude)) , car longitude: \(String(describing: rightBottomCoordinate!.longitude)))")
         let maxLatitude = leftTopCoordinate!.latitude - 0.0028
         let minLatitude = rightBottomCoordinate!.latitude + 0.001
         let maxLongitude = rightBottomCoordinate!.longitude - 0.001
@@ -233,7 +232,7 @@ extension WLHomePageViewController {
         
         var newLatitude:CLLocationDegrees = theCarLastCoordinate.latitude
         var newLongitude:CLLocationDegrees = theCarLastCoordinate.longitude
-
+        
         //移动位置，到达边界，改变方向
         switch driverCarDirection {
         case .faceSouth?:
@@ -272,15 +271,62 @@ extension WLHomePageViewController {
         
         //                print("car latitude: \(String(describing: carAnnotation?.coordinate.latitude)) , car longitude: \(String(describing: carAnnotation?.coordinate.longitude))")
         
-
+        
         return carAnnotation
+    }
+    
+    //实时计算车的位置
+    func caculateCarLocation(oldCarAnnotation: BMKPointAnnotation) -> BMKPointAnnotation{
+        if let driverRoute  = self.driver?.driverRoute {
+            if driverRoute.pointCount < 1 {
+                return BMKPointAnnotation()
+            }
+            
+            if driverRoute.pointCount == driverRouteCurrentStep {
+                driverArriveTargetPlace() //到达地点，
+            }
+            
+            let points = self.driver?.driverRoute?.points
+            let point :BMKMapPoint = points![Int(driverRouteCurrentStep)]  //获取当前的走到第几个记录点
+            let nextPointCoordinate = BMKCoordinateForMapPoint(point)
+            let curPointCoordinate = oldCarAnnotation.coordinate
+            
+            
+            
+//            driverRouteCurrentStep = 1 + driverRouteCurrentStep
+            
+            print("car latitude: \(String(describing: nextPointCoordinate.latitude)) , car longitude: \(String(describing: nextPointCoordinate.longitude))")
+            
+            let carAnnotation = BMKPointAnnotation()
+            carAnnotation.coordinate = nextPointCoordinate
+            
+            return carAnnotation
+        }
+        
+        return BMKPointAnnotation()
+    }
+    
+    //模拟车的位置
+    func simulateCaculateCarLocation(oldCarAnnotation: BMKPointAnnotation) -> BMKPointAnnotation {
+        
+        switch self.driver?.state {
+        case .driveToAnywhere?:
+            return simulateDriveToAnywhereCarLocation(oldCarAnnotation: oldCarAnnotation)
+        case .driveToGuestStartPlace?,
+             .driveToGuestTargetPlace?:
+            return caculateCarLocation(oldCarAnnotation:oldCarAnnotation)
+        default: break
+            
+        }
+        
+        return BMKPointAnnotation()
     }
     
     // #MARK: - 规划路线
     func startSchemRoute() {
-        schemRouteFromDriverToMe()
+//        schemRouteFromDriverToMe()
         
-//        self.carRouteSearch(start: self.startPoiPlace!, target: self.targetPoiPlace!)
+        self.carRouteSearch(start: self.startPoiPlace!, target: self.targetPoiPlace!)
 //        self.btTuding.isHidden = true
     }
     
@@ -297,6 +343,38 @@ extension WLHomePageViewController {
         }
         
     }
+   
+    //通过直线方程，从两点之间 获取更多 细小颗粒的点坐标
+    func anasysMorePointInfoOnTheRoute() {
+        if driver?.driverRoute != nil {
+            let startCoordinate = BMKCoordinateForMapPoint(driver!.driverRoute!.points[Int(0)])
+            let targetCoordinate = BMKCoordinateForMapPoint(driver!.driverRoute!.points[Int(driver!.driverRoute!.pointCount-1)])
+            
+            
+            //获得直线方程的两个参数 Ax+By+C=0 ,需要带入上面两个坐标，计算出A B C的值
+        }
+        
+    }
     
+    func startDriveToTargetPlace(routeLine: BMKPolyline) {
+        //开始让司机开往客户的起点
+        self.driver?.state = .driveToGuestTargetPlace
+        self.driver?.driverRoute = routeLine
+        let startCoordinate = BMKCoordinateForMapPoint(routeLine.points[Int(0)])
+        self.addDriverToMap(coordinate: startCoordinate)
+        
+        //为两个坐标点之间，添加更详细的点坐标信息信息
+        anasysMorePointInfoOnTheRoute()
+        
+        resumeDriverUpdateLocationTimer() //恢复定时器
+    }
+    
+    func driverArriveTargetPlace() {
+        pauseDriverUpdateLocationTimer() //暂停计时器
+        
+        self.driver?.state = .driveToAnywhere //后期改成到达的属性
+        
+        //显示到达的交互
+    }
     
 }

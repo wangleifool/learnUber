@@ -60,6 +60,12 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
     
     //路径规划
     var driverRouteSearch: BMKRouteSearch!
+    var driverRouteCurrentStep: UInt! = 0
+    
+    
+    //全局标识
+    var isSelectFromSuggestChoices = false //表示是否从推荐地址中，选择了一个
+    
     
     // #MARK: - VC 生命周期
     override func viewDidLoad() {

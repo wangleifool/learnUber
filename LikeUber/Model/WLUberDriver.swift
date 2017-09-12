@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class WLUberDriver: NSObject {
     
     var driverName: String!
@@ -16,8 +18,10 @@ class WLUberDriver: NSObject {
     var driverCarBrand: String!
     var driverCarColor: String?
     
-    var driverCarAnnotation: BMKPointAnnotation!
+    var driverCarAnnotation: WLAnnotation!
     var driverCarAnnotationView: WLCarAnnotationView!
     var driverCarAddress: String?
     
+    var state: driverState = .driveToAnywhere
+    var driverRoute: BMKPolyline?
 }

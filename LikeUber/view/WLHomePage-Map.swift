@@ -215,9 +215,24 @@ extension WLHomePageViewController: BMKRouteSearchDelegate {
     // #MARK: - 通过图钉的位置，反馈地址信息
     func mapView(_ mapView: BMKMapView!, regionDidChangeAnimated animated: Bool) {
         
-        //图钉的针尖放在self.view.center位置
-        let point = mapView?.convert(self.view.center, toCoordinateFrom: self.view)
-        self.searchPlaceByCoordinate(coordinate: point!)
+        //只有当用户还没有打车的时候，可以使用随时移动 锁定起点的功能
+        if self.driver != nil {
+            if self.driver!.state == .driveToAnywhere {
+                //图钉的针尖放在self.view.center位置
+                let point = mapView?.convert(self.view.center, toCoordinateFrom: self.view)
+                self.searchPlaceByCoordinate(coordinate: point!)
+                
+                self.btTuding.isHidden = false
+            } else {
+                self.btTuding.isHidden = true
+            }
+        } else {
+            //图钉的针尖放在self.view.center位置
+            let point = mapView?.convert(self.view.center, toCoordinateFrom: self.view)
+            self.searchPlaceByCoordinate(coordinate: point!)
+        }
+        
+        
         
     }
     
@@ -397,7 +412,10 @@ extension WLHomePageViewController: BMKRouteSearchDelegate {
             let polyLine = BMKPolyline(points: &tempPoints, count: UInt(planPointCounts))
             // 添加路线 overlay
             mapView.add(polyLine)
-            mapViewFitPolyLine(polyLine)
+//            mapViewFitPolyLine(polyLine)
+            
+            //开始启程
+            startDriveToTargetPlace(routeLine: polyLine!)
         }
     }
     
@@ -435,8 +453,9 @@ extension WLHomePageViewController: BMKRouteSearchDelegate {
     func mapView(_ mapView: BMKMapView!, viewFor overlay: BMKOverlay!) -> BMKOverlayView! {
         if overlay as! BMKPolyline? != nil {
             let polylineView = BMKPolylineView(overlay: overlay as! BMKPolyline)
-            polylineView?.strokeColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.7)
+            polylineView?.strokeColor = UIColor(red: 42/255.0, green: 166/255.0, blue: 92/255.0, alpha: 0.7)
             polylineView?.lineWidth = 3
+            
             return polylineView
         }
         return nil
@@ -484,6 +503,13 @@ extension WLHomePageViewController: BMKRouteSearchDelegate {
             isValid in            
             
             self.isSearchStartAddress = false
+            
+            //如果是选择了 推荐的地址 导致的textfiled文本内容发生变化，不要再搜索地址了
+            if self.isSelectFromSuggestChoices {
+                self.isSelectFromSuggestChoices = false
+                return isValid ? UIColor.black : UIColor.red
+            }
+            
             if isValid {
                 self.searchSuggestionPlace(keyWord: self.textFieldTargetAddress.text!)
             }
@@ -505,6 +531,13 @@ extension WLHomePageViewController: BMKRouteSearchDelegate {
             isValid in
             
             self.isSearchStartAddress = true
+            
+            //如果是选择了 推荐的地址 导致的textfiled文本内容发生变化，不要再搜索地址了
+            if self.isSelectFromSuggestChoices {
+                self.isSelectFromSuggestChoices = false
+                return isValid ? UIColor.black : UIColor.red
+            }
+            
             if isValid {
                 self.searchSuggestionPlace(keyWord: self.textFieldStartAddress.text!)
             }

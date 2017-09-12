@@ -17,6 +17,12 @@ enum carDirections: Int {
     case faceWest  = 3
 }
 
+enum driverState {
+    case driveToAnywhere
+    case driveToGuestStartPlace
+    case driveToGuestTargetPlace
+}
+
 //常量
 let iOS8:Float = 8.0
 let ScreenHeight = UIScreen.main.bounds.size.height

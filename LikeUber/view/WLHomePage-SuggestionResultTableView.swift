@@ -89,6 +89,8 @@ extension WLHomePageViewController :UITableViewDataSource,UITableViewDelegate {
             self.startSchemRoute()
         }
         
+        isSelectFromSuggestChoices = true
+        
         self.hideVirtualKeyBoard()
         self.hideTableView()        
     }
