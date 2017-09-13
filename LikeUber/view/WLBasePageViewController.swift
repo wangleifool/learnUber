@@ -33,5 +33,21 @@ class WLBasePageViewController: WLBaseViewController {
     }
     
     
+    func showAlertView(title :String, message :String) {
+        
+        
+        let alertController = UIAlertController(title: title,
+                                                message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let okAction = UIAlertAction(title: "好的", style: UIAlertActionStyle.default,
+                                     handler: {
+                                        action in
+                                        
+        })
+        
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
 
 }

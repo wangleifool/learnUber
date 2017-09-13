@@ -58,13 +58,22 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
     var driverCarDirection:carDirections! = .faceNorth //默认朝上走
     let postionOffsetUnit:CLLocationDegrees = 0.00001
     
-    //路径规划
-    var driverRouteSearch: BMKRouteSearch!
-    var driverRouteCurrentStep: UInt! = 0
-    
-    
     //全局标识
     var isSelectFromSuggestChoices = false //表示是否从推荐地址中，选择了一个
+    
+    //路径规划
+    var driverRouteSearch: BMKRouteSearch!
+    var driverRouteCurrentStep: UInt! = 1
+    var driverRouteLastStep: UInt! = 0
+
+    //标识点的移动
+    var startPointInLine :CLLocationCoordinate2D! = CLLocationCoordinate2D()//获取每个分段的起点与终点
+    var endPointInLine :CLLocationCoordinate2D! = CLLocationCoordinate2D()
+    var straightSlopeInLine :Double = 0.0// 每段这个直线的斜率
+    
+    var driverLatitudeChangeOffset :Double = 0.0//用来判断移动时，经纬度该加还是该减
+    var driverLongitudeChangeOffset :Double = 0.0
+    
     
     
     // #MARK: - VC 生命周期

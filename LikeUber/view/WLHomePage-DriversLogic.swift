@@ -30,7 +30,7 @@ extension WLHomePageViewController {
         
         self.mapView?.addAnnotation(point)
         
-        
+        self.resumeDriverUpdateLocationTimer()
         
 //        let driverAnnotation1 = BMKPointAnnotation()
 //        
@@ -286,19 +286,64 @@ extension WLHomePageViewController {
                 driverArriveTargetPlace() //到达地点，
             }
             
-            let points = self.driver?.driverRoute?.points
-            let point :BMKMapPoint = points![Int(driverRouteCurrentStep)]  //获取当前的走到第几个记录点
-            let nextPointCoordinate = BMKCoordinateForMapPoint(point)
-            let curPointCoordinate = oldCarAnnotation.coordinate
-            
-            
-            
-//            driverRouteCurrentStep = 1 + driverRouteCurrentStep
-            
-            print("car latitude: \(String(describing: nextPointCoordinate.latitude)) , car longitude: \(String(describing: nextPointCoordinate.longitude))")
-            
             let carAnnotation = BMKPointAnnotation()
-            carAnnotation.coordinate = nextPointCoordinate
+            
+            //开始新的一段 直线的移动,计算他的相关参数
+            if driverRouteLastStep != driverRouteCurrentStep {
+                
+                //将路径分段移动车辆
+                let points = self.driver?.driverRoute?.points
+                //获取每个分段的起点与终点
+                let startPoint :BMKMapPoint = points![Int(driverRouteLastStep)]  //获取当前的走到第几个记录点
+                startPointInLine = BMKCoordinateForMapPoint(startPoint)
+                
+                let endPoint :BMKMapPoint = points![Int(driverRouteCurrentStep)]  //获取当前的走到第几个记录点
+                endPointInLine = BMKCoordinateForMapPoint(endPoint)
+                
+                //用来判断移动时，经纬度该加还是该减
+                driverLatitudeChangeOffset  = endPointInLine.latitude - startPointInLine.latitude
+                driverLongitudeChangeOffset = endPointInLine.longitude - startPointInLine.longitude
+                
+                //计算每个分段的直线斜率
+                straightSlopeInLine = driverLatitudeChangeOffset / driverLongitudeChangeOffset
+                
+                driverRouteLastStep = driverRouteCurrentStep //初始化工作完成
+                
+                carAnnotation.coordinate = startPointInLine //设置车的位置为起点
+                
+            } else {  //还在一段直线的移动中
+                let curPointCoordinate = oldCarAnnotation.coordinate
+                
+                var newPointCoordinate = CLLocationCoordinate2D()
+                
+                //判断维度该加还是该减
+                if driverLatitudeChangeOffset > 0 {
+                    newPointCoordinate.latitude = curPointCoordinate.latitude + postionOffsetUnit
+                    //如果维度超过了终点，我们认为这一段到达终点了
+                    if newPointCoordinate.latitude >= endPointInLine.latitude {
+                        driverRouteCurrentStep = driverRouteCurrentStep + 1 //走到下一段直线
+                    }
+                } else {
+                    newPointCoordinate.latitude = curPointCoordinate.latitude - postionOffsetUnit
+                    //如果维度超过了终点，我们认为这一段到达终点了
+                    if newPointCoordinate.latitude <= endPointInLine.latitude {
+                        driverRouteCurrentStep = driverRouteCurrentStep + 1 //走到下一段直线
+                    }
+                }
+                
+                //带入直线方程，求经度 (lati1-lati0)/(long1-long0) = K  ;
+                //long1 = (lati1-lati0)/K + long0
+                newPointCoordinate.longitude = (newPointCoordinate.latitude-startPointInLine.latitude)/straightSlopeInLine + startPointInLine.longitude
+                
+                
+                
+                //设置carAnnotation的坐标
+                carAnnotation.coordinate = newPointCoordinate
+            }
+            
+//            print("car latitude: \(String(describing: carAnnotation.coordinate.latitude)) , car longitude: \(String(describing: carAnnotation.coordinate.longitude))")
+            
+        
             
             return carAnnotation
         }
@@ -344,17 +389,6 @@ extension WLHomePageViewController {
         
     }
    
-    //通过直线方程，从两点之间 获取更多 细小颗粒的点坐标
-    func anasysMorePointInfoOnTheRoute() {
-        if driver?.driverRoute != nil {
-            let startCoordinate = BMKCoordinateForMapPoint(driver!.driverRoute!.points[Int(0)])
-            let targetCoordinate = BMKCoordinateForMapPoint(driver!.driverRoute!.points[Int(driver!.driverRoute!.pointCount-1)])
-            
-            
-            //获得直线方程的两个参数 Ax+By+C=0 ,需要带入上面两个坐标，计算出A B C的值
-        }
-        
-    }
     
     func startDriveToTargetPlace(routeLine: BMKPolyline) {
         //开始让司机开往客户的起点
@@ -363,8 +397,6 @@ extension WLHomePageViewController {
         let startCoordinate = BMKCoordinateForMapPoint(routeLine.points[Int(0)])
         self.addDriverToMap(coordinate: startCoordinate)
         
-        //为两个坐标点之间，添加更详细的点坐标信息信息
-        anasysMorePointInfoOnTheRoute()
         
         resumeDriverUpdateLocationTimer() //恢复定时器
     }
@@ -375,6 +407,14 @@ extension WLHomePageViewController {
         self.driver?.state = .driveToAnywhere //后期改成到达的属性
         
         //显示到达的交互
+        
+        
+        DispatchQueue.main.async {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            self.mapView.removeOverlays(self.mapView.overlays)
+            self.showAlertView(title: "消息", message: "恭喜你，达到目的地，欢迎下次乘坐")
+        }
+        
     }
     
 }
