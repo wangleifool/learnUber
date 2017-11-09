@@ -508,6 +508,18 @@
 		3B226BD01ECEC341005E7ED6 /* WLGuidePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B226BCF1ECEC341005E7ED6 /* WLGuidePageViewController.xib */; };
 		3B27B2361F668A68007E92D9 /* WLAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B27B2351F668A68007E92D9 /* WLAnnotation.swift */; };
 		3B349CF41ED6D576004CE7DE /* WLHomePage-Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B349CF31ED6D576004CE7DE /* WLHomePage-Map.swift */; };
+		3B3569E91FB4216A000D1A35 /* WLHomePage-CustomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3569E81FB4216A000D1A35 /* WLHomePage-CustomMenu.swift */; };
+		3B3569F51FB423FA000D1A35 /* GuillotineMenuTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3569EC1FB421B7000D1A35 /* GuillotineMenuTransitionAnimation.swift */; };
+		3B3569F81FB42446000D1A35 /* WLMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3569F61FB42446000D1A35 /* WLMenuViewController.swift */; };
+		3B3569F91FB42446000D1A35 /* WLMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569F71FB42446000D1A35 /* WLMenuViewController.xib */; };
+		3B3569FA1FB43007000D1A35 /* ic_menu@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569EB1FB421B7000D1A35 /* ic_menu@3x.png */; };
+		3B3569FB1FB43007000D1A35 /* ic_profile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569EE1FB421B8000D1A35 /* ic_profile@3x.png */; };
+		3B3569FC1FB43007000D1A35 /* ic_menuRotated@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569EF1FB421B8000D1A35 /* ic_menuRotated@3x.png */; };
+		3B3569FD1FB43007000D1A35 /* content_1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569F01FB421B8000D1A35 /* content_1@3x.png */; };
+		3B3569FE1FB43007000D1A35 /* ic_feed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569F11FB421B8000D1A35 /* ic_feed@3x.png */; };
+		3B3569FF1FB43007000D1A35 /* content_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569F21FB421B8000D1A35 /* content_2@3x.png */; };
+		3B356A001FB43007000D1A35 /* ic_settings@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569F31FB421B8000D1A35 /* ic_settings@3x.png */; };
+		3B356A011FB43007000D1A35 /* ic_activity@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569F41FB421B8000D1A35 /* ic_activity@3x.png */; };
 		3B52C2D91F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B52C2D81F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift */; };
 		3B52C2DB1F580300000CBEA7 /* WLHomePage-DriversLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B52C2DA1F580300000CBEA7 /* WLHomePage-DriversLogic.swift */; };
 		3B52C2DD1F5803FF000CBEA7 /* WLUberDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B52C2DC1F5803FF000CBEA7 /* WLUberDriver.swift */; };
@@ -1068,6 +1080,18 @@
 		3B226BCF1ECEC341005E7ED6 /* WLGuidePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLGuidePageViewController.xib; path = resource/xib/WLGuidePageViewController.xib; sourceTree = "<group>"; };
 		3B27B2351F668A68007E92D9 /* WLAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLAnnotation.swift; path = Model/WLAnnotation.swift; sourceTree = "<group>"; };
 		3B349CF31ED6D576004CE7DE /* WLHomePage-Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WLHomePage-Map.swift"; path = "view/WLHomePage-Map.swift"; sourceTree = "<group>"; };
+		3B3569E81FB4216A000D1A35 /* WLHomePage-CustomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WLHomePage-CustomMenu.swift"; sourceTree = "<group>"; };
+		3B3569EB1FB421B7000D1A35 /* ic_menu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_menu@3x.png"; sourceTree = "<group>"; };
+		3B3569EC1FB421B7000D1A35 /* GuillotineMenuTransitionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuillotineMenuTransitionAnimation.swift; sourceTree = "<group>"; };
+		3B3569EE1FB421B8000D1A35 /* ic_profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_profile@3x.png"; sourceTree = "<group>"; };
+		3B3569EF1FB421B8000D1A35 /* ic_menuRotated@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_menuRotated@3x.png"; sourceTree = "<group>"; };
+		3B3569F01FB421B8000D1A35 /* content_1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "content_1@3x.png"; sourceTree = "<group>"; };
+		3B3569F11FB421B8000D1A35 /* ic_feed@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_feed@3x.png"; sourceTree = "<group>"; };
+		3B3569F21FB421B8000D1A35 /* content_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "content_2@3x.png"; sourceTree = "<group>"; };
+		3B3569F31FB421B8000D1A35 /* ic_settings@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_settings@3x.png"; sourceTree = "<group>"; };
+		3B3569F41FB421B8000D1A35 /* ic_activity@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_activity@3x.png"; sourceTree = "<group>"; };
+		3B3569F61FB42446000D1A35 /* WLMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WLMenuViewController.swift; path = view/page/WLMenuViewController.swift; sourceTree = "<group>"; };
+		3B3569F71FB42446000D1A35 /* WLMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = WLMenuViewController.xib; path = view/page/WLMenuViewController.xib; sourceTree = "<group>"; };
 		3B52C2D81F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WLHomePage-SuggestionResultTableView.swift"; path = "view/WLHomePage-SuggestionResultTableView.swift"; sourceTree = "<group>"; };
 		3B52C2DA1F580300000CBEA7 /* WLHomePage-DriversLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WLHomePage-DriversLogic.swift"; path = "view/WLHomePage-DriversLogic.swift"; sourceTree = "<group>"; };
 		3B52C2DC1F5803FF000CBEA7 /* WLUberDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLUberDriver.swift; path = Model/WLUberDriver.swift; sourceTree = "<group>"; };
@@ -1905,6 +1929,7 @@
 				3B9B37491ED2CE7E006C7406 /* WLSelectCountryViewController.swift */,
 				3B9B37561ED2DA37006C7406 /* WLUserInfoViewController.swift */,
 				3B6C4ABC1ED56CCE001A001D /* WLHomePageViewController.swift */,
+				3B3569E81FB4216A000D1A35 /* WLHomePage-CustomMenu.swift */,
 				3B52C2D81F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift */,
 				3B349CF31ED6D576004CE7DE /* WLHomePage-Map.swift */,
 				3BBE93FD1EF3B25700CEEF0C /* WLHomePage-Test.swift */,
@@ -1914,8 +1939,34 @@
 				3B6C4ACC1ED58461001A001D /* WLSettingsViewController.xib */,
 				3BBE94051EF3CBA200CEEF0C /* WLTimeCounterViewController.swift */,
 				3BBE94061EF3CBA200CEEF0C /* WLTimeCounterViewController.xib */,
+				3B3569F61FB42446000D1A35 /* WLMenuViewController.swift */,
+				3B3569F71FB42446000D1A35 /* WLMenuViewController.xib */,
 			);
 			name = page;
+			sourceTree = "<group>";
+		};
+		3B3569EA1FB421B7000D1A35 /* GuillotineMenu */ = {
+			isa = PBXGroup;
+			children = (
+				3B3569ED1FB421B8000D1A35 /* Assets */,
+				3B3569EC1FB421B7000D1A35 /* GuillotineMenuTransitionAnimation.swift */,
+			);
+			path = GuillotineMenu;
+			sourceTree = "<group>";
+		};
+		3B3569ED1FB421B8000D1A35 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				3B3569EB1FB421B7000D1A35 /* ic_menu@3x.png */,
+				3B3569EE1FB421B8000D1A35 /* ic_profile@3x.png */,
+				3B3569EF1FB421B8000D1A35 /* ic_menuRotated@3x.png */,
+				3B3569F01FB421B8000D1A35 /* content_1@3x.png */,
+				3B3569F11FB421B8000D1A35 /* ic_feed@3x.png */,
+				3B3569F21FB421B8000D1A35 /* content_2@3x.png */,
+				3B3569F31FB421B8000D1A35 /* ic_settings@3x.png */,
+				3B3569F41FB421B8000D1A35 /* ic_activity@3x.png */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		3B52C2DE1F580CC0000CBEA7 /* mapAnnotationView */ = {
@@ -1995,6 +2046,7 @@
 		3BBE93FA1EF389CF00CEEF0C /* custom */ = {
 			isa = PBXGroup;
 			children = (
+				3B3569EA1FB421B7000D1A35 /* GuillotineMenu */,
 				3B52C2DE1F580CC0000CBEA7 /* mapAnnotationView */,
 				3BBE93FF1EF3C98600CEEF0C /* StopWatchStyleKit.swift */,
 				3BBE93FB1EF3A5B900CEEF0C /* WLstarView.swift */,
@@ -2090,8 +2142,10 @@
 				3B226AE01ECEBE2E005E7ED6 /* UM.png in Resources */,
 				3B226AE71ECEBE2E005E7ED6 /* VG.png in Resources */,
 				3B226ACC1ECEBE2E005E7ED6 /* SY.png in Resources */,
+				3B356A001FB43007000D1A35 /* ic_settings@3x.png in Resources */,
 				3B226AAA1ECEBE2E005E7ED6 /* PG.png in Resources */,
 				3B226A471ECEBE2E005E7ED6 /* GB.png in Resources */,
+				3B3569F91FB42446000D1A35 /* WLMenuViewController.xib in Resources */,
 				3B226AA51ECEBE2E005E7ED6 /* NZ.png in Resources */,
 				3B9B37591ED2DA37006C7406 /* WLUserInfoViewController.xib in Resources */,
 				3B226ACF1ECEBE2E005E7ED6 /* TD.png in Resources */,
@@ -2190,10 +2244,12 @@
 				3B226A761ECEBE2E005E7ED6 /* KY.png in Resources */,
 				3B226A771ECEBE2E005E7ED6 /* KZ.png in Resources */,
 				3B226BAD1ECEBE2F005E7ED6 /* logo-061@3x.png in Resources */,
+				3B3569FB1FB43007000D1A35 /* ic_profile@3x.png in Resources */,
 				3B226BBB1ECEBE2F005E7ED6 /* logo-066@2x.png in Resources */,
 				3B2269FB1ECEBE2E005E7ED6 /* AC.png in Resources */,
 				3B226AFC1ECEBE2E005E7ED6 /* logo-002@3x.png in Resources */,
 				3B226A2C1ECEBE2E005E7ED6 /* CR.png in Resources */,
+				3B3569FC1FB43007000D1A35 /* ic_menuRotated@3x.png in Resources */,
 				3B226B1B1ECEBE2E005E7ED6 /* logo-013.png in Resources */,
 				3B2269EB1ECEBE2E005E7ED6 /* map-uberx.png in Resources */,
 				3B226AC41ECEBE2E005E7ED6 /* SK.png in Resources */,
@@ -2303,6 +2359,7 @@
 				3B226AF21ECEBE2E005E7ED6 /* ZM.png in Resources */,
 				3B2269EA1ECEBE2E005E7ED6 /* map-taxi.png in Resources */,
 				3B226BD01ECEC341005E7ED6 /* WLGuidePageViewController.xib in Resources */,
+				3B3569FA1FB43007000D1A35 /* ic_menu@3x.png in Resources */,
 				3B226A251ECEBE2E005E7ED6 /* CH.png in Resources */,
 				3B226A241ECEBE2E005E7ED6 /* CG.png in Resources */,
 				3B226A3A1ECEBE2E005E7ED6 /* EG.png in Resources */,
@@ -2423,6 +2480,7 @@
 				3B226B521ECEBE2E005E7ED6 /* logo-031@2x.png in Resources */,
 				3B226A211ECEBE2E005E7ED6 /* CC.png in Resources */,
 				3B226AE51ECEBE2E005E7ED6 /* VC.png in Resources */,
+				3B3569FD1FB43007000D1A35 /* content_1@3x.png in Resources */,
 				3B2269FF1ECEBE2E005E7ED6 /* AG.png in Resources */,
 				3B226A4C1ECEBE2E005E7ED6 /* GH.png in Resources */,
 				3B226B601ECEBE2E005E7ED6 /* logo-036.png in Resources */,
@@ -2442,13 +2500,16 @@
 				3B226A4A1ECEBE2E005E7ED6 /* GF.png in Resources */,
 				3B226BA11ECEBE2F005E7ED6 /* logo-057@3x.png in Resources */,
 				3B226BB41ECEBE2F005E7ED6 /* logo-064.png in Resources */,
+				3B3569FE1FB43007000D1A35 /* ic_feed@3x.png in Resources */,
 				3B226B4E1ECEBE2E005E7ED6 /* logo-030.png in Resources */,
 				3B6C4ABF1ED56CCF001A001D /* WLHomePageViewController.xib in Resources */,
+				3B3569FF1FB43007000D1A35 /* content_2@3x.png in Resources */,
 				3B226B191ECEBE2E005E7ED6 /* logo-012@2x.png in Resources */,
 				3B226AA61ECEBE2E005E7ED6 /* OM.png in Resources */,
 				3B226B891ECEBE2F005E7ED6 /* logo-049@3x.png in Resources */,
 				3B226B061ECEBE2E005E7ED6 /* logo-006.png in Resources */,
 				3B226AD91ECEBE2E005E7ED6 /* TR.png in Resources */,
+				3B356A011FB43007000D1A35 /* ic_activity@3x.png in Resources */,
 				3B226B401ECEBE2E005E7ED6 /* logo-025@2x.png in Resources */,
 				3B226B281ECEBE2E005E7ED6 /* logo-017@2x.png in Resources */,
 				3B226AEB1ECEBE2E005E7ED6 /* WF.png in Resources */,
@@ -2667,6 +2728,9 @@
 				3B6C4AC51ED5765A001A001D /* KYEmbedDrawerControllerSegue.swift in Sources */,
 				3B226BC81ECEC266005E7ED6 /* WLBaseViewController.swift in Sources */,
 				3B2267C41ECE9743005E7ED6 /* AppDelegate.swift in Sources */,
+				3B3569E91FB4216A000D1A35 /* WLHomePage-CustomMenu.swift in Sources */,
+				3B3569F51FB423FA000D1A35 /* GuillotineMenuTransitionAnimation.swift in Sources */,
+				3B3569F81FB42446000D1A35 /* WLMenuViewController.swift in Sources */,
 				3BBE94021EF3CAB500CEEF0C /* WLStopWatch.swift in Sources */,
 				3B9B37431ED2BA58006C7406 /* MBProgressHUD+NJ.m in Sources */,
 				3BBE93FC1EF3A5B900CEEF0C /* WLstarView.swift in Sources */,

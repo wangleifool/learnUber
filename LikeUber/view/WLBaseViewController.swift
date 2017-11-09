@@ -26,7 +26,11 @@ class WLBaseViewController: UIViewController {
         var barButtonItem:UIBarButtonItem
         
         if title.hasSuffix("png") {
-            barButtonItem = UIBarButtonItem(image: UIImage(named:title), style: .plain, target: self, action: selector)
+            let btMenu = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+            btMenu.setImage(UIImage(named:title), for: UIControlState.normal)
+            btMenu.addTarget(self, action: selector, for: UIControlEvents.touchUpInside)
+            barButtonItem = UIBarButtonItem(customView: btMenu)
+//            barButtonItem = UIBarButtonItem(image: UIImage(named:title), style: .plain, target: self, action: selector)
         } else {
             barButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: selector)
         }

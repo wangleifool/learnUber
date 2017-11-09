@@ -24,8 +24,14 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>本应用需要你的相机的访问权限，你可以在"设置"中修改权限</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>使用本应用时或始终打开定位</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>本应用需要你的地理位置的访问权限，你可以在"设置"中修改权限</string>
+	<key>NSLocationUsageDescription</key>
+	<string>本应用需要你的地理位置的访问权限，你可以在"设置"中修改权限</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>使用本应用时打开定位</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>本应用需要你的相册的访问权限，你可以在"设置"中修改权限</string>
 	<key>UILaunchStoryboardName</key>

@@ -74,7 +74,11 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
     var driverLatitudeChangeOffset :Double = 0.0//用来判断移动时，经纬度该加还是该减
     var driverLongitudeChangeOffset :Double = 0.0
     
+    var test :[String:Int]? = Dictionary()
     
+    
+    //自定义的转场动画
+    lazy var presentationAnimator = GuillotineTransitionAnimation()
     
     // #MARK: - VC 生命周期
     override func viewDidLoad() {
@@ -82,11 +86,18 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
         
         appDelegate = UIApplication.shared.delegate as? AppDelegate
 
-
-        let logoUrl = Bundle.main.path(forResource: "logo_uber_grey_zh_CN@2x", ofType: "png")
-        let imageView = UIImageView(image: UIImage(contentsOfFile: logoUrl!))
-        self.navigationItem.titleView = imageView
-        setNavigationItem(title: "icon_touxiang.png", selector: #selector(self.settingPressed(sender:)), isRight: false)
+// set navigation title
+//        let logoUrl = Bundle.main.path(forResource: "logo_uber_grey_zh_CN@2x", ofType: "png")
+//        let imageView = UIImageView(image: UIImage(contentsOfFile: logoUrl!))
+//        self.navigationItem.titleView = imageView
+        
+        let navBar = self.navigationController!.navigationBar
+        navBar.barTintColor = UIColor(red: 65.0 / 255.0, green: 62.0 / 255.0, blue: 78.0 / 255.0, alpha: 1)
+        navBar.isTranslucent = false  //不要设置半透明效果
+        navBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        self.navigationItem.title = "UBER"
+        setNavigationItem(title: "ic_menu@3x.png", selector: #selector(self.btShowMenuPressed(sender:)), isRight: false)
         setNavigationItem(title: "Timer", selector: #selector(self.btTimerClicked(_:)), isRight: true)
                 
         //监控地址查询输入框中
@@ -161,16 +172,6 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
     
     
     // #MARK: action
-    func settingPressed(sender:Any) {
-        //得到父级视图控制器drawerController
-        if let drawerController = appDelegate?.window?.rootViewController as? KYDrawerController {
-            if drawerController.drawerState == .closed {
-                drawerController.setDrawerState(.opened, animated: true)
-            } else {
-                drawerController.setDrawerState(.closed, animated: true)
-            }
-        }
-    }
 
     
     @IBAction func btTimerClicked(_ sender: Any) {
