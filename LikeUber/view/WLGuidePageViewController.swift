@@ -9,10 +9,12 @@
 import UIKit
 import AVFoundation
 
-class WLGuidePageViewController: WLBasePageViewController {
+class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransitioningDelegate {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var btLogin: TKTransitionSubmitButton!
+    
     var videoPlayer:AVPlayer!
     var playerItem:AVPlayerItem!
     var location:WLLocation!
@@ -101,14 +103,26 @@ class WLGuidePageViewController: WLBasePageViewController {
     }
     
     @IBAction func btLoginPressed(_ sender: Any) {
+
+//        appDelegate?.showHomePage()
         
-        
-//        if (location.curLocationString != nil) {
-//            LCProgressHUD.showInfoMsg(location.curLocationString)
-//        }
-        appDelegate?.showHomePage()
+        //登录按钮的动画，按钮扩展全面视图
+        btLogin.animate(0.6) {
+            let homePage = WLHomePageViewController()
+            let nav = UINavigationController(rootViewController: homePage)
+            nav.transitioningDelegate = self
+            self.present(nav, animated: true, completion: nil)
+        }
         
     }
     
 
+    // MARK: UIViewControllerTransitioningDelegate
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return TKFadeInAnimator(transitionDuration: 0.5, startingAlpha: 0.8)
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return nil
+    }
 }

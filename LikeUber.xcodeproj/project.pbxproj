@@ -566,6 +566,11 @@
 		3B9B37551ED2D17A006C7406 /* FxString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B37541ED2D17A006C7406 /* FxString.mm */; };
 		3B9B37581ED2DA37006C7406 /* WLUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B37561ED2DA37006C7406 /* WLUserInfoViewController.swift */; };
 		3B9B37591ED2DA37006C7406 /* WLUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B9B37571ED2DA37006C7406 /* WLUserInfoViewController.xib */; };
+		3B9F29411FB6CD25006BD15D /* TimerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9F293C1FB6CD23006BD15D /* TimerEx.swift */; };
+		3B9F29421FB6CD25006BD15D /* TransitionSubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9F293D1FB6CD23006BD15D /* TransitionSubmitButton.swift */; };
+		3B9F29431FB6CD25006BD15D /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9F293E1FB6CD24006BD15D /* CGRectEx.swift */; };
+		3B9F29441FB6CD25006BD15D /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9F293F1FB6CD24006BD15D /* FadeTransition.swift */; };
+		3B9F29451FB6CD25006BD15D /* SpinerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9F29401FB6CD24006BD15D /* SpinerLayer.swift */; };
 		3BBE93FC1EF3A5B900CEEF0C /* WLstarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE93FB1EF3A5B900CEEF0C /* WLstarView.swift */; };
 		3BBE93FE1EF3B25700CEEF0C /* WLHomePage-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE93FD1EF3B25700CEEF0C /* WLHomePage-Test.swift */; };
 		3BBE94001EF3C98600CEEF0C /* StopWatchStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE93FF1EF3C98600CEEF0C /* StopWatchStyleKit.swift */; };
@@ -1143,6 +1148,11 @@
 		3B9B37541ED2D17A006C7406 /* FxString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FxString.mm; sourceTree = "<group>"; };
 		3B9B37561ED2DA37006C7406 /* WLUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLUserInfoViewController.swift; path = view/WLUserInfoViewController.swift; sourceTree = "<group>"; };
 		3B9B37571ED2DA37006C7406 /* WLUserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLUserInfoViewController.xib; path = view/WLUserInfoViewController.xib; sourceTree = "<group>"; };
+		3B9F293C1FB6CD23006BD15D /* TimerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerEx.swift; sourceTree = "<group>"; };
+		3B9F293D1FB6CD23006BD15D /* TransitionSubmitButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionSubmitButton.swift; sourceTree = "<group>"; };
+		3B9F293E1FB6CD24006BD15D /* CGRectEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectEx.swift; sourceTree = "<group>"; };
+		3B9F293F1FB6CD24006BD15D /* FadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
+		3B9F29401FB6CD24006BD15D /* SpinerLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinerLayer.swift; sourceTree = "<group>"; };
 		3BBE93FB1EF3A5B900CEEF0C /* WLstarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLstarView.swift; path = view/WLstarView.swift; sourceTree = "<group>"; };
 		3BBE93FD1EF3B25700CEEF0C /* WLHomePage-Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WLHomePage-Test.swift"; path = "view/WLHomePage-Test.swift"; sourceTree = "<group>"; };
 		3BBE93FF1EF3C98600CEEF0C /* StopWatchStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatchStyleKit.swift; sourceTree = "<group>"; };
@@ -2043,9 +2053,22 @@
 			name = Utility;
 			sourceTree = "<group>";
 		};
+		3B9F293B1FB6CCB2006BD15D /* shinnyLoginButton */ = {
+			isa = PBXGroup;
+			children = (
+				3B9F293E1FB6CD24006BD15D /* CGRectEx.swift */,
+				3B9F293F1FB6CD24006BD15D /* FadeTransition.swift */,
+				3B9F29401FB6CD24006BD15D /* SpinerLayer.swift */,
+				3B9F293C1FB6CD23006BD15D /* TimerEx.swift */,
+				3B9F293D1FB6CD23006BD15D /* TransitionSubmitButton.swift */,
+			);
+			path = shinnyLoginButton;
+			sourceTree = "<group>";
+		};
 		3BBE93FA1EF389CF00CEEF0C /* custom */ = {
 			isa = PBXGroup;
 			children = (
+				3B9F293B1FB6CCB2006BD15D /* shinnyLoginButton */,
 				3B3569EA1FB421B7000D1A35 /* GuillotineMenu */,
 				3B52C2DE1F580CC0000CBEA7 /* mapAnnotationView */,
 				3BBE93FF1EF3C98600CEEF0C /* StopWatchStyleKit.swift */,
@@ -2707,18 +2730,22 @@
 				3BBE93FE1EF3B25700CEEF0C /* WLHomePage-Test.swift in Sources */,
 				3B6C4AC81ED5766A001A001D /* DrawerViewController.swift in Sources */,
 				3B52C2DB1F580300000CBEA7 /* WLHomePage-DriversLogic.swift in Sources */,
+				3B9F29411FB6CD25006BD15D /* TimerEx.swift in Sources */,
 				3B6C4AC61ED5765A001A001D /* KYEmbedMainControllerSegue.swift in Sources */,
 				3B52C2DD1F5803FF000CBEA7 /* WLUberDriver.swift in Sources */,
 				3B349CF41ED6D576004CE7DE /* WLHomePage-Map.swift in Sources */,
 				3B6C4ACD1ED58461001A001D /* WLSettingsViewController.swift in Sources */,
 				3B52C2E01F580D0E000CBEA7 /* WLCarAnnotationView.swift in Sources */,
+				3B9F29431FB6CD25006BD15D /* CGRectEx.swift in Sources */,
 				3BBE94041EF3CAC500CEEF0C /* WLStopWatchHand.swift in Sources */,
 				3BBE94071EF3CBA200CEEF0C /* WLTimeCounterViewController.swift in Sources */,
 				3B52C2D91F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift in Sources */,
 				3B226BCE1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift in Sources */,
 				3BBE94001EF3C98600CEEF0C /* StopWatchStyleKit.swift in Sources */,
+				3B9F29451FB6CD25006BD15D /* SpinerLayer.swift in Sources */,
 				3B9B37501ED2D0E0006C7406 /* CountryInfo.swift in Sources */,
 				3B2267E31ECEB565005E7ED6 /* WLGlobalDefine.swift in Sources */,
+				3B9F29421FB6CD25006BD15D /* TransitionSubmitButton.swift in Sources */,
 				3B9B37551ED2D17A006C7406 /* FxString.mm in Sources */,
 				3B9B37471ED2C222006C7406 /* WLCreateAccountViewController.swift in Sources */,
 				3B9B37581ED2DA37006C7406 /* WLUserInfoViewController.swift in Sources */,
@@ -2735,6 +2762,7 @@
 				3B9B37431ED2BA58006C7406 /* MBProgressHUD+NJ.m in Sources */,
 				3BBE93FC1EF3A5B900CEEF0C /* WLstarView.swift in Sources */,
 				3B6C4ABE1ED56CCF001A001D /* WLHomePageViewController.swift in Sources */,
+				3B9F29441FB6CD25006BD15D /* FadeTransition.swift in Sources */,
 				3B9B37421ED2BA58006C7406 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2860,7 +2888,7 @@
 					"$(PROJECT_DIR)/LikeUber/ThirdSDK/baiduMap",
 				);
 				INFOPLIST_FILE = LikeUber/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2891,7 +2919,7 @@
 					"$(PROJECT_DIR)/LikeUber/ThirdSDK/baiduMap",
 				);
 				INFOPLIST_FILE = LikeUber/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

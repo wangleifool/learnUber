@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
+        
+        addMap() //添加百度地图服务
+        
         showGuidePage()
         
         return true
@@ -57,7 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          drawerController.drawerWidth     = 200
          */
         
-        addMap() //添加百度地图服务
         
         
         let navRootVC = UINavigationController(rootViewController: mainViewController)

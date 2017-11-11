@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59P-F4-lbV">
-                    <rect key="frame" x="16" y="70" width="288" height="93"/>
+                    <rect key="frame" x="16" y="32" width="288" height="93"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Rjc-rW-IH3">
                             <rect key="frame" x="63" y="0.0" width="225" height="45"/>
@@ -102,7 +102,7 @@
                 <constraint firstAttribute="bottom" secondItem="dLG-Tf-gYr" secondAttribute="bottom" constant="16" id="PmR-cV-7ZO"/>
                 <constraint firstAttribute="trailing" secondItem="dLG-Tf-gYr" secondAttribute="trailing" constant="16" id="Uwh-sm-12W"/>
                 <constraint firstAttribute="trailing" secondItem="59P-F4-lbV" secondAttribute="trailing" constant="16" id="dcd-0K-gyk"/>
-                <constraint firstItem="59P-F4-lbV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="pqT-i5-F6D"/>
+                <constraint firstItem="59P-F4-lbV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="pqT-i5-F6D"/>
                 <constraint firstItem="59P-F4-lbV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="tsv-qI-IXC"/>
             </constraints>
             <point key="canvasLocation" x="24" y="51"/>
