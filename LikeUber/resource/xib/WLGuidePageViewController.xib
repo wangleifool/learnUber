@@ -14,6 +14,9 @@
                 <outlet property="backView" destination="4Gq-4a-mTo" id="GaO-Fb-tXH"/>
                 <outlet property="backgroundImageView" destination="4LM-HS-nhu" id="Ubz-hz-Dsz"/>
                 <outlet property="btLogin" destination="c0S-J3-qZp" id="cql-4v-tcw"/>
+                <outlet property="stackViewOfTwoTextfield" destination="A8x-hU-ncc" id="8xW-zV-YvU"/>
+                <outlet property="textfieldPasswd" destination="y8Q-OW-u0i" id="t3a-eK-8BK"/>
+                <outlet property="textfieldUserName" destination="bWD-LN-wMW" id="wIY-3i-umG"/>
                 <outlet property="view" destination="iN0-l3-epB" id="JgH-Ta-zRi"/>
             </connections>
         </placeholder>
@@ -73,38 +76,70 @@
                                 <action selector="btLoginPressed:" destination="-1" eventType="touchUpInside" id="qJz-oT-Z2A"/>
                             </connections>
                         </button>
+                        <stackView opaque="NO" alpha="0.0" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="A8x-hU-ncc">
+                            <rect key="frame" x="38" y="236" width="243" height="96"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="用户名或邮箱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bWD-LN-wMW" customClass="WLSublineTextField" customModule="LikeUber" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="243" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="LeC-SU-iC8"/>
+                                    </constraints>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="bQc-qx-fln"/>
+                                    </connections>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y8Q-OW-u0i" customClass="WLSublineTextField" customModule="LikeUber" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="52" width="243" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="NEx-lf-3xI"/>
+                                    </constraints>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="uCq-nT-Nqg"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="96" id="dF5-0B-YdM"/>
+                            </constraints>
+                        </stackView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="c0S-J3-qZp" firstAttribute="leading" secondItem="4wB-7C-eMC" secondAttribute="trailing" id="7fG-S4-Bfg"/>
                         <constraint firstItem="4wB-7C-eMC" firstAttribute="height" secondItem="aUp-Wa-gm2" secondAttribute="height" id="8fL-zc-4QK"/>
                         <constraint firstItem="4wB-7C-eMC" firstAttribute="centerX" secondItem="4Gq-4a-mTo" secondAttribute="centerX" id="BgR-Oa-gvB"/>
+                        <constraint firstItem="A8x-hU-ncc" firstAttribute="leading" secondItem="4Gq-4a-mTo" secondAttribute="leading" constant="38" id="Eyr-Ga-g12"/>
                         <constraint firstItem="aUp-Wa-gm2" firstAttribute="leading" secondItem="4Gq-4a-mTo" secondAttribute="leading" constant="38" id="Gbi-yD-xa9"/>
                         <constraint firstItem="4wB-7C-eMC" firstAttribute="bottom" secondItem="aUp-Wa-gm2" secondAttribute="bottom" id="Gnn-YT-2kV"/>
                         <constraint firstItem="4wB-7C-eMC" firstAttribute="leading" secondItem="aUp-Wa-gm2" secondAttribute="trailing" id="HGJ-1z-0ja"/>
+                        <constraint firstItem="A8x-hU-ncc" firstAttribute="centerX" secondItem="4Gq-4a-mTo" secondAttribute="centerX" id="O9O-SI-4Oy"/>
                         <constraint firstAttribute="trailing" secondItem="c0S-J3-qZp" secondAttribute="trailing" constant="38" id="V6v-tH-xfb"/>
                         <constraint firstItem="c0S-J3-qZp" firstAttribute="bottom" secondItem="aUp-Wa-gm2" secondAttribute="bottom" id="Vcf-kN-YCp"/>
+                        <constraint firstItem="A8x-hU-ncc" firstAttribute="centerY" secondItem="4Gq-4a-mTo" secondAttribute="centerY" id="s6d-x5-Bm7"/>
                         <constraint firstAttribute="bottom" secondItem="aUp-Wa-gm2" secondAttribute="bottom" constant="33" id="vSV-zM-2U3"/>
                         <constraint firstItem="c0S-J3-qZp" firstAttribute="height" secondItem="aUp-Wa-gm2" secondAttribute="height" id="woT-qi-1Il"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-067.png" translatesAutoresizingMaskIntoConstraints="NO" id="4LM-HS-nhu">
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-067.png" translatesAutoresizingMaskIntoConstraints="NO" id="4LM-HS-nhu">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="4Gq-4a-mTo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6ZK-1L-5nq"/>
-                <constraint firstAttribute="trailing" secondItem="4LM-HS-nhu" secondAttribute="trailing" id="FSD-TX-Gqd"/>
                 <constraint firstAttribute="trailing" secondItem="4Gq-4a-mTo" secondAttribute="trailing" id="UYJ-yq-xq2"/>
                 <constraint firstAttribute="bottom" secondItem="4Gq-4a-mTo" secondAttribute="bottom" id="WXZ-3P-YXk"/>
                 <constraint firstItem="4Gq-4a-mTo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Xlb-Hf-dFL"/>
-                <constraint firstItem="4LM-HS-nhu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bSB-tH-LKA"/>
-                <constraint firstItem="4LM-HS-nhu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dSY-PF-4uU"/>
-                <constraint firstAttribute="bottom" secondItem="4LM-HS-nhu" secondAttribute="bottom" id="rDf-Ug-hWP"/>
             </constraints>
-            <point key="canvasLocation" x="25.5" y="52.5"/>
+            <point key="canvasLocation" x="25" y="52"/>
         </view>
     </objects>
     <resources>

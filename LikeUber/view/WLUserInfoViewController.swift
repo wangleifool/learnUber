@@ -29,7 +29,7 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
     }
     
     
-    func nextStep() {
+    @objc func nextStep() {
         
     }
 

@@ -85,7 +85,7 @@ class WLMenuViewController: UIViewController,GuillotineAnimationDelegate,Guillot
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    func dismissButtonTapped(_ sender: UIButton) {
+    @objc func dismissButtonTapped(_ sender: UIButton) {
         presentingViewController!.dismiss(animated: true, completion: nil)
     }
 }

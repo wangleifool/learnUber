@@ -11,7 +11,7 @@ import Foundation
 //自定义translation 转场
 extension WLHomePageViewController : UIViewControllerTransitioningDelegate {
     
-    func btShowMenuPressed(sender: UIButton) {
+    @objc func btShowMenuPressed(sender: UIButton) {
         //得到父级视图控制器drawerController
         //        if let drawerController = appDelegate?.window?.rootViewController as? KYDrawerController {
         //            if drawerController.drawerState == .closed {

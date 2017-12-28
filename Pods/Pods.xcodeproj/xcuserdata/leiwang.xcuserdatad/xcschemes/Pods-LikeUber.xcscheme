@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DA3CA504F29B2001D77B8964CFF742F2"
+               BlueprintIdentifier = "3C191D718E6AC0FDF9D63BDBB3434EE4"
                BuildableName = "Pods_LikeUber.framework"
                BlueprintName = "Pods-LikeUber"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -45,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA3CA504F29B2001D77B8964CFF742F2"
+            BlueprintIdentifier = "3C191D718E6AC0FDF9D63BDBB3434EE4"
             BuildableName = "Pods_LikeUber.framework"
             BlueprintName = "Pods-LikeUber"
             ReferencedContainer = "container:Pods.xcodeproj">

@@ -195,7 +195,7 @@ extension WLHomePageViewController {
         driverTimer?.fireDate = Date()
     }
     
-    func timerEvent() {
+    @objc func timerEvent() {
         
         //不需要从地图上移除annotation，直接更新他的坐标即可
         if let oldCarAnnotation = self.driver?.driverCarAnnotation {

@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import RxSwift
 
 let defaultZoomLevel:Float = 18.0
 
 extension WLHomePageViewController: BMKRouteSearchDelegate {
 
+    
+    
     func addBaiduMapView() {
         if mapView == nil {
             mapView = BMKMapView(frame: self.view.bounds)
@@ -492,7 +495,21 @@ extension WLHomePageViewController: BMKRouteSearchDelegate {
         self.textFieldStartAddress.returnKeyType  = .search
         self.textFieldTargetAddress.returnKeyType = .search
         
+        
+        textFieldStartAddress.rx.text.orEmpty.map{
+            var isValid = false
+            if $0.count > 2 {
+                self.searchSuggestionPlace(keyWord: $0)
+                isValid = true
+            }
+            return isValid
+        }
+        .share(replay: 1)
+        .bind(to: textFieldTargetAddress.rx.isEnabled)
+        .disposed(by: DisposeBag())
+        
         //创建一个 判断是否是有效地址的 textfiled 监控信号
+        /*
         let isValidAddressSignal = self.textFieldTargetAddress.reactive.continuousTextValues.map({
             inputText in
             return self.isValidAddress(addr: inputText!)
@@ -546,6 +563,7 @@ extension WLHomePageViewController: BMKRouteSearchDelegate {
         }).observeValues ({ (textColor) in
             self.textFieldStartAddress.textColor = textColor
         })
+ */
         
     }
     

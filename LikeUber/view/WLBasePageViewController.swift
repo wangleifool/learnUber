@@ -22,7 +22,7 @@ class WLBasePageViewController: WLBaseViewController {
     }
     
 
-    func doBack()
+    @objc func doBack()
     {
         if (self.navigationController?.viewControllers.count)! > 1 {
             self.navigationController?.popViewController(animated: true)

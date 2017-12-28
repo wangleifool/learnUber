@@ -373,7 +373,7 @@ open class KYDrawerController: UIViewController, UIGestureRecognizerDelegate {
     // MARK: - Private Method
     /**************************************************************************/
     
-    final func handlePanGesture(_ sender: UIGestureRecognizer) {
+    @objc final func handlePanGesture(_ sender: UIGestureRecognizer) {
         _containerView.isHidden = false
         if sender.state == .began {
             _panStartLocation = sender.location(in: view)
@@ -425,7 +425,7 @@ open class KYDrawerController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    final func didtapContainerView(_ gesture: UITapGestureRecognizer) {
+    @objc final func didtapContainerView(_ gesture: UITapGestureRecognizer) {
         setDrawerState(.closed, animated: true)
     }
     

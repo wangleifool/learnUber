@@ -19,7 +19,7 @@ class WLSettingsViewController: WLBasePageViewController {
         
         setNavigationItem(title: "Close.png", selector: #selector(self.doBack), isRight: false)
         
-                
+        
         self.mainScrollView.contentSize = CGSize(width: 0, height: userBackView.frame.size.height)
         self.mainScrollView.addSubview(userBackView)
     }
@@ -28,7 +28,5 @@ class WLSettingsViewController: WLBasePageViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
     
 }

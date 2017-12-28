@@ -32,7 +32,7 @@ class WLSelectCountryViewController: WLBasePageViewController,UITableViewDataSou
         self.mainTableView.reloadData()
     }
     
-    func cancel() {
+    @objc func cancel() {
         self.dismiss(animated: true, completion: nil)
     }
     

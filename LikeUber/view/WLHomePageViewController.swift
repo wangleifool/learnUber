@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import ReactiveCocoa
-import ReactiveSwift
-import Result
-import enum Result.NoError
+
+import RxSwift
+import RxCocoa
+
 
 
 //图钉针尖位置
@@ -94,9 +94,9 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
         let navBar = self.navigationController!.navigationBar
         navBar.barTintColor = UIColor(red: 65.0 / 255.0, green: 62.0 / 255.0, blue: 78.0 / 255.0, alpha: 1)
         navBar.isTranslucent = false  //不要设置半透明效果
-        navBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
-        self.navigationItem.title = "UBER"
+        self.navigationItem.title = "UBER"        
         setNavigationItem(title: "ic_menu@3x.png", selector: #selector(self.btShowMenuPressed(sender:)), isRight: false)
         setNavigationItem(title: "Timer", selector: #selector(self.btTimerClicked(_:)), isRight: true)
                 

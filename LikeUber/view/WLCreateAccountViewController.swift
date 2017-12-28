@@ -24,14 +24,15 @@ class WLCreateAccountViewController: WLBasePageViewController {
         textfieldMail.becomeFirstResponder()
     }
     
-    func nextStep() {
+    @objc func nextStep() {
         let userInfoPage = WLUserInfoViewController()
         self.navigationController?.pushViewController(userInfoPage, animated: true)
     }
     
-    func cancel() {
+    @objc func cancel() {
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func btSelectCountryPressed(_ sender: Any) {
         let vc = WLSelectCountryViewController()
         let navc = UINavigationController(rootViewController: vc)
