@@ -65,7 +65,9 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
     var driverRouteSearch: BMKRouteSearch!
     var driverRouteCurrentStep: UInt! = 1
     var driverRouteLastStep: UInt! = 0
-
+    
+    
+    
     //标识点的移动
     var startPointInLine :CLLocationCoordinate2D! = CLLocationCoordinate2D()//获取每个分段的起点与终点
     var endPointInLine :CLLocationCoordinate2D! = CLLocationCoordinate2D()
@@ -76,6 +78,7 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
     
     var test :[String:Int]? = Dictionary()
     
+    let disposeBag = DisposeBag()
     
     //自定义的转场动画
     lazy var presentationAnimator = GuillotineTransitionAnimation()

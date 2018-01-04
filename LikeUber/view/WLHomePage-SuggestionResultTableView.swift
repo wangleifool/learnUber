@@ -23,7 +23,7 @@ extension WLHomePageViewController :UITableViewDataSource,UITableViewDelegate {
         suggestionPlaceTableView.isHidden = true
     }
     
-    func hideTableView() {
+    func hideSuggestionTableView() {
         UIView.animate(withDuration: 0.5) { 
             self.suggestionPlaceTableView.isHidden = true
         }
@@ -92,7 +92,7 @@ extension WLHomePageViewController :UITableViewDataSource,UITableViewDelegate {
         isSelectFromSuggestChoices = true
         
         self.hideVirtualKeyBoard()
-        self.hideTableView()        
+        self.hideSuggestionTableView()        
     }
     
 }

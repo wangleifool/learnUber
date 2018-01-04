@@ -507,6 +507,13 @@
 		3B226BCE1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B226BCD1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift */; };
 		3B226BD01ECEC341005E7ED6 /* WLGuidePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B226BCF1ECEC341005E7ED6 /* WLGuidePageViewController.xib */; };
 		3B27B2361F668A68007E92D9 /* WLAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B27B2351F668A68007E92D9 /* WLAnnotation.swift */; };
+		3B2DF4041FFCD5FD00814540 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DF3FE1FFCD5FC00814540 /* LoginViewController.swift */; };
+		3B2DF4051FFCD5FD00814540 /* LoginViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DF3FF1FFCD5FC00814540 /* LoginViewModels.swift */; };
+		3B2DF4061FFCD5FD00814540 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DF4001FFCD5FC00814540 /* Protocols.swift */; };
+		3B2DF4071FFCD5FD00814540 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DF4011FFCD5FC00814540 /* ValidationService.swift */; };
+		3B2DF4081FFCD5FD00814540 /* SignUpViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DF4021FFCD5FC00814540 /* SignUpViewModels.swift */; };
+		3B2DF4091FFCD5FD00814540 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DF4031FFCD5FD00814540 /* SignUpViewController.swift */; };
+		3B2DF40B1FFDB83C00814540 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2DF40A1FFDB83C00814540 /* SignUpViewController.xib */; };
 		3B2E77241FF4D5C500C91FF5 /* BindingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E77231FF4D5C500C91FF5 /* BindingExtensions.swift */; };
 		3B349CF41ED6D576004CE7DE /* WLHomePage-Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B349CF31ED6D576004CE7DE /* WLHomePage-Map.swift */; };
 		3B3569E91FB4216A000D1A35 /* WLHomePage-CustomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3569E81FB4216A000D1A35 /* WLHomePage-CustomMenu.swift */; };
@@ -1086,6 +1093,13 @@
 		3B226BCD1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLGuidePageViewController.swift; path = view/WLGuidePageViewController.swift; sourceTree = "<group>"; };
 		3B226BCF1ECEC341005E7ED6 /* WLGuidePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLGuidePageViewController.xib; path = resource/xib/WLGuidePageViewController.xib; sourceTree = "<group>"; };
 		3B27B2351F668A68007E92D9 /* WLAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLAnnotation.swift; path = Model/WLAnnotation.swift; sourceTree = "<group>"; };
+		3B2DF3FE1FFCD5FC00814540 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3B2DF3FF1FFCD5FC00814540 /* LoginViewModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModels.swift; sourceTree = "<group>"; };
+		3B2DF4001FFCD5FC00814540 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		3B2DF4011FFCD5FC00814540 /* ValidationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
+		3B2DF4021FFCD5FC00814540 /* SignUpViewModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModels.swift; sourceTree = "<group>"; };
+		3B2DF4031FFCD5FD00814540 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3B2DF40A1FFDB83C00814540 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		3B2E77231FF4D5C500C91FF5 /* BindingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingExtensions.swift; sourceTree = "<group>"; };
 		3B349CF31ED6D576004CE7DE /* WLHomePage-Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WLHomePage-Map.swift"; path = "view/WLHomePage-Map.swift"; sourceTree = "<group>"; };
 		3B3569E81FB4216A000D1A35 /* WLHomePage-CustomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WLHomePage-CustomMenu.swift"; sourceTree = "<group>"; };
@@ -1329,8 +1343,6 @@
 			isa = PBXGroup;
 			children = (
 				3B2267CC1ECE9743005E7ED6 /* LaunchScreen.storyboard */,
-				3B226BCF1ECEC341005E7ED6 /* WLGuidePageViewController.xib */,
-				3B9B37461ED2C222006C7406 /* WLCreateAccountViewController.xib */,
 				3B9B374A1ED2CE7E006C7406 /* WLSelectCountryViewController.xib */,
 				3B9B37571ED2DA37006C7406 /* WLUserInfoViewController.xib */,
 				3B6C4ABD1ED56CCE001A001D /* WLHomePageViewController.xib */,
@@ -1938,9 +1950,8 @@
 		3B226BC91ECEC270005E7ED6 /* page */ = {
 			isa = PBXGroup;
 			children = (
+				3B2DF3FD1FFCD5E800814540 /* LoginPage */,
 				3B2E77221FF4D57E00C91FF5 /* HomePage */,
-				3B226BCD1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift */,
-				3B9B37451ED2C222006C7406 /* WLCreateAccountViewController.swift */,
 				3B9B37491ED2CE7E006C7406 /* WLSelectCountryViewController.swift */,
 				3B9B37561ED2DA37006C7406 /* WLUserInfoViewController.swift */,
 				3B6C4AC71ED5766A001A001D /* DrawerViewController.swift */,
@@ -1952,6 +1963,32 @@
 				3B3569F71FB42446000D1A35 /* WLMenuViewController.xib */,
 			);
 			name = page;
+			sourceTree = "<group>";
+		};
+		3B2DF3FD1FFCD5E800814540 /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				3B2DF40C1FFDBBE200814540 /* despreciate */,
+				3B226BCF1ECEC341005E7ED6 /* WLGuidePageViewController.xib */,
+				3B226BCD1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift */,
+				3B2DF3FF1FFCD5FC00814540 /* LoginViewModels.swift */,
+				3B2DF4001FFCD5FC00814540 /* Protocols.swift */,
+				3B2DF40A1FFDB83C00814540 /* SignUpViewController.xib */,
+				3B2DF4031FFCD5FD00814540 /* SignUpViewController.swift */,
+				3B2DF4021FFCD5FC00814540 /* SignUpViewModels.swift */,
+				3B2DF4011FFCD5FC00814540 /* ValidationService.swift */,
+			);
+			name = LoginPage;
+			sourceTree = "<group>";
+		};
+		3B2DF40C1FFDBBE200814540 /* despreciate */ = {
+			isa = PBXGroup;
+			children = (
+				3B9B37461ED2C222006C7406 /* WLCreateAccountViewController.xib */,
+				3B9B37451ED2C222006C7406 /* WLCreateAccountViewController.swift */,
+				3B2DF3FE1FFCD5FC00814540 /* LoginViewController.swift */,
+			);
+			name = despreciate;
 			sourceTree = "<group>";
 		};
 		3B2E77221FF4D57E00C91FF5 /* HomePage */ = {
@@ -2625,6 +2662,7 @@
 				3B226A8D1ECEBE2E005E7ED6 /* MN.png in Resources */,
 				3B226B9C1ECEBE2F005E7ED6 /* logo-056.png in Resources */,
 				3B226A641ECEBE2E005E7ED6 /* IO.png in Resources */,
+				3B2DF40B1FFDB83C00814540 /* SignUpViewController.xib in Resources */,
 				3B226AD71ECEBE2E005E7ED6 /* TN.png in Resources */,
 				3B226A9E1ECEBE2E005E7ED6 /* NG.png in Resources */,
 				3B2269F81ECEBE2E005E7ED6 /* receipt_details_overlay@2x.png in Resources */,
@@ -2764,10 +2802,12 @@
 				3B226BCC1ECEC2A3005E7ED6 /* WLBasePageViewController.swift in Sources */,
 				3B27B2361F668A68007E92D9 /* WLAnnotation.swift in Sources */,
 				3BBE93FE1EF3B25700CEEF0C /* WLHomePage-Test.swift in Sources */,
+				3B2DF4081FFCD5FD00814540 /* SignUpViewModels.swift in Sources */,
 				3B6C4AC81ED5766A001A001D /* DrawerViewController.swift in Sources */,
 				3B52C2DB1F580300000CBEA7 /* WLHomePage-DriversLogic.swift in Sources */,
 				3B9F29411FB6CD25006BD15D /* TimerEx.swift in Sources */,
 				3B2E77241FF4D5C500C91FF5 /* BindingExtensions.swift in Sources */,
+				3B2DF4051FFCD5FD00814540 /* LoginViewModels.swift in Sources */,
 				3B6C4AC61ED5765A001A001D /* KYEmbedMainControllerSegue.swift in Sources */,
 				3B52C2DD1F5803FF000CBEA7 /* WLUberDriver.swift in Sources */,
 				3B349CF41ED6D576004CE7DE /* WLHomePage-Map.swift in Sources */,
@@ -2789,14 +2829,18 @@
 				3B9B37581ED2DA37006C7406 /* WLUserInfoViewController.swift in Sources */,
 				3B9B37411ED2BA58006C7406 /* LCProgressHUD.m in Sources */,
 				3B9B37381ED2B2BF006C7406 /* WLLocation.swift in Sources */,
+				3B2DF4061FFCD5FD00814540 /* Protocols.swift in Sources */,
 				3B9B374B1ED2CE7E006C7406 /* WLSelectCountryViewController.swift in Sources */,
 				3B6C4AC51ED5765A001A001D /* KYEmbedDrawerControllerSegue.swift in Sources */,
 				3B226BC81ECEC266005E7ED6 /* WLBaseViewController.swift in Sources */,
 				3B2267C41ECE9743005E7ED6 /* AppDelegate.swift in Sources */,
 				3B3569E91FB4216A000D1A35 /* WLHomePage-CustomMenu.swift in Sources */,
+				3B2DF4041FFCD5FD00814540 /* LoginViewController.swift in Sources */,
 				3B3569F51FB423FA000D1A35 /* GuillotineMenuTransitionAnimation.swift in Sources */,
+				3B2DF4071FFCD5FD00814540 /* ValidationService.swift in Sources */,
 				3B3569F81FB42446000D1A35 /* WLMenuViewController.swift in Sources */,
 				3BBE94021EF3CAB500CEEF0C /* WLStopWatch.swift in Sources */,
+				3B2DF4091FFCD5FD00814540 /* SignUpViewController.swift in Sources */,
 				3B9B37431ED2BA58006C7406 /* MBProgressHUD+NJ.m in Sources */,
 				3BBE93FC1EF3A5B900CEEF0C /* WLstarView.swift in Sources */,
 				3B6C4ABE1ED56CCF001A001D /* WLHomePageViewController.swift in Sources */,

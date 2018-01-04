@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import RxCocoa
+import RxSwift
 
 class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransitioningDelegate,UITextFieldDelegate {
 
@@ -16,8 +18,13 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
     @IBOutlet weak var btLogin: TKTransitionSubmitButton!
     @IBOutlet weak var textfieldUserName: WLSublineTextField!
     @IBOutlet weak var textfieldPasswd: WLSublineTextField!
+    @IBOutlet weak var usernameHintLabel: UILabel!
     
     @IBOutlet weak var stackViewOfTwoTextfield: UIStackView!
+    
+    let viewModel = loginViewModels()
+    let disposeBag = DisposeBag()
+    
     var videoPlayer:AVPlayer!
     var playerItem:AVPlayerItem!
     var location:WLLocation!
@@ -29,6 +36,8 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
         super.viewDidLoad()
 
         appDelegate = UIApplication.shared.delegate as? AppDelegate
+        
+        configureUI()
         
         if location == nil {
             location = WLLocation()
@@ -47,6 +56,52 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
             initGuideVideoPlayer()
             showGuideAnimation()
         }
+    }
+    
+    func configureUI() {
+        textfieldUserName.rx.text.orEmpty
+            .bind(to: viewModel.username)
+            .disposed(by: disposeBag)
+        
+        viewModel.usernameUsable
+            .bind(to: usernameHintLabel.rx.validateResult)
+            .disposed(by: disposeBag)
+        
+        viewModel.usernameUsable
+            .bind(to: textfieldPasswd.rx.inputEnabled)
+            .disposed(by: disposeBag)
+        
+        
+        // viewModels 里 的 password 监听 输入框的 输入事件
+        textfieldPasswd.rx.text.orEmpty
+            .bind(to: viewModel.password)
+            .disposed(by: disposeBag)
+        
+        // 鉴定 view modle 的 按钮是否可用
+        viewModel.loginButtonUsable
+            .subscribe(onNext: { [unowned self] valid in
+                self.btLogin.isEnabled = valid
+                self.btLogin.alpha = valid ? 1.0 : 0.5
+            })
+            .disposed(by: disposeBag)
+        
+        // 按钮事件流
+        btLogin.rx.tap
+            .bind(to: viewModel.loginTap)
+            .disposed(by: disposeBag)
+        
+        viewModel.loginResult
+            .subscribe(onNext: {[unowned self]  result in
+                switch result {
+                case .Ok:
+                    self.loginSuccToNext()
+                case .Empty:
+                    self.showAlertView(title: "提示", message: "")
+                case let .Failed(message):
+                    self.showOneButtonDialog(title: "提示", description: message)
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     // #MARK: 动画
@@ -117,12 +172,12 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
 
     // #MARK: action
     @IBAction func btRegisterPressed(_ sender: Any) {
-        let createAccountPage = WLCreateAccountViewController()
+        let createAccountPage = SignUpViewController()
         let nav = UINavigationController(rootViewController: createAccountPage)
         self.present(nav, animated: true, completion: nil)
     }
     
-    @IBAction func btLoginPressed(_ sender: Any) {
+    func loginSuccToNext() {
 
 //        appDelegate?.showHomePage()
         

@@ -60,9 +60,11 @@ class WLCarAnnotationView: BMKAnnotationView {
 //        imageView.layer.add(rotationAnim, forKey: nil)
         
         
-        UIView.animate(withDuration: 1) {
-            let angle = (Double.pi / 2.0 * Double(rotateValue))
-            self.imageView.transform = CGAffineTransform(rotationAngle: CGFloat(angle))
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 1) {
+                let angle = (Double.pi / 2.0 * Double(rotateValue))
+                self.imageView.transform = CGAffineTransform(rotationAngle: CGFloat(angle))
+            }
         }
         
         

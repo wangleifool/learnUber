@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 let defaultZoomLevel:Float = 18.0
 
@@ -88,7 +89,13 @@ extension WLHomePageViewController: BMKRouteSearchDelegate {
         
     }
     
+    // 这里经常会 查询一个结果  回调多次
     func onGetSuggestionResult(_ searcher: BMKSuggestionSearch!, result: BMKSuggestionResult!, errorCode error: BMKSearchErrorCode) {
+        // 如果用户正在路上，不要再显示推荐查询结果
+        if self.driver?.state == .driveToGuestTargetPlace {
+            return
+        }
+        
         if (error == BMK_SEARCH_NO_ERROR) {
             //在此处理正常结果
             self.suggestionPlaceArray.removeAll()
@@ -470,6 +477,11 @@ extension WLHomePageViewController: BMKRouteSearchDelegate {
         //        self.searchPlaceWithAddrress(addr: textField.text!)
         //        self.searchByPoiName(name: textField.text!)
         //        self.searchPlaceByCloud(keyWord: textField.text!)
+        
+        textField.resignFirstResponder()
+        
+        
+        
         self.searchSuggestionPlace(keyWord: textField.text!)
         
         if textField == textFieldStartAddress {
@@ -478,7 +490,7 @@ extension WLHomePageViewController: BMKRouteSearchDelegate {
             self.isSearchStartAddress = false
         }
         
-        textField.resignFirstResponder()
+        
         
         return true
     }
@@ -496,17 +508,101 @@ extension WLHomePageViewController: BMKRouteSearchDelegate {
         self.textFieldTargetAddress.returnKeyType = .search
         
         
-        textFieldStartAddress.rx.text.orEmpty.map{
-            var isValid = false
-            if $0.count > 2 {
-                self.searchSuggestionPlace(keyWord: $0)
-                isValid = true
+        // 过程有点复杂，  接收 Textfiled的输入事件，判断长度是否合适，匹配输入文本颜色
+        let startText = Variable<String>("")
+        
+        textFieldStartAddress.rx.text.orEmpty
+            .bind(to: startText)
+            .disposed(by: disposeBag)
+        
+        let startTextUsable = startText.asObservable()
+            .flatMapLatest({ [unowned self] text in
+                return self.isValidAddress(addr: text)
+                    .observeOn(MainScheduler.instance)
+                    .catchErrorJustReturn(.Failed(message: "检测地址时出错"))
+            })
+            .share(replay: 1)
+        
+        startTextUsable.subscribe(onNext: { [unowned self] (result) in
+            self.isSearchStartAddress = true
+            self.textFieldStartAddress.textColor = result.isValid ? UIColor.black : UIColor.red
+            if result.isValid {
+                self.searchSuggestionPlace(keyWord: result.description)
+            } else {
+                self.hideSuggestionTableView()
             }
-            return isValid
-        }
-        .share(replay: 1)
-        .bind(to: textFieldTargetAddress.rx.isEnabled)
-        .disposed(by: DisposeBag())
+        })
+        .disposed(by: disposeBag)
+        
+        let endText = Variable<String>("")
+        
+        textFieldTargetAddress.rx.text.orEmpty
+            .bind(to: endText)
+            .disposed(by: disposeBag)
+        
+        let endTextUsable = endText.asObservable()
+            .flatMapLatest({ [unowned self] text in
+                return self.isValidAddress(addr: text)
+                    .observeOn(MainScheduler.instance)
+                    .catchErrorJustReturn(.Failed(message: "检测地址时出错"))
+            })
+            .share(replay: 1)
+        
+        endTextUsable.subscribe(onNext: { [unowned self] (result) in
+            self.isSearchStartAddress = false
+            self.textFieldTargetAddress.textColor = result.isValid ? UIColor.black : UIColor.red
+            if result.isValid {
+                self.searchSuggestionPlace(keyWord: result.description)
+            } else {
+                self.hideSuggestionTableView()
+            }
+        })
+            .disposed(by: disposeBag)
+        
+//        let textFieldStartAddressValidate:Observable<Result?> = textFieldStartAddress.rx.text.orEmpty
+//            .flatMapLatest({
+//                if $0.count > 4 {
+//                    return .just(.Ok(message: $0))
+//                }
+//
+//                return .just(.Failed(message: $0))
+//            })
+
+//        textFieldStartAddressValidate
+//            .bind(to: textFieldStartAddress.rx.validateTextColor)
+//            .disposed(by: disposeBag)
+//
+//        textFieldStartAddressValidate
+//            .subscribe(onNext: { (result) in
+//                if result.isValid {
+//                    self.searchSuggestionPlace(keyWord: result.description)
+//                }
+//            })
+//            .disposed(by: disposeBag)
+        
+//        textFieldStartAddress.rx.text.orEmpty
+//            .map({
+//                return $0.count > 2
+//            })
+//            .share(replay: 1)
+//            .subscribe(onNext: { [unowned self] (isValid) in
+//                if isValid {
+//                    self.searchSuggestionPlace(keyWord: self.textFieldStartAddress.text!)
+//                }
+//            })
+//            .disposed(by: disposeBag)
+        
+//        textFieldTargetAddress.rx.text.orEmpty
+//            .map({
+//                return $0.count > 2
+//            })
+//            .share(replay: 1)
+//            .subscribe(onNext: { [unowned self] (isValid) in
+//                if isValid {
+//                    self.searchSuggestionPlace(keyWord: self.textFieldTargetAddress.text!)
+//                }
+//            })
+//            .disposed(by: disposeBag)
         
         //创建一个 判断是否是有效地址的 textfiled 监控信号
         /*
@@ -567,8 +663,16 @@ extension WLHomePageViewController: BMKRouteSearchDelegate {
         
     }
     
-    func isValidAddress(addr :String) -> Bool {
-        return (addr.utf16.count) > 2
+    func isValidAddress(addr :String) -> Observable<Result> {
+        if addr.utf16.count == 0 {
+            return .just(.Empty)
+        }
+        
+        if addr.utf16.count > 4 {
+            return .just(.Ok(message: addr))
+        }
+        
+        return .just(.Failed(message: addr))
     }
     
 }
