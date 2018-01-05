@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -30,10 +30,10 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="B9H-n9-fxE">
-                    <rect key="frame" x="128" y="183.5" width="128" height="201"/>
+                    <rect key="frame" x="80" y="183.5" width="176" height="201"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Px-Xi-TxD">
-                            <rect key="frame" x="0.0" y="0.0" width="128" height="32"/>
+                            <rect key="frame" x="0.0" y="0.0" width="176" height="32"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                             <inset key="imageEdgeInsets" minX="-99" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title=" Profile" image="ic_profile@3x.png">
@@ -45,7 +45,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEv-dX-CAE">
-                            <rect key="frame" x="0.0" y="57" width="128" height="32"/>
+                            <rect key="frame" x="0.0" y="57" width="176" height="32"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                             <inset key="imageEdgeInsets" minX="-110" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Share" image="ic_activity@3x.png">
@@ -57,7 +57,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rA2-42-sBb">
-                            <rect key="frame" x="0.0" y="114" width="128" height="32"/>
+                            <rect key="frame" x="0.0" y="114" width="176" height="32"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                             <inset key="imageEdgeInsets" minX="-120" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Feed" image="ic_feed@3x.png">
@@ -69,7 +69,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgW-RS-mvx">
-                            <rect key="frame" x="0.0" y="171" width="128" height="30"/>
+                            <rect key="frame" x="0.0" y="171" width="176" height="30"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                             <inset key="imageEdgeInsets" minX="-85" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Settings" image="ic_settings@3x.png">
@@ -89,7 +89,7 @@
                 <constraint firstAttribute="bottom" secondItem="YoM-Vw-rHr" secondAttribute="bottom" constant="60" id="eQh-lC-0ue"/>
                 <constraint firstItem="B9H-n9-fxE" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="lir-mO-IUg"/>
                 <constraint firstItem="YoM-Vw-rHr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="srz-rv-hoO"/>
-                <constraint firstItem="B9H-n9-fxE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="128" id="v0o-vy-U7r"/>
+                <constraint firstItem="B9H-n9-fxE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="v0o-vy-U7r"/>
             </constraints>
             <point key="canvasLocation" x="25" y="51"/>
         </view>

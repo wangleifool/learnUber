@@ -48,12 +48,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func createHomePage() {
         let mainViewController   = WLHomePageViewController()
-//        let drawerViewController = DrawerViewController()
-//        let drawerController     = KYDrawerController(drawerDirection: .left, drawerWidth: ScreenWidth*270/320)
-//        drawerController.mainViewController = UINavigationController(
-//            rootViewController: mainViewController
-//        )
-//        drawerController.drawerViewController = drawerViewController
+        let drawerViewController = DrawerViewController()
+        let drawerController     = KYDrawerController(drawerDirection: .left, drawerWidth: ScreenWidth*270/320)
+        drawerController.mainViewController = UINavigationController(
+            rootViewController: mainViewController
+        )
+        drawerController.drawerViewController = drawerViewController
+        window?.rootViewController = drawerController
         
         /* Customize
          drawerController.drawerDirection = .Right
@@ -62,8 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        let navRootVC = UINavigationController(rootViewController: mainViewController)
-        window?.rootViewController = navRootVC
+//        let navRootVC = UINavigationController(rootViewController: mainViewController)
+//        window?.rootViewController = navRootVC
 
     }
     
