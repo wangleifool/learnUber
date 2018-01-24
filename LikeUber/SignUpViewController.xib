@@ -29,7 +29,6 @@
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gu8-Wy-OM5" userLabel="usernameTextfiled">
                     <rect key="frame" x="94" y="103" width="248" height="30"/>
-                    <color key="backgroundColor" red="0.4766090214" green="0.37373736499999999" blue="0.28653344510000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -51,7 +50,6 @@
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g82-Xf-LU5" userLabel="PasswdTextFiled">
                     <rect key="frame" x="94" y="190" width="248" height="30"/>
-                    <color key="backgroundColor" red="0.4766090214" green="0.37373736499999999" blue="0.28653344510000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -70,7 +68,6 @@
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qhc-hb-Egd" userLabel="PasswdTextFiled">
                     <rect key="frame" x="94" y="294" width="248" height="30"/>
-                    <color key="backgroundColor" red="0.4766090214" green="0.37373736499999999" blue="0.28653344510000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>

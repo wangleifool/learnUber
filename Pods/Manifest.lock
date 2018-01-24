@@ -1,4 +1,5 @@
 PODS:
+  - ARNTransitionAnimator (3.0.1)
   - PermissionScope (1.1.1)
   - RxCocoa (4.0.0):
     - RxSwift (~> 4.0)
@@ -7,6 +8,7 @@ PODS:
   - Spring (1.0.5)
 
 DEPENDENCIES:
+  - ARNTransitionAnimator
   - PermissionScope
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
@@ -23,12 +25,13 @@ CHECKOUT OPTIONS:
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
+  ARNTransitionAnimator: 26f24acc0e2fd5134596ece6f9479c36cfcfce68
   PermissionScope: a30c16e015779ba27c97c124e7539e27b5829de2
   RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
   RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   Spring: 48aad470f3ead043b2da98b64e0bf0630b7ebc42
 
-PODFILE CHECKSUM: 84020edc52108ca9b2cd6b2ce6a2c55cbac1be34
+PODFILE CHECKSUM: f40df6635c3f239b28bc9429c2103172fd747b4d
 
 COCOAPODS: 1.3.1

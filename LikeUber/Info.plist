@@ -34,6 +34,13 @@
 	<string>使用本应用时打开定位</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>本应用需要你的相册的访问权限，你可以在"设置"中修改权限</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Gaspar Regular.otf</string>
+		<string>MFZhiHei_Noncommercial-Regular.ttf</string>
+		<string>MFTongXin_Noncommercial-Regular.ttf</string>
+		<string>MFJinHei_Noncommercial-Regular.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>

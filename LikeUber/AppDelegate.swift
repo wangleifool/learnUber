@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //公共信息
     var myLocationRegion: String?
     var myLocationCoordinate: CLLocationCoordinate2D?
-
+    
+    var globalDrawerController: KYDrawerController?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)

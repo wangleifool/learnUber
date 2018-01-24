@@ -182,14 +182,24 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
 //        appDelegate?.showHomePage()
         
         //登录按钮的动画，按钮扩展全面视图
-        btLogin.animate(0.6) {
+        btLogin.animate(0.6) { [unowned self] in
             self.stackViewOfTwoTextfield.alpha = 0
             self.backgroundImageView.alpha = 1
             
-            let homePage = WLHomePageViewController()
-            let nav = UINavigationController(rootViewController: homePage)
-            nav.transitioningDelegate = self
-            self.present(nav, animated: true, completion: nil)
+//            let homePage = WLHomePageViewController()
+//            let nav = UINavigationController(rootViewController: homePage)
+//            nav.transitioningDelegate = self
+//            self.present(nav, animated: true, completion: nil)
+            
+            let mainViewController   = WLHomePageViewController()
+            let drawerViewController = DrawerViewController()
+            let drawerController     = KYDrawerController(drawerDirection: .left, drawerWidth: ScreenWidth*270/320)
+            drawerController.mainViewController = UINavigationController(
+                rootViewController: mainViewController
+            )
+            drawerController.drawerViewController = drawerViewController
+            self.present(drawerController, animated: true, completion: nil)
+            self.appDelegate?.globalDrawerController = drawerController
         }
         
     }

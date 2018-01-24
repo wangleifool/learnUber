@@ -75,7 +75,7 @@
                             </userDefinedRuntimeAttributes>
                         </button>
                         <stackView opaque="NO" alpha="0.0" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="A8x-hU-ncc">
-                            <rect key="frame" x="38" y="225" width="244" height="118"/>
+                            <rect key="frame" x="38" y="160" width="244" height="118"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="用户名或邮箱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bWD-LN-wMW" customClass="WLSublineTextField" customModule="LikeUber" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="244" height="44"/>
@@ -121,11 +121,11 @@
                         <constraint firstItem="aUp-Wa-gm2" firstAttribute="leading" secondItem="4Gq-4a-mTo" secondAttribute="leading" constant="38" id="Gbi-yD-xa9"/>
                         <constraint firstItem="4wB-7C-eMC" firstAttribute="bottom" secondItem="aUp-Wa-gm2" secondAttribute="bottom" id="Gnn-YT-2kV"/>
                         <constraint firstItem="4wB-7C-eMC" firstAttribute="leading" secondItem="aUp-Wa-gm2" secondAttribute="trailing" id="HGJ-1z-0ja"/>
+                        <constraint firstItem="A8x-hU-ncc" firstAttribute="top" secondItem="4Gq-4a-mTo" secondAttribute="top" constant="160" id="P5I-P2-5G0"/>
                         <constraint firstItem="A8x-hU-ncc" firstAttribute="trailing" secondItem="c0S-J3-qZp" secondAttribute="trailing" id="P95-w0-yQ9"/>
                         <constraint firstAttribute="trailing" secondItem="c0S-J3-qZp" secondAttribute="trailing" constant="38" id="V6v-tH-xfb"/>
                         <constraint firstItem="c0S-J3-qZp" firstAttribute="bottom" secondItem="aUp-Wa-gm2" secondAttribute="bottom" id="Vcf-kN-YCp"/>
                         <constraint firstItem="A8x-hU-ncc" firstAttribute="leading" secondItem="aUp-Wa-gm2" secondAttribute="leading" id="aSs-dX-v59"/>
-                        <constraint firstItem="A8x-hU-ncc" firstAttribute="centerY" secondItem="4Gq-4a-mTo" secondAttribute="centerY" id="kbS-1n-UOR"/>
                         <constraint firstAttribute="bottom" secondItem="aUp-Wa-gm2" secondAttribute="bottom" constant="33" id="vSV-zM-2U3"/>
                         <constraint firstItem="c0S-J3-qZp" firstAttribute="height" secondItem="aUp-Wa-gm2" secondAttribute="height" id="woT-qi-1Il"/>
                     </constraints>

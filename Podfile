@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-
+source 'https://github.com/CocoaPods/Specs.git' 
 platform :ios, '9.0'
 
 target 'LikeUber' do
@@ -12,5 +12,6 @@ target 'LikeUber' do
   pod 'SnapKit',    '~> 4.0.0'
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
   pod 'PermissionScope'
-
+  pod 'ARNTransitionAnimator'
+  
 end
