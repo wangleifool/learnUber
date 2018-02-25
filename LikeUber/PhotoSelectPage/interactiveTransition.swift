@@ -87,7 +87,12 @@ class interactiveTransition : TransitionAnimatable {
     }
     
     func finishAnimation(_ transitionType: TransitionType, didComplete: Bool) {
-        setTransitionFinishSetting()
+//        setTransitionFinishSetting()
+        
+        if !didComplete {
+            return
+        }
+        
         if transitionType.isPresenting {
             if didComplete {
                 UIApplication.shared.keyWindow?.addSubview(self.photoSelectVC.view)
@@ -112,12 +117,12 @@ class interactiveTransition : TransitionAnimatable {
     }
     
     fileprivate func setTransitionStartSetting() {
-        self.photoSelectVC.photoCollectionView.isScrollEnabled = false
+//        self.photoSelectVC.photoCollectionView.isScrollEnabled = false
         self.photoSelectVC.photoCollectionView.bounces = false
     }
 
     fileprivate func setTransitionFinishSetting() {
-        self.photoSelectVC.photoCollectionView.isScrollEnabled = true
+//        self.photoSelectVC.photoCollectionView.isScrollEnabled = true
         self.photoSelectVC.photoCollectionView.bounces = true
     }
 

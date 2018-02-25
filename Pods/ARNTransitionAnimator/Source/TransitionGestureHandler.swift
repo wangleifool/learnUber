@@ -94,11 +94,13 @@ public final class TransitionGestureHandler : NSObject {
         
         switch recognizer.state {
         case .began:
+            print("handleGesture begin")
             self.resetValues()
             if self.isNeedSetPanStartLocation() {
                 self.setPanStartPoint(location)
             }
         case .changed:
+            print("handleGesture changed")
             if self.isNeedSetPanStartLocation() {
                 self.startTransitionIfNeeded(location)
             } else {
@@ -108,6 +110,7 @@ public final class TransitionGestureHandler : NSObject {
                 }
             }
         case .ended:
+            print("handleGesture end")
             if !self.isTransitioning { return }
             
             var velocity = recognizer.velocity(in: window)
@@ -171,8 +174,8 @@ public final class TransitionGestureHandler : NSObject {
         
         self.percentComplete = 1.0
         self.updateGestureHandler?(.cancel)
-        self.unregisterGesture()
-        self.registerGesture(self.targetView)
+//        self.unregisterGesture()
+//        self.registerGesture(self.targetView)
     }
     
     fileprivate func updatePercentComplete(_ location: CGPoint) {
@@ -192,16 +195,21 @@ public final class TransitionGestureHandler : NSObject {
                 bounds = self.targetView.bounds.width
             }
         }
+        
         switch self.direction {
         case .top:
+            print("top")
             self.percentComplete = min((self.panLocationStart - location.y) / bounds, 1)
         case .bottom:
+            print("bottom")
             self.percentComplete = min((location.y - self.panLocationStart) / bounds, 1)
         case .left:
             self.percentComplete = min((self.panLocationStart - location.x) / bounds, 1)
         case .right:
             self.percentComplete = min((location.x - self.panLocationStart) / bounds, 1)
         }
+        
+        print("panLocationStart: \(self.panLocationStart) location.y: \(location.y)")
     }
     
     fileprivate func startTransitionIfNeeded(_ location: CGPoint) {
@@ -223,6 +231,7 @@ public final class TransitionGestureHandler : NSObject {
         }
         self.isTransitioning = true
         self.updateGestureHandler?(.start)
+        self.setPanStartPoint(location)
         self.updatePercentComplete(location)
     }
 }

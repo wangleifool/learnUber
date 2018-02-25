@@ -64,7 +64,7 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
     }
     
     @objc func nextStep() {
-        
+        self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func userHeadImageDidPressed(_ sender: Any) {

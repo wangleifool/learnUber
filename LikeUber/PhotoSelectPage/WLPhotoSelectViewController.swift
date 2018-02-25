@@ -67,21 +67,21 @@ class WLPhotoSelectViewController: UIViewController ,UICollectionViewDataSource,
     
     // MARK: scroll delegate
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let scrollHeight = scrollView.frame.size.height;
-        let offsetY = scrollView.contentOffset.y;
-        let maxOffset = scrollView.contentSize
-        
-        
-        
-        let bottomOffset = maxOffset.height - offsetY; //距离底部位置
-        print("collectionView offsetY: \(offsetY) bottomOffset \(bottomOffset)")
-        
-        
+//        let scrollViewHeight = scrollView.frame.size.height;
+//        let offsetY = scrollView.contentOffset.y;
+//        let maxOffsetHeight = scrollView.contentSize.height
+//
+//
+//        print("collectionView offsetY: \(offsetY)")
+
+
 //        // 到达顶部或底部
-//        if (offsetY < 0 || bottomOffset <= scrollHeight) {
-//            scrollView.isScrollEnabled = false;
-//        } else {
-//            scrollView.isScrollEnabled = true;
+//        if (offsetY < 0 && scrollView.isDecelerating) { //用户没有拖动，scrollview自己在滑动
+//            scrollView.setContentOffset(CGPoint(x:scrollView.contentOffset.x,y:0), animated: false)
 //        }
+//        } else if (offsetY > maxOffsetHeight - scrollViewHeight) {
+//            scrollView.setContentOffset(CGPoint(x:scrollView.contentOffset.x,y:maxOffsetHeight - scrollViewHeight), animated: false)
+//        }
+
     }
 }
