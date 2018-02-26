@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LikeUber/PhotoSelectPage/interactiveTransition.swift"
-            timestampString = "541235835.491657"
+            timestampString = "541303129.533137"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
@@ -41,29 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LikeUber/PhotoSelectPage/interactiveTransition.swift"
-            timestampString = "541235835.491794"
+            filePath = "Pods/ARNTransitionAnimator/Source/InteractiveTransitioning.swift"
+            timestampString = "541303129.533247"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "finishAnimation(_:didComplete:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LikeUber/view/WLUserInfoViewController.swift"
-            timestampString = "541235892.27318"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "userHeadImageDidPressed(_:)"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "cancel()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

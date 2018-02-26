@@ -70,10 +70,10 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
     @IBAction func userHeadImageDidPressed(_ sender: Any) {
         
         
-        if self.presentedViewController == nil {
-            self.present(photoSelectVC, animated: true, completion: nil)
+        if self.presentedViewController != nil {
+            self.dismiss(animated: false, completion: nil)
         }
-        
+        self.present(photoSelectVC, animated: true, completion: nil)
 //        imagePicker.delegate = self;
 //
 //

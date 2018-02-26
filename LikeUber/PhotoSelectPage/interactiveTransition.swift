@@ -89,10 +89,6 @@ class interactiveTransition : TransitionAnimatable {
     func finishAnimation(_ transitionType: TransitionType, didComplete: Bool) {
 //        setTransitionFinishSetting()
         
-        if !didComplete {
-            return
-        }
-        
         if transitionType.isPresenting {
             if didComplete {
                 UIApplication.shared.keyWindow?.addSubview(self.photoSelectVC.view)
@@ -108,9 +104,6 @@ class interactiveTransition : TransitionAnimatable {
                 self.completion?(transitionType.isPresenting)
                 
             } else {
-                
-                self.photoSelectVC.view.removeFromSuperview()
-                self.containerView?.addSubview(self.photoSelectVC.view)
                 
             }
         }
