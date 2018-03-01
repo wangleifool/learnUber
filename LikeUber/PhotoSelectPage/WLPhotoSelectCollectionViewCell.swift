@@ -15,4 +15,15 @@ class WLPhotoSelectCollectionViewCell: UICollectionViewCell {
         // Initialization code                
     }
 
+    @IBAction func photoSelectClicked(_ sender: Any) {
+        if let btSelect = sender as? UIButton {
+            if btSelect.tag == 0 {
+                btSelect.tag = 1
+                btSelect.setImage(UIImage(named:"photoSelect"), for: .normal)
+            } else {
+                btSelect.tag = 0
+                btSelect.setImage(UIImage(named:"photoNotSelect"), for: .normal)
+            }
+        }
+    }
 }

@@ -74,7 +74,7 @@ class interactiveTransition : TransitionAnimatable {
         if transitionType.isPresenting {
             photoSelectVC.view.frame.origin.y = endOriginY - (endOriginY * percentComplete) + 20
             if photoSelectVC.view.frame.origin.y < 20.0 {
-                photoSelectVC.view.frame.origin.y = 20
+                photoSelectVC.view.frame.origin.y = 20.0
             }
             anyVC.view.alpha = 1.0 - (0.5 * percentComplete)
         } else {

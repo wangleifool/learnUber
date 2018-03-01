@@ -67,6 +67,7 @@ extension ARNTransitionAnimator : UIViewControllerTransitioningDelegate {
         return i
     }
     
+    // return nil, 则是判断当前不是由 手势触发转场，反之则是
     public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         guard let i = self.interactiveTransitioning , !i.animator.transitionType.isPresenting else { return nil }
         if !i.gestureHandler.isTransitioning { return nil }

@@ -172,8 +172,11 @@ public final class TransitionGestureHandler : NSObject {
         guard self.targetView is UIScrollView else { return }
         if self.percentComplete >= 0 { return }
         
+        /****add by kobew***/
         self.percentComplete = 1.0
         self.updateGestureHandler?(.cancel)
+        self.resetValues()
+        ///////////////////////////////////
 //        self.unregisterGesture()
 //        self.registerGesture(self.targetView)
     }

@@ -34,10 +34,11 @@ class WLPhotoSelectViewController: UIViewController ,UICollectionViewDataSource,
     }
     
     func configureCollectionView() {
-        let cellWidth = (self.photoCollectionView.bounds.size.width - (numPhotoPerLine-1)*2) / numPhotoPerLine;        photoCollectionLayout.itemSize = CGSize.init(width: cellWidth, height: cellWidth)
-        photoCollectionLayout.minimumLineSpacing = 0
-        photoCollectionLayout.minimumInteritemSpacing = 0
-        photoCollectionLayout.sectionInset = UIEdgeInsets.init(top: 8, left: 2, bottom: 8, right: 2)
+        let cellWidth = (self.photoCollectionView.bounds.size.width - (numPhotoPerLine-1)*2) / numPhotoPerLine 
+        photoCollectionLayout.itemSize = CGSize.init(width: cellWidth, height: cellWidth)
+        photoCollectionLayout.minimumLineSpacing = 2
+        photoCollectionLayout.minimumInteritemSpacing = 2
+        photoCollectionLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
         
         photoCollectionView.register(UINib.init(nibName: "WLPhotoSelectCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "PhotoSelectCell")
         photoCollectionView.bounces = false
