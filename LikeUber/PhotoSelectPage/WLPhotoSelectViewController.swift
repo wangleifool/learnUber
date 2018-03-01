@@ -34,11 +34,10 @@ class WLPhotoSelectViewController: UIViewController ,UICollectionViewDataSource,
     }
     
     func configureCollectionView() {
-        let cellWidth = self.photoCollectionView.bounds.size.width / numPhotoPerLine
-        photoCollectionLayout.itemSize = CGSize.init(width: cellWidth, height: cellWidth)
+        let cellWidth = (self.photoCollectionView.bounds.size.width - (numPhotoPerLine-1)*2) / numPhotoPerLine;        photoCollectionLayout.itemSize = CGSize.init(width: cellWidth, height: cellWidth)
         photoCollectionLayout.minimumLineSpacing = 0
         photoCollectionLayout.minimumInteritemSpacing = 0
-        photoCollectionLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+        photoCollectionLayout.sectionInset = UIEdgeInsets.init(top: 8, left: 2, bottom: 8, right: 2)
         
         photoCollectionView.register(UINib.init(nibName: "WLPhotoSelectCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "PhotoSelectCell")
         photoCollectionView.bounces = false
@@ -65,23 +64,6 @@ class WLPhotoSelectViewController: UIViewController ,UICollectionViewDataSource,
     }
     
     
-    // MARK: scroll delegate
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let scrollViewHeight = scrollView.frame.size.height;
-//        let offsetY = scrollView.contentOffset.y;
-//        let maxOffsetHeight = scrollView.contentSize.height
-//
-//
-//        print("collectionView offsetY: \(offsetY)")
-
-
-//        // 到达顶部或底部
-//        if (offsetY < 0 && scrollView.isDecelerating) { //用户没有拖动，scrollview自己在滑动
-//            scrollView.setContentOffset(CGPoint(x:scrollView.contentOffset.x,y:0), animated: false)
-//        }
-//        } else if (offsetY > maxOffsetHeight - scrollViewHeight) {
-//            scrollView.setContentOffset(CGPoint(x:scrollView.contentOffset.x,y:maxOffsetHeight - scrollViewHeight), animated: false)
-//        }
-
-    }
+    // MARK: collecion layout
+    
 }

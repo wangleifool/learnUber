@@ -43,8 +43,15 @@
                                 <action selector="btDonePressed:" destination="-1" eventType="touchUpInside" id="wIi-LV-kdR"/>
                             </connections>
                         </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xcQ-S2-zKb">
+                            <rect key="frame" x="241" y="6" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="9gb-ci-awk"/>
+                                <constraint firstAttribute="height" constant="32" id="kfQ-d3-KEa"/>
+                            </constraints>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhx-ng-c0T" userLabel="cancel">
-                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                            <rect key="frame" x="0.0" y="6" width="32" height="32"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="xhx-ng-c0T" secondAttribute="height" multiplier="1:1" id="Qnq-oQ-mGq"/>
                             </constraints>
@@ -53,17 +60,10 @@
                                 <action selector="btCancelPressed:" destination="-1" eventType="touchUpInside" id="Wbd-0L-ghE"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xcQ-S2-zKb">
-                            <rect key="frame" x="241" y="6" width="32" height="32"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="32" id="9gb-ci-awk"/>
-                                <constraint firstAttribute="height" constant="32" id="kfQ-d3-KEa"/>
-                            </constraints>
-                        </imageView>
                     </subviews>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="xhx-ng-c0T" secondAttribute="bottom" id="8HD-fN-LA3"/>
+                        <constraint firstItem="xhx-ng-c0T" firstAttribute="centerY" secondItem="0La-YS-ZXK" secondAttribute="centerY" id="3yO-nV-Gn9"/>
                         <constraint firstAttribute="height" constant="44" id="EBE-KH-vFC"/>
                         <constraint firstItem="xhx-ng-c0T" firstAttribute="leading" secondItem="0La-YS-ZXK" secondAttribute="leading" id="GaH-6D-eZl"/>
                         <constraint firstItem="NVo-IW-9yz" firstAttribute="centerX" secondItem="0La-YS-ZXK" secondAttribute="centerX" id="PSM-3d-u6B"/>
@@ -72,11 +72,11 @@
                         <constraint firstItem="t3I-rA-tYJ" firstAttribute="centerY" secondItem="0La-YS-ZXK" secondAttribute="centerY" id="VUL-Hj-VcE"/>
                         <constraint firstAttribute="trailing" secondItem="t3I-rA-tYJ" secondAttribute="trailing" constant="8" id="hxc-cP-cVe"/>
                         <constraint firstItem="xcQ-S2-zKb" firstAttribute="centerY" secondItem="0La-YS-ZXK" secondAttribute="centerY" id="nJD-9a-Aeq"/>
-                        <constraint firstItem="xhx-ng-c0T" firstAttribute="top" secondItem="0La-YS-ZXK" secondAttribute="top" id="z6r-LJ-Lm9"/>
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="r5r-t7-q5S">
                     <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zCc-Fv-Mek">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>

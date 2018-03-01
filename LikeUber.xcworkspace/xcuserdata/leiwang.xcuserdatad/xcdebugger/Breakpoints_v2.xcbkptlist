@@ -22,11 +22,106 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LikeUber/PhotoSelectPage/interactiveTransition.swift"
+            timestampString = "541560300.358508"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "finishAnimation(_:didComplete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/ARNTransitionAnimator/Source/AnimatedTransitioning .swift"
+            timestampString = "541560353.380788"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "animateTransition(using:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ARNTransitionAnimator.AnimatedTransitioning.animateTransition(using: __ObjC.UIViewControllerContextTransitioning) -&gt; ()"
+                  moduleName = "ARNTransitionAnimator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiwang/develop%20zone/iOS/demo_from_myself/%E6%89%93%E8%BD%A6%E8%BD%AF%E4%BB%B6/learnUber/Pods/ARNTransitionAnimator/Source/AnimatedTransitioning%20.swift"
+                  timestampString = "541561027.592702"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "188">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in ARNTransitionAnimator.AnimatedTransitioning.animateTransition(using: __ObjC.UIViewControllerContextTransitioning) -&gt; ()"
+                  moduleName = "ARNTransitionAnimator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiwang/develop%20zone/iOS/demo_from_myself/%E6%89%93%E8%BD%A6%E8%BD%AF%E4%BB%B6/learnUber/Pods/ARNTransitionAnimator/Source/AnimatedTransitioning%20.swift"
+                  timestampString = "541561027.597683"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Bool) -&gt; () in ARNTransitionAnimator.AnimatedTransitioning.animateTransition(using: __ObjC.UIViewControllerContextTransitioning) -&gt; ()"
+                  moduleName = "ARNTransitionAnimator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiwang/develop%20zone/iOS/demo_from_myself/%E6%89%93%E8%BD%A6%E8%BD%AF%E4%BB%B6/learnUber/Pods/ARNTransitionAnimator/Source/AnimatedTransitioning%20.swift"
+                  timestampString = "541561027.602028"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "30">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/ARNTransitionAnimator/Source/TransitionAnimator.swift"
+            timestampString = "541560366.004234"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "finishAnimation(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LikeUber/PhotoSelectPage/interactiveTransition.swift"
-            timestampString = "541303129.533137"
+            timestampString = "541560433.682292"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
@@ -38,16 +133,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/ARNTransitionAnimator/Source/InteractiveTransitioning.swift"
-            timestampString = "541303129.533247"
+            filePath = "Pods/ARNTransitionAnimator/Source/AnimatedTransitioning .swift"
+            timestampString = "541560652.335361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "cancel()"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "animateTransition(using:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -12,9 +12,7 @@ class WLPhotoSelectCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
-        self.layer.cornerRadius = 4.0
+        // Initialization code                
     }
 
 }
