@@ -10,11 +10,18 @@ import UIKit
 
 class WLPhotoSelectCollectionViewCell: UICollectionViewCell {
 
+    var representedIdentifier: String! //用于独立标记每个cell
+    
+    @IBOutlet weak var imageButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code                
     }
 
+    
+    
+    
     @IBAction func photoSelectClicked(_ sender: Any) {
         if let btSelect = sender as? UIButton {
             if btSelect.tag == 0 {

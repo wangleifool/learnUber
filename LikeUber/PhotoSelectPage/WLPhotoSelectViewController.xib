@@ -13,8 +13,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLPhotoSelectViewController" customModule="LikeUber" customModuleProvider="target">
             <connections>
+                <outlet property="btTitle" destination="GbZ-X6-wUK" id="RxC-XI-a1o"/>
+                <outlet property="headerView" destination="0La-YS-ZXK" id="p8M-6k-ih5"/>
                 <outlet property="photoCollectionLayout" destination="zCc-Fv-Mek" id="u6Z-Ql-778"/>
                 <outlet property="photoCollectionView" destination="r5r-t7-q5S" id="hra-j9-gJr"/>
+                <outlet property="showAlbumsHintLabel" destination="4Ap-hF-XEU" id="gCi-ec-OFK"/>
                 <outlet property="view" destination="iN0-l3-epB" id="FcN-4x-Cnc"/>
             </connections>
         </placeholder>
@@ -26,15 +29,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0La-YS-ZXK">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="相册" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVo-IW-9yz">
-                            <rect key="frame" x="109.5" y="8" width="100" height="21"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="100" id="IPL-GL-Ugl"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3I-rA-tYJ">
                             <rect key="frame" x="277" y="5.5" width="35" height="33"/>
                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
@@ -51,27 +45,50 @@
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhx-ng-c0T" userLabel="cancel">
-                            <rect key="frame" x="0.0" y="6" width="32" height="32"/>
+                            <rect key="frame" x="0.0" y="-2" width="48" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="xhx-ng-c0T" secondAttribute="height" multiplier="1:1" id="Qnq-oQ-mGq"/>
                             </constraints>
+                            <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                             <state key="normal" image="close"/>
                             <connections>
                                 <action selector="btCancelPressed:" destination="-1" eventType="touchUpInside" id="Wbd-0L-ghE"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbZ-X6-wUK">
+                            <rect key="frame" x="110" y="0.0" width="100" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="jnU-g3-7GF"/>
+                            </constraints>
+                            <state key="normal" title="相册">
+                                <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btChangeAlbumClick:" destination="-1" eventType="touchUpInside" id="R8U-8Q-htW"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ap-hF-XEU">
+                            <rect key="frame" x="110" y="29.5" width="100" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="4Ap-hF-XEU" firstAttribute="centerX" secondItem="0La-YS-ZXK" secondAttribute="centerX" id="2iI-9V-m4Y"/>
                         <constraint firstItem="xhx-ng-c0T" firstAttribute="centerY" secondItem="0La-YS-ZXK" secondAttribute="centerY" id="3yO-nV-Gn9"/>
+                        <constraint firstItem="GbZ-X6-wUK" firstAttribute="top" secondItem="0La-YS-ZXK" secondAttribute="top" id="8ir-w9-Zdc"/>
                         <constraint firstAttribute="height" constant="44" id="EBE-KH-vFC"/>
                         <constraint firstItem="xhx-ng-c0T" firstAttribute="leading" secondItem="0La-YS-ZXK" secondAttribute="leading" id="GaH-6D-eZl"/>
-                        <constraint firstItem="NVo-IW-9yz" firstAttribute="centerX" secondItem="0La-YS-ZXK" secondAttribute="centerX" id="PSM-3d-u6B"/>
+                        <constraint firstItem="4Ap-hF-XEU" firstAttribute="leading" secondItem="GbZ-X6-wUK" secondAttribute="leading" id="IZT-Di-G31"/>
                         <constraint firstItem="t3I-rA-tYJ" firstAttribute="leading" secondItem="xcQ-S2-zKb" secondAttribute="trailing" constant="4" id="QG9-91-Nkj"/>
-                        <constraint firstItem="NVo-IW-9yz" firstAttribute="top" secondItem="0La-YS-ZXK" secondAttribute="top" constant="8" id="Qp1-k6-0f8"/>
                         <constraint firstItem="t3I-rA-tYJ" firstAttribute="centerY" secondItem="0La-YS-ZXK" secondAttribute="centerY" id="VUL-Hj-VcE"/>
+                        <constraint firstAttribute="bottom" secondItem="4Ap-hF-XEU" secondAttribute="bottom" id="YwK-qR-TWZ"/>
+                        <constraint firstItem="4Ap-hF-XEU" firstAttribute="trailing" secondItem="GbZ-X6-wUK" secondAttribute="trailing" id="aga-cc-4p9"/>
                         <constraint firstAttribute="trailing" secondItem="t3I-rA-tYJ" secondAttribute="trailing" constant="8" id="hxc-cP-cVe"/>
                         <constraint firstItem="xcQ-S2-zKb" firstAttribute="centerY" secondItem="0La-YS-ZXK" secondAttribute="centerY" id="nJD-9a-Aeq"/>
+                        <constraint firstItem="GbZ-X6-wUK" firstAttribute="centerX" secondItem="0La-YS-ZXK" secondAttribute="centerX" id="rFk-IZ-QHG"/>
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="r5r-t7-q5S">

@@ -45,6 +45,9 @@
                 <constraint firstItem="XLh-ET-4sl" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="z0a-lD-6mW"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="imageButton" destination="XLh-ET-4sl" id="Vgh-sp-aqC"/>
+            </connections>
         </collectionViewCell>
     </objects>
     <resources>
