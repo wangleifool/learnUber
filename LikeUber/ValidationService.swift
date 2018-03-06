@@ -49,7 +49,7 @@ class ValidateService {
         }
         
         if username.count <= MinUsernameLength {
-            return .just(.Failed(message: "用户名长度至少大于6个字符"))
+            return .just(.Failed(message: "长度请大于\(MinUsernameLength)个字符"))
         }
         
         if isExistedUser(username) {

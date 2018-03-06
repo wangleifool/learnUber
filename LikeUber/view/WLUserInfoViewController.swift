@@ -26,6 +26,8 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
         self.title = "建立基本资料"
         setNavigationItem(title: "下一步", selector: #selector(nextStep), isRight: true)
 
+        setNavigationItem(title: "跳过", selector: #selector(skip), isRight: false)
+        
 //        textFieldSurName.becomeFirstResponder()
         
         
@@ -64,6 +66,12 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
     }
     
     @objc func nextStep() {
+        let createAccountPage = SignUpViewController()
+        
+        self.navigationController?.pushViewController(createAccountPage, animated: true)
+    }
+    
+    @objc func skip() {
         self.dismiss(animated: true, completion: nil)
     }
 

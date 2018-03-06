@@ -19,10 +19,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLh-ET-4sl" userLabel="imageButton">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9xS-jZ-Sbw">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                        <color key="backgroundColor" red="0.59489071370000002" green="0.74986636640000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </button>
+                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aup-cu-31l" userLabel="checkButton">
                         <rect key="frame" x="22" y="4" width="24" height="24"/>
                         <constraints>
@@ -39,14 +38,14 @@
             <constraints>
                 <constraint firstItem="Aup-cu-31l" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="1BJ-SD-Efe"/>
                 <constraint firstAttribute="trailing" secondItem="Aup-cu-31l" secondAttribute="trailing" constant="4" id="35m-vj-odh"/>
-                <constraint firstAttribute="trailing" secondItem="XLh-ET-4sl" secondAttribute="trailing" id="53d-qv-Lfl"/>
-                <constraint firstAttribute="bottom" secondItem="XLh-ET-4sl" secondAttribute="bottom" id="IiL-dr-D3l"/>
-                <constraint firstItem="XLh-ET-4sl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jAI-vY-a3d"/>
-                <constraint firstItem="XLh-ET-4sl" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="z0a-lD-6mW"/>
+                <constraint firstItem="9xS-jZ-Sbw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8nu-bQ-tHj"/>
+                <constraint firstItem="9xS-jZ-Sbw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="9ed-gt-7lz"/>
+                <constraint firstAttribute="bottom" secondItem="9xS-jZ-Sbw" secondAttribute="bottom" id="f8N-c4-4zR"/>
+                <constraint firstAttribute="trailing" secondItem="9xS-jZ-Sbw" secondAttribute="trailing" id="lkX-te-c7m"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
-                <outlet property="imageButton" destination="XLh-ET-4sl" id="Vgh-sp-aqC"/>
+                <outlet property="imageView" destination="9xS-jZ-Sbw" id="hog-Aw-l9K"/>
             </connections>
         </collectionViewCell>
     </objects>

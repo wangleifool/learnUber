@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-let MinUsernameLength = 6
+let MinUsernameLength = 3
 let MinPasswdLength = 6
 
 

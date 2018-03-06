@@ -13,5 +13,6 @@ target 'LikeUber' do
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
   pod 'PermissionScope'
   pod 'ARNTransitionAnimator'
+  pod 'KSPhotoBrowser'
   
 end

@@ -1120,6 +1120,12 @@
 		3B2DF4191FFF24AE00814540 /* MFTongXin_Noncommercial-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MFTongXin_Noncommercial-Regular.ttf"; sourceTree = "<group>"; };
 		3B2DF41A1FFF24AE00814540 /* MFJinHei_Noncommercial-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MFJinHei_Noncommercial-Regular.ttf"; sourceTree = "<group>"; };
 		3B2DF41B1FFF24AF00814540 /* MFZhiHei_Noncommercial-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MFZhiHei_Noncommercial-Regular.ttf"; sourceTree = "<group>"; };
+		3B30E90B204E8A0600EB4B36 /* KSPhotoBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KSPhotoBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B30E910204E8A4800EB4B36 /* KSPhotoBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KSPhotoBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B30E911204E8A4800EB4B36 /* YYCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YYCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B30E912204E8A4800EB4B36 /* YYImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YYImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B30E913204E8A4800EB4B36 /* YYWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YYWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B30E915204E8A5300EB4B36 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B349CF31ED6D576004CE7DE /* WLHomePage-Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WLHomePage-Map.swift"; path = "view/WLHomePage-Map.swift"; sourceTree = "<group>"; };
 		3B3569E81FB4216A000D1A35 /* WLHomePage-CustomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WLHomePage-CustomMenu.swift"; sourceTree = "<group>"; };
 		3B3569EB1FB421B7000D1A35 /* ic_menu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_menu@3x.png"; sourceTree = "<group>"; };
@@ -1240,6 +1246,12 @@
 		0F5DD49067DF5E6B2D678824 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B30E915204E8A5300EB4B36 /* SnapKit.framework */,
+				3B30E910204E8A4800EB4B36 /* KSPhotoBrowser.framework */,
+				3B30E911204E8A4800EB4B36 /* YYCache.framework */,
+				3B30E912204E8A4800EB4B36 /* YYImage.framework */,
+				3B30E913204E8A4800EB4B36 /* YYWebImage.framework */,
+				3B30E90B204E8A0600EB4B36 /* KSPhotoBrowser.framework */,
 				3B6C4AEE1ED6626C001A001D /* libstdc++.6.0.9.tbd */,
 				3B6C4AEC1ED66252001A001D /* CoreTelephony.framework */,
 				3B6C4AEA1ED66235001A001D /* libsqlite3.0.tbd */,
@@ -2831,20 +2843,28 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LikeUber/Pods-LikeUber-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ARNTransitionAnimator/ARNTransitionAnimator.framework",
+				"${BUILT_PRODUCTS_DIR}/KSPhotoBrowser/KSPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/PermissionScope/PermissionScope.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
+				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
+				"${BUILT_PRODUCTS_DIR}/YYImage/YYImage.framework",
+				"${BUILT_PRODUCTS_DIR}/YYWebImage/YYWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARNTransitionAnimator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KSPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PermissionScope.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

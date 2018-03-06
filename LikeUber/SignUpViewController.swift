@@ -45,7 +45,8 @@ class SignUpViewController: WLBasePageViewController {
     
 
     @objc func Done() {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
 
     //绑定UI与模型的关系

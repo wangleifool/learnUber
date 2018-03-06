@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Photos
+import KSPhotoBrowser
 
 let numPhotoPerLine:CGFloat = 4.0
 let heightAllAlbumsTableView = 400.0
@@ -39,6 +40,8 @@ class WLPhotoSelectViewController: UIViewController ,UICollectionViewDataSource,
     var currentAlbumIndex: Int = 0  // 默认相册为0
     
     var currentAlbumPhotoAsset: PHFetchResult<PHAsset>?
+    var currentAlbumPhotoImages = NSMutableArray()
+    
     
     lazy var allAlbumsTableView:UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: .plain)
@@ -170,14 +173,38 @@ class WLPhotoSelectViewController: UIViewController ,UICollectionViewDataSource,
         
         assetManager.requestImage(for: asset!, targetSize: thumbnailSize, contentMode: .aspectFill, options: requestOption) { (image, _) in
             if cell.representedIdentifier == asset?.localIdentifier && image != nil {
-                cell.imageButton.setBackgroundImage(image, for: .normal)
+                cell.imageView.image = image
+                print("indexpath.row: \(indexPath.row)")
+                
+                self.currentAlbumPhotoImages.insert(image!, at: indexPath.row)
             }
         }
         
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView .deselectItem(at: indexPath, animated: false)
+        
+        let items = NSMutableArray()
+        for i in 0 ..< currentAlbumPhotoImages.count {
+            
+            
+            let newIndexPath = IndexPath(row: i, section: 0)
+            let cell = collectionView.cellForItem(at: newIndexPath) as? WLPhotoSelectCollectionViewCell
+            let item: KSPhotoItem = KSPhotoItem(sourceView: cell?.imageView, image: currentAlbumPhotoImages[i] as? UIImage)
+            items.add(item)
+
+        }
+        
+        let browser: KSPhotoBrowser = KSPhotoBrowser(photoItems: items as! [KSPhotoItem], selectedIndex: UInt(indexPath.row))
+        browser.dismissalStyle = .scale
+        browser.backgroundStyle = .black
+        browser.pageindicatorStyle = .text
+        browser.loadingStyle = .determinate
+        browser.show(from: self)
+
+    }
     // MARK: collecion layout 布局
     
     // MARK: 所有相册的列表相关

@@ -172,9 +172,7 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
 
     // #MARK: action
     @IBAction func btRegisterPressed(_ sender: Any) {
-//        let createAccountPage = SignUpViewController()
-//        let nav = UINavigationController(rootViewController: createAccountPage)
-//        self.present(nav, animated: true, completion: nil)
+
         
         let userInfoVC = WLUserInfoViewController()
         let nav = UINavigationController(rootViewController: userInfoVC)

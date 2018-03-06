@@ -12,7 +12,8 @@ class WLPhotoSelectCollectionViewCell: UICollectionViewCell {
 
     var representedIdentifier: String! //用于独立标记每个cell
     
-    @IBOutlet weak var imageButton: UIButton!
+    
+    @IBOutlet weak var imageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
