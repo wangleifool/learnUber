@@ -522,6 +522,9 @@
 		3B2DF41D1FFF276000814540 /* MFJinHei_Noncommercial-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B2DF41A1FFF24AE00814540 /* MFJinHei_Noncommercial-Regular.ttf */; };
 		3B2DF41E1FFF276000814540 /* MFTongXin_Noncommercial-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B2DF4191FFF24AE00814540 /* MFTongXin_Noncommercial-Regular.ttf */; };
 		3B2DF41F1FFF276000814540 /* MFZhiHei_Noncommercial-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B2DF41B1FFF24AF00814540 /* MFZhiHei_Noncommercial-Regular.ttf */; };
+		3B30E91B204FC87800EB4B36 /* WLPhotoBrower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B30E91A204FC87800EB4B36 /* WLPhotoBrower.swift */; };
+		3B30E91E204FC91D00EB4B36 /* WLPhotoSelectViewController-AllAlbumsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B30E91D204FC91D00EB4B36 /* WLPhotoSelectViewController-AllAlbumsTableView.swift */; };
+		3B30E920204FD03D00EB4B36 /* WLPhotoSelectVC-AllPhotoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B30E91F204FD03D00EB4B36 /* WLPhotoSelectVC-AllPhotoCollectionView.swift */; };
 		3B349CF41ED6D576004CE7DE /* WLHomePage-Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B349CF31ED6D576004CE7DE /* WLHomePage-Map.swift */; };
 		3B3569E91FB4216A000D1A35 /* WLHomePage-CustomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3569E81FB4216A000D1A35 /* WLHomePage-CustomMenu.swift */; };
 		3B3569F51FB423FA000D1A35 /* GuillotineMenuTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3569EC1FB421B7000D1A35 /* GuillotineMenuTransitionAnimation.swift */; };
@@ -1126,6 +1129,9 @@
 		3B30E912204E8A4800EB4B36 /* YYImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YYImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B30E913204E8A4800EB4B36 /* YYWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YYWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B30E915204E8A5300EB4B36 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B30E91A204FC87800EB4B36 /* WLPhotoBrower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLPhotoBrower.swift; sourceTree = "<group>"; };
+		3B30E91D204FC91D00EB4B36 /* WLPhotoSelectViewController-AllAlbumsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WLPhotoSelectViewController-AllAlbumsTableView.swift"; sourceTree = "<group>"; };
+		3B30E91F204FD03D00EB4B36 /* WLPhotoSelectVC-AllPhotoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WLPhotoSelectVC-AllPhotoCollectionView.swift"; sourceTree = "<group>"; };
 		3B349CF31ED6D576004CE7DE /* WLHomePage-Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WLHomePage-Map.swift"; path = "view/WLHomePage-Map.swift"; sourceTree = "<group>"; };
 		3B3569E81FB4216A000D1A35 /* WLHomePage-CustomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WLHomePage-CustomMenu.swift"; sourceTree = "<group>"; };
 		3B3569EB1FB421B7000D1A35 /* ic_menu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_menu@3x.png"; sourceTree = "<group>"; };
@@ -2179,6 +2185,9 @@
 				3B8F68CA2016D2BF00ADAF9D /* interactiveTransition.swift */,
 				3B5A6D67201877620065AD9F /* WLPhotoSelectCollectionViewCell.swift */,
 				3B5A6D68201877620065AD9F /* WLPhotoSelectCollectionViewCell.xib */,
+				3B30E91A204FC87800EB4B36 /* WLPhotoBrower.swift */,
+				3B30E91D204FC91D00EB4B36 /* WLPhotoSelectViewController-AllAlbumsTableView.swift */,
+				3B30E91F204FD03D00EB4B36 /* WLPhotoSelectVC-AllPhotoCollectionView.swift */,
 			);
 			path = PhotoSelectPage;
 			sourceTree = "<group>";
@@ -2915,6 +2924,7 @@
 				3B5A6D69201877620065AD9F /* WLPhotoSelectCollectionViewCell.swift in Sources */,
 				3B226BCC1ECEC2A3005E7ED6 /* WLBasePageViewController.swift in Sources */,
 				3B27B2361F668A68007E92D9 /* WLAnnotation.swift in Sources */,
+				3B30E920204FD03D00EB4B36 /* WLPhotoSelectVC-AllPhotoCollectionView.swift in Sources */,
 				3BBE93FE1EF3B25700CEEF0C /* WLHomePage-Test.swift in Sources */,
 				3B2DF4081FFCD5FD00814540 /* SignUpViewModels.swift in Sources */,
 				3B6C4AC81ED5766A001A001D /* DrawerViewController.swift in Sources */,
@@ -2926,6 +2936,7 @@
 				3B52C2DD1F5803FF000CBEA7 /* WLUberDriver.swift in Sources */,
 				3B349CF41ED6D576004CE7DE /* WLHomePage-Map.swift in Sources */,
 				3B8F68C92016D26E00ADAF9D /* WLPhotoSelectViewController.swift in Sources */,
+				3B30E91E204FC91D00EB4B36 /* WLPhotoSelectViewController-AllAlbumsTableView.swift in Sources */,
 				3B6C4ACD1ED58461001A001D /* WLSettingsViewController.swift in Sources */,
 				3B8F68CB2016D2BF00ADAF9D /* interactiveTransition.swift in Sources */,
 				3B52C2E01F580D0E000CBEA7 /* WLCarAnnotationView.swift in Sources */,
@@ -2941,6 +2952,7 @@
 				3B9F29421FB6CD25006BD15D /* TransitionSubmitButton.swift in Sources */,
 				3B8050041FBD278D0055B7FE /* WLSublineTextField.swift in Sources */,
 				3B9B37551ED2D17A006C7406 /* FxString.mm in Sources */,
+				3B30E91B204FC87800EB4B36 /* WLPhotoBrower.swift in Sources */,
 				3B2DF4111FFF1A6D00814540 /* WLSettingsCellModels.swift in Sources */,
 				3B9B37471ED2C222006C7406 /* WLCreateAccountViewController.swift in Sources */,
 				3B9B37581ED2DA37006C7406 /* WLUserInfoViewController.swift in Sources */,

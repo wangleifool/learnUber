@@ -8,12 +8,42 @@
 
 import UIKit
 
+
+protocol WLPhotoSelectCollectionViewCellDelegate: class {
+    func cellSelectStateChanged(cell: WLPhotoSelectCollectionViewCell)
+}
+
 class WLPhotoSelectCollectionViewCell: UICollectionViewCell {
 
     var representedIdentifier: String! //用于独立标记每个cell
     
+    var coverView: UIView?
     
+    var isCanSelect: Bool = true
+    {
+        didSet {
+            if isCanSelect {
+                removeCoverView()
+            } else {
+                addCoverView()
+            }
+        }
+    }
+    
+    var isChoosed: Bool = false
+    {
+        didSet {
+            if isChoosed {
+                btSelect.setImage(UIImage(named:"photoSelect"), for: .normal)
+            } else {
+                btSelect.setImage(UIImage(named:"photoNotSelect"), for: .normal)
+            }
+        }
+    }
+    
+    weak var delegate: WLPhotoSelectCollectionViewCellDelegate?
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var btSelect: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,17 +51,30 @@ class WLPhotoSelectCollectionViewCell: UICollectionViewCell {
     }
 
     
+    func addCoverView() {
+        removeCoverView()
+        
+        coverView = UIView(frame: self.bounds)
+        coverView!.backgroundColor = UIColor.black
+        coverView!.alpha = 0.5
+        
+        self.addSubview(coverView!)
+    }
     
+    func removeCoverView() {
+        coverView?.removeFromSuperview()
+    }
     
     @IBAction func photoSelectClicked(_ sender: Any) {
-        if let btSelect = sender as? UIButton {
-            if btSelect.tag == 0 {
-                btSelect.tag = 1
-                btSelect.setImage(UIImage(named:"photoSelect"), for: .normal)
-            } else {
-                btSelect.tag = 0
-                btSelect.setImage(UIImage(named:"photoNotSelect"), for: .normal)
-            }
+        
+        if self.isChoosed {
+            self.isChoosed = false
+        } else {
+            self.isChoosed = true
+            
         }
+        
+        delegate?.cellSelectStateChanged(cell: self)
+        
     }
 }

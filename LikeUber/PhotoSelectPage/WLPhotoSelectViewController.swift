@@ -16,6 +16,10 @@ let heightAllAlbumsTableView = 400.0
 let heightForAlbumTableViewCellImage:CGFloat = 44.0
 let heightForAlbumTableViewCell:CGFloat      = 64.0
 
+let maxSelectPhotoNum = 9  // 最多可以选择的照片数量
+
+var justReachMaxNum: Bool = false
+
 let showAllAlbumTitle = "轻触更改相册 "
 let hideAllAlbumTitle = "轻触这里收起 "
 
@@ -28,7 +32,7 @@ private extension UICollectionView {
     }
 }
 
-class WLPhotoSelectViewController: UIViewController ,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDelegate,UITableViewDataSource{
+class WLPhotoSelectViewController: UIViewController {
     
     
     // 媒体库
@@ -43,7 +47,7 @@ class WLPhotoSelectViewController: UIViewController ,UICollectionViewDataSource,
     var currentAlbumPhotoImages = NSMutableArray()
     
     
-    lazy var allAlbumsTableView:UITableView = {
+    lazy var allAlbumsTableView: UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
@@ -58,10 +62,15 @@ class WLPhotoSelectViewController: UIViewController ,UICollectionViewDataSource,
         return tableView
     }()
     
+    // 选择的照片
+    var selectedPhotoIndex = NSMutableArray()
+    
     var backgroundCancelButton: UIButton?
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var showAlbumsHintLabel: UILabel!
     @IBOutlet weak var btTitle: UIButton!
+    @IBOutlet weak var btDone: UIButton!
+    @IBOutlet weak var selectNumImageView: UIImageView!
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
     @IBOutlet weak var photoCollectionLayout: UICollectionViewFlowLayout!
@@ -82,9 +91,6 @@ class WLPhotoSelectViewController: UIViewController ,UICollectionViewDataSource,
         getAllAvailableAlbumData()
         
         configureCollectionView()
-//        configureHeaderView()
-        
-        
         
     }
 
@@ -103,6 +109,7 @@ class WLPhotoSelectViewController: UIViewController ,UICollectionViewDataSource,
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: header View 相关
     func setShowAlbumsHintLabel(isShowed: Bool) {
         var attributeString = NSMutableAttributedString()
         let hintAttibuteString = NSAttributedString(string: (isShowed ? hideAllAlbumTitle : showAllAlbumTitle))
@@ -128,22 +135,6 @@ class WLPhotoSelectViewController: UIViewController ,UICollectionViewDataSource,
         hideAllAlbumTableView()
     }
     
-    func configureCollectionView() {
-        let cellWidth = (self.photoCollectionView.bounds.size.width - (numPhotoPerLine-1)*2) / numPhotoPerLine 
-        photoCollectionLayout.itemSize = CGSize.init(width: cellWidth, height: cellWidth)
-        photoCollectionLayout.minimumLineSpacing = 2
-        photoCollectionLayout.minimumInteritemSpacing = 2
-        photoCollectionLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
-        
-        let scale = UIScreen.main.scale
-        thumbnailSize = CGSize(width: cellWidth*scale, height: cellWidth*scale)
-        
-        photoCollectionView.register(UINib.init(nibName: "WLPhotoSelectCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: imageCollectionReusableIdentifier)
-        photoCollectionView.bounces = false
-        
-    }
-    
-
     @IBAction func btDonePressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -151,195 +142,31 @@ class WLPhotoSelectViewController: UIViewController ,UICollectionViewDataSource,
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    // MARK: collection view data source
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return currentAlbumPhotoAsset!.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let asset = currentAlbumPhotoAsset?.object(at: indexPath.row)
+    func updateSelectedNumUI() {
+        let num = selectedPhotoIndex.count
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imageCollectionReusableIdentifier, for: indexPath) as! WLPhotoSelectCollectionViewCell
         
-                
-        // 获取照片
-        cell.representedIdentifier = asset?.localIdentifier
-        let requestOption = PHImageRequestOptions()
-        requestOption.resizeMode = .exact
-        var rect = CGRect.zero
-        rect.size = photoCollectionLayout.itemSize
-        requestOption.normalizedCropRect = rect
-        
-        assetManager.requestImage(for: asset!, targetSize: thumbnailSize, contentMode: .aspectFill, options: requestOption) { (image, _) in
-            if cell.representedIdentifier == asset?.localIdentifier && image != nil {
-                cell.imageView.image = image
-                print("indexpath.row: \(indexPath.row)")
-                
-                self.currentAlbumPhotoImages.insert(image!, at: indexPath.row)
-            }
-        }
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView .deselectItem(at: indexPath, animated: false)
-        
-        let items = NSMutableArray()
-        for i in 0 ..< currentAlbumPhotoImages.count {
+        if num == 0 {
+            btDone.setImage(nil, for: .normal)
+        } else if num > maxSelectPhotoNum {
+            return
+        } else {
+            let numImageName = "num\(num)"
+            selectNumImageView.image = UIImage(named: numImageName)
             
-            
-            let newIndexPath = IndexPath(row: i, section: 0)
-            let cell = collectionView.cellForItem(at: newIndexPath) as? WLPhotoSelectCollectionViewCell
-            let item: KSPhotoItem = KSPhotoItem(sourceView: cell?.imageView, image: currentAlbumPhotoImages[i] as? UIImage)
-            items.add(item)
-
-        }
-        
-        let browser: KSPhotoBrowser = KSPhotoBrowser(photoItems: items as! [KSPhotoItem], selectedIndex: UInt(indexPath.row))
-        browser.dismissalStyle = .scale
-        browser.backgroundStyle = .black
-        browser.pageindicatorStyle = .text
-        browser.loadingStyle = .determinate
-        browser.show(from: self)
-
-    }
-    // MARK: collecion layout 布局
-    
-    // MARK: 所有相册的列表相关
-    func addBackgroundCancelButton() {
-        backgroundCancelButton = UIButton(frame: self.view.bounds)
-        backgroundCancelButton!.backgroundColor = UIColor.black
-        backgroundCancelButton!.alpha = 0
-        backgroundCancelButton!.addTarget(self, action: #selector(self.backgroundCancelButtonClick), for: .touchUpInside)
-        self.view.addSubview(backgroundCancelButton!)
-        
-        self.view.bringSubview(toFront: self.allAlbumsTableView)
-        self.view.bringSubview(toFront: self.headerView)
-    }
-    
-    @objc func backgroundCancelButtonClick() {
-        hideAllAlbumTableView()
-    }
-    
-    func showAllAlbumTableView() {
-        setShowAlbumsHintLabel(isShowed: true)
-        
-        addBackgroundCancelButton()
-        
-        
-        UIView.animate(withDuration: 0.2) {
-            
-            self.allAlbumsTableView.snp.remakeConstraints { (make) in
-                make.top.equalTo(self.headerView.snp.bottom)
-                make.left.equalToSuperview()
-                make.right.equalToSuperview()
-                make.height.equalTo(heightAllAlbumsTableView) //默认隐藏
+            if num == maxSelectPhotoNum {
+                justReachMaxNum = true  //全局变量 用来判断 达到最大和即将最大的临界值 表现
+                photoCollectionView.reloadData()
+            } else if justReachMaxNum {
+                justReachMaxNum = false
+                photoCollectionView.reloadData()
             }
             
-            self.backgroundCancelButton?.alpha = 0.5
-            
-            //用来立即刷新布局（不写无法实现动画移动，会变成瞬间移动）
-            self.view.layoutIfNeeded()
         }
         
         
     }
     
-    func hideAllAlbumTableView() {
-        setShowAlbumsHintLabel(isShowed: false)
-        
-        UIView.animate(withDuration: 0.2, animations: {
-            self.allAlbumsTableView.snp.remakeConstraints { (make) in
-                make.top.equalTo(self.headerView.snp.bottom)
-                make.left.equalToSuperview()
-                make.right.equalToSuperview()
-                make.height.equalTo(0) //默认隐藏
-            }
-            
-            self.backgroundCancelButton?.alpha = 0
-            
-            self.view.layoutIfNeeded()
-        }) { (isComplete) in
-            self.backgroundCancelButton?.removeFromSuperview()
-        }
-        
-    }
-    
-    @IBAction func btChangeAlbumClick(_ sender: Any) {
-        if let bt = sender as? UIButton {
-            if bt.tag == 0 {
-                bt.tag = 1
-                showAllAlbumTableView()
-            } else {
-                bt.tag = 0
-                hideAllAlbumTableView()
-            }
-        }
-        
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allAvailableAlbumsArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "albumsCell")
-        if cell == nil {
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "albumsCell")
-        }
-        
-        let assetCollection: PHAssetCollection = allAvailableAlbumsArray.object(at: indexPath.row) as! PHAssetCollection
-        let allAssetsInCollection: PHFetchResult<PHAsset> = allAlbumsPhotoAssets.object(at: indexPath.row) as! PHFetchResult
-        
-        cell!.textLabel?.text = assetCollection.localizedTitle
-        cell!.detailTextLabel!.text = String(allAssetsInCollection.count)
-        cell!.accessoryType = (currentAlbumIndex == indexPath.row) ? .checkmark : .none
-        
-        
-        let asset = allAssetsInCollection.object(at: 0) //取第一张图片作为预览图
-        assetManager.requestImage(for: asset, targetSize: CGSize(width: 44.0,height:44.0), contentMode: .aspectFill, options: nil) { (image, _) in
-            if image != nil {
-                
-                cell?.imageView?.image = image
-                
-                // 修改cell imageview的尺寸
-                let itemSize = CGSize(width: heightForAlbumTableViewCellImage, height: heightForAlbumTableViewCellImage)
-                UIGraphicsBeginImageContextWithOptions(itemSize, false, UIScreen.main.scale);
-                let imageRect = CGRect(x:0 ,y:0 ,width:itemSize.width ,height:itemSize.height)
-                cell?.imageView?.image?.draw(in: imageRect)
-                
-                cell?.imageView?.image = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
-                
-            }
-        }
-        
-        return cell!
-        
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return heightForAlbumTableViewCell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-        
-        let cell = tableView.cellForRow(at: indexPath)
-        for visiableCell in tableView.visibleCells {
-            visiableCell.accessoryType = .none
-        }
-        cell?.accessoryType = .checkmark
-        
-        currentAlbumIndex = indexPath.row
-        currentAlbumPhotoAsset = allAlbumsPhotoAssets.object(at: currentAlbumIndex) as? PHFetchResult<PHAsset>
-        
-        btTitle.setTitle(cell?.textLabel?.text, for: .normal)
-        photoCollectionView.reloadData()  //刷新照片列表
-        hideAllAlbumTableView()
-    }
     
     // MARK: all albums data
     func saveDataToTempory(_ assetCollection: PHAssetCollection) {

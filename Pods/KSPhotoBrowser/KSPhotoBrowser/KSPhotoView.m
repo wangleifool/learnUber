@@ -27,6 +27,8 @@ const CGFloat kKSPhotoViewMaxScale = 3;
 @property (nonatomic, strong, readwrite) KSPhotoItem *item;
 @property (nonatomic, strong) id<KSImageManager> imageManager;
 
+@property (nonatomic, strong) PHCachingImageManager *localPhotoImageManager;
+
 @end
 
 @implementation KSPhotoView
@@ -57,6 +59,8 @@ const CGFloat kKSPhotoViewMaxScale = 3;
         [self.layer addSublayer:_progressLayer];
         
         _imageManager = imageManager;
+        
+        _localPhotoImageManager = [[PHCachingImageManager alloc] init];
     }
     return self;
 }
@@ -73,6 +77,30 @@ const CGFloat kKSPhotoViewMaxScale = 3;
             [self resizeImageView];
             return;
         }
+        
+        /*******显示local photo */
+        
+        if (item.imageAsset) {
+            
+            PHImageRequestOptions *options = [PHImageRequestOptions new];
+            options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+            
+            CGSize targetSize = CGSizeMake(_imageView.bounds.size.width * [UIScreen mainScreen].scale, _imageView.bounds.size.height * [UIScreen mainScreen].scale);
+            
+            [[PHImageManager defaultManager] requestImageForAsset:item.imageAsset targetSize:targetSize contentMode:PHImageContentModeAspectFit options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+                _imageView.image = result;
+                _item.finished  = YES;
+                
+                [_progressLayer stopSpin];
+                _progressLayer.hidden = YES;
+                [self resizeImageView];
+            }];
+            
+            return ;
+        }
+        
+        /****/
+        
         __weak typeof(self) wself = self;
         KSImageManagerProgressBlock progressBlock = nil;
         if (determinate) {

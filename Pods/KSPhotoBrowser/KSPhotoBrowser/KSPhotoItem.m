@@ -51,6 +51,19 @@
     return self;
 }
 
+- (instancetype)initWithSourceView:(UIImageView *)view imageAsset:(PHAsset *)asset {
+    self = [super init];
+    if (self) {
+        _sourceView = view;
+        _thumbImage = view.image;
+        _imageUrl   = nil;
+        _image      = nil;
+        _imageAsset = asset;
+    }
+    
+    return self;
+}
+
 + (instancetype)itemWithSourceView:(UIView *)view
                         thumbImage:(UIImage *)image
                           imageUrl:(NSURL *)url
@@ -74,4 +87,8 @@
                                              image:image];
 }
 
++ (instancetype)itemWithSourceView:(UIImageView *)view imageAsset:(PHAsset *)asset
+{
+    return [[KSPhotoItem alloc] initWithSourceView:view imageAsset:asset];
+}
 @end

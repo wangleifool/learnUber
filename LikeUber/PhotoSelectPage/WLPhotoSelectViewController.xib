@@ -13,10 +13,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLPhotoSelectViewController" customModule="LikeUber" customModuleProvider="target">
             <connections>
+                <outlet property="btDone" destination="t3I-rA-tYJ" id="Bki-CC-OhT"/>
                 <outlet property="btTitle" destination="GbZ-X6-wUK" id="RxC-XI-a1o"/>
                 <outlet property="headerView" destination="0La-YS-ZXK" id="p8M-6k-ih5"/>
                 <outlet property="photoCollectionLayout" destination="zCc-Fv-Mek" id="u6Z-Ql-778"/>
                 <outlet property="photoCollectionView" destination="r5r-t7-q5S" id="hra-j9-gJr"/>
+                <outlet property="selectNumImageView" destination="xcQ-S2-zKb" id="vIr-ya-FXc"/>
                 <outlet property="showAlbumsHintLabel" destination="4Ap-hF-XEU" id="gCi-ec-OFK"/>
                 <outlet property="view" destination="iN0-l3-epB" id="FcN-4x-Cnc"/>
             </connections>
@@ -38,10 +40,10 @@
                             </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xcQ-S2-zKb">
-                            <rect key="frame" x="241" y="6" width="32" height="32"/>
+                            <rect key="frame" x="253" y="12" width="20" height="20"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="32" id="9gb-ci-awk"/>
-                                <constraint firstAttribute="height" constant="32" id="kfQ-d3-KEa"/>
+                                <constraint firstAttribute="width" constant="20" id="9gb-ci-awk"/>
+                                <constraint firstAttribute="height" constant="20" id="kfQ-d3-KEa"/>
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhx-ng-c0T" userLabel="cancel">

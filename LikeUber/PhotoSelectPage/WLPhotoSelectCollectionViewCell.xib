@@ -45,6 +45,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
+                <outlet property="btSelect" destination="Aup-cu-31l" id="Kld-YF-oBt"/>
                 <outlet property="imageView" destination="9xS-jZ-Sbw" id="hog-Aw-l9K"/>
             </connections>
         </collectionViewCell>

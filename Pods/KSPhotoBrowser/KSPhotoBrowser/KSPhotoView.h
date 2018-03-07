@@ -22,6 +22,7 @@ extern const CGFloat kKSPhotoViewPadding;
 @property (nonatomic, strong, readonly) KSProgressLayer *progressLayer;
 @property (nonatomic, strong, readonly) KSPhotoItem *item;
 
+
 - (instancetype)initWithFrame:(CGRect)frame imageManager:(id<KSImageManager>)imageManager;
 - (void)setItem:(KSPhotoItem *)item determinate:(BOOL)determinate;
 - (void)resizeImageView;
