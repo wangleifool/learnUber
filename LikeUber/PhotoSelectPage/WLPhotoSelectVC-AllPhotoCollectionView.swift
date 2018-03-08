@@ -85,6 +85,7 @@ extension WLPhotoSelectViewController : UICollectionViewDataSource,UICollectionV
         collectionView .deselectItem(at: indexPath, animated: false)
         
         let items = NSMutableArray()
+        var selectedIndex: UInt = 0
         
         // 已经是最大选择数目
         if selectedPhotoIndex.count >= maxSelectPhotoNum {
@@ -102,6 +103,9 @@ extension WLPhotoSelectViewController : UICollectionViewDataSource,UICollectionV
                     items.add(item)
                     
                 }
+                
+                selectedIndex = UInt(selectedPhotoIndex.index(of: indexPath.row))//图片查看器的最先显示的图片的index
+                
             } else {
                 return   // 已经选择了最大数，点击非选择图片，不做响应
             }
@@ -117,17 +121,36 @@ extension WLPhotoSelectViewController : UICollectionViewDataSource,UICollectionV
                 items.add(item)
                 
             }
+            
+            selectedIndex = UInt(indexPath.row)  //图片查看器的最先显示的图片的index
         }
         
         
         
-        let browser: KSPhotoBrowser = KSPhotoBrowser(photoItems: items as! [KSPhotoItem], selectedIndex: UInt(indexPath.row))
+        showPhotoBrower(photos: items, selectedIndex: selectedIndex)
+        
+    }
+    
+    func showPhotoBrower(photos: NSMutableArray, selectedIndex: UInt) {
+        let browser: KSPhotoBrowser = KSPhotoBrowser(photoItems: photos as! [KSPhotoItem], selectedIndex: selectedIndex)
         browser.dismissalStyle = .scale
         browser.backgroundStyle = .black
         browser.pageindicatorStyle = .text
         browser.loadingStyle = .determinate
-        browser.show(from: self)
+        browser.allPhotosNumInTrue = UInt(currentAlbumPhotoAsset!.count)
+        browser.afterSelectedFromPhotoBrower = { (isDone: Bool) in
+            print("selected num: \(self.selectedPhotoIndex.count)")
+            if isDone {
+                
+            } else {
+                self.photoCollectionView.reloadData()
+                self.updateSelectedNumUI()
+            }
+        }
         
+        browser.selectedPhotosIndex = selectedPhotoIndex
+        
+        browser.show(from: self)
     }
     
    

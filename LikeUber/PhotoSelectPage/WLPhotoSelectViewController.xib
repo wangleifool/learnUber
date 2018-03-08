@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLPhotoSelectViewController" customModule="LikeUber" customModuleProvider="target">
             <connections>
                 <outlet property="btDone" destination="t3I-rA-tYJ" id="Bki-CC-OhT"/>
+                <outlet property="btPreview" destination="gU3-fo-vMg" id="MdB-zX-MUr"/>
                 <outlet property="btTitle" destination="GbZ-X6-wUK" id="RxC-XI-a1o"/>
                 <outlet property="headerView" destination="0La-YS-ZXK" id="p8M-6k-ih5"/>
                 <outlet property="photoCollectionLayout" destination="zCc-Fv-Mek" id="u6Z-Ql-778"/>
@@ -110,7 +111,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSW-DB-qGj">
                     <rect key="frame" x="0.0" y="504" width="320" height="64"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gU3-fo-vMg">
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gU3-fo-vMg">
                             <rect key="frame" x="248" y="0.0" width="64" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="64" id="qrZ-ed-jOv"/>
@@ -119,6 +120,9 @@
                             <state key="normal" title="预览">
                                 <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="btPreviewPressed:" destination="-1" eventType="touchUpInside" id="Q0b-V9-wpV"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

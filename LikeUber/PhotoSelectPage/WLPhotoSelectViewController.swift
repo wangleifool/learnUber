@@ -32,8 +32,13 @@ private extension UICollectionView {
     }
 }
 
+protocol WLPhotoSelectViewControllerDelegate {
+    func afterDoneGetImages(images: Array<UIImage>)
+}
+
 class WLPhotoSelectViewController: UIViewController {
     
+    var delegate: WLPhotoSelectViewControllerDelegate?
     
     // 媒体库
     var allAvailableAlbums: PHFetchResult<PHAssetCollection>!
@@ -71,6 +76,7 @@ class WLPhotoSelectViewController: UIViewController {
     @IBOutlet weak var btTitle: UIButton!
     @IBOutlet weak var btDone: UIButton!
     @IBOutlet weak var selectNumImageView: UIImageView!
+    @IBOutlet weak var btPreview: UIButton!
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
     @IBOutlet weak var photoCollectionLayout: UICollectionViewFlowLayout!
@@ -96,6 +102,8 @@ class WLPhotoSelectViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         configureHeaderView()
+        
+        updateSelectedNumUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -136,6 +144,10 @@ class WLPhotoSelectViewController: UIViewController {
     }
     
     @IBAction func btDonePressed(_ sender: Any) {
+        
+        
+        
+//        delegate?.afterDoneGetImages(images: <#T##Array<UIImage>#>)
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func btCancelPressed(_ sender: Any) {
@@ -148,9 +160,14 @@ class WLPhotoSelectViewController: UIViewController {
         
         if num == 0 {
             btDone.setImage(nil, for: .normal)
+            btPreview.isEnabled = false
+            btPreview.setTitleColor(UIColor.lightGray, for: .normal)
         } else if num > maxSelectPhotoNum {
             return
         } else {
+            btPreview.isEnabled = true
+            btPreview.setTitleColor(UIColor.black, for: .normal)
+            
             let numImageName = "num\(num)"
             selectNumImageView.image = UIImage(named: numImageName)
             
@@ -167,6 +184,26 @@ class WLPhotoSelectViewController: UIViewController {
         
     }
     
+    
+    @IBAction func btPreviewPressed(_ sender: Any) {
+        
+        let items = NSMutableArray()
+        
+        for i in selectedPhotoIndex {
+            let asset: PHAsset = currentAlbumPhotoAsset?.object(at: i as! Int) as! PHAsset
+            
+            let newIndexPath = IndexPath(row: i as! Int, section: 0)
+            let cell = photoCollectionView.cellForItem(at: newIndexPath) as? WLPhotoSelectCollectionViewCell
+            
+            
+            let item: KSPhotoItem = KSPhotoItem(sourceView: cell?.imageView, imageAsset:asset)
+            
+            items.add(item)
+            
+        }
+        
+        showPhotoBrower(photos: items, selectedIndex: 0)
+    }
     
     // MARK: all albums data
     func saveDataToTempory(_ assetCollection: PHAssetCollection) {

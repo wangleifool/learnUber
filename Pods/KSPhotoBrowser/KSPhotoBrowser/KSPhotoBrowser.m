@@ -15,6 +15,8 @@
 #import "YYWebImage.h"
 #endif
 
+#define maxSelectedNum 9
+
 static const NSTimeInterval kAnimationDuration = 0.3;
 static const NSTimeInterval kSpringAnimationDuration = 0.5;
 static Class imageManagerClass = nil;
@@ -33,6 +35,10 @@ static Class imageManagerClass = nil;
 @property (nonatomic, strong) UILabel *pageLabel;
 @property (nonatomic, assign) BOOL presented;
 @property (nonatomic, strong) id<KSImageManager> imageManager;
+
+@property (nonatomic, strong) UIButton *btSelectedDone;
+@property (nonatomic, strong) UIButton *btSelected;
+@property (nonatomic, strong) NSMutableArray *isSelectedAllPhotos;
 
 @end
 
@@ -113,6 +119,61 @@ static Class imageManagerClass = nil;
         [self.view addSubview:_pageLabel];
     }
     
+    if (nil == _btSelectedDone) {
+        CGRect frame = CGRectMake(0, 0, 64, 64);
+        frame.origin.x = self.view.bounds.size.width - frame.size.width;
+        
+        _btSelectedDone = [[UIButton alloc] initWithFrame:frame];
+        _btSelectedDone.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        [_btSelectedDone setTitle:@"完成" forState:UIControlStateNormal];
+        [_btSelectedDone setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_btSelectedDone addTarget:self action:@selector(btDonePressed:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        [self.view addSubview:_btSelectedDone];
+    }
+    
+    if (nil == _btSelected) {
+        CGRect frame = CGRectMake(0, 0, 64, 64);
+        frame.origin.x = self.view.bounds.size.width - frame.size.width;
+        frame.origin.y = self.view.bounds.size.height - frame.size.height;
+        
+        _btSelected = [[UIButton alloc] initWithFrame:frame];
+        
+        [_btSelected setImage:[UIImage imageNamed:@"photoNotSelect"] forState:UIControlStateNormal];
+        
+        
+        [_btSelected addTarget:self action:@selector(btSelectedPressed:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        [self.view addSubview:_btSelected];
+    }
+    
+    // 初始化标志照片是否被选中的数组
+    if (nil == _isSelectedAllPhotos) {
+        _isSelectedAllPhotos = [NSMutableArray array];
+        NSNumber *isNotSelected = [NSNumber numberWithBool:NO];
+        NSNumber *isSelected = [NSNumber numberWithBool:YES];
+        
+        
+        // 如果是 可显示图片和所有图片数量不符合，则表示可显示图片初始全都是选中的
+        if (_photoItems.count != _allPhotosNumInTrue) {
+            for(NSUInteger i = 0;i < _photoItems.count; i++) {
+                [_isSelectedAllPhotos addObject:isSelected];
+            }
+        } else {
+            for(NSUInteger i = 0;i < _photoItems.count; i++) {
+                [_isSelectedAllPhotos addObject:isNotSelected];
+            }
+            
+            for (NSNumber *index in _selectedPhotosIndex) {
+                [_isSelectedAllPhotos replaceObjectAtIndex:index.unsignedIntegerValue withObject:isSelected];
+            }
+        }
+        
+        
+    }
+    
     CGSize contentSize = CGSizeMake(rect.size.width * _photoItems.count, rect.size.height);
     _scrollView.contentSize = contentSize;
     
@@ -147,6 +208,9 @@ static Class imageManagerClass = nil;
         sourceRect = [item.sourceView.superview convertRect:item.sourceView.frame toView:photoView];
     }
     photoView.imageView.frame = sourceRect;
+    
+    [self updateBtDoneUI];
+    [self updateBtSelectedUI];
     
     if (_backgroundStyle == KSPhotoBrowserBackgroundStyleBlur) {
         [self blurBackgroundWithImage:[self screenshot] animated:NO];
@@ -191,6 +255,84 @@ static Class imageManagerClass = nil;
 }
 
 // MARK: - Private
+
+- (void)updateBtDoneUI {
+    NSUInteger numSelected = _selectedPhotosIndex.count;
+    if (numSelected == 0) {
+        [_btSelectedDone setImage:nil forState:UIControlStateNormal];
+    } else if (numSelected > maxSelectedNum) {
+
+    } else {
+        NSString *imageName = [NSString stringWithFormat:@"num%lu",(unsigned long)numSelected];
+        [_btSelectedDone setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    }
+
+}
+
+- (void)btDonePressed:(id)sender {
+    
+//    NSMutableArray *selectedPhotos = [NSMutableArray array];
+//    NSUInteger numSelected = _selectedPhotosIndex.count;
+//    if (numSelected == 0) {
+//        [selectedPhotos addObject:[_photoItems objectAtIndex:_currentPage]];
+//
+//    } else {
+//
+//    }
+    
+    _afterSelectedFromPhotoBrower(YES);
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)btSelectedPressed:(id)sender {
+    NSNumber *currentPageNum = [_selectedPhotosIndex objectAtIndex:_currentPage];
+//    if (_allPhotosNumInTrue == _photoItems.count) {
+//        currentPageNum = [NSNumber numberWithUnsignedInteger:_currentPage];
+//    } else {
+//        currentPageNum = [_selectedPhotosIndex objectAtIndex:_currentPage];
+//    }
+    
+    
+    if (_btSelected.selected) {
+        _btSelected.selected = NO;
+        
+        [_isSelectedAllPhotos replaceObjectAtIndex:_currentPage withObject:[NSNumber numberWithBool:NO]];
+        
+        [_selectedPhotosIndex removeObject:currentPageNum];
+    } else {
+        if (_selectedPhotosIndex.count <= maxSelectedNum) {
+            _btSelected.selected = YES;
+            [_isSelectedAllPhotos replaceObjectAtIndex:_currentPage withObject:[NSNumber numberWithBool:YES]];
+            [_selectedPhotosIndex addObject:currentPageNum];
+        }
+    }
+    
+    
+    
+    [self updateBtSelectedUI];
+    [self updateBtDoneUI];
+}
+
+- (void)updateBtSelectedUI {
+    NSNumber *isSelectedCurrentPage = [_isSelectedAllPhotos objectAtIndex:_currentPage];
+    
+//    if (_allPhotosNumInTrue == _photoItems.count) {
+//        currentPageNum = [NSNumber numberWithUnsignedInteger:_currentPage];
+//    } else {
+//        [_selectedPhotosIndex objectAtIndex:_currentPage]
+//        currentPageNum = [NSNumber numberWithUnsignedInteger:[_selectedPhotosIndex indexOfObject:<#(nonnull id)#>]]
+//    }
+    
+    
+    if (isSelectedCurrentPage.boolValue) {
+        _btSelected.selected = YES;
+        [_btSelected setImage:[UIImage imageNamed:@"photoSelect"] forState:UIControlStateNormal];
+    } else {
+        _btSelected.selected = NO;
+        [_btSelected setImage:[UIImage imageNamed:@"photoNotSelect"] forState:UIControlStateNormal];
+    }
+    
+}
 
 - (void)setStatusBarHidden:(BOOL)hidden {
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
@@ -272,6 +414,10 @@ static Class imageManagerClass = nil;
         } else {
             [self configPageLabelWithPage:_currentPage];
         }
+        
+        [self updateBtDoneUI];
+        [self updateBtSelectedUI];
+        
         if (_delegate && [_delegate respondsToSelector:@selector(ks_photoBrowser:didSelectItem:atIndex:)]) {
             [_delegate ks_photoBrowser:self didSelectItem:item atIndex:page];
         }
@@ -290,6 +436,8 @@ static Class imageManagerClass = nil;
     } else {
         item.sourceView.alpha = 1;
     }
+    
+    _afterSelectedFromPhotoBrower(NO);
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
@@ -447,6 +595,9 @@ static Class imageManagerClass = nil;
     [self setStatusBarHidden:NO];
     photoView.progressLayer.hidden = YES;
     item.sourceView.alpha = 0;
+    
+    _btSelected.hidden = YES;
+    _btSelectedDone.hidden = YES;
 }
 
 // MARK: - Gesture Recognizer
@@ -537,6 +688,10 @@ static Class imageManagerClass = nil;
     if (!item.finished) {
         photoView.progressLayer.hidden = NO;
     }
+    
+    _btSelected.hidden = NO;
+    _btSelectedDone.hidden = NO;
+    
     if (_bounces && _dismissalStyle == KSPhotoBrowserInteractiveDismissalStyleScale) {
         [UIView animateWithDuration:kSpringAnimationDuration delay:0 usingSpringWithDamping:0.6 initialSpringVelocity:0 options:kNilOptions animations:^{
             photoView.imageView.transform = CGAffineTransformIdentity;
@@ -619,6 +774,8 @@ static Class imageManagerClass = nil;
     }
     
     photoView.progressLayer.hidden = YES;
+
+    
     item.sourceView.alpha = 0;
     CGRect sourceRect;
     float systemVersion = [[[UIDevice currentDevice] systemVersion] floatValue];

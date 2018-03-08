@@ -35,6 +35,8 @@ typedef NS_ENUM(NSUInteger, KSPhotoBrowserImageLoadingStyle) {
     KSPhotoBrowserImageLoadingStyleDeterminate
 };
 
+typedef void(^AfterSelectedFromPhotoBrower)(BOOL isDone);
+
 @protocol KSPhotoBrowserDelegate, KSImageManager;
 @interface KSPhotoBrowser : UIViewController
 
@@ -44,6 +46,10 @@ typedef NS_ENUM(NSUInteger, KSPhotoBrowserImageLoadingStyle) {
 @property (nonatomic, assign) KSPhotoBrowserImageLoadingStyle loadingStyle;
 @property (nonatomic, assign) BOOL bounces;
 @property (nonatomic, weak) id<KSPhotoBrowserDelegate> delegate;
+
+@property (nonatomic, assign) NSUInteger     allPhotosNumInTrue; //相册总共该有的总数
+@property (nonatomic, strong) NSMutableArray *selectedPhotosIndex;
+@property (nonatomic, strong) AfterSelectedFromPhotoBrower afterSelectedFromPhotoBrower;
 
 + (instancetype)browserWithPhotoItems:(NSArray<KSPhotoItem *> *)photoItems selectedIndex:(NSUInteger)selectedIndex;
 - (instancetype)initWithPhotoItems:(NSArray<KSPhotoItem *> *)photoItems selectedIndex:(NSUInteger)selectedIndex;
