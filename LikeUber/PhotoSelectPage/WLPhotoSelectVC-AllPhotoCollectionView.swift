@@ -141,7 +141,7 @@ extension WLPhotoSelectViewController : UICollectionViewDataSource,UICollectionV
         browser.afterSelectedFromPhotoBrower = { (isDone: Bool) in
             print("selected num: \(self.selectedPhotoIndex.count)")
             if isDone {
-                
+                self.btDonePressed(self.btDone)                
             } else {
                 self.photoCollectionView.reloadData()
                 self.updateSelectedNumUI()

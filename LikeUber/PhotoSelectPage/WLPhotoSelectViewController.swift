@@ -25,6 +25,7 @@ let hideAllAlbumTitle = "轻触这里收起 "
 
 let imageCollectionReusableIdentifier = "PhotoSelectCell"
 
+
 private extension UICollectionView {
     func indexPathsForElements(in rect: CGRect) -> [IndexPath] {
         let allLayoutAttributes = collectionViewLayout.layoutAttributesForElements(in: rect)!
@@ -98,6 +99,9 @@ class WLPhotoSelectViewController: UIViewController {
         
         configureCollectionView()
         
+        
+        
+       
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -115,6 +119,12 @@ class WLPhotoSelectViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func resetToDefault() {
+        selectedPhotoIndex.removeAllObjects()
+        allAlbumsTableView.delegate?.tableView!(allAlbumsTableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+        updateSelectedNumUI()
     }
     
     // MARK: header View 相关
@@ -145,7 +155,29 @@ class WLPhotoSelectViewController: UIViewController {
     
     @IBAction func btDonePressed(_ sender: Any) {
         
-        
+        DispatchQueue.global().async {
+            var images = Array<UIImage>()
+            
+            for i in self.selectedPhotoIndex {
+                let asset = self.currentAlbumPhotoAsset?.object(at: i as! Int)
+                let options = PHImageRequestOptions()
+                options.deliveryMode = .highQualityFormat
+                options.isSynchronous = true
+//                options.resizeMode   = .exact
+                
+                PHImageManager.default().requestImage(for: asset!, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: options, resultHandler: { (image, _) in
+                    if image != nil {
+                        images.append(image!)
+                    }
+                })
+            }
+            
+            print(images.count)
+            if images.count != 0 {
+                self.delegate?.afterDoneGetImages(images: images)
+            }
+            
+        }
         
 //        delegate?.afterDoneGetImages(images: <#T##Array<UIImage>#>)
         self.dismiss(animated: true, completion: nil)
@@ -159,7 +191,7 @@ class WLPhotoSelectViewController: UIViewController {
         
         
         if num == 0 {
-            btDone.setImage(nil, for: .normal)
+            selectNumImageView.image = nil
             btPreview.isEnabled = false
             btPreview.setTitleColor(UIColor.lightGray, for: .normal)
         } else if num > maxSelectPhotoNum {

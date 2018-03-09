@@ -38,7 +38,8 @@ static Class imageManagerClass = nil;
 
 @property (nonatomic, strong) UIButton *btSelectedDone;
 @property (nonatomic, strong) UIButton *btSelected;
-@property (nonatomic, strong) NSMutableArray *isSelectedAllPhotos;
+//@property (nonatomic, strong) NSMutableArray *isSelectedAllPhotos;
+@property (nonatomic, strong) NSMutableArray *visiablePhotosIndex; //在可见照片数量和总数量不一致时，单独记录可见照片的index
 
 @end
 
@@ -150,29 +151,34 @@ static Class imageManagerClass = nil;
     }
     
     // 初始化标志照片是否被选中的数组
-    if (nil == _isSelectedAllPhotos) {
-        _isSelectedAllPhotos = [NSMutableArray array];
-        NSNumber *isNotSelected = [NSNumber numberWithBool:NO];
-        NSNumber *isSelected = [NSNumber numberWithBool:YES];
-        
-        
-        // 如果是 可显示图片和所有图片数量不符合，则表示可显示图片初始全都是选中的
+//    if (nil == _isSelectedAllPhotos) {
+//        _isSelectedAllPhotos = [NSMutableArray array];
+//        NSNumber *isNotSelected = [NSNumber numberWithBool:NO];
+//        NSNumber *isSelected = [NSNumber numberWithBool:YES];
+//
+//
+//        // 如果是 可显示图片和所有图片数量不符合，则表示可显示图片初始全都是选中的
+//        if (_photoItems.count != _allPhotosNumInTrue) {
+//            for(NSUInteger i = 0;i < _photoItems.count; i++) {
+//                [_isSelectedAllPhotos addObject:isSelected];
+//            }
+//        } else {
+//            for(NSUInteger i = 0;i < _photoItems.count; i++) {
+//                [_isSelectedAllPhotos addObject:isNotSelected];
+//            }
+//
+//            for (NSNumber *index in _selectedPhotosIndex) {
+//                [_isSelectedAllPhotos replaceObjectAtIndex:index.unsignedIntegerValue withObject:isSelected];
+//            }
+//        }
+//    }
+    
+    if (nil == _visiablePhotosIndex) {
         if (_photoItems.count != _allPhotosNumInTrue) {
-            for(NSUInteger i = 0;i < _photoItems.count; i++) {
-                [_isSelectedAllPhotos addObject:isSelected];
-            }
-        } else {
-            for(NSUInteger i = 0;i < _photoItems.count; i++) {
-                [_isSelectedAllPhotos addObject:isNotSelected];
-            }
-            
-            for (NSNumber *index in _selectedPhotosIndex) {
-                [_isSelectedAllPhotos replaceObjectAtIndex:index.unsignedIntegerValue withObject:isSelected];
-            }
+            _visiablePhotosIndex = [_selectedPhotosIndex mutableCopy];
         }
-        
-        
     }
+    
     
     CGSize contentSize = CGSizeMake(rect.size.width * _photoItems.count, rect.size.height);
     _scrollView.contentSize = contentSize;
@@ -280,29 +286,30 @@ static Class imageManagerClass = nil;
 //
 //    }
     
-    _afterSelectedFromPhotoBrower(YES);
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self btSelectedPressed:nil];
+    [self setStatusBarHidden:NO];
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        _afterSelectedFromPhotoBrower(YES);
+    }];
 }
 
 - (void)btSelectedPressed:(id)sender {
-    NSNumber *currentPageNum = [_selectedPhotosIndex objectAtIndex:_currentPage];
-//    if (_allPhotosNumInTrue == _photoItems.count) {
-//        currentPageNum = [NSNumber numberWithUnsignedInteger:_currentPage];
-//    } else {
-//        currentPageNum = [_selectedPhotosIndex objectAtIndex:_currentPage];
-//    }
+    NSNumber *currentPageNum ;
+    if (_allPhotosNumInTrue == _photoItems.count) {
+        currentPageNum = [NSNumber numberWithUnsignedInteger:_currentPage];
+    } else {
+        currentPageNum = [_visiablePhotosIndex objectAtIndex:_currentPage];
+    }
     
     
     if (_btSelected.selected) {
         _btSelected.selected = NO;
         
-        [_isSelectedAllPhotos replaceObjectAtIndex:_currentPage withObject:[NSNumber numberWithBool:NO]];
-        
         [_selectedPhotosIndex removeObject:currentPageNum];
     } else {
         if (_selectedPhotosIndex.count <= maxSelectedNum) {
-            _btSelected.selected = YES;
-            [_isSelectedAllPhotos replaceObjectAtIndex:_currentPage withObject:[NSNumber numberWithBool:YES]];
+            _btSelected.selected = YES;            
             [_selectedPhotosIndex addObject:currentPageNum];
         }
     }
@@ -314,17 +321,17 @@ static Class imageManagerClass = nil;
 }
 
 - (void)updateBtSelectedUI {
-    NSNumber *isSelectedCurrentPage = [_isSelectedAllPhotos objectAtIndex:_currentPage];
+//    NSNumber *isSelectedCurrentPage = [_isSelectedAllPhotos objectAtIndex:_currentPage];
+    NSNumber *currentPageNum;
     
-//    if (_allPhotosNumInTrue == _photoItems.count) {
-//        currentPageNum = [NSNumber numberWithUnsignedInteger:_currentPage];
-//    } else {
-//        [_selectedPhotosIndex objectAtIndex:_currentPage]
-//        currentPageNum = [NSNumber numberWithUnsignedInteger:[_selectedPhotosIndex indexOfObject:<#(nonnull id)#>]]
-//    }
+    if (_allPhotosNumInTrue == _photoItems.count) {
+        currentPageNum = [NSNumber numberWithUnsignedInteger:_currentPage];
+    } else {
+        currentPageNum = [_visiablePhotosIndex objectAtIndex:_currentPage];
+    }
     
     
-    if (isSelectedCurrentPage.boolValue) {
+    if ([_selectedPhotosIndex containsObject:currentPageNum]) {
         _btSelected.selected = YES;
         [_btSelected setImage:[UIImage imageNamed:@"photoSelect"] forState:UIControlStateNormal];
     } else {

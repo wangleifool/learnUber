@@ -9,7 +9,7 @@
 import UIKit
 import ARNTransitionAnimator
 
-class WLUserInfoViewController: WLBasePageViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class WLUserInfoViewController: WLBasePageViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,WLPhotoSelectViewControllerDelegate {
 
     @IBOutlet weak var userHeadImage: UIImageView!
     @IBOutlet weak var textFieldSurName: UITextField!
@@ -32,6 +32,7 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
         
         
         photoSelectVC = WLPhotoSelectViewController()
+        photoSelectVC.delegate = self
         photoSelectVC.modalPresentationStyle = .overFullScreen
         
         setupAnimator()
@@ -81,6 +82,8 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
         if self.presentedViewController != nil {
             self.dismiss(animated: false, completion: nil)
         }
+      
+        photoSelectVC.resetToDefault()
         self.present(photoSelectVC, animated: true, completion: nil)
 //        imagePicker.delegate = self;
 //
@@ -159,6 +162,10 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
         }
         
         picker .dismiss(animated: true, completion: nil)
+    }
+    
+    func afterDoneGetImages(images: Array<UIImage>) {
+        userHeadImage.image = images[0]
     }
 
 }

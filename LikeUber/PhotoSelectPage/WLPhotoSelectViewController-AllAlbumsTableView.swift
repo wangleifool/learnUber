@@ -145,4 +145,5 @@ extension WLPhotoSelectViewController :UITableViewDelegate,UITableViewDataSource
         hideAllAlbumTableView()
     }
     
+    
 }
