@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LikeUber/PhotoSelectPage/WLPhotoSelectCollectionViewCell.swift"
-            timestampString = "542264287.860067"
+            timestampString = "543122654.567529"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
@@ -89,13 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LikeUber/view/WLUserInfoViewController.swift"
-            timestampString = "542264287.860178"
+            filePath = "LikeUber/ValidationService.swift"
+            timestampString = "542876350.244051"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "afterDoneGetImages(images:)"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "registerUser(username:password:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -105,94 +105,78 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LikeUber/PhotoSelectPage/WLPhotoSelectViewController.swift"
-            timestampString = "542264287.860253"
+            filePath = "LikeUber/ValidationService.swift"
+            timestampString = "542876350.2469079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "btDonePressed(_:)"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "isExistedUser(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LikeUber.WLPhotoSelectViewController.btDonePressed(Any) -&gt; ()"
-                  moduleName = "LikeUber"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/leiwang/develop%20zone/iOS/demo_from_myself/%E6%89%93%E8%BD%A6%E8%BD%AF%E4%BB%B6/learnUber/LikeUber/PhotoSelectPage/WLPhotoSelectViewController.swift"
-                  timestampString = "542264004.3849159"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "158"
-                  endingLineNumber = "158"
-                  offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in LikeUber.WLPhotoSelectViewController.btDonePressed(Any) -&gt; ()"
-                  moduleName = "LikeUber"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/leiwang/develop%20zone/iOS/demo_from_myself/%E6%89%93%E8%BD%A6%E8%BD%AF%E4%BB%B6/learnUber/LikeUber/PhotoSelectPage/WLPhotoSelectViewController.swift"
-                  timestampString = "542264004.3891701"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "159"
-                  endingLineNumber = "159"
-                  offsetFromSymbolStart = "80">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LikeUber/PhotoSelectPage/WLPhotoSelectViewController.swift"
-            timestampString = "542264287.860743"
+            timestampString = "543131104.949216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "btDonePressed(_:)"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "updateSelectedNumUI()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in LikeUber.WLPhotoSelectViewController.btDonePressed(Any) -&gt; ()"
-                  moduleName = "LikeUber"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/leiwang/develop%20zone/iOS/demo_from_myself/%E6%89%93%E8%BD%A6%E8%BD%AF%E4%BB%B6/learnUber/LikeUber/PhotoSelectPage/WLPhotoSelectViewController.swift"
-                  timestampString = "542264026.768405"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "159"
-                  endingLineNumber = "159"
-                  offsetFromSymbolStart = "80">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__ObjC.UIImage&gt;, Swift.Optional&lt;Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;&gt;) -&gt; () in closure #1 () -&gt; () in LikeUber.WLPhotoSelectViewController.btDonePressed(Any) -&gt; ()"
-                  moduleName = "LikeUber"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/leiwang/develop%20zone/iOS/demo_from_myself/%E6%89%93%E8%BD%A6%E8%BD%AF%E4%BB%B6/learnUber/LikeUber/PhotoSelectPage/WLPhotoSelectViewController.swift"
-                  timestampString = "542264026.773023"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "159"
-                  endingLineNumber = "159"
-                  offsetFromSymbolStart = "52">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/KSPhotoBrowser/KSPhotoBrowser/KSPhotoView.m"
+            timestampString = "543131104.949302"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-setItem:determinate:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/KSPhotoBrowser/KSPhotoBrowser/KSPhotoItem.m"
+            timestampString = "543131104.949743"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "-initWithSourceView:imageAsset:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/KSPhotoBrowser/KSPhotoBrowser/KSPhotoView.m"
+            timestampString = "543131104.9498301"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "-setItem:determinate:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

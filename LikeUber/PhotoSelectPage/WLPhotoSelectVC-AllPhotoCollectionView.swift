@@ -136,7 +136,7 @@ extension WLPhotoSelectViewController : UICollectionViewDataSource,UICollectionV
         browser.dismissalStyle = .scale
         browser.backgroundStyle = .black
         browser.pageindicatorStyle = .text
-        browser.loadingStyle = .determinate
+        browser.loadingStyle = .indeterminate
         browser.allPhotosNumInTrue = UInt(currentAlbumPhotoAsset!.count)
         browser.afterSelectedFromPhotoBrower = { (isDone: Bool) in
             print("selected num: \(self.selectedPhotoIndex.count)")

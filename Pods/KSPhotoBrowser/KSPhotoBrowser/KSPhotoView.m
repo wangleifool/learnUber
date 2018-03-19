@@ -84,8 +84,15 @@ const CGFloat kKSPhotoViewMaxScale = 3;
             
             PHImageRequestOptions *options = [PHImageRequestOptions new];
             options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+            options.networkAccessAllowed = YES;
             
             CGSize targetSize = CGSizeMake(_imageView.bounds.size.width * [UIScreen mainScreen].scale, _imageView.bounds.size.height * [UIScreen mainScreen].scale);
+            
+            _imageView.image = item.thumbImage; //先设置缩略图
+            
+            [_progressLayer startSpin];
+            _progressLayer.hidden = NO;
+            
             
             [[PHImageManager defaultManager] requestImageForAsset:item.imageAsset targetSize:targetSize contentMode:PHImageContentModeAspectFit options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
                 _imageView.image = result;
@@ -93,6 +100,7 @@ const CGFloat kKSPhotoViewMaxScale = 3;
                 
                 [_progressLayer stopSpin];
                 _progressLayer.hidden = YES;
+                
                 [self resizeImageView];
             }];
             

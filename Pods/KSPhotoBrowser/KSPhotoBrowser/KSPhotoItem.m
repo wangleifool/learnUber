@@ -55,10 +55,17 @@
     self = [super init];
     if (self) {
         _sourceView = view;
-        _thumbImage = view.image;
+//        _thumbImage = view.image;
         _imageUrl   = nil;
         _image      = nil;
         _imageAsset = asset;
+        
+        PHImageRequestOptions *options = [PHImageRequestOptions new];
+        options.deliveryMode = PHImageRequestOptionsDeliveryModeFastFormat;
+
+        [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:CGSizeZero contentMode:PHImageContentModeAspectFit options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            _thumbImage = result;
+        }];
     }
     
     return self;

@@ -36,6 +36,7 @@ static Class imageManagerClass = nil;
 @property (nonatomic, assign) BOOL presented;
 @property (nonatomic, strong) id<KSImageManager> imageManager;
 
+@property (nonatomic, strong) UIImageView *selectedNumImage;
 @property (nonatomic, strong) UIButton *btSelectedDone;
 @property (nonatomic, strong) UIButton *btSelected;
 //@property (nonatomic, strong) NSMutableArray *isSelectedAllPhotos;
@@ -134,6 +135,15 @@ static Class imageManagerClass = nil;
         [self.view addSubview:_btSelectedDone];
     }
     
+    if (nil == _selectedNumImage) {
+        CGRect frame = CGRectMake(0, 0, 20, 20);
+        frame.origin.x = self.view.bounds.size.width - frame.size.width - _btSelectedDone.bounds.size.width + 4;
+        frame.origin.y = _btSelectedDone.bounds.size.height/2 - frame.size.height/2;
+        
+        _selectedNumImage = [[UIImageView alloc] initWithFrame:frame];
+        [self.view addSubview:_selectedNumImage];
+    }
+    
     if (nil == _btSelected) {
         CGRect frame = CGRectMake(0, 0, 64, 64);
         frame.origin.x = self.view.bounds.size.width - frame.size.width;
@@ -215,7 +225,7 @@ static Class imageManagerClass = nil;
     }
     photoView.imageView.frame = sourceRect;
     
-    [self updateBtDoneUI];
+    [self updateSelectedNumImageview:NO];
     [self updateBtSelectedUI];
     
     if (_backgroundStyle == KSPhotoBrowserBackgroundStyleBlur) {
@@ -262,17 +272,34 @@ static Class imageManagerClass = nil;
 
 // MARK: - Private
 
-- (void)updateBtDoneUI {
+- (void)updateSelectedNumImageview:(BOOL)animated {
     NSUInteger numSelected = _selectedPhotosIndex.count;
     if (numSelected == 0) {
-        [_btSelectedDone setImage:nil forState:UIControlStateNormal];
+        [_selectedNumImage setImage:nil];
     } else if (numSelected > maxSelectedNum) {
-
+        
     } else {
         NSString *imageName = [NSString stringWithFormat:@"num%lu",(unsigned long)numSelected];
-        [_btSelectedDone setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+        [_selectedNumImage setImage:[UIImage imageNamed:imageName]];
+        if (animated) {
+            
+            [UIView animateKeyframesWithDuration:0.5 delay:0 options:0 animations:^{
+                [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:1/4.0 animations: ^{
+                    _selectedNumImage.transform = CGAffineTransformMakeScale(0.5, 0.5);
+                }];
+                [UIView addKeyframeWithRelativeStartTime:1/4.0 relativeDuration:1/4.0 animations: ^{
+                    _selectedNumImage.transform = CGAffineTransformMakeScale(1.2, 1.2);
+                }];
+                [UIView addKeyframeWithRelativeStartTime:2/4.0 relativeDuration:1/4.0 animations: ^{
+                    _selectedNumImage.transform = CGAffineTransformMakeScale(0.8, 0.8);
+                }];
+                [UIView addKeyframeWithRelativeStartTime:3/4.0 relativeDuration:1/4.0 animations: ^{
+                    _selectedNumImage.transform = CGAffineTransformMakeScale(1.0, 1.0);
+                }];
+                
+            } completion:nil];
+        }
     }
-
 }
 
 - (void)btDonePressed:(id)sender {
@@ -305,19 +332,20 @@ static Class imageManagerClass = nil;
     
     if (_btSelected.selected) {
         _btSelected.selected = NO;
-        
+        [_btSelected setImage:[UIImage imageNamed:@"photoNotSelect"] forState:UIControlStateNormal];
         [_selectedPhotosIndex removeObject:currentPageNum];
     } else {
         if (_selectedPhotosIndex.count <= maxSelectedNum) {
-            _btSelected.selected = YES;            
+            _btSelected.selected = YES;
+            [_btSelected setImage:[UIImage imageNamed:@"photoSelect"] forState:UIControlStateNormal];
             [_selectedPhotosIndex addObject:currentPageNum];
         }
     }
     
     
     
-    [self updateBtSelectedUI];
-    [self updateBtDoneUI];
+//    [self updateBtSelectedUI];
+    [self updateSelectedNumImageview:YES];
 }
 
 - (void)updateBtSelectedUI {
@@ -422,7 +450,7 @@ static Class imageManagerClass = nil;
             [self configPageLabelWithPage:_currentPage];
         }
         
-        [self updateBtDoneUI];
+        [self updateSelectedNumImageview:NO];
         [self updateBtSelectedUI];
         
         if (_delegate && [_delegate respondsToSelector:@selector(ks_photoBrowser:didSelectItem:atIndex:)]) {
@@ -605,6 +633,7 @@ static Class imageManagerClass = nil;
     
     _btSelected.hidden = YES;
     _btSelectedDone.hidden = YES;
+    _selectedNumImage.hidden = YES;
 }
 
 // MARK: - Gesture Recognizer
@@ -698,6 +727,7 @@ static Class imageManagerClass = nil;
     
     _btSelected.hidden = NO;
     _btSelectedDone.hidden = NO;
+    _selectedNumImage.hidden = NO;
     
     if (_bounces && _dismissalStyle == KSPhotoBrowserInteractiveDismissalStyleScale) {
         [UIView animateWithDuration:kSpringAnimationDuration delay:0 usingSpringWithDamping:0.6 initialSpringVelocity:0 options:kNilOptions animations:^{

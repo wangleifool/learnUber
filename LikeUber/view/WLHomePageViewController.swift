@@ -165,7 +165,7 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
         //移动针尖儿到父视图中心
         let xOffset = frame.width*TuDingTipScale //先得到针尖的相对x值
         let yOffset = frame.height/2
-        frame.origin.x += ((frame.width/2)-xOffset) //想中间移动合适的距离
+        frame.origin.x += ((frame.width/2)-xOffset) //向中间移动合适的距离
         frame.origin.y -= yOffset
         
         let button = UIButton(frame: frame)

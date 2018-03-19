@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import Photos
 import KSPhotoBrowser
+import Spring
 
 let numPhotoPerLine:CGFloat = 4.0
 let heightAllAlbumsTableView = 400.0
@@ -76,7 +77,8 @@ class WLPhotoSelectViewController: UIViewController {
     @IBOutlet weak var showAlbumsHintLabel: UILabel!
     @IBOutlet weak var btTitle: UIButton!
     @IBOutlet weak var btDone: UIButton!
-    @IBOutlet weak var selectNumImageView: UIImageView!
+//    @IBOutlet weak var selectNumImageView: UIImageView!
+    @IBOutlet weak var selectNumImageView: SpringImageView!
     @IBOutlet weak var btPreview: UIButton!
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
@@ -202,6 +204,10 @@ class WLPhotoSelectViewController: UIViewController {
             
             let numImageName = "num\(num)"
             selectNumImageView.image = UIImage(named: numImageName)
+            selectNumImageView.animation = "pop"
+            selectNumImageView.curve     = "easeIn"
+            selectNumImageView.duration = 0.5
+            selectNumImageView.animate()
             
             if num == maxSelectPhotoNum {
                 justReachMaxNum = true  //全局变量 用来判断 达到最大和即将最大的临界值 表现
