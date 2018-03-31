@@ -335,10 +335,12 @@ static Class imageManagerClass = nil;
         [_btSelected setImage:[UIImage imageNamed:@"photoNotSelect"] forState:UIControlStateNormal];
         [_selectedPhotosIndex removeObject:currentPageNum];
     } else {
-        if (_selectedPhotosIndex.count <= maxSelectedNum) {
+        if (_selectedPhotosIndex.count < maxSelectedNum) {
             _btSelected.selected = YES;
             [_btSelected setImage:[UIImage imageNamed:@"photoSelect"] forState:UIControlStateNormal];
             [_selectedPhotosIndex addObject:currentPageNum];
+        } else {
+            
         }
     }
     
@@ -418,6 +420,7 @@ static Class imageManagerClass = nil;
 
 - (void)configItemViews {
     NSInteger page = _scrollView.contentOffset.x / _scrollView.frame.size.width + 0.5;
+    // 相邻三个
     for (NSInteger i = page - 1; i <= page + 1; i++) {
         if (i < 0 || i >= _photoItems.count) {
             continue;

@@ -2,9 +2,8 @@
 //  Use this file to import your target's public headers that you would like to expose to Swift.
 //
 
-#import "LCProgressHUD.h"
 #import "FxString.h"
-//#import "Spring.h"
+#import "MBProgressHUD.h"
 
 //百度地图sdk
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件

@@ -14,6 +14,7 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
     @IBOutlet weak var userHeadImage: UIImageView!
     @IBOutlet weak var textFieldSurName: UITextField!
     @IBOutlet weak var textFieldName: UITextField!
+    @IBOutlet weak var btNextStep: UIButton!
     
     var animator : ARNTransitionAnimator!
     var photoSelectVC:WLPhotoSelectViewController!
@@ -24,12 +25,15 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
         super.viewDidLoad()
 
         self.title = "建立基本资料"
-        setNavigationItem(title: "下一步", selector: #selector(nextStep), isRight: true)
+//        setNavigationItem(title: "下一步", selector: #selector(nextStep), isRight: true)
 
         setNavigationItem(title: "跳过", selector: #selector(skip), isRight: false)
         
 //        textFieldSurName.becomeFirstResponder()
         
+        btNextStep.clipsToBounds = true
+        btNextStep.layer.cornerRadius = btNextStep.bounds.height/2
+        btNextStep.layer.addSublayer(UIColor.setGradualChangingColor(view: btNextStep, fromColor: "000000", toColor: "CBD2BD"))
         
         photoSelectVC = WLPhotoSelectViewController()
         photoSelectVC.delegate = self
@@ -70,6 +74,10 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
         let createAccountPage = SignUpViewController()
         
         self.navigationController?.pushViewController(createAccountPage, animated: true)
+    }
+    
+    @IBAction func btNextStepPressed(_ sender: Any) {
+        nextStep()
     }
     
     @objc func skip() {

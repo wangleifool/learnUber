@@ -51,6 +51,10 @@ class SignUpViewController: WLBasePageViewController {
 
     //绑定UI与模型的关系
     func configureUI() {
+        
+        btSignUp.layer.cornerRadius = btSignUp.bounds.height/2
+        btSignUp.layer.addSublayer(UIColor.setGradualChangingColor(view: btSignUp, fromColor: "007EF9", toColor: "7A7EF9"))
+        
         usernameTextfiled.rx.text.orEmpty
             .bind(to: viewModel.username)
             .disposed(by: disposeBag)

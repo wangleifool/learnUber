@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLUserInfoViewController" customModule="LikeUber" customModuleProvider="target">
             <connections>
+                <outlet property="btNextStep" destination="2yh-e6-jfa" id="nH8-Gf-dmE"/>
                 <outlet property="textFieldName" destination="IvD-42-0pr" id="SDY-oS-vho"/>
                 <outlet property="textFieldSurName" destination="eJS-mg-Tk7" id="lfM-aQ-FMK"/>
                 <outlet property="userHeadImage" destination="mow-b9-P4D" id="bPj-u6-bzl"/>
@@ -41,7 +42,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.14618598090277779" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="mow-b9-P4D" firstAttribute="leading" secondItem="i8o-Sf-U1Y" secondAttribute="leading" id="7qr-7B-kYF"/>
                         <constraint firstItem="DcA-9g-WP0" firstAttribute="top" secondItem="i8o-Sf-U1Y" secondAttribute="top" id="KG2-PA-Joz"/>
@@ -125,6 +126,19 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yh-e6-jfa">
+                    <rect key="frame" x="114" y="561" width="146" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="AJJ-R4-fcC"/>
+                        <constraint firstAttribute="width" constant="146" id="rNV-bw-rPL"/>
+                    </constraints>
+                    <state key="normal" title="下一步">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="btNextStepPressed:" destination="-1" eventType="touchUpInside" id="Hlu-aZ-lIa"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
@@ -132,8 +146,10 @@
                 <constraint firstItem="i8o-Sf-U1Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="VHe-L5-wrN"/>
                 <constraint firstItem="4mC-xN-rCf" firstAttribute="leading" secondItem="i8o-Sf-U1Y" secondAttribute="trailing" constant="8" id="btE-3h-2Gq"/>
                 <constraint firstAttribute="trailing" secondItem="4mC-xN-rCf" secondAttribute="trailing" constant="8" id="es4-UX-YXS"/>
+                <constraint firstItem="2yh-e6-jfa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="evh-k8-kjk"/>
                 <constraint firstItem="4mC-xN-rCf" firstAttribute="bottom" secondItem="i8o-Sf-U1Y" secondAttribute="bottom" id="fSH-aU-LtH"/>
                 <constraint firstItem="i8o-Sf-U1Y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="88" id="uYi-Wd-O0u"/>
+                <constraint firstAttribute="bottom" secondItem="2yh-e6-jfa" secondAttribute="bottom" constant="64" id="y49-E0-IEN"/>
             </constraints>
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>

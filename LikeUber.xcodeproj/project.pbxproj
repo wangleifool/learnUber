@@ -522,8 +522,15 @@
 		3B2DF41D1FFF276000814540 /* MFJinHei_Noncommercial-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B2DF41A1FFF24AE00814540 /* MFJinHei_Noncommercial-Regular.ttf */; };
 		3B2DF41E1FFF276000814540 /* MFTongXin_Noncommercial-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B2DF4191FFF24AE00814540 /* MFTongXin_Noncommercial-Regular.ttf */; };
 		3B2DF41F1FFF276000814540 /* MFZhiHei_Noncommercial-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B2DF41B1FFF24AF00814540 /* MFZhiHei_Noncommercial-Regular.ttf */; };
+		3B2FAB48206A402800585881 /* WLProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FAB47206A402800585881 /* WLProgressHUD.swift */; };
+		3B2FAB4A206B28A500585881 /* WLDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FAB49206B28A500585881 /* WLDevice.swift */; };
+		3B2FAB50206B2EFB00585881 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FAB4F206B2EFB00585881 /* MBProgressHUD.m */; };
+		3B301310206F5C4800D0104A /* PHImageManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B30130F206F5C4800D0104A /* PHImageManagerExtension.swift */; };
+		3B301312206F5E9800D0104A /* WLPhotoBrowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B301311206F5E9800D0104A /* WLPhotoBrowerViewController.swift */; };
 		3B30E91E204FC91D00EB4B36 /* WLPhotoSelectViewController-AllAlbumsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B30E91D204FC91D00EB4B36 /* WLPhotoSelectViewController-AllAlbumsTableView.swift */; };
 		3B30E920204FD03D00EB4B36 /* WLPhotoSelectVC-AllPhotoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B30E91F204FD03D00EB4B36 /* WLPhotoSelectVC-AllPhotoCollectionView.swift */; };
+		3B323D47206D02780046B804 /* WLPhotoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B323D46206D02780046B804 /* WLPhotoItem.swift */; };
+		3B323D49206D06310046B804 /* WLPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B323D48206D06310046B804 /* WLPhotoView.swift */; };
 		3B349CF41ED6D576004CE7DE /* WLHomePage-Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B349CF31ED6D576004CE7DE /* WLHomePage-Map.swift */; };
 		3B3569E91FB4216A000D1A35 /* WLHomePage-CustomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3569E81FB4216A000D1A35 /* WLHomePage-CustomMenu.swift */; };
 		3B3569F51FB423FA000D1A35 /* GuillotineMenuTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3569EC1FB421B7000D1A35 /* GuillotineMenuTransitionAnimation.swift */; };
@@ -537,6 +544,7 @@
 		3B3569FF1FB43007000D1A35 /* content_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569F21FB421B8000D1A35 /* content_2@3x.png */; };
 		3B356A001FB43007000D1A35 /* ic_settings@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569F31FB421B8000D1A35 /* ic_settings@3x.png */; };
 		3B356A011FB43007000D1A35 /* ic_activity@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569F41FB421B8000D1A35 /* ic_activity@3x.png */; };
+		3B4BAD15205FABED002EFC73 /* UIColor-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BAD14205FABED002EFC73 /* UIColor-extension.swift */; };
 		3B52C2D91F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B52C2D81F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift */; };
 		3B52C2DB1F580300000CBEA7 /* WLHomePage-DriversLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B52C2DA1F580300000CBEA7 /* WLHomePage-DriversLogic.swift */; };
 		3B52C2DD1F5803FF000CBEA7 /* WLUberDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B52C2DC1F5803FF000CBEA7 /* WLUberDriver.swift */; };
@@ -577,10 +585,6 @@
 		3B8F68CB2016D2BF00ADAF9D /* interactiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8F68CA2016D2BF00ADAF9D /* interactiveTransition.swift */; };
 		3B8F68CD2016DAEB00ADAF9D /* WLPhotoSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B8F68CC2016DAEB00ADAF9D /* WLPhotoSelectViewController.xib */; };
 		3B9B37381ED2B2BF006C7406 /* WLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B37371ED2B2BF006C7406 /* WLLocation.swift */; };
-		3B9B37411ED2BA58006C7406 /* LCProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B373A1ED2BA58006C7406 /* LCProgressHUD.m */; };
-		3B9B37421ED2BA58006C7406 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B373C1ED2BA58006C7406 /* MBProgressHUD.m */; };
-		3B9B37431ED2BA58006C7406 /* MBProgressHUD+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B373E1ED2BA58006C7406 /* MBProgressHUD+NJ.m */; };
-		3B9B37441ED2BA58006C7406 /* LCProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3B9B373F1ED2BA58006C7406 /* LCProgressHUD.bundle */; };
 		3B9B37471ED2C222006C7406 /* WLCreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B37451ED2C222006C7406 /* WLCreateAccountViewController.swift */; };
 		3B9B37481ED2C222006C7406 /* WLCreateAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B9B37461ED2C222006C7406 /* WLCreateAccountViewController.xib */; };
 		3B9B374B1ED2CE7E006C7406 /* WLSelectCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B37491ED2CE7E006C7406 /* WLSelectCountryViewController.swift */; };
@@ -1122,6 +1126,12 @@
 		3B2DF4191FFF24AE00814540 /* MFTongXin_Noncommercial-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MFTongXin_Noncommercial-Regular.ttf"; sourceTree = "<group>"; };
 		3B2DF41A1FFF24AE00814540 /* MFJinHei_Noncommercial-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MFJinHei_Noncommercial-Regular.ttf"; sourceTree = "<group>"; };
 		3B2DF41B1FFF24AF00814540 /* MFZhiHei_Noncommercial-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MFZhiHei_Noncommercial-Regular.ttf"; sourceTree = "<group>"; };
+		3B2FAB47206A402800585881 /* WLProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLProgressHUD.swift; sourceTree = "<group>"; };
+		3B2FAB49206B28A500585881 /* WLDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLDevice.swift; sourceTree = "<group>"; };
+		3B2FAB4E206B2EFA00585881 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		3B2FAB4F206B2EFB00585881 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		3B30130F206F5C4800D0104A /* PHImageManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHImageManagerExtension.swift; sourceTree = "<group>"; };
+		3B301311206F5E9800D0104A /* WLPhotoBrowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLPhotoBrowerViewController.swift; sourceTree = "<group>"; };
 		3B30E90B204E8A0600EB4B36 /* KSPhotoBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KSPhotoBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B30E910204E8A4800EB4B36 /* KSPhotoBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KSPhotoBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B30E911204E8A4800EB4B36 /* YYCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YYCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1130,6 +1140,8 @@
 		3B30E915204E8A5300EB4B36 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B30E91D204FC91D00EB4B36 /* WLPhotoSelectViewController-AllAlbumsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WLPhotoSelectViewController-AllAlbumsTableView.swift"; sourceTree = "<group>"; };
 		3B30E91F204FD03D00EB4B36 /* WLPhotoSelectVC-AllPhotoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WLPhotoSelectVC-AllPhotoCollectionView.swift"; sourceTree = "<group>"; };
+		3B323D46206D02780046B804 /* WLPhotoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLPhotoItem.swift; sourceTree = "<group>"; };
+		3B323D48206D06310046B804 /* WLPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLPhotoView.swift; sourceTree = "<group>"; };
 		3B349CF31ED6D576004CE7DE /* WLHomePage-Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WLHomePage-Map.swift"; path = "view/WLHomePage-Map.swift"; sourceTree = "<group>"; };
 		3B3569E81FB4216A000D1A35 /* WLHomePage-CustomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WLHomePage-CustomMenu.swift"; sourceTree = "<group>"; };
 		3B3569EB1FB421B7000D1A35 /* ic_menu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_menu@3x.png"; sourceTree = "<group>"; };
@@ -1143,6 +1155,7 @@
 		3B3569F41FB421B8000D1A35 /* ic_activity@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_activity@3x.png"; sourceTree = "<group>"; };
 		3B3569F61FB42446000D1A35 /* WLMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WLMenuViewController.swift; path = view/page/WLMenuViewController.swift; sourceTree = "<group>"; };
 		3B3569F71FB42446000D1A35 /* WLMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = WLMenuViewController.xib; path = view/page/WLMenuViewController.xib; sourceTree = "<group>"; };
+		3B4BAD14205FABED002EFC73 /* UIColor-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-extension.swift"; sourceTree = "<group>"; };
 		3B52C2D81F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WLHomePage-SuggestionResultTableView.swift"; path = "view/WLHomePage-SuggestionResultTableView.swift"; sourceTree = "<group>"; };
 		3B52C2DA1F580300000CBEA7 /* WLHomePage-DriversLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WLHomePage-DriversLogic.swift"; path = "view/WLHomePage-DriversLogic.swift"; sourceTree = "<group>"; };
 		3B52C2DC1F5803FF000CBEA7 /* WLUberDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLUberDriver.swift; path = Model/WLUberDriver.swift; sourceTree = "<group>"; };
@@ -1184,13 +1197,6 @@
 		3B8F68CC2016DAEB00ADAF9D /* WLPhotoSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLPhotoSelectViewController.xib; sourceTree = "<group>"; };
 		3B9B37371ED2B2BF006C7406 /* WLLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WLLocation.swift; sourceTree = "<group>"; };
 		3B9B37391ED2BA57006C7406 /* LikeUber-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LikeUber-Bridging-Header.h"; sourceTree = "<group>"; };
-		3B9B373A1ED2BA58006C7406 /* LCProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LCProgressHUD.m; path = ThirdSDK/LCProgressHUD.m; sourceTree = "<group>"; };
-		3B9B373B1ED2BA58006C7406 /* LCProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LCProgressHUD.h; path = ThirdSDK/LCProgressHUD.h; sourceTree = "<group>"; };
-		3B9B373C1ED2BA58006C7406 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = ThirdSDK/MBProgressHUD.m; sourceTree = "<group>"; };
-		3B9B373D1ED2BA58006C7406 /* MBProgressHUD+NJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+NJ.h"; path = "ThirdSDK/MBProgressHUD+NJ.h"; sourceTree = "<group>"; };
-		3B9B373E1ED2BA58006C7406 /* MBProgressHUD+NJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+NJ.m"; path = "ThirdSDK/MBProgressHUD+NJ.m"; sourceTree = "<group>"; };
-		3B9B373F1ED2BA58006C7406 /* LCProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = LCProgressHUD.bundle; path = ThirdSDK/LCProgressHUD.bundle; sourceTree = "<group>"; };
-		3B9B37401ED2BA58006C7406 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = ThirdSDK/MBProgressHUD.h; sourceTree = "<group>"; };
 		3B9B37451ED2C222006C7406 /* WLCreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLCreateAccountViewController.swift; path = view/WLCreateAccountViewController.swift; sourceTree = "<group>"; };
 		3B9B37461ED2C222006C7406 /* WLCreateAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLCreateAccountViewController.xib; path = view/WLCreateAccountViewController.xib; sourceTree = "<group>"; };
 		3B9B37491ED2CE7E006C7406 /* WLSelectCountryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLSelectCountryViewController.swift; path = view/WLSelectCountryViewController.swift; sourceTree = "<group>"; };
@@ -1361,7 +1367,6 @@
 			children = (
 				3B6C4ACF1ED66164001A001D /* baiduMap */,
 				3B6C4AC01ED57648001A001D /* navigation drawer */,
-				3B9B37511ED2D160006C7406 /* indicator */,
 			);
 			name = ThirdSDK;
 			sourceTree = "<group>";
@@ -1371,6 +1376,7 @@
 			children = (
 				3B2267E21ECEB565005E7ED6 /* WLGlobalDefine.swift */,
 				3B9B37371ED2B2BF006C7406 /* WLLocation.swift */,
+				3B2FAB49206B28A500585881 /* WLDevice.swift */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -2092,6 +2098,16 @@
 			name = HomePage;
 			sourceTree = "<group>";
 		};
+		3B2FAB43206A3F5D00585881 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				3B2FAB4E206B2EFA00585881 /* MBProgressHUD.h */,
+				3B2FAB4F206B2EFB00585881 /* MBProgressHUD.m */,
+				3B2FAB47206A402800585881 /* WLProgressHUD.swift */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
 		3B3569EA1FB421B7000D1A35 /* GuillotineMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -2114,6 +2130,14 @@
 				3B3569F41FB421B8000D1A35 /* ic_activity@3x.png */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		3B4BAD13205FABC5002EFC73 /* gradualChangeColor */ = {
+			isa = PBXGroup;
+			children = (
+				3B4BAD14205FABED002EFC73 /* UIColor-extension.swift */,
+			);
+			path = gradualChangeColor;
 			sourceTree = "<group>";
 		};
 		3B52C2DE1F580CC0000CBEA7 /* mapAnnotationView */ = {
@@ -2185,22 +2209,12 @@
 				3B5A6D68201877620065AD9F /* WLPhotoSelectCollectionViewCell.xib */,
 				3B30E91D204FC91D00EB4B36 /* WLPhotoSelectViewController-AllAlbumsTableView.swift */,
 				3B30E91F204FD03D00EB4B36 /* WLPhotoSelectVC-AllPhotoCollectionView.swift */,
+				3B323D46206D02780046B804 /* WLPhotoItem.swift */,
+				3B323D48206D06310046B804 /* WLPhotoView.swift */,
+				3B30130F206F5C4800D0104A /* PHImageManagerExtension.swift */,
+				3B301311206F5E9800D0104A /* WLPhotoBrowerViewController.swift */,
 			);
 			path = PhotoSelectPage;
-			sourceTree = "<group>";
-		};
-		3B9B37511ED2D160006C7406 /* indicator */ = {
-			isa = PBXGroup;
-			children = (
-				3B9B373A1ED2BA58006C7406 /* LCProgressHUD.m */,
-				3B9B373B1ED2BA58006C7406 /* LCProgressHUD.h */,
-				3B9B373C1ED2BA58006C7406 /* MBProgressHUD.m */,
-				3B9B373D1ED2BA58006C7406 /* MBProgressHUD+NJ.h */,
-				3B9B373E1ED2BA58006C7406 /* MBProgressHUD+NJ.m */,
-				3B9B373F1ED2BA58006C7406 /* LCProgressHUD.bundle */,
-				3B9B37401ED2BA58006C7406 /* MBProgressHUD.h */,
-			);
-			name = indicator;
 			sourceTree = "<group>";
 		};
 		3B9B37521ED2D173006C7406 /* Utility */ = {
@@ -2227,6 +2241,8 @@
 		3BBE93FA1EF389CF00CEEF0C /* custom */ = {
 			isa = PBXGroup;
 			children = (
+				3B2FAB43206A3F5D00585881 /* HUD */,
+				3B4BAD13205FABC5002EFC73 /* gradualChangeColor */,
 				3B001C68200DD22D0001C737 /* ZanAnimationButton */,
 				3B8050021FBD25390055B7FE /* subline textfield */,
 				3B9F293B1FB6CCB2006BD15D /* shinnyLoginButton */,
@@ -2417,7 +2433,6 @@
 				3B226B6E1ECEBE2E005E7ED6 /* logo-040@3x.png in Resources */,
 				3B226B441ECEBE2E005E7ED6 /* logo-026@3x.png in Resources */,
 				3B226A751ECEBE2E005E7ED6 /* KW.png in Resources */,
-				3B9B37441ED2BA58006C7406 /* LCProgressHUD.bundle in Resources */,
 				3B226A3B1ECEBE2E005E7ED6 /* EH.png in Resources */,
 				3B226B361ECEBE2E005E7ED6 /* logo-022.png in Resources */,
 				3B6C4AF81ED6641A001A001D /* mapapi.bundle in Resources */,
@@ -2918,10 +2933,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B6C4AC41ED5765A001A001D /* KYDrawerController.swift in Sources */,
+				3B4BAD15205FABED002EFC73 /* UIColor-extension.swift in Sources */,
 				3B5A6D69201877620065AD9F /* WLPhotoSelectCollectionViewCell.swift in Sources */,
+				3B2FAB48206A402800585881 /* WLProgressHUD.swift in Sources */,
 				3B226BCC1ECEC2A3005E7ED6 /* WLBasePageViewController.swift in Sources */,
 				3B27B2361F668A68007E92D9 /* WLAnnotation.swift in Sources */,
 				3B30E920204FD03D00EB4B36 /* WLPhotoSelectVC-AllPhotoCollectionView.swift in Sources */,
+				3B323D47206D02780046B804 /* WLPhotoItem.swift in Sources */,
 				3BBE93FE1EF3B25700CEEF0C /* WLHomePage-Test.swift in Sources */,
 				3B2DF4081FFCD5FD00814540 /* SignUpViewModels.swift in Sources */,
 				3B6C4AC81ED5766A001A001D /* DrawerViewController.swift in Sources */,
@@ -2944,6 +2962,8 @@
 				3B226BCE1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift in Sources */,
 				3BBE94001EF3C98600CEEF0C /* StopWatchStyleKit.swift in Sources */,
 				3B9F29451FB6CD25006BD15D /* SpinerLayer.swift in Sources */,
+				3B301312206F5E9800D0104A /* WLPhotoBrowerViewController.swift in Sources */,
+				3B2FAB4A206B28A500585881 /* WLDevice.swift in Sources */,
 				3B9B37501ED2D0E0006C7406 /* CountryInfo.swift in Sources */,
 				3B2267E31ECEB565005E7ED6 /* WLGlobalDefine.swift in Sources */,
 				3B9F29421FB6CD25006BD15D /* TransitionSubmitButton.swift in Sources */,
@@ -2952,7 +2972,7 @@
 				3B2DF4111FFF1A6D00814540 /* WLSettingsCellModels.swift in Sources */,
 				3B9B37471ED2C222006C7406 /* WLCreateAccountViewController.swift in Sources */,
 				3B9B37581ED2DA37006C7406 /* WLUserInfoViewController.swift in Sources */,
-				3B9B37411ED2BA58006C7406 /* LCProgressHUD.m in Sources */,
+				3B301310206F5C4800D0104A /* PHImageManagerExtension.swift in Sources */,
 				3B9B37381ED2B2BF006C7406 /* WLLocation.swift in Sources */,
 				3B2DF4061FFCD5FD00814540 /* Protocols.swift in Sources */,
 				3B9B374B1ED2CE7E006C7406 /* WLSelectCountryViewController.swift in Sources */,
@@ -2967,11 +2987,11 @@
 				3B001C6A200DD2640001C737 /* WLZanAnimationButton.swift in Sources */,
 				3BBE94021EF3CAB500CEEF0C /* WLStopWatch.swift in Sources */,
 				3B2DF4091FFCD5FD00814540 /* SignUpViewController.swift in Sources */,
-				3B9B37431ED2BA58006C7406 /* MBProgressHUD+NJ.m in Sources */,
 				3BBE93FC1EF3A5B900CEEF0C /* WLstarView.swift in Sources */,
+				3B2FAB50206B2EFB00585881 /* MBProgressHUD.m in Sources */,
 				3B6C4ABE1ED56CCF001A001D /* WLHomePageViewController.swift in Sources */,
+				3B323D49206D06310046B804 /* WLPhotoView.swift in Sources */,
 				3B9F29441FB6CD25006BD15D /* FadeTransition.swift in Sources */,
-				3B9B37421ED2BA58006C7406 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

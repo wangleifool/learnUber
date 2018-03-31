@@ -107,6 +107,7 @@ extension WLPhotoSelectViewController : UICollectionViewDataSource,UICollectionV
                 selectedIndex = UInt(selectedPhotoIndex.index(of: indexPath.row))//图片查看器的最先显示的图片的index
                 
             } else {
+                WLProgressHUD.showMessage(text: "最多只能选择9张图片")
                 return   // 已经选择了最大数，点击非选择图片，不做响应
             }
             
@@ -125,9 +126,16 @@ extension WLPhotoSelectViewController : UICollectionViewDataSource,UICollectionV
             selectedIndex = UInt(indexPath.row)  //图片查看器的最先显示的图片的index
         }
         
-        
-        
-        showPhotoBrower(photos: items, selectedIndex: selectedIndex)
+        if indexPath.row > 1 {
+            showPhotoBrower(photos: items, selectedIndex: selectedIndex)
+        } else {
+            let ksItem: KSPhotoItem = items[0] as! KSPhotoItem
+            let newIndexPath = IndexPath(row: 0, section: 0)
+            let cell = collectionView.cellForItem(at: newIndexPath) as? WLPhotoSelectCollectionViewCell
+            let photo: WLPhotoItem = WLPhotoItem(sourceView: cell?.imageView, imageAsset: ksItem.imageAsset!)
+            let browser: WLPhotoBrowerViewController = WLPhotoBrowerViewController(items: [photo], selectedIndex: selectedIndex)
+            self.present(browser, animated: false, completion: nil)
+        }
         
     }
     
@@ -141,16 +149,18 @@ extension WLPhotoSelectViewController : UICollectionViewDataSource,UICollectionV
         browser.afterSelectedFromPhotoBrower = { (isDone: Bool) in
             print("selected num: \(self.selectedPhotoIndex.count)")
             if isDone {
-                self.btDonePressed(self.btDone)                
+                self.btDonePressed(self.btDone)
             } else {
                 self.photoCollectionView.reloadData()
                 self.updateSelectedNumUI()
             }
         }
-        
+
         browser.selectedPhotosIndex = selectedPhotoIndex
-        
+
         browser.show(from: self)
+        
+        
     }
     
    
