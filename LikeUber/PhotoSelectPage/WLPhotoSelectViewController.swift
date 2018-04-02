@@ -162,15 +162,11 @@ class WLPhotoSelectViewController: UIViewController {
             
             for i in self.selectedPhotoIndex {
                 let asset = self.currentAlbumPhotoAsset?.object(at: i)
-                let options = PHImageRequestOptions()
-                options.deliveryMode = .highQualityFormat
-                options.isSynchronous = true
-//                options.resizeMode   = .exact
                 
-                PHImageManager.default().requestImage(for: asset!, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: options, resultHandler: { (image, _) in
-                    if image != nil {
-                        images.append(image!)
-                    }
+                PHImageManager.default().requestImageForAsset(asset: asset!, isSync: true, isHighQuality: true, resultHandler: { (image, _) in
+                        if image != nil {
+                            images.append(image!)
+                        }
                 })
             }
             

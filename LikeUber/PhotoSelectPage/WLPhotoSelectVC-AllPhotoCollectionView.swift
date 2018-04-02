@@ -155,6 +155,16 @@ extension WLPhotoSelectViewController : UICollectionViewDataSource,UICollectionV
         let browser: WLPhotoBrowerViewController = WLPhotoBrowerViewController(items: photos, selectedIndex: selectedIndex)
         browser.allPhotosNumInTrue = (currentAlbumPhotoAsset?.count)!
         browser.selectedPhotosIndex = selectedPhotoIndex
+        browser.afterDismissPhotoBrower = {(isBtDonePressed: Bool, selectedIndexs: Array<Int>) in
+            self.selectedPhotoIndex = selectedIndexs
+            
+            if isBtDonePressed {
+                self.btDonePressed(self.btDone)
+            } else {
+                self.photoCollectionView.reloadData()
+                self.updateSelectedNumUI()
+            }
+        }
         self.present(browser, animated: false, completion: nil)
     }
     

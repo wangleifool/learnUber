@@ -13,9 +13,13 @@ let wlAnimationTimeInterval = 0.3
 let PhotoNotSelectImageString = "photoNotSelect"
 let PhotoSelectImageString = "photoSelect"
 
+typealias AfterDismissPhotoBrower = (_ isBtDonePressed: Bool, _ selectedIndexs: Array<Int>) -> Void
+
 class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitioningDelegate,UIScrollViewDelegate {
     
+    var afterDismissPhotoBrower: AfterDismissPhotoBrower?
     
+    // 所有的图片资源对象
     var items: Array<WLPhotoItem>
     var visiablePhotoViews = Array<WLPhotoView>()
     var currentPhotoIndex: Int = 0
@@ -46,7 +50,7 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
     lazy var selectedNumImageView: UIImageView = {
         var frame = CGRect(x: 0, y: 0, width: 20, height: 20)
         frame.x   = self.view.bounds.width - frame.width - btDone.bounds.width + 4
-        frame.y   = btDone.bounds.height/2 - frame.size.height/2
+        frame.y   = btDone.bounds.height/2 - frame.size.height/2 + btDone.frame.y
         let imageView = UIImageView(frame: frame)
         return imageView
     }()
@@ -98,6 +102,7 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         // Do any additional setup after loading the view.
         configureSubviews()
         
+        configureData()
         
         addGesture()
         
@@ -141,11 +146,11 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
     }
     
 
-    func configureBackground() {
+    private func configureBackground() {
         self.view.backgroundColor = UIColor.black
     }
 
-    func configureSubviews() {
+    private func configureSubviews() {
         self.view.addSubview(self.mainScrollView)
         
         // 根据照片数量，计算scrollview的contentSize和当前图片的位置
@@ -161,6 +166,13 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         
         self.view.addSubview(self.pageLabel)
         updatePageLabel(page: currentPhotoIndex)
+    }
+    
+    private func configureData() {
+        // 只有在 需要显示的数量 和 相册的总数量不一致时，需要初始化photosIndex 数据
+        if allPhotosNumInTrue != items.count {
+            photosIndex = selectedPhotosIndex
+        }
     }
     
     // MARK: private method
@@ -242,6 +254,8 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
     private func showDismissAnimation() {
         let item = items[currentPhotoIndex]
         let photoView = getPhotoView(index: currentPhotoIndex)
+        
+        afterDismissPhotoBrower?(false,selectedPhotosIndex)
         
         if item.sourceView == nil {  // 没有记录sourceView
             UIView.animate(withDuration: wlAnimationTimeInterval, animations: {

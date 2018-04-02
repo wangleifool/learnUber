@@ -12,9 +12,19 @@ import Photos
 extension PHImageManager {
     
     
-    func requestHighQualityImageForAsset(asset: PHAsset, isHighQuality: Bool, resultHandler: @escaping (UIImage?, [AnyHashable : Any]?) -> Swift.Void) {
+    func requestImageForAsset(asset: PHAsset, isSync: Bool, isHighQuality: Bool, resultHandler: @escaping (UIImage?, [AnyHashable : Any]?) -> Swift.Void) {
         let options = PHImageRequestOptions()
-        options.deliveryMode = .highQualityFormat
+        
+        if isHighQuality {
+            options.deliveryMode = .highQualityFormat
+        } else {
+            options.deliveryMode = .fastFormat
+        }
+        
+        if isSync {
+            options.isSynchronous = true
+        }
+        
         options.isNetworkAccessAllowed = true
         
         PHImageManager.default().requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: options, resultHandler: resultHandler)

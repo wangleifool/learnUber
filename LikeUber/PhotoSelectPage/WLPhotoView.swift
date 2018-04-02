@@ -87,7 +87,7 @@ class WLPhotoView: UIScrollView,UIScrollViewDelegate {
             if item?.imageAsset != nil {
                 self.imageView.image = item?.thumbImage
                 
-                PHImageManager.default().requestHighQualityImageForAsset(asset: item!.imageAsset!, isHighQuality: true, resultHandler: { (image, _) in
+                PHImageManager.default().requestImageForAsset(asset: item!.imageAsset!, isSync: false, isHighQuality: true, resultHandler: { (image, _) in
                     self.imageView.image = image
                     self.resizeImageView()
                 })
