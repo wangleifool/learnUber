@@ -17,7 +17,7 @@ class WLPhotoView: UIScrollView,UIScrollViewDelegate {
 
     var photoItem: WLPhotoItem!
     
-    private lazy var imageView: YYAnimatedImageView = {
+    lazy var imageView: YYAnimatedImageView = {
         let imageView = YYAnimatedImageView()
         imageView.backgroundColor = UIColor.darkGray
         imageView.contentMode = .scaleAspectFill

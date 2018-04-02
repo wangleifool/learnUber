@@ -41,6 +41,10 @@ class WLPhotoItem {
         self.image = nil
         self.imageAsset = imageAsset
         
+        if let sourceImageView = sourceView as? UIImageView {
+            self.thumbImage = sourceImageView.image
+        }
+        
         let options = PHImageRequestOptions()
         options.deliveryMode = .fastFormat
         

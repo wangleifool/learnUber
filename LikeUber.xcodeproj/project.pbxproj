@@ -544,6 +544,7 @@
 		3B3569FF1FB43007000D1A35 /* content_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569F21FB421B8000D1A35 /* content_2@3x.png */; };
 		3B356A001FB43007000D1A35 /* ic_settings@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569F31FB421B8000D1A35 /* ic_settings@3x.png */; };
 		3B356A011FB43007000D1A35 /* ic_activity@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569F41FB421B8000D1A35 /* ic_activity@3x.png */; };
+		3B42BEAE2072126500CE239F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42BEAD2072126500CE239F /* ArrayExtension.swift */; };
 		3B4BAD15205FABED002EFC73 /* UIColor-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BAD14205FABED002EFC73 /* UIColor-extension.swift */; };
 		3B52C2D91F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B52C2D81F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift */; };
 		3B52C2DB1F580300000CBEA7 /* WLHomePage-DriversLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B52C2DA1F580300000CBEA7 /* WLHomePage-DriversLogic.swift */; };
@@ -1155,6 +1156,7 @@
 		3B3569F41FB421B8000D1A35 /* ic_activity@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_activity@3x.png"; sourceTree = "<group>"; };
 		3B3569F61FB42446000D1A35 /* WLMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WLMenuViewController.swift; path = view/page/WLMenuViewController.swift; sourceTree = "<group>"; };
 		3B3569F71FB42446000D1A35 /* WLMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = WLMenuViewController.xib; path = view/page/WLMenuViewController.xib; sourceTree = "<group>"; };
+		3B42BEAD2072126500CE239F /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		3B4BAD14205FABED002EFC73 /* UIColor-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-extension.swift"; sourceTree = "<group>"; };
 		3B52C2D81F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WLHomePage-SuggestionResultTableView.swift"; path = "view/WLHomePage-SuggestionResultTableView.swift"; sourceTree = "<group>"; };
 		3B52C2DA1F580300000CBEA7 /* WLHomePage-DriversLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WLHomePage-DriversLogic.swift"; path = "view/WLHomePage-DriversLogic.swift"; sourceTree = "<group>"; };
@@ -2213,6 +2215,7 @@
 				3B323D48206D06310046B804 /* WLPhotoView.swift */,
 				3B30130F206F5C4800D0104A /* PHImageManagerExtension.swift */,
 				3B301311206F5E9800D0104A /* WLPhotoBrowerViewController.swift */,
+				3B42BEAD2072126500CE239F /* ArrayExtension.swift */,
 			);
 			path = PhotoSelectPage;
 			sourceTree = "<group>";
@@ -2963,6 +2966,7 @@
 				3BBE94001EF3C98600CEEF0C /* StopWatchStyleKit.swift in Sources */,
 				3B9F29451FB6CD25006BD15D /* SpinerLayer.swift in Sources */,
 				3B301312206F5E9800D0104A /* WLPhotoBrowerViewController.swift in Sources */,
+				3B42BEAE2072126500CE239F /* ArrayExtension.swift in Sources */,
 				3B2FAB4A206B28A500585881 /* WLDevice.swift in Sources */,
 				3B9B37501ED2D0E0006C7406 /* CountryInfo.swift in Sources */,
 				3B2267E31ECEB565005E7ED6 /* WLGlobalDefine.swift in Sources */,

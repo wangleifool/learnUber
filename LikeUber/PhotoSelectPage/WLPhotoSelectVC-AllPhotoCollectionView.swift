@@ -84,27 +84,28 @@ extension WLPhotoSelectViewController : UICollectionViewDataSource,UICollectionV
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView .deselectItem(at: indexPath, animated: false)
         
-        let items = NSMutableArray()
-        var selectedIndex: UInt = 0
+        var items = Array<WLPhotoItem>()
+        var selectedIndex: Int = 0
         
         // 已经是最大选择数目
         if selectedPhotoIndex.count >= maxSelectPhotoNum {
             
             if selectedPhotoIndex.contains(indexPath.row) {
                 for i in selectedPhotoIndex {
-                    let asset: PHAsset = currentAlbumPhotoAsset?.object(at: i as! Int) as! PHAsset
+                    let asset: PHAsset = currentAlbumPhotoAsset?.object(at: i) as! PHAsset
                     
-                    let newIndexPath = IndexPath(row: i as! Int, section: 0)
+                    let newIndexPath = IndexPath(row: i, section: 0)
                     let cell = collectionView.cellForItem(at: newIndexPath) as? WLPhotoSelectCollectionViewCell
                     
                     
-                    let item: KSPhotoItem = KSPhotoItem(sourceView: cell?.imageView, imageAsset:asset)
+//                    let item: KSPhotoItem = KSPhotoItem(sourceView: cell?.imageView, imageAsset:asset)
+                    let item: WLPhotoItem = WLPhotoItem(sourceView: cell?.imageView, imageAsset: asset)
+                    items.append(item)
                     
-                    items.add(item)
                     
                 }
                 
-                selectedIndex = UInt(selectedPhotoIndex.index(of: indexPath.row))//图片查看器的最先显示的图片的index
+                selectedIndex = selectedPhotoIndex.index(of: indexPath.row)!//图片查看器的最先显示的图片的index
                 
             } else {
                 WLProgressHUD.showMessage(text: "最多只能选择9张图片")
@@ -117,50 +118,44 @@ extension WLPhotoSelectViewController : UICollectionViewDataSource,UICollectionV
                 
                 let newIndexPath = IndexPath(row: i, section: 0)
                 let cell = collectionView.cellForItem(at: newIndexPath) as? WLPhotoSelectCollectionViewCell
-                let item: KSPhotoItem = KSPhotoItem(sourceView: cell?.imageView, imageAsset:asset)
-                
-                items.add(item)
+//                let item: KSPhotoItem = KSPhotoItem(sourceView: cell?.imageView, imageAsset:asset)
+                let item: WLPhotoItem = WLPhotoItem(sourceView: cell?.imageView, imageAsset: asset)
+                items.append(item)
                 
             }
             
-            selectedIndex = UInt(indexPath.row)  //图片查看器的最先显示的图片的index
+            selectedIndex = indexPath.row  //图片查看器的最先显示的图片的index
         }
         
-        if indexPath.row > 1 {
-            showPhotoBrower(photos: items, selectedIndex: selectedIndex)
-        } else {
-            let ksItem: KSPhotoItem = items[0] as! KSPhotoItem
-            let newIndexPath = IndexPath(row: 0, section: 0)
-            let cell = collectionView.cellForItem(at: newIndexPath) as? WLPhotoSelectCollectionViewCell
-            let photo: WLPhotoItem = WLPhotoItem(sourceView: cell?.imageView, imageAsset: ksItem.imageAsset!)
-            let browser: WLPhotoBrowerViewController = WLPhotoBrowerViewController(items: [photo], selectedIndex: selectedIndex)
-            self.present(browser, animated: false, completion: nil)
-        }
         
+        showPhotoBrower(photos: items, selectedIndex: selectedIndex)
+
     }
     
-    func showPhotoBrower(photos: NSMutableArray, selectedIndex: UInt) {
-        let browser: KSPhotoBrowser = KSPhotoBrowser(photoItems: photos as! [KSPhotoItem], selectedIndex: selectedIndex)
-        browser.dismissalStyle = .scale
-        browser.backgroundStyle = .black
-        browser.pageindicatorStyle = .text
-        browser.loadingStyle = .indeterminate
-        browser.allPhotosNumInTrue = UInt(currentAlbumPhotoAsset!.count)
-        browser.afterSelectedFromPhotoBrower = { (isDone: Bool) in
-            print("selected num: \(self.selectedPhotoIndex.count)")
-            if isDone {
-                self.btDonePressed(self.btDone)
-            } else {
-                self.photoCollectionView.reloadData()
-                self.updateSelectedNumUI()
-            }
-        }
-
+    func showPhotoBrower(photos: Array<WLPhotoItem>, selectedIndex: Int) {
+//        let browser: KSPhotoBrowser = KSPhotoBrowser(photoItems: photos as! [KSPhotoItem], selectedIndex: selectedIndex)
+//        browser.dismissalStyle = .scale
+//        browser.backgroundStyle = .black
+//        browser.pageindicatorStyle = .text
+//        browser.loadingStyle = .indeterminate
+//        browser.allPhotosNumInTrue = UInt(currentAlbumPhotoAsset!.count)
+//        browser.afterSelectedFromPhotoBrower = { (isDone: Bool) in
+//            print("selected num: \(self.selectedPhotoIndex.count)")
+//            if isDone {
+//                self.btDonePressed(self.btDone)
+//            } else {
+//                self.photoCollectionView.reloadData()
+//                self.updateSelectedNumUI()
+//            }
+//        }
+//        browser.selectedPhotosIndex = selectedPhotoIndex
+//        browser.show(from: self)
+        
+        
+        let browser: WLPhotoBrowerViewController = WLPhotoBrowerViewController(items: photos, selectedIndex: selectedIndex)
+        browser.allPhotosNumInTrue = (currentAlbumPhotoAsset?.count)!
         browser.selectedPhotosIndex = selectedPhotoIndex
-
-        browser.show(from: self)
-        
-        
+        self.present(browser, animated: false, completion: nil)
     }
     
    
@@ -171,9 +166,9 @@ extension WLPhotoSelectViewController : UICollectionViewDataSource,UICollectionV
     func cellSelectStateChanged(cell: WLPhotoSelectCollectionViewCell) {
         if let selectIndex = photoCollectionView.indexPath(for: cell)?.row {
             if cell.isChoosed {
-                selectedPhotoIndex.add(selectIndex)
+                selectedPhotoIndex.append(selectIndex)
             } else {
-                selectedPhotoIndex.remove(selectIndex)
+                selectedPhotoIndex.remove(object: selectIndex)
             }
             
             updateSelectedNumUI() //刷新UI                        

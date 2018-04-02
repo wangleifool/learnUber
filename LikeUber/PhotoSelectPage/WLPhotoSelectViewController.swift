@@ -70,7 +70,7 @@ class WLPhotoSelectViewController: UIViewController {
     }()
     
     // 选择的照片
-    var selectedPhotoIndex = NSMutableArray()
+    var selectedPhotoIndex = Array<Int>()
     
     var backgroundCancelButton: UIButton?
     @IBOutlet weak var headerView: UIView!
@@ -124,7 +124,7 @@ class WLPhotoSelectViewController: UIViewController {
     }
     
     func resetToDefault() {
-        selectedPhotoIndex.removeAllObjects()
+        selectedPhotoIndex.removeAll()
         allAlbumsTableView.delegate?.tableView!(allAlbumsTableView, didSelectRowAt: IndexPath(row: 0, section: 0))
         updateSelectedNumUI()
     }
@@ -161,7 +161,7 @@ class WLPhotoSelectViewController: UIViewController {
             var images = Array<UIImage>()
             
             for i in self.selectedPhotoIndex {
-                let asset = self.currentAlbumPhotoAsset?.object(at: i as! Int)
+                let asset = self.currentAlbumPhotoAsset?.object(at: i)
                 let options = PHImageRequestOptions()
                 options.deliveryMode = .highQualityFormat
                 options.isSynchronous = true
@@ -225,18 +225,19 @@ class WLPhotoSelectViewController: UIViewController {
     
     @IBAction func btPreviewPressed(_ sender: Any) {
         
-        let items = NSMutableArray()
+        var items = Array<WLPhotoItem>()
         
         for i in selectedPhotoIndex {
-            let asset: PHAsset = currentAlbumPhotoAsset?.object(at: i as! Int) as! PHAsset
+            let asset: PHAsset = currentAlbumPhotoAsset?.object(at: i) as! PHAsset
             
-            let newIndexPath = IndexPath(row: i as! Int, section: 0)
+            let newIndexPath = IndexPath(row: i, section: 0)
             let cell = photoCollectionView.cellForItem(at: newIndexPath) as? WLPhotoSelectCollectionViewCell
             
             
-            let item: KSPhotoItem = KSPhotoItem(sourceView: cell?.imageView, imageAsset:asset)
+//            let item: KSPhotoItem = KSPhotoItem(sourceView: cell?.imageView, imageAsset:asset)
+            let item = WLPhotoItem(sourceView: cell?.imageView, imageAsset: asset)
             
-            items.add(item)
+            items.append(item)
             
         }
         
