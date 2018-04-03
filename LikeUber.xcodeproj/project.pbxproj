@@ -546,6 +546,7 @@
 		3B356A011FB43007000D1A35 /* ic_activity@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569F41FB421B8000D1A35 /* ic_activity@3x.png */; };
 		3B3DE5AE207314A30062159E /* WLPhotoSelectBrower.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3B3DE5AD207314A30062159E /* WLPhotoSelectBrower.bundle */; };
 		3B3DE5B0207314BB0062159E /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3DE5AF207314BB0062159E /* UIImageExtension.swift */; };
+		3B3DE5B2207331840062159E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3DE5B1207331840062159E /* UIColorExtension.swift */; };
 		3B42BEAE2072126500CE239F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42BEAD2072126500CE239F /* ArrayExtension.swift */; };
 		3B4BAD15205FABED002EFC73 /* UIColor-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BAD14205FABED002EFC73 /* UIColor-extension.swift */; };
 		3B52C2D91F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B52C2D81F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift */; };
@@ -1160,6 +1161,7 @@
 		3B3569F71FB42446000D1A35 /* WLMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = WLMenuViewController.xib; path = view/page/WLMenuViewController.xib; sourceTree = "<group>"; };
 		3B3DE5AD207314A30062159E /* WLPhotoSelectBrower.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WLPhotoSelectBrower.bundle; sourceTree = "<group>"; };
 		3B3DE5AF207314BB0062159E /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		3B3DE5B1207331840062159E /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		3B42BEAD2072126500CE239F /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		3B4BAD14205FABED002EFC73 /* UIColor-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-extension.swift"; sourceTree = "<group>"; };
 		3B52C2D81F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WLHomePage-SuggestionResultTableView.swift"; path = "view/WLHomePage-SuggestionResultTableView.swift"; sourceTree = "<group>"; };
@@ -2222,6 +2224,7 @@
 				3B301311206F5E9800D0104A /* WLPhotoBrowerViewController.swift */,
 				3B42BEAD2072126500CE239F /* ArrayExtension.swift */,
 				3B3DE5AF207314BB0062159E /* UIImageExtension.swift */,
+				3B3DE5B1207331840062159E /* UIColorExtension.swift */,
 			);
 			path = PhotoSelectPage;
 			sourceTree = "<group>";
@@ -2992,6 +2995,7 @@
 				3B2267C41ECE9743005E7ED6 /* AppDelegate.swift in Sources */,
 				3B3569E91FB4216A000D1A35 /* WLHomePage-CustomMenu.swift in Sources */,
 				3B2DF4041FFCD5FD00814540 /* LoginViewController.swift in Sources */,
+				3B3DE5B2207331840062159E /* UIColorExtension.swift in Sources */,
 				3B3569F51FB423FA000D1A35 /* GuillotineMenuTransitionAnimation.swift in Sources */,
 				3B2DF4071FFCD5FD00814540 /* ValidationService.swift in Sources */,
 				3B3569F81FB42446000D1A35 /* WLMenuViewController.swift in Sources */,

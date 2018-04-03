@@ -36,13 +36,34 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         return scroll
     }()
     
+    lazy var topBackgroundShapeView: UIView = {
+        let frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 100)
+        let view = UIView(frame: frame)
+        view.layer.addSublayer(UIColor.createGradualChangingBackgroundColor(view: view,incresing: false))
+        
+        return view
+    }()
+    
+    lazy var bottomBackgroundShapeView: UIView = {
+        var frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 100)
+        frame.y = self.view.bounds.height - frame.height
+        let view = UIView(frame: frame)
+        view.layer.addSublayer(UIColor.createGradualChangingBackgroundColor(view: view,incresing: true))
+        
+        return view
+    }()
+    
     lazy var btDone: UIButton = {
-        var frame = CGRect(x: 0, y: 8, width: 64, height: 64)
+        var frame = CGRect(x: 0, y: 16, width: 64, height: 32)
         frame.x = self.view.bounds.width - frame.width
         let bt = UIButton(frame: frame)
         bt.addTarget(self, action: #selector(self.btDonePressed(sender:)), for: .touchUpInside)
         bt.setTitle("完成", for: .normal)
         bt.setTitleColor(UIColor.white, for: .normal)
+
+//        bt.clipsToBounds = true
+//        bt.layer.cornerRadius = frame.width/4
+//        bt.backgroundColor = UIColor.createBtBackgroundColor()
         
         return bt
     }()
@@ -163,7 +184,8 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         self.mainScrollView.contentSize = contentSize
         self.mainScrollView.contentOffset = CGPoint(x: self.mainScrollView.frame.width*CGFloat(currentPhotoIndex), y: 0)
         
-        
+        self.view.addSubview(self.topBackgroundShapeView)
+        self.view.addSubview(self.bottomBackgroundShapeView)
         self.view.addSubview(self.btDone)
         self.view.addSubview(self.btSelect)
         self.view.addSubview(self.selectedNumImageView)
@@ -298,7 +320,7 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         }
         
         if let rect = sourceRect {
-            UIView.animate(withDuration: 2, animations: {
+            UIView.animate(withDuration: wlAnimationTimeInterval, animations: {
                 photoView?.imageView.frame = rect
                 self.view.backgroundColor = UIColor.clear
             }) { (completion) in
