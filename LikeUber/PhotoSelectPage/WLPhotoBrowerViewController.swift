@@ -10,8 +10,8 @@ import UIKit
 
 let wlAnimationTimeInterval = 0.3
 
-let PhotoNotSelectImageString = "photoNotSelect"
-let PhotoSelectImageString = "photoSelect"
+let PhotoNotSelectImageString = "bigPhotoNotSelect"
+let PhotoSelectImageString = "bigPhotoSelect"
 
 typealias AfterDismissPhotoBrower = (_ isBtDonePressed: Bool, _ selectedIndexs: Array<Int>) -> Void
 
@@ -55,16 +55,6 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         return imageView
     }()
     
-    private lazy var btSelect: UIButton = {
-        var frame = CGRect(x: 0, y: 0, width: 64, height: 64)
-        frame.y = self.view.bounds.height - frame.height
-        frame.x = self.view.bounds.width - frame.width
-        let bt = UIButton(frame: frame)
-        bt.setImage(UIImage(named: PhotoNotSelectImageString), for: .normal)
-        bt.addTarget(self, action: #selector(self.btSelectPressed(sender:)), for: .touchUpInside)
-        
-        return bt
-    }()
     
     private lazy var pageLabel: UILabel = {
         var frame = CGRect(x: 0, y: self.view.bounds.height-40, width: self.view.bounds.width, height: 20)
@@ -73,6 +63,18 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 16.0)
         return label
+    }()
+    
+    private lazy var btSelect: UIButton = {
+        var frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+//        frame.y = self.view.bounds.height - frame.height
+//        frame.x = self.view.bounds.width - frame.width
+        let bt = UIButton(frame: frame)
+        bt.center = CGPoint(x: self.view.bounds.width - frame.width/2, y: pageLabel.center.y)
+        bt.setImage(UIImage.createBigPhotoNotSelectImage(), for: .normal)
+        bt.addTarget(self, action: #selector(self.btSelectPressed(sender:)), for: .touchUpInside)
+        
+        return bt
     }()
     
     init(items: Array<WLPhotoItem>, selectedIndex: Int) {
@@ -148,6 +150,8 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
 
     private func configureBackground() {
         self.view.backgroundColor = UIColor.black
+        
+        setStatusBarHidden(hidden: true)
     }
 
     private func configureSubviews() {
@@ -189,11 +193,11 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         
         if btSelect.isSelected {
             btSelect.isSelected = false
-            btSelect.setImage(UIImage(named: PhotoNotSelectImageString), for: .normal)
+            btSelect.setImage(UIImage.createBigPhotoNotSelectImage(), for: .normal)
             selectedPhotosIndex.remove(object: currentPage)
         } else {
             btSelect.isSelected = true
-            btSelect.setImage(UIImage(named: PhotoSelectImageString), for: .normal)
+            btSelect.setImage(UIImage.createBigPhotoSelectImage(), for: .normal)
             selectedPhotosIndex.append(currentPage)
         }
         
@@ -208,10 +212,10 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         
         if selectedPhotosIndex.contains(currentPage) {
             btSelect.isSelected = true
-            btSelect.setImage(UIImage(named: PhotoSelectImageString), for: .normal)
+            btSelect.setImage(UIImage.createBigPhotoSelectImage(), for: .normal)
         } else {
             btSelect.isSelected = false
-            btSelect.setImage(UIImage(named: PhotoNotSelectImageString), for: .normal)
+            btSelect.setImage(UIImage.createBigPhotoNotSelectImage(), for: .normal)
         }
     }
     
@@ -223,38 +227,57 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         } else if (numSelected > maxSelectPhotoNum) {
             
         } else {
-            let imageName = String(format: "num%lu", arguments: [numSelected])
-            selectedNumImageView.image = UIImage(named: imageName)
-            
-            // 使用key frame，让设置image具有弹性效果
-            if animate {
-                UIView.animateKeyframes(withDuration: wlAnimationTimeInterval, delay: 0, options: UIViewKeyframeAnimationOptions(rawValue: 0), animations: {
-                    
-                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1/4.0, animations: {
-                        self.selectedNumImageView.transform = CGAffineTransform.init(scaleX: 0.5, y: 0.5)
-                    })
-                    
-                    UIView.addKeyframe(withRelativeStartTime: 1/4.0, relativeDuration: 1/4.0, animations: {
-                        self.selectedNumImageView.transform = CGAffineTransform.init(scaleX: 1.2, y: 1.2)
-                    })
-                    
-                    UIView.addKeyframe(withRelativeStartTime: 2/4.0, relativeDuration: 1/4.0, animations: {
-                        self.selectedNumImageView.transform = CGAffineTransform.init(scaleX: 0.8, y: 0.8)
-                    })
-                    
-                    UIView.addKeyframe(withRelativeStartTime: 3/4.0, relativeDuration: 1/4.0, animations: {
-                        self.selectedNumImageView.transform = CGAffineTransform.init(scaleX: 1, y: 1)
-                    })
-                    
-                }, completion: nil)
+//            let imageName = String(format: "num%lu", arguments: [numSelected])
+            if let image = UIImage.createNumImage(num: numSelected) {
+                selectedNumImageView.image = image
+                
+                // 使用key frame，让设置image具有弹性效果
+                if animate {
+                    UIView.animateKeyframes(withDuration: wlAnimationTimeInterval, delay: 0, options: UIViewKeyframeAnimationOptions(rawValue: 0), animations: {
+                        
+                        UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1/4.0, animations: {
+                            self.selectedNumImageView.transform = CGAffineTransform.init(scaleX: 0.5, y: 0.5)
+                        })
+                        
+                        UIView.addKeyframe(withRelativeStartTime: 1/4.0, relativeDuration: 1/4.0, animations: {
+                            self.selectedNumImageView.transform = CGAffineTransform.init(scaleX: 1.2, y: 1.2)
+                        })
+                        
+                        UIView.addKeyframe(withRelativeStartTime: 2/4.0, relativeDuration: 1/4.0, animations: {
+                            self.selectedNumImageView.transform = CGAffineTransform.init(scaleX: 0.8, y: 0.8)
+                        })
+                        
+                        UIView.addKeyframe(withRelativeStartTime: 3/4.0, relativeDuration: 1/4.0, animations: {
+                            self.selectedNumImageView.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+                        })
+                        
+                    }, completion: nil)
+                }
             }
         }
+    }
+    
+    // 进入纯净模式
+    func hideSubviews() {
+        btDone.isHidden = true
+        btSelect.isHidden = true
+        pageLabel.isHidden = true
+        selectedNumImageView.isHidden = true
+    }
+    
+    func showSubviews() {
+        btDone.isHidden = false
+        btSelect.isHidden = false
+        pageLabel.isHidden = false
+        selectedNumImageView.isHidden = false
     }
     
     private func showDismissAnimation() {
         let item = items[currentPhotoIndex]
         let photoView = getPhotoView(index: currentPhotoIndex)
         
+        hideSubviews()
+        setStatusBarHidden(hidden: false)
         afterDismissPhotoBrower?(false,selectedPhotosIndex)
         
         if item.sourceView == nil {  // 没有记录sourceView
@@ -275,10 +298,11 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         }
         
         if let rect = sourceRect {
-            UIView.animate(withDuration: wlAnimationTimeInterval, animations: {
+            UIView.animate(withDuration: 2, animations: {
                 photoView?.imageView.frame = rect
                 self.view.backgroundColor = UIColor.clear
             }) { (completion) in
+                print(String(describing: photoView?.imageView.frame))
                 if completion {
                     self.dismiss(animated: false, completion: nil)
                 }
@@ -291,13 +315,26 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         self.pageLabel.text = String(currentPhotoIndex+1) + "/" + String(items.count)
     }
     
-   
+    private func setStatusBarHidden(hidden: Bool) {
+        let window = UIApplication.shared.keyWindow
+        if hidden {
+            window?.windowLevel = UIWindowLevelStatusBar + 1
+        } else {
+            window?.windowLevel = UIWindowLevelNormal
+        }
+    }
+    
+    
     
     // MARK: gesture deal
     private func addGesture() {
         let doubleTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.doubleTap(gesture:)))
         doubleTapGesture.numberOfTapsRequired = 2
         self.view.addGestureRecognizer(doubleTapGesture)
+        
+        let oneTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.oneTap(gesture:)))
+        oneTapGesture.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(oneTapGesture)
     }
     
     private func removeGesture() {
@@ -323,6 +360,13 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         }
     }
     
+    @objc func oneTap(gesture: UITapGestureRecognizer) {
+        if btDone.isHidden {
+            showSubviews()
+        } else {
+            hideSubviews()
+        }
+    }
     
     private func getPhotoView(index: Int) -> WLPhotoView? {
         for photoView in self.visiablePhotoViews {

@@ -544,6 +544,8 @@
 		3B3569FF1FB43007000D1A35 /* content_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569F21FB421B8000D1A35 /* content_2@3x.png */; };
 		3B356A001FB43007000D1A35 /* ic_settings@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569F31FB421B8000D1A35 /* ic_settings@3x.png */; };
 		3B356A011FB43007000D1A35 /* ic_activity@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3569F41FB421B8000D1A35 /* ic_activity@3x.png */; };
+		3B3DE5AE207314A30062159E /* WLPhotoSelectBrower.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3B3DE5AD207314A30062159E /* WLPhotoSelectBrower.bundle */; };
+		3B3DE5B0207314BB0062159E /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3DE5AF207314BB0062159E /* UIImageExtension.swift */; };
 		3B42BEAE2072126500CE239F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42BEAD2072126500CE239F /* ArrayExtension.swift */; };
 		3B4BAD15205FABED002EFC73 /* UIColor-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BAD14205FABED002EFC73 /* UIColor-extension.swift */; };
 		3B52C2D91F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B52C2D81F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift */; };
@@ -1156,6 +1158,8 @@
 		3B3569F41FB421B8000D1A35 /* ic_activity@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_activity@3x.png"; sourceTree = "<group>"; };
 		3B3569F61FB42446000D1A35 /* WLMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WLMenuViewController.swift; path = view/page/WLMenuViewController.swift; sourceTree = "<group>"; };
 		3B3569F71FB42446000D1A35 /* WLMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = WLMenuViewController.xib; path = view/page/WLMenuViewController.xib; sourceTree = "<group>"; };
+		3B3DE5AD207314A30062159E /* WLPhotoSelectBrower.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WLPhotoSelectBrower.bundle; sourceTree = "<group>"; };
+		3B3DE5AF207314BB0062159E /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		3B42BEAD2072126500CE239F /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		3B4BAD14205FABED002EFC73 /* UIColor-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-extension.swift"; sourceTree = "<group>"; };
 		3B52C2D81F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WLHomePage-SuggestionResultTableView.swift"; path = "view/WLHomePage-SuggestionResultTableView.swift"; sourceTree = "<group>"; };
@@ -2204,6 +2208,7 @@
 		3B8F68C72016D22E00ADAF9D /* PhotoSelectPage */ = {
 			isa = PBXGroup;
 			children = (
+				3B3DE5AD207314A30062159E /* WLPhotoSelectBrower.bundle */,
 				3B8F68C82016D26E00ADAF9D /* WLPhotoSelectViewController.swift */,
 				3B8F68CC2016DAEB00ADAF9D /* WLPhotoSelectViewController.xib */,
 				3B8F68CA2016D2BF00ADAF9D /* interactiveTransition.swift */,
@@ -2216,6 +2221,7 @@
 				3B30130F206F5C4800D0104A /* PHImageManagerExtension.swift */,
 				3B301311206F5E9800D0104A /* WLPhotoBrowerViewController.swift */,
 				3B42BEAD2072126500CE239F /* ArrayExtension.swift */,
+				3B3DE5AF207314BB0062159E /* UIImageExtension.swift */,
 			);
 			path = PhotoSelectPage;
 			sourceTree = "<group>";
@@ -2764,6 +2770,7 @@
 				3B2269DE1ECEBE2E005E7ED6 /* CarInfoBack.png in Resources */,
 				3B2269F61ECEBE2E005E7ED6 /* rating_route.png in Resources */,
 				3B226A7B1ECEBE2E005E7ED6 /* LI.png in Resources */,
+				3B3DE5AE207314A30062159E /* WLPhotoSelectBrower.bundle in Resources */,
 				3B226B0C1ECEBE2E005E7ED6 /* logo-008.png in Resources */,
 				3B226B151ECEBE2E005E7ED6 /* logo-011.png in Resources */,
 				3B2269FC1ECEBE2E005E7ED6 /* AD.png in Resources */,
@@ -2996,6 +3003,7 @@
 				3B6C4ABE1ED56CCF001A001D /* WLHomePageViewController.swift in Sources */,
 				3B323D49206D06310046B804 /* WLPhotoView.swift in Sources */,
 				3B9F29441FB6CD25006BD15D /* FadeTransition.swift in Sources */,
+				3B3DE5B0207314BB0062159E /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

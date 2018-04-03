@@ -34,9 +34,10 @@ class WLPhotoSelectCollectionViewCell: UICollectionViewCell {
     {
         didSet {
             if isChoosed {
-                btSelect.setImage(UIImage(named:"photoSelect"), for: .normal)
+//                btSelect.setImage(UIImage(named:"photoSelect"), for: .normal)
+                btSelect.setImage(UIImage.createPhotoSelectImage(), for: .normal)
             } else {
-                btSelect.setImage(UIImage(named:"photoNotSelect"), for: .normal)
+                btSelect.setImage(UIImage.createPhotoNotSelectImage(), for: .normal)
             }
         }
     }
@@ -47,7 +48,9 @@ class WLPhotoSelectCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code                
+        // Initialization code
+        
+        btSelect.setImage(UIImage.createPhotoNotSelectImage(), for: .normal)
     }
 
     

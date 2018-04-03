@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +28,6 @@
                             <constraint firstAttribute="height" constant="28" id="1U3-E0-mrQ"/>
                             <constraint firstAttribute="width" constant="28" id="sZe-tc-BhF"/>
                         </constraints>
-                        <state key="normal" image="photoNotSelect"/>
                         <connections>
                             <action selector="photoSelectClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="m1C-AI-Zff"/>
                         </connections>
@@ -50,7 +49,4 @@
             </connections>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="photoNotSelect" width="24" height="24"/>
-    </resources>
 </document>

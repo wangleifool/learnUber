@@ -131,12 +131,13 @@ class WLPhotoSelectViewController: UIViewController {
     
     // MARK: header View 相关
     func setShowAlbumsHintLabel(isShowed: Bool) {
-        var attributeString = NSMutableAttributedString()
+        let attributeString = NSMutableAttributedString()
         let hintAttibuteString = NSAttributedString(string: (isShowed ? hideAllAlbumTitle : showAllAlbumTitle))
         attributeString.append(hintAttibuteString)
         
         let text = NSTextAttachment()
-        if let image = UIImage(named:(isShowed ? "up" : "down")) {
+//        if let image = UIImage(named:(isShowed ? "up" : "down")) {
+        if let image = isShowed ? UIImage.createUpImage() : UIImage.createDownImage() {
             text.image = image
             text.bounds = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
             let attachmentAT = NSAttributedString(attachment: text)
@@ -198,12 +199,16 @@ class WLPhotoSelectViewController: UIViewController {
             btPreview.isEnabled = true
             btPreview.setTitleColor(UIColor.black, for: .normal)
             
-            let numImageName = "num\(num)"
-            selectNumImageView.image = UIImage(named: numImageName)
-            selectNumImageView.animation = "pop"
-            selectNumImageView.curve     = "easeIn"
-            selectNumImageView.duration = 0.5
-            selectNumImageView.animate()
+//            let numImageName = "num\(num)"
+//            selectNumImageView.image = UIImage(named: numImageName)
+            
+            if let image = UIImage.createNumImage(num: num) {
+                selectNumImageView.image  = image
+                selectNumImageView.animation = "pop"
+                selectNumImageView.curve     = "easeIn"
+                selectNumImageView.duration = 0.5
+                selectNumImageView.animate()
+            }            
             
             if num == maxSelectPhotoNum {
                 justReachMaxNum = true  //全局变量 用来判断 达到最大和即将最大的临界值 表现
