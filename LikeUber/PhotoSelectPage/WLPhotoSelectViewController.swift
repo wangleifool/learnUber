@@ -11,6 +11,7 @@ import SnapKit
 import Photos
 import KSPhotoBrowser
 import Spring
+import ARNTransitionAnimator
 
 let numPhotoPerLine:CGFloat = 4.0
 let heightAllAlbumsTableView = 400.0
@@ -53,6 +54,8 @@ class WLPhotoSelectViewController: UIViewController {
     var currentAlbumPhotoAsset: PHFetchResult<PHAsset>?
     var currentAlbumPhotoImages = NSMutableArray()
     
+    // 转场动画相关
+    var transitionAnimator : ARNTransitionAnimator!
     
     lazy var allAlbumsTableView: UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: .plain)
@@ -87,6 +90,44 @@ class WLPhotoSelectViewController: UIViewController {
     var thumbnailSize:CGSize!
     var previousPreheatRect = CGRect.zero
     
+    
+    // MARK: initial
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+
+
+    //3.重写无参数初始化方法，自动调用xib文件
+
+    convenience init() {
+
+        // 获取类名，同nib同名
+        let nibNameOrNil = String(NSStringFromClass(type(of: self)).split(separator: ".").last!)
+
+        //考虑到xib文件可能不存在或被删，故加入判断
+
+        if Bundle.main.path(forResource: nibNameOrNil, ofType: "nib") != nil
+
+        {
+
+            self.init(nibName: nibNameOrNil, bundle: nil)
+
+        } else {
+
+            self.init(nibName: nil, bundle: nil)
+
+            self.view.backgroundColor = UIColor.white
+
+        }
+        
+        
+    }
+
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     // MARK: view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,11 +140,7 @@ class WLPhotoSelectViewController: UIViewController {
         
         getAllAvailableAlbumData()
         
-        configureCollectionView()
-        
-        
-        
-       
+        configureCollectionView() 
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -116,6 +153,12 @@ class WLPhotoSelectViewController: UIViewController {
         super.viewDidAppear(animated)
         
         updateCachedAssets()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        self.view.frame = CGRect(x: 0, y: 20, width: ScreenWidth, height: ScreenHeight)
+        super.viewWillLayoutSubviews()
+        print(self.view.frame)
     }
     
     override func didReceiveMemoryWarning() {
@@ -373,5 +416,32 @@ class WLPhotoSelectViewController: UIViewController {
         } else {
             return ([new], [old])
         }
+    }
+    
+    // MARK: transition animation
+    func setupTransitionAniamtion(sourceVC: UIViewController) {
+        var animation: interactiveTransition!
+        if (sourceVC.navigationController != nil) {
+            animation = interactiveTransition(sourceVC: sourceVC.navigationController!, destVC: self)
+        } else {
+            animation = interactiveTransition(sourceVC: sourceVC, destVC: self)
+        }
+        
+        animation.completion = { [weak self] isPresenting in
+            if isPresenting {
+                guard let _self = self else { return }
+                let modalGestureHandler = TransitionGestureHandler(targetView: _self.photoCollectionView, direction: .bottom)
+                modalGestureHandler.panCompletionThreshold = 15.0
+                _self.transitionAnimator?.registerInteractiveTransitioning(.dismiss, gestureHandler: modalGestureHandler)
+            } else {
+                self?.setupTransitionAniamtion(sourceVC: sourceVC)
+            }
+        }
+        
+        
+        self.transitionAnimator = ARNTransitionAnimator(duration: 0.5, animation: animation)
+        //        self.animator?.registerInteractiveTransitioning(.dismiss, gestureHandler: gestureHandler)
+        
+        self.transitioningDelegate = self.transitionAnimator
     }
 }

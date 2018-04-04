@@ -38,8 +38,9 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
         photoSelectVC = WLPhotoSelectViewController()
         photoSelectVC.delegate = self
         photoSelectVC.modalPresentationStyle = .overFullScreen
+        photoSelectVC.setupTransitionAniamtion(sourceVC: self)
         
-        setupAnimator()
+//        setupAnimator()
     }
 
     override func didReceiveMemoryWarning() {
@@ -173,7 +174,11 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
     }
     
     func afterDoneGetImages(images: Array<UIImage>) {
-        userHeadImage.image = images[0]
+        if images.count != 0 {
+            userHeadImage.image = images[0]
+            userHeadImage.alpha = 1
+        }
+        
     }
 
 }

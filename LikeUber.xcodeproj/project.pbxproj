@@ -609,6 +609,7 @@
 		3BBE94041EF3CAC500CEEF0C /* WLStopWatchHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE94031EF3CAC500CEEF0C /* WLStopWatchHand.swift */; };
 		3BBE94071EF3CBA200CEEF0C /* WLTimeCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE94051EF3CBA200CEEF0C /* WLTimeCounterViewController.swift */; };
 		3BBE94081EF3CBA200CEEF0C /* WLTimeCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BBE94061EF3CBA200CEEF0C /* WLTimeCounterViewController.xib */; };
+		3BE7D4022074BD4C0084CDBF /* WLProgressHUDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7D4012074BD4C0084CDBF /* WLProgressHUDSwift.swift */; };
 		E66DC8FCF5F910E6B8D3D83F /* Pods_LikeUber.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5395CAB2200CC5BEE30710 /* Pods_LikeUber.framework */; };
 /* End PBXBuildFile section */
 
@@ -1226,6 +1227,7 @@
 		3BBE94031EF3CAC500CEEF0C /* WLStopWatchHand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WLStopWatchHand.swift; sourceTree = "<group>"; };
 		3BBE94051EF3CBA200CEEF0C /* WLTimeCounterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLTimeCounterViewController.swift; path = view/WLTimeCounterViewController.swift; sourceTree = "<group>"; };
 		3BBE94061EF3CBA200CEEF0C /* WLTimeCounterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLTimeCounterViewController.xib; path = view/WLTimeCounterViewController.xib; sourceTree = "<group>"; };
+		3BE7D4012074BD4C0084CDBF /* WLProgressHUDSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLProgressHUDSwift.swift; sourceTree = "<group>"; };
 		40F6CB3F765527612C11E522 /* Pods-LikeUber.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeUber.release.xcconfig"; path = "Pods/Target Support Files/Pods-LikeUber/Pods-LikeUber.release.xcconfig"; sourceTree = "<group>"; };
 		AA5395CAB2200CC5BEE30710 /* Pods_LikeUber.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeUber.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02D2C23326DE4FF580D5DD6 /* Pods-LikeUber.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeUber.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LikeUber/Pods-LikeUber.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2112,6 +2114,7 @@
 				3B2FAB4E206B2EFA00585881 /* MBProgressHUD.h */,
 				3B2FAB4F206B2EFB00585881 /* MBProgressHUD.m */,
 				3B2FAB47206A402800585881 /* WLProgressHUD.swift */,
+				3BE7D4012074BD4C0084CDBF /* WLProgressHUDSwift.swift */,
 			);
 			path = HUD;
 			sourceTree = "<group>";
@@ -2970,6 +2973,7 @@
 				3B52C2E01F580D0E000CBEA7 /* WLCarAnnotationView.swift in Sources */,
 				3B9F29431FB6CD25006BD15D /* CGRectEx.swift in Sources */,
 				3BBE94041EF3CAC500CEEF0C /* WLStopWatchHand.swift in Sources */,
+				3BE7D4022074BD4C0084CDBF /* WLProgressHUDSwift.swift in Sources */,
 				3BBE94071EF3CBA200CEEF0C /* WLTimeCounterViewController.swift in Sources */,
 				3B52C2D91F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift in Sources */,
 				3B226BCE1ECEC2D8005E7ED6 /* WLGuidePageViewController.swift in Sources */,

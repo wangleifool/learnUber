@@ -13,11 +13,20 @@ let wlAnimationTimeInterval = 0.3
 let PhotoNotSelectImageString = "bigPhotoNotSelect"
 let PhotoSelectImageString = "bigPhotoSelect"
 
+
+enum WLDismissAnimationType {
+    case slide
+    case scale
+}
+
 typealias AfterDismissPhotoBrower = (_ isBtDonePressed: Bool, _ selectedIndexs: Array<Int>) -> Void
 
 class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitioningDelegate,UIScrollViewDelegate {
     
     var afterDismissPhotoBrower: AfterDismissPhotoBrower?
+    
+    // 定制化
+    var dismissAnimationType: WLDismissAnimationType = .scale
     
     // 所有的图片资源对象
     var items: Array<WLPhotoItem>
@@ -70,7 +79,7 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
     
     lazy var selectedNumImageView: UIImageView = {
         var frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-        frame.x   = self.view.bounds.width - frame.width - btDone.bounds.width + 4
+        frame.x   = self.view.bounds.width - frame.width - btDone.bounds.width + 8
         frame.y   = btDone.bounds.height/2 - frame.size.height/2 + btDone.frame.y
         let imageView = UIImageView(frame: frame)
         return imageView
@@ -91,7 +100,7 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
 //        frame.y = self.view.bounds.height - frame.height
 //        frame.x = self.view.bounds.width - frame.width
         let bt = UIButton(frame: frame)
-        bt.center = CGPoint(x: self.view.bounds.width - frame.width/2, y: pageLabel.center.y)
+        bt.center = CGPoint(x: self.view.bounds.width - frame.width/2 - 16, y: pageLabel.center.y)
         bt.setImage(UIImage.createBigPhotoNotSelectImage(), for: .normal)
         bt.addTarget(self, action: #selector(self.btSelectPressed(sender:)), for: .touchUpInside)
         
@@ -192,6 +201,11 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         
         self.view.addSubview(self.pageLabel)
         updatePageLabel(page: currentPhotoIndex)
+        
+        
+        
+        self.automaticallyAdjustsScrollViewInsets = false
+        
     }
     
     private func configureData() {
@@ -285,6 +299,9 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         btSelect.isHidden = true
         pageLabel.isHidden = true
         selectedNumImageView.isHidden = true
+        
+        topBackgroundShapeView.isHidden = true
+        bottomBackgroundShapeView.isHidden = true
     }
     
     func showSubviews() {
@@ -292,22 +309,23 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         btSelect.isHidden = false
         pageLabel.isHidden = false
         selectedNumImageView.isHidden = false
+        
+        topBackgroundShapeView.isHidden = false
+        bottomBackgroundShapeView.isHidden = false
     }
     
+    //
     private func showDismissAnimation() {
         let item = items[currentPhotoIndex]
         let photoView = getPhotoView(index: currentPhotoIndex)
         
-        hideSubviews()
-        setStatusBarHidden(hidden: false)
-        afterDismissPhotoBrower?(false,selectedPhotosIndex)
         
         if item.sourceView == nil {  // 没有记录sourceView
             UIView.animate(withDuration: wlAnimationTimeInterval, animations: {
                 self.view.alpha = 0
             }) { (completion) in
                 if completion {
-                    self.dismiss(animated: false, completion: nil)
+                    self.dismiss(animated: false)
                 }
             }
             
@@ -324,9 +342,9 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
                 photoView?.imageView.frame = rect
                 self.view.backgroundColor = UIColor.clear
             }) { (completion) in
-                print(String(describing: photoView?.imageView.frame))
+                
                 if completion {
-                    self.dismiss(animated: false, completion: nil)
+                    self.dismiss(animated: false)
                 }
             }
         }
@@ -346,7 +364,29 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         }
     }
     
+    // dismiss 之前，对souceview可见度做处理
+    private func dismiss(animated: Bool) {
+        let photoItem = items[currentPhotoIndex]
+        
+        if animated {
+            UIView.animate(withDuration: wlAnimationTimeInterval) {
+                photoItem.sourceView?.alpha = 1
+            }
+        } else {
+            photoItem.sourceView?.alpha = 1
+        }
+        
+        setStatusBarHidden(hidden: false)
+        afterDismissPhotoBrower?(false,selectedPhotosIndex)
+        
+        self.dismiss(animated: false, completion: nil)
+    }
     
+    private func updateSubviewsUI() {
+        updatePageLabel(page: currentPhotoIndex)
+        updateSelectedNumImageView(animate: false)
+        updateSelectButtonUI()
+    }
     
     // MARK: gesture deal
     private func addGesture() {
@@ -357,6 +397,9 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         let oneTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.oneTap(gesture:)))
         oneTapGesture.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(oneTapGesture)
+        
+        let panGesture: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.didPan(gesture:)))
+        self.view.addGestureRecognizer(panGesture)
     }
     
     private func removeGesture() {
@@ -364,6 +407,130 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
             for gesture in gestures {
                 self.view.removeGestureRecognizer(gesture)
             }
+        }
+    }
+    
+    
+    private func didPanGestureBegin() {
+        let photoItem = items[currentPhotoIndex]
+        photoItem.sourceView?.alpha = 0
+        
+        hideSubviews() // 隐藏其他辅助控件
+    }
+    
+    // 处理上下滑行动画效果
+    private func dealSlidePan(gesture: UIPanGestureRecognizer) {
+        let photoView = getPhotoView(index: currentPhotoIndex)
+        let point: CGPoint = gesture.translation(in: self.view)
+        let velocity: CGPoint = gesture.velocity(in: self.view)
+        
+        switch gesture.state {
+        case .began:
+            didPanGestureBegin()
+        case .changed:
+            photoView?.imageView.transform = CGAffineTransform(translationX: 0, y: point.y)
+            let percent = 1 - fabs(point.y)/(self.view.bounds.height/2)
+            print(percent)
+            self.view.backgroundColor = UIColor(white: 0, alpha: percent)
+            
+        case .ended:
+            if (fabs(point.y) > 200 || fabs(velocity.y) > 450) {
+                finishSlidePanGesture(fromPoint: point)
+            } else {
+                cancelPanGesture()
+            }
+        default:
+            break
+        }
+    }
+    
+    // 处理缩放动画效果
+    private func dealScalePan(gesture: UIPanGestureRecognizer) {
+        let photoView = getPhotoView(index: currentPhotoIndex)
+        let point: CGPoint = gesture.translation(in: self.view)
+        let velocity: CGPoint = gesture.velocity(in: self.view)
+        
+        switch gesture.state {
+        case .began:
+            didPanGestureBegin()
+        case .changed:
+            
+            var percent = 1 - fabs(point.y)/(self.view.bounds.height)
+            percent = CGFloat.maximum(percent, 0) // percent 不能小于0
+            let limitScale: CGFloat = CGFloat.maximum(percent,0.5) // scale 最小只能是0.5
+            
+            // scale 上的变化
+            let scaleTransform = CGAffineTransform(scaleX: limitScale, y: limitScale)
+            // 位移 上的变化
+            let translateTransform = CGAffineTransform(translationX: point.x, y: point.y)
+            
+            // 合并两个transform
+            photoView?.imageView.transform = scaleTransform.concatenating(translateTransform)
+            self.view.backgroundColor = UIColor(white: 0, alpha: percent)
+            
+        case .ended:
+            if (fabs(point.y) > 200 || fabs(velocity.y) > 450) {
+                finishScalePanGesture()
+            } else {
+                cancelPanGesture()
+            }
+        default:
+            break
+        }
+    }
+    
+    @objc func didPan(gesture: UIPanGestureRecognizer) {
+        if let photoView = getPhotoView(index: currentPhotoIndex) {
+            // 当图片处于zoom模式下，pan gesture 不做处理
+            if photoView.zoomScale > CGFloat(1.0) {
+                return
+            }
+            
+            switch dismissAnimationType {
+            case .slide:
+                dealSlidePan(gesture: gesture)
+            case .scale:
+                dealScalePan(gesture: gesture)
+            }
+        }
+    }
+    
+    // 处理缩放效果的 后续工作（手指离开屏幕）
+    private func finishScalePanGesture() {
+        showDismissAnimation()
+    }
+    
+    // 处理滑行效果的 后续工作（手指离开屏幕）
+    private func finishSlidePanGesture(fromPoint point: CGPoint) {
+        let photoView = getPhotoView(index: currentPhotoIndex)
+        
+        let isPanToTop = (point.y < 0) ? true : false
+        
+        var endTranslationY: CGFloat = 0
+        if isPanToTop {
+            endTranslationY = 0 - self.view.bounds.height
+        } else {
+            endTranslationY = self.view.bounds.height
+        }
+        
+        UIView.animate(withDuration: wlAnimationTimeInterval, animations: {
+            photoView?.imageView.transform = CGAffineTransform(translationX: 0, y: endTranslationY)
+            self.view.backgroundColor = UIColor.clear
+        }) { (finished) in
+            self.dismiss(animated: true)
+        }
+    }
+    
+    private func cancelPanGesture() {
+
+        let photoView = getPhotoView(index: currentPhotoIndex)
+        
+        UIView.animate(withDuration: wlAnimationTimeInterval, animations: {
+            photoView?.imageView.transform = CGAffineTransform.identity
+            self.view.backgroundColor = UIColor.black
+        }) { (finished) in
+            self.showSubviews()
+            self.setStatusBarHidden(hidden: true)
         }
     }
     
@@ -400,11 +567,7 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
         return nil
     }
     
-    private func updateSubviewsUI() {
-        updatePageLabel(page: currentPhotoIndex)
-        updateSelectedNumImageView(animate: false)
-        updateSelectButtonUI()
-    }
+    
     
     // MARK: scrollView delegate
     func scrollViewDidScroll(_ scrollView: UIScrollView) {        

@@ -128,13 +128,16 @@ public final class TransitionGestureHandler : NSObject {
                 self.updateGestureHandler?(.finish)
             } else {
                 self.updateGestureHandler?(.cancel)
+                self.resetValues()
             }
         case .cancelled:
             if !self.isTransitioning { return }
             self.updateGestureHandler?(.cancel)
+            self.resetValues()
         default:
             if !self.isTransitioning { return }
             self.updateGestureHandler?(.cancel)
+            self.resetValues()
         }
     }
     

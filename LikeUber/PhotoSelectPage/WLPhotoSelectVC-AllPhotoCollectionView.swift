@@ -8,7 +8,6 @@
 
 import Foundation
 import Photos
-import KSPhotoBrowser
 
 extension WLPhotoSelectViewController : UICollectionViewDataSource,UICollectionViewDelegate,WLPhotoSelectCollectionViewCellDelegate {
     

@@ -33,6 +33,10 @@ class WLPhotoView: UIScrollView,UIScrollViewDelegate {
         self.showsHorizontalScrollIndicator = true
         self.showsVerticalScrollIndicator   = true
         
+//        self.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        if #available(iOS 11.0, *) {
+            self.contentInsetAdjustmentBehavior = .never
+        }
         
         self.maximumZoomScale = WLPhotoViewMaxScale
         
