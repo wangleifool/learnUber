@@ -118,12 +118,12 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
         }
         
         self.backgroundImageView.animationImages = images
-        self.backgroundImageView.animationDuration = 3.0
+        self.backgroundImageView.animationDuration = 2.0
         self.backgroundImageView.animationRepeatCount = 1
         
         self.backgroundImageView.startAnimating()
         
-        self.perform(#selector(self.afterImageViewAnimateFinished), with: nil, afterDelay: 3.0)
+        self.perform(#selector(self.afterImageViewAnimateFinished), with: nil, afterDelay: 2.0)
         
         //过渡动画
         UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseInOut, animations: {

@@ -28,25 +28,26 @@ extension WLHomePageViewController: BMKRouteSearchDelegate {
             
             
             geoCode = BMKGeoCodeSearch() //地理编码查询
-            
+
             poiSearch = BMKPoiSearch() //热点查询
-            
+
             cloudSearch = BMKCloudSearch() //LBS 云检索
-            
+
             suggestionSearch = BMKSuggestionSearch()
-            
-            //本地定位
+
+//            //本地定位
             localService = BMKLocationService()
             localService?.startUserLocationService()
+//
+//            //显示定位图层
+//            mapView?.showsUserLocation = true
+//            mapView?.userTrackingMode  = BMKUserTrackingModeHeading
+//            
+            self.perform(#selector(self.updateLocation), with: nil, afterDelay: 1.0)
             
-            //显示定位图层
-            mapView?.showsUserLocation = true
-            mapView?.userTrackingMode  = BMKUserTrackingModeHeading
+
             
-            self.perform(#selector(self.btMyLocationPressed(_:)), with: nil, afterDelay: 1.0)
-            
-            
-            //路径规划相关
+//            //路径规划相关
             driverRouteSearch = BMKRouteSearch()
         }
         
@@ -54,8 +55,8 @@ extension WLHomePageViewController: BMKRouteSearchDelegate {
     }
     
     func addAllMapServiceDelegate() {
-        localService?.delegate = self
         mapView?.delegate = self
+        localService?.delegate = self
         geoCode?.delegate = self
         poiSearch?.delegate = self
         cloudSearch?.delegate = self
@@ -190,6 +191,11 @@ extension WLHomePageViewController: BMKRouteSearchDelegate {
     
     @IBAction func btMyLocationPressed(_ sender: Any) {
 //        if ((localService?.userLocation.location) != nil)        {
+        updateLocation()
+        
+    }
+    
+    @objc func updateLocation() {
         if let location = localService?.userLocation.location {
             mapView?.setCenter(location.coordinate, animated: true)
             mapView?.updateLocationData(localService?.userLocation)
@@ -198,7 +204,6 @@ extension WLHomePageViewController: BMKRouteSearchDelegate {
             self.curLocation = localService?.userLocation
             
         }
-        
     }
     
     // #MARK: - 通过查询poi，显示位置
