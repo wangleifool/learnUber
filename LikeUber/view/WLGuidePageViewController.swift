@@ -11,6 +11,7 @@ import AVFoundation
 import RxCocoa
 import RxSwift
 
+
 class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransitioningDelegate,UITextFieldDelegate {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -98,7 +99,8 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
                 case .Empty:
                     self.showAlertView(title: "提示", message: "")
                 case let .Failed(message):
-                    self.showOneButtonDialog(title: "提示", description: message)
+                    self.loginFailAnimate()
+//                    self.showOneButtonDialog(title: "提示", description: message)
                 }
             })
             .disposed(by: disposeBag)
@@ -179,6 +181,12 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
         self.present(nav, animated: true, completion: nil)
     }
     
+    
+    
+    func loginFailAnimate() {
+        shakeAnimation(with: btLogin)
+    }
+    
     func loginSuccToNext() {
 
 //        appDelegate?.showHomePage()
@@ -199,6 +207,7 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
             drawerController.mainViewController = UINavigationController(
                 rootViewController: mainViewController
             )
+            
             drawerController.drawerViewController = drawerViewController
             self.present(drawerController, animated: true, completion: nil)
             self.appDelegate?.globalDrawerController = drawerController

@@ -73,3 +73,42 @@ func isSystemiOS8()->Bool
 func documentsPath() -> String {
     return NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last!
 }
+
+func shakeAnimation(with view: UIView) {
+    // 获取到当前的View
+    let viewLayer:CALayer = view.layer
+    
+    // 获取当前View的位置
+    let position = viewLayer.position
+    
+    // 移动的两个终点位置
+    let x = CGPoint.init(x: position.x + 10, y: position.y)
+    
+    let y = CGPoint.init(x: position.x - 10, y: position.y)
+    
+    // 设置动画
+    let animation:CABasicAnimation = CABasicAnimation(keyPath: "position")
+    
+    // 设置运动形式
+    animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+    
+    // 设置开始位置
+    animation.fromValue = NSValue.init(cgPoint: x)
+    
+    // 设置结束位置
+    animation.toValue = NSValue.init(cgPoint: y)
+    
+    // 设置自动反转
+    animation.autoreverses = true
+    
+    // 设置时间
+    animation.duration = 0.06
+    
+    // 设置次数
+    animation.repeatCount = 3
+    
+    
+    // 添加上动画
+    viewLayer.add(animation, forKey: nil)
+    
+}

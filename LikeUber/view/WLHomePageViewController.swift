@@ -130,7 +130,7 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
         setupSuggestionPlaceTableView()
         
         
-        localService?.startUserLocationService() //开启定位服务
+//        localService?.startUserLocationService() //开启定位服务
         
         //add some test view
 //        self.addStarView()
