@@ -123,7 +123,7 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
         
         self.backgroundImageView.startAnimating()
         
-        self.perform(#selector(self.afterImageViewAnimateFinished), with: nil, afterDelay: 2.0)
+        self.perform(#selector(self.afterImageViewAnimateFinished), with: nil, afterDelay: 1.0)
         
         //过渡动画
         UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseInOut, animations: {
@@ -134,7 +134,7 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
     
     @objc func afterImageViewAnimateFinished() {
      
-        UIView.animate(withDuration: 1.0, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.backgroundImageView.alpha = 0
             self.stackViewOfTwoTextfield.alpha = 1
         }) { (complete) in
@@ -166,9 +166,10 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
         self.videoPlayer.play()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    
+    func hideSubviews() {
+        textfieldUserName.isHidden = true
+        textfieldPasswd.isHidden = true
+        usernameHintLabel.isHidden = true
     }
     
 
@@ -189,7 +190,7 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
     
     func loginSuccToNext() {
 
-//        appDelegate?.showHomePage()
+        hideSubviews()
         
         //登录按钮的动画，按钮扩展全面视图
         btLogin.animate(0.6) { [unowned self] in
@@ -218,9 +219,19 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
 
     // MARK: textfield delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == textfieldUserName {
+            if textField.text?.length != 0 {
+                textField.resignFirstResponder()
+                textfieldPasswd.becomeFirstResponder()
+                return true
+            }
+        }
+        
         textField.resignFirstResponder()
         return true
     }
+    
+    
     
     // MARK: UIViewControllerTransitioningDelegate
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {

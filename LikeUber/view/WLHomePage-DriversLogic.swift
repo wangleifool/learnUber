@@ -239,32 +239,37 @@ extension WLHomePageViewController {
             newLatitude -= postionOffsetUnit
             if newLatitude <= minLatitude {
                 driverCarDirection = .faceWest
+                driver?.driverCarAnnotationView?.carDirection = driverCarDirection
             }
             break
         case .faceNorth?:
             newLatitude += postionOffsetUnit
             if newLatitude >= maxLatitude {
                 driverCarDirection = .faceEast
+                driver?.driverCarAnnotationView?.carDirection = driverCarDirection
             }
             break
         case .faceEast?:
             newLongitude += postionOffsetUnit
             if newLongitude >= maxLongitude {
                 driverCarDirection = .faceSouth
+                driver?.driverCarAnnotationView?.carDirection = driverCarDirection
             }
             break
         case .faceWest?:
             newLongitude -= postionOffsetUnit
             if newLongitude <= minLongitude {
                 driverCarDirection = .faceNorth
+                driver?.driverCarAnnotationView?.carDirection = driverCarDirection
             }
             break
         default:
             driverCarDirection = .faceSouth
+            driver?.driverCarAnnotationView?.carDirection = driverCarDirection
             break
         }
         
-        driver?.driverCarAnnotationView?.carDirection = driverCarDirection
+        
         
         //实际开发，司机的经纬度是由服务器反馈的
         carAnnotation.coordinate = CLLocationCoordinate2D(latitude: newLatitude, longitude: newLongitude)

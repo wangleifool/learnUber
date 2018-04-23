@@ -17,7 +17,7 @@ class WLSublineTextField: UITextField {
         // Drawing code
         let contextRef:CGContext! = UIGraphicsGetCurrentContext();
         contextRef.setFillColor(UIColor.lightGray.cgColor);        
-        contextRef.fill(CGRect(x: 0, y: self.frame.size.height - 0.5, width: self.frame.size.width, height: 0.5));
+        contextRef.fill(CGRect(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: 0.5));
     }
 
     //- (void)drawPlaceholderInRect:(CGRect)rect {
@@ -33,7 +33,7 @@ class WLSublineTextField: UITextField {
     override func drawPlaceholder(in rect: CGRect) {
         let placeholderSize:CGSize = (self.placeholder?.size(withAttributes: [NSAttributedStringKey.font: self.font ?? 17.0]))!
         let str:NSString = NSString(string: self.placeholder!)
-        str.draw(in: CGRect(x: 0, y: (rect.size.height - placeholderSize.height)/2, width: rect.size.width, height: rect.size.height), withAttributes: [NSAttributedStringKey.foregroundColor : UIColor.darkGray,NSAttributedStringKey.font : self.font ?? 17.0])
+        str.draw(in: CGRect(x: 0, y: (rect.size.height - placeholderSize.height)/2, width: rect.size.width, height: rect.size.height), withAttributes: [NSAttributedStringKey.foregroundColor : UIColor.lightGray,NSAttributedStringKey.font : self.font ?? 17.0])
     }
 
 }
