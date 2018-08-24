@@ -16,21 +16,26 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="173"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W33-3j-Rze">
-                    <rect key="frame" x="32" y="54" width="64" height="64"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="W33-3j-Rze">
+                    <rect key="frame" x="16" y="54" width="64" height="64"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="64" id="8Rd-kh-TZR"/>
                         <constraint firstAttribute="height" constant="64" id="FOE-gO-NDA"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="32"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="wang lei" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIh-2e-nb0">
-                    <rect key="frame" x="104" y="54" width="255" height="35"/>
+                    <rect key="frame" x="88" y="54" width="271" height="35"/>
                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                     <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="资深用户 15年" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKJ-7p-rUp">
-                    <rect key="frame" x="104" y="97" width="255" height="21"/>
+                    <rect key="frame" x="88" y="97" width="271" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -38,7 +43,7 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="W33-3j-Rze" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="3S1-eR-xqL"/>
+                <constraint firstItem="W33-3j-Rze" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="3S1-eR-xqL"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="CIh-2e-nb0" secondAttribute="trailing" constant="16" id="4Hd-fm-rnp"/>
                 <constraint firstItem="UKJ-7p-rUp" firstAttribute="top" secondItem="CIh-2e-nb0" secondAttribute="bottom" constant="8" id="I4R-nm-Gf0"/>
                 <constraint firstItem="UKJ-7p-rUp" firstAttribute="leading" secondItem="W33-3j-Rze" secondAttribute="trailing" constant="8" id="LzO-cX-shQ"/>
@@ -53,4 +58,7 @@
             <point key="canvasLocation" x="135.5" y="-115.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="avatar.png" width="75" height="75"/>
+    </resources>
 </document>
