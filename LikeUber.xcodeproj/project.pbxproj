@@ -610,6 +610,8 @@
 		3BBE94071EF3CBA200CEEF0C /* WLTimeCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE94051EF3CBA200CEEF0C /* WLTimeCounterViewController.swift */; };
 		3BBE94081EF3CBA200CEEF0C /* WLTimeCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BBE94061EF3CBA200CEEF0C /* WLTimeCounterViewController.xib */; };
 		3BE7D4022074BD4C0084CDBF /* WLProgressHUDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7D4012074BD4C0084CDBF /* WLProgressHUDSwift.swift */; };
+		800E612F212FBD9A00B43B52 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E612E212FBD9A00B43B52 /* Const.swift */; };
+		800E6132212FBDDE00B43B52 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E6131212FBDDE00B43B52 /* UIDevice+Extension.swift */; };
 		E66DC8FCF5F910E6B8D3D83F /* Pods_LikeUber.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5395CAB2200CC5BEE30710 /* Pods_LikeUber.framework */; };
 /* End PBXBuildFile section */
 
@@ -1229,6 +1231,8 @@
 		3BBE94061EF3CBA200CEEF0C /* WLTimeCounterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLTimeCounterViewController.xib; path = view/WLTimeCounterViewController.xib; sourceTree = "<group>"; };
 		3BE7D4012074BD4C0084CDBF /* WLProgressHUDSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLProgressHUDSwift.swift; sourceTree = "<group>"; };
 		40F6CB3F765527612C11E522 /* Pods-LikeUber.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeUber.release.xcconfig"; path = "Pods/Target Support Files/Pods-LikeUber/Pods-LikeUber.release.xcconfig"; sourceTree = "<group>"; };
+		800E612E212FBD9A00B43B52 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		800E6131212FBDDE00B43B52 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		AA5395CAB2200CC5BEE30710 /* Pods_LikeUber.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeUber.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02D2C23326DE4FF580D5DD6 /* Pods-LikeUber.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeUber.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LikeUber/Pods-LikeUber.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1384,9 +1388,11 @@
 		3B2267DB1ECEB4C3005E7ED6 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				800E6130212FBDCD00B43B52 /* extension */,
 				3B2267E21ECEB565005E7ED6 /* WLGlobalDefine.swift */,
 				3B9B37371ED2B2BF006C7406 /* WLLocation.swift */,
 				3B2FAB49206B28A500585881 /* WLDevice.swift */,
+				800E612E212FBD9A00B43B52 /* Const.swift */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -2271,6 +2277,14 @@
 			name = custom;
 			sourceTree = "<group>";
 		};
+		800E6130212FBDCD00B43B52 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				800E6131212FBDDE00B43B52 /* UIDevice+Extension.swift */,
+			);
+			name = extension;
+			sourceTree = "<group>";
+		};
 		CEF6A06F76637E1A83582FED /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2292,7 +2306,6 @@
 				3B2267BD1ECE9743005E7ED6 /* Frameworks */,
 				3B2267BE1ECE9743005E7ED6 /* Resources */,
 				4387F59BEAF773E03F0CF7B6 /* [CP] Embed Pods Frameworks */,
-				F5E1C150583D42C12BE55E66 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2880,6 +2893,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LikeUber/Pods-LikeUber-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ARNTransitionAnimator/ARNTransitionAnimator.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/KSPhotoBrowser/KSPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/PermissionScope/PermissionScope.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -2893,6 +2908,8 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARNTransitionAnimator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KSPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PermissionScope.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -2924,21 +2941,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F5E1C150583D42C12BE55E66 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LikeUber/Pods-LikeUber-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2973,6 +2975,7 @@
 				3B52C2E01F580D0E000CBEA7 /* WLCarAnnotationView.swift in Sources */,
 				3B9F29431FB6CD25006BD15D /* CGRectEx.swift in Sources */,
 				3BBE94041EF3CAC500CEEF0C /* WLStopWatchHand.swift in Sources */,
+				800E6132212FBDDE00B43B52 /* UIDevice+Extension.swift in Sources */,
 				3BE7D4022074BD4C0084CDBF /* WLProgressHUDSwift.swift in Sources */,
 				3BBE94071EF3CBA200CEEF0C /* WLTimeCounterViewController.swift in Sources */,
 				3B52C2D91F57D974000CBEA7 /* WLHomePage-SuggestionResultTableView.swift in Sources */,
@@ -3012,6 +3015,7 @@
 				3B323D49206D06310046B804 /* WLPhotoView.swift in Sources */,
 				3B9F29441FB6CD25006BD15D /* FadeTransition.swift in Sources */,
 				3B3DE5B0207314BB0062159E /* UIImageExtension.swift in Sources */,
+				800E612F212FBD9A00B43B52 /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

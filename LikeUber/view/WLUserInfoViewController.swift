@@ -23,10 +23,7 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = "建立基本资料"
-//        setNavigationItem(title: "下一步", selector: #selector(nextStep), isRight: true)
-
+        self.title = "建立基本资料"        
         setNavigationItem(title: "跳过", selector: #selector(skip), isRight: false)
         
 //        textFieldSurName.becomeFirstResponder()
@@ -43,12 +40,6 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
 //        setupAnimator()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
     func setupAnimator() {
         let animation = interactiveTransition(sourceVC: self.navigationController!, destVC: self.photoSelectVC)
         animation.completion = { [weak self] isPresenting in
@@ -73,7 +64,8 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
     
     @objc func nextStep() {
         let createAccountPage = SignUpViewController()
-        
+        createAccountPage.avatarImage = userHeadImage.image ?? #imageLiteral(resourceName: "camera")
+        createAccountPage.hero.isEnabled = true
         self.navigationController?.pushViewController(createAccountPage, animated: true)
     }
     

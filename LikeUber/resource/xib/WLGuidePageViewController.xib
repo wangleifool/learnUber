@@ -44,6 +44,7 @@
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <integer key="value" value="5"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="nextButton"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="btRegisterPressed:" destination="-1" eventType="touchUpInside" id="6RC-aN-X5c"/>

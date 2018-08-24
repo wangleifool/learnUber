@@ -123,7 +123,7 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
         
         self.backgroundImageView.startAnimating()
         
-        self.perform(#selector(self.afterImageViewAnimateFinished), with: nil, afterDelay: 1.0)
+        self.perform(#selector(self.afterImageViewAnimateFinished), with: nil, afterDelay: 2.0)
         
         //过渡动画
         UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseInOut, animations: {
@@ -175,10 +175,9 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
 
     // #MARK: action
     @IBAction func btRegisterPressed(_ sender: Any) {
-
-        
         let userInfoVC = WLUserInfoViewController()
         let nav = UINavigationController(rootViewController: userInfoVC)
+        nav.hero.isEnabled = true
         self.present(nav, animated: true, completion: nil)
     }
     

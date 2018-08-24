@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,7 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var globalDrawerController: KYDrawerController?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+
+        // 键盘管理神器
+        IQKeyboardManager.shared.enable = true
+
         window = UIWindow(frame: UIScreen.main.bounds)
         
         addMap() //添加百度地图服务

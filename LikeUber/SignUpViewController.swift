@@ -21,7 +21,10 @@ class SignUpViewController: WLBasePageViewController {
     @IBOutlet weak var repeatPasswdTextfiled: UITextField!
     @IBOutlet weak var repeatPasswdHintLabel: UILabel!
     
+    @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var btSignUp: UIButton!
+
+    var avatarImage: UIImage?
     
     let viewModel = SignUpViewModels()  //抽象出 视图模型层，逻辑代码放在这里面处理
     let disposeBag = DisposeBag()
@@ -34,8 +37,6 @@ class SignUpViewController: WLBasePageViewController {
         
         // Do any additional setup after loading the view.
         configureUI()
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,7 +52,9 @@ class SignUpViewController: WLBasePageViewController {
 
     //绑定UI与模型的关系
     func configureUI() {
-        
+
+        avatarImageView.image = avatarImage
+
         btSignUp.layer.cornerRadius = btSignUp.bounds.height/2
         btSignUp.layer.addSublayer(UIColor.setGradualChangingColor(view: btSignUp, fromColor: "007EF9", toColor: "7A7EF9"))
         

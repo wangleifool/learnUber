@@ -14,5 +14,7 @@ target 'LikeUber' do
   pod 'PermissionScope'
   pod 'ARNTransitionAnimator'
   pod 'KSPhotoBrowser'
+  pod 'Hero'
+  pod 'IQKeyboardManagerSwift'
   
 end

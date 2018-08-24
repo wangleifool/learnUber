@@ -7,13 +7,67 @@
 //
 
 import UIKit
+import Hero
+import RxSwift
+import RxCocoa
 
 class WLBaseViewController: UIViewController {
-
+    var baseDisposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
+//        NotificationCenter.default.rx.notification(.UIKeyboardWillShow)
+//            .subscribe(onNext: { [weak self] (notification) in
+//                self?.keyboardWillShow(note: notification)
+//            })
+//            .disposed(by: baseDisposeBag)
+//
+//        NotificationCenter.default.rx.notification(.UIKeyboardWillHide)
+//            .subscribe(onNext: { [weak self] (notification) in
+//                self?.keyboardWillHide(note: notification)
+//            })
+//            .disposed(by: baseDisposeBag)
+    }
 
-        // Do any additional setup after loading the view.
+    @objc func keyboardWillShow(note: Notification) {
+        guard let userInfo: NSDictionary = note.userInfo as NSDictionary? else {
+            return
+        }
+        let value = userInfo.object(forKey: UIKeyboardFrameEndUserInfoKey)
+        guard let keyboardRec = (value as AnyObject).cgRectValue else {
+            return
+        }
+
+        let height = keyboardRec.size.height
+
+        var distance: CGFloat = height - self.view.frame.height
+        if self.navigationController == nil {
+            distance = height - self.view.frame.height
+        } else {
+            var tabbarHeight: CGFloat = 0
+            if self.tabBarController != nil {
+                tabbarHeight = Const.tabbarHeight
+            }
+            var navbarHeight: CGFloat = 0
+            if self.navigationController != nil {
+                navbarHeight = Const.navBarAndStatusBarHeight
+            }
+            distance = height - (self.view.frame.height - tabbarHeight - navbarHeight)
+        }
+
+        guard self.view.frame.origin.y == 0 else { return }
+        var frame = view.frame
+        frame.origin.y -= CGFloat(fabsf(Float(distance)))
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            self?.view.frame = frame
+        })
+    }
+
+    @objc func keyboardWillHide(note: Notification) {
+        var frame = view.frame
+        frame.origin.y = 0
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            self?.view.frame = frame
+        })
     }
 
     override func didReceiveMemoryWarning() {
