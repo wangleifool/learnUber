@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Spring
 
 class SignUpViewController: WLBasePageViewController {
 
@@ -21,8 +22,9 @@ class SignUpViewController: WLBasePageViewController {
     @IBOutlet weak var repeatPasswdTextfiled: UITextField!
     @IBOutlet weak var repeatPasswdHintLabel: UILabel!
     
-    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var avatarImageView: SpringImageView!
     @IBOutlet weak var btSignUp: UIButton!
+    @IBOutlet weak var infoStackView: UIStackView!
 
     var avatarImage: UIImage?
     
@@ -33,7 +35,6 @@ class SignUpViewController: WLBasePageViewController {
         super.viewDidLoad()
         
         self.title = "注册账户"
-        setNavigationItem(title: "完成", selector: #selector(Done), isRight: false)
         
         // Do any additional setup after loading the view.
         configureUI()
@@ -43,10 +44,13 @@ class SignUpViewController: WLBasePageViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    @objc func Done() {
-//        self.dismiss(animated: true, completion: nil)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        avatarImageView.animate()
+    }
+
+    func Done() {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
 
@@ -54,6 +58,8 @@ class SignUpViewController: WLBasePageViewController {
     func configureUI() {
 
         avatarImageView.image = avatarImage
+        passwdTextfield.isSecureTextEntry = true
+        repeatPasswdTextfiled.isSecureTextEntry = true
 
         btSignUp.layer.cornerRadius = btSignUp.bounds.height/2
         btSignUp.layer.addSublayer(UIColor.setGradualChangingColor(view: btSignUp, fromColor: "007EF9", toColor: "7A7EF9"))
@@ -111,25 +117,30 @@ class SignUpViewController: WLBasePageViewController {
             .disposed(by: disposeBag)
         
         viewModel.registerResult
-            .subscribe(onNext: { [unowned self] result in
+            .subscribe(onNext: { [weak self] result in
                 switch result {
-                case let .Ok(message):
-                    self.showAlert(description: message)
+                case .Ok(_):
+                    self?.showSucAlert()
                 case let .Failed(message):
-                    self.showAlert(description: message)
+                    self?.showAlert(description: message)
                 case .Empty:
-                    self.showAlert(description: "")
+                    break
                 }
             })
             .disposed(by: disposeBag)
     }
 
-    @IBAction func btSignUpPressed(_ sender: Any) {
-        
-        
-        
+    func showSucAlert() {
+        let alert = SuccessAlertView.instance()
+        alert.message = "注册成功"
+        alert.closeButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.Done()
+            })
+            .disposed(by: disposeBag)
+        alert.show()
     }
-    
+
     func showAlert(description: String) {
         let alertControler = UIAlertController(title: "Hint", message: description, preferredStyle: .alert)
         alertControler.addAction(UIAlertAction(title: "OK", style: .cancel, handler:nil))

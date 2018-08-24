@@ -18,3 +18,8 @@ struct Const {
     static let tabbarHeight: CGFloat = (UIDevice.current.screenType == .iPhoneX) ? 83.0 : 44.0
     static let bottomDangerAreaHeight: CGFloat = 34.0
 }
+
+struct PathConst {
+    static let docPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+    static let dbPath = "/db.sqlite3"
+}

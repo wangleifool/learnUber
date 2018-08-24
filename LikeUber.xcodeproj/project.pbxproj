@@ -612,6 +612,12 @@
 		3BE7D4022074BD4C0084CDBF /* WLProgressHUDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7D4012074BD4C0084CDBF /* WLProgressHUDSwift.swift */; };
 		800E612F212FBD9A00B43B52 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E612E212FBD9A00B43B52 /* Const.swift */; };
 		800E6132212FBDDE00B43B52 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E6131212FBDDE00B43B52 /* UIDevice+Extension.swift */; };
+		800E6138212FE54300B43B52 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E6136212FE53C00B43B52 /* DBService.swift */; };
+		800E613A212FE79300B43B52 /* DBService+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E6139212FE79300B43B52 /* DBService+Authentication.swift */; };
+		800E613D212FEEDB00B43B52 /* SuccessAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E613C212FEEDB00B43B52 /* SuccessAlertView.swift */; };
+		800E613E212FF0C900B43B52 /* SuccessAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800E613B212FEEDA00B43B52 /* SuccessAlertView.xib */; };
+		800E6140213015B500B43B52 /* WLDrawerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E613F213015B500B43B52 /* WLDrawerHeaderView.swift */; };
+		800E6142213015DD00B43B52 /* WLDrawerHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800E6141213015DD00B43B52 /* WLDrawerHeaderView.xib */; };
 		E66DC8FCF5F910E6B8D3D83F /* Pods_LikeUber.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5395CAB2200CC5BEE30710 /* Pods_LikeUber.framework */; };
 /* End PBXBuildFile section */
 
@@ -1233,6 +1239,12 @@
 		40F6CB3F765527612C11E522 /* Pods-LikeUber.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeUber.release.xcconfig"; path = "Pods/Target Support Files/Pods-LikeUber/Pods-LikeUber.release.xcconfig"; sourceTree = "<group>"; };
 		800E612E212FBD9A00B43B52 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		800E6131212FBDDE00B43B52 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
+		800E6136212FE53C00B43B52 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
+		800E6139212FE79300B43B52 /* DBService+Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBService+Authentication.swift"; sourceTree = "<group>"; };
+		800E613B212FEEDA00B43B52 /* SuccessAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessAlertView.xib; sourceTree = "<group>"; };
+		800E613C212FEEDB00B43B52 /* SuccessAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAlertView.swift; sourceTree = "<group>"; };
+		800E613F213015B500B43B52 /* WLDrawerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLDrawerHeaderView.swift; sourceTree = "<group>"; };
+		800E6141213015DD00B43B52 /* WLDrawerHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLDrawerHeaderView.xib; sourceTree = "<group>"; };
 		AA5395CAB2200CC5BEE30710 /* Pods_LikeUber.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeUber.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02D2C23326DE4FF580D5DD6 /* Pods-LikeUber.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeUber.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LikeUber/Pods-LikeUber.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1319,12 +1331,12 @@
 		3B2267C21ECE9743005E7ED6 /* LikeUber */ = {
 			isa = PBXGroup;
 			children = (
+				800E6134212FE51700B43B52 /* Service */,
 				3B798EFD1F5660A00038D20B /* Others */,
 				3B9B37521ED2D173006C7406 /* Utility */,
 				3B2267DC1ECEB4D9005E7ED6 /* Resource */,
 				3B2267DB1ECEB4C3005E7ED6 /* Global */,
 				3B2267DA1ECEB4A5005E7ED6 /* ThirdSDK */,
-				3B2267D91ECEB4A1005E7ED6 /* DB */,
 				3B2267D81ECEB498005E7ED6 /* Event */,
 				3B2267D71ECEB493005E7ED6 /* View */,
 				3B2267D61ECEB481005E7ED6 /* Operation */,
@@ -1367,13 +1379,6 @@
 			children = (
 			);
 			name = Event;
-			sourceTree = "<group>";
-		};
-		3B2267D91ECEB4A1005E7ED6 /* DB */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = DB;
 			sourceTree = "<group>";
 		};
 		3B2267DA1ECEB4A5005E7ED6 /* ThirdSDK */ = {
@@ -2069,6 +2074,8 @@
 			children = (
 				3B6C4AC91ED57AFE001A001D /* DrawerViewController.xib */,
 				3B6C4AC71ED5766A001A001D /* DrawerViewController.swift */,
+				800E613F213015B500B43B52 /* WLDrawerHeaderView.swift */,
+				800E6141213015DD00B43B52 /* WLDrawerHeaderView.xib */,
 			);
 			name = DrawerViewController;
 			sourceTree = "<group>";
@@ -2269,6 +2276,8 @@
 				3B9F293B1FB6CCB2006BD15D /* shinnyLoginButton */,
 				3B3569EA1FB421B7000D1A35 /* GuillotineMenu */,
 				3B52C2DE1F580CC0000CBEA7 /* mapAnnotationView */,
+				800E613C212FEEDB00B43B52 /* SuccessAlertView.swift */,
+				800E613B212FEEDA00B43B52 /* SuccessAlertView.xib */,
 				3BBE93FF1EF3C98600CEEF0C /* StopWatchStyleKit.swift */,
 				3BBE93FB1EF3A5B900CEEF0C /* WLstarView.swift */,
 				3BBE94011EF3CAB500CEEF0C /* WLStopWatch.swift */,
@@ -2283,6 +2292,23 @@
 				800E6131212FBDDE00B43B52 /* UIDevice+Extension.swift */,
 			);
 			name = extension;
+			sourceTree = "<group>";
+		};
+		800E6134212FE51700B43B52 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				800E6135212FE52000B43B52 /* Database */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		800E6135212FE52000B43B52 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				800E6136212FE53C00B43B52 /* DBService.swift */,
+				800E6139212FE79300B43B52 /* DBService+Authentication.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		CEF6A06F76637E1A83582FED /* Pods */ = {
@@ -2713,6 +2739,7 @@
 				3B2269FF1ECEBE2E005E7ED6 /* AG.png in Resources */,
 				3B226A4C1ECEBE2E005E7ED6 /* GH.png in Resources */,
 				3B5A6D6A201877620065AD9F /* WLPhotoSelectCollectionViewCell.xib in Resources */,
+				800E613E212FF0C900B43B52 /* SuccessAlertView.xib in Resources */,
 				3B226B601ECEBE2E005E7ED6 /* logo-036.png in Resources */,
 				3B226AB41ECEBE2E005E7ED6 /* PY.png in Resources */,
 				3B226BB21ECEBE2F005E7ED6 /* logo-063@2x.png in Resources */,
@@ -2827,6 +2854,7 @@
 				3B226A861ECEBE2E005E7ED6 /* ME.png in Resources */,
 				3B226B681ECEBE2E005E7ED6 /* logo-038@3x.png in Resources */,
 				3B2269EC1ECEBE2E005E7ED6 /* map-uberxl.png in Resources */,
+				800E6142213015DD00B43B52 /* WLDrawerHeaderView.xib in Resources */,
 				3B226B751ECEBE2E005E7ED6 /* logo-043.png in Resources */,
 				3B226AEA1ECEBE2E005E7ED6 /* VU.png in Resources */,
 				3B226B861ECEBE2E005E7ED6 /* logo-048@3x.png in Resources */,
@@ -2896,9 +2924,11 @@
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/KSPhotoBrowser/KSPhotoBrowser.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/PermissionScope/PermissionScope.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
 				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
@@ -2911,9 +2941,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KSPhotoBrowser.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PermissionScope.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
@@ -2964,7 +2996,9 @@
 				3B52C2DB1F580300000CBEA7 /* WLHomePage-DriversLogic.swift in Sources */,
 				3B9F29411FB6CD25006BD15D /* TimerEx.swift in Sources */,
 				3B2DF4141FFF200B00814540 /* WLChangeFontColor.swift in Sources */,
+				800E6138212FE54300B43B52 /* DBService.swift in Sources */,
 				3B2DF4051FFCD5FD00814540 /* LoginViewModels.swift in Sources */,
+				800E613D212FEEDB00B43B52 /* SuccessAlertView.swift in Sources */,
 				3B6C4AC61ED5765A001A001D /* KYEmbedMainControllerSegue.swift in Sources */,
 				3B52C2DD1F5803FF000CBEA7 /* WLUberDriver.swift in Sources */,
 				3B349CF41ED6D576004CE7DE /* WLHomePage-Map.swift in Sources */,
@@ -2988,6 +3022,7 @@
 				3B9B37501ED2D0E0006C7406 /* CountryInfo.swift in Sources */,
 				3B2267E31ECEB565005E7ED6 /* WLGlobalDefine.swift in Sources */,
 				3B9F29421FB6CD25006BD15D /* TransitionSubmitButton.swift in Sources */,
+				800E613A212FE79300B43B52 /* DBService+Authentication.swift in Sources */,
 				3B8050041FBD278D0055B7FE /* WLSublineTextField.swift in Sources */,
 				3B9B37551ED2D17A006C7406 /* FxString.mm in Sources */,
 				3B2DF4111FFF1A6D00814540 /* WLSettingsCellModels.swift in Sources */,
@@ -3007,6 +3042,7 @@
 				3B2DF4071FFCD5FD00814540 /* ValidationService.swift in Sources */,
 				3B3569F81FB42446000D1A35 /* WLMenuViewController.swift in Sources */,
 				3B001C6A200DD2640001C737 /* WLZanAnimationButton.swift in Sources */,
+				800E6140213015B500B43B52 /* WLDrawerHeaderView.swift in Sources */,
 				3BBE94021EF3CAB500CEEF0C /* WLStopWatch.swift in Sources */,
 				3B2DF4091FFCD5FD00814540 /* SignUpViewController.swift in Sources */,
 				3BBE93FC1EF3A5B900CEEF0C /* WLstarView.swift in Sources */,

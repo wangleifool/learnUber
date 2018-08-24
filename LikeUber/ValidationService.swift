@@ -27,20 +27,25 @@ class ValidateService {
     }
     
     func login(username name:String, password passwd:String) -> Observable<Result> {
-        
-        let documentPath = NSHomeDirectory() + "/Documents/users.plist"
-        if let dicData = NSDictionary(contentsOfFile: documentPath) {
-            
-            if let userPass = dicData.object(forKey: name) as? String {
-                if  userPass == passwd {
-                    return .just(.Ok(message: "登录成功"))
-                }
-            }
-            return .just(.Failed(message: "密码错误"))
-            
+        if DBService.shared.checkIfCorrect(username: name, passwd: passwd) {
+            return .just(.Ok(message: "登录成功"))
         } else {
-            return .just(.Failed(message: "用户不存在"))
+            return .just(.Failed(message: "密码错误"))
         }
+
+//        let documentPath = NSHomeDirectory() + "/Documents/users.plist"
+//        if let dicData = NSDictionary(contentsOfFile: documentPath) {
+//            
+//            if let userPass = dicData.object(forKey: name) as? String {
+//                if  userPass == passwd {
+//                    return .just(.Ok(message: "登录成功"))
+//                }
+//            }
+//            return .just(.Failed(message: "密码错误"))
+//            
+//        } else {
+//            return .just(.Failed(message: "用户不存在"))
+//        }
     }
     
     func validateUsername(_ username: String) -> Observable<Result> {
@@ -89,31 +94,36 @@ class ValidateService {
     }
     
     func isExistedUser(_ username: String) -> Bool {
-        let documentPath = NSHomeDirectory() + "/Documents/users.plist"
-        if let dicData = NSDictionary(contentsOfFile: documentPath) {
-            
-            let allKeys = dicData.allKeys as NSArray
-            if allKeys.contains(username) {
-                return true
-            } else {
-                return false
-            }
-            
-        } else {
-            return false
-        }
-        
+//        let documentPath = NSHomeDirectory() + "/Documents/users.plist"
+//        if let dicData = NSDictionary(contentsOfFile: documentPath) {
+//
+//            let allKeys = dicData.allKeys as NSArray
+//            if allKeys.contains(username) {
+//                return true
+//            } else {
+//                return false
+//            }
+//
+//        } else {
+//            return false
+//        }
+        return DBService.shared.checkIfExisted(username: username)
     }
     
     func registerUser(username name:String, password passwd:String) -> Observable<Result> {
-        let documentPath = NSHomeDirectory() + "/Documents/users.plist"
-        let dic = [name:passwd]
-        
-        if (dic as NSDictionary).write(toFile: documentPath, atomically: true) {
-            return .just(.Ok(message: "注册成功"))
+        if DBService.shared.insertAuthentication(username: name, passwd: passwd) {
+            return Observable.just(.Ok(message: "注册成功"))
+        } else {
+            return Observable.just(Result.Failed(message: "注册失败"))
         }
-        
-        return .just(.Failed(message: "注册失败"))
+//        let documentPath = NSHomeDirectory() + "/Documents/users.plist"
+//        let dic = [name:passwd]
+//
+//        if (dic as NSDictionary).write(toFile: documentPath, atomically: true) {
+//            return .just(.Ok(message: "注册成功"))
+//        }
+//
+//        return .just(.Failed(message: "注册失败"))
     }
 }
 

@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // 键盘管理神器
         IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.keyboardDistanceFromTextField = 40.0
 
         window = UIWindow(frame: UIScreen.main.bounds)
         

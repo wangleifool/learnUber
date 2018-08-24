@@ -16,5 +16,8 @@ target 'LikeUber' do
   pod 'KSPhotoBrowser'
   pod 'Hero'
   pod 'IQKeyboardManagerSwift'
+
+  pod 'Kingfisher', '4.8.0'
+  pod 'SQLite.swift', '~> 0.11.5'
   
 end

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WLChangeFontColor: UIViewController {
+class WLChangeFontColor: WLBasePageViewController {
 
     @IBOutlet weak var btChangeFont: UIButton!
     @IBOutlet weak var mainTextView: UITextView!
@@ -20,7 +20,7 @@ class WLChangeFontColor: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        setNavigationItem(title: "完成", selector: #selector(doBack), isRight: false)
         btChangeFont.layer.cornerRadius = btChangeFont.frame.width/2
         btChangeFont.clipsToBounds = true
         

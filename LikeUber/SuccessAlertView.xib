@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SuccessAlertView" customModule="Renosys" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UVF-Z2-Mkd">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9F-4K-dJz">
+                    <rect key="frame" x="16" y="182.33333333333334" width="343" height="457.33333333333326"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="gks-kI-Tc9">
+                            <rect key="frame" x="107.33333333333333" y="146.33333333333331" width="128.33333333333337" height="166.33333333333331"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="lpQ-7G-nDW">
+                                    <rect key="frame" x="16.333333333333329" y="0.0" width="96" height="96"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登録しました" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgF-g8-aa0">
+                                    <rect key="frame" x="0.0" y="141" width="128.33333333333334" height="25.333333333333343"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                    <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeK-Ew-AsG">
+                            <rect key="frame" x="295" y="0.0" width="48" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="48" id="5Le-o5-cNX"/>
+                                <constraint firstAttribute="height" constant="48" id="cce-VK-NWB"/>
+                            </constraints>
+                            <state key="normal" image="cross"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="gks-kI-Tc9" firstAttribute="centerY" secondItem="Y9F-4K-dJz" secondAttribute="centerY" id="Vzp-nO-pRe"/>
+                        <constraint firstAttribute="trailing" secondItem="aeK-Ew-AsG" secondAttribute="trailing" id="je5-ck-au8"/>
+                        <constraint firstItem="aeK-Ew-AsG" firstAttribute="top" secondItem="Y9F-4K-dJz" secondAttribute="top" id="jic-eo-Fiz"/>
+                        <constraint firstItem="gks-kI-Tc9" firstAttribute="centerX" secondItem="Y9F-4K-dJz" secondAttribute="centerX" id="kmr-SI-001"/>
+                        <constraint firstAttribute="width" secondItem="Y9F-4K-dJz" secondAttribute="height" multiplier="3:4" id="xCA-g7-U5h"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="UVF-Z2-Mkd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="D1v-pr-E9X"/>
+                <constraint firstItem="Y9F-4K-dJz" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="D25-Nj-YPl"/>
+                <constraint firstAttribute="trailing" secondItem="UVF-Z2-Mkd" secondAttribute="trailing" id="H4C-kb-FiA"/>
+                <constraint firstAttribute="bottom" secondItem="UVF-Z2-Mkd" secondAttribute="bottom" id="HxZ-nt-VEx"/>
+                <constraint firstItem="Y9F-4K-dJz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Qa3-Bi-gN2"/>
+                <constraint firstItem="Y9F-4K-dJz" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="VvA-pX-3kR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Y9F-4K-dJz" secondAttribute="trailing" constant="16" id="Z7e-DI-Gmh"/>
+                <constraint firstItem="UVF-Z2-Mkd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wTB-2u-vhW"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="closeButton" destination="aeK-Ew-AsG" id="OJR-DI-BJ3"/>
+                <outlet property="messageLabel" destination="AgF-g8-aa0" id="sO5-Ap-oSX"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="54"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="check" width="96" height="96"/>
+        <image name="cross" width="14" height="14"/>
+    </resources>
+</document>
