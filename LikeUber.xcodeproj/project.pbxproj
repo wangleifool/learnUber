@@ -562,8 +562,6 @@
 		3B6C4AC61ED5765A001A001D /* KYEmbedMainControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C4AC31ED5765A001A001D /* KYEmbedMainControllerSegue.swift */; };
 		3B6C4AC81ED5766A001A001D /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C4AC71ED5766A001A001D /* DrawerViewController.swift */; };
 		3B6C4ACA1ED57AFE001A001D /* DrawerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6C4AC91ED57AFE001A001D /* DrawerViewController.xib */; };
-		3B6C4ACD1ED58461001A001D /* WLSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C4ACB1ED58461001A001D /* WLSettingsViewController.swift */; };
-		3B6C4ACE1ED58461001A001D /* WLSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6C4ACC1ED58461001A001D /* WLSettingsViewController.xib */; };
 		3B6C4AD71ED66164001A001D /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6C4AD01ED66164001A001D /* BaiduMapAPI_Base.framework */; };
 		3B6C4AD81ED66164001A001D /* BaiduMapAPI_Cloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6C4AD11ED66164001A001D /* BaiduMapAPI_Cloud.framework */; };
 		3B6C4AD91ED66164001A001D /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6C4AD21ED66164001A001D /* BaiduMapAPI_Location.framework */; };
@@ -618,6 +616,8 @@
 		800E613E212FF0C900B43B52 /* SuccessAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800E613B212FEEDA00B43B52 /* SuccessAlertView.xib */; };
 		800E6140213015B500B43B52 /* WLDrawerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E613F213015B500B43B52 /* WLDrawerHeaderView.swift */; };
 		800E6142213015DD00B43B52 /* WLDrawerHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800E6141213015DD00B43B52 /* WLDrawerHeaderView.xib */; };
+		804054DB2133980800FF9985 /* Sample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 804054DA2133980800FF9985 /* Sample.storyboard */; };
+		804054DE2133E9CC00FF9985 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804054DD2133E9CC00FF9985 /* UIView+Extension.swift */; };
 		E66DC8FCF5F910E6B8D3D83F /* Pods_LikeUber.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5395CAB2200CC5BEE30710 /* Pods_LikeUber.framework */; };
 /* End PBXBuildFile section */
 
@@ -1186,8 +1186,6 @@
 		3B6C4AC31ED5765A001A001D /* KYEmbedMainControllerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYEmbedMainControllerSegue.swift; sourceTree = "<group>"; };
 		3B6C4AC71ED5766A001A001D /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
 		3B6C4AC91ED57AFE001A001D /* DrawerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DrawerViewController.xib; path = resource/xib/DrawerViewController.xib; sourceTree = "<group>"; };
-		3B6C4ACB1ED58461001A001D /* WLSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WLSettingsViewController.swift; path = view/WLSettingsViewController.swift; sourceTree = "<group>"; };
-		3B6C4ACC1ED58461001A001D /* WLSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLSettingsViewController.xib; path = view/WLSettingsViewController.xib; sourceTree = "<group>"; };
 		3B6C4AD01ED66164001A001D /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
 		3B6C4AD11ED66164001A001D /* BaiduMapAPI_Cloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Cloud.framework; sourceTree = "<group>"; };
 		3B6C4AD21ED66164001A001D /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
@@ -1245,6 +1243,8 @@
 		800E613C212FEEDB00B43B52 /* SuccessAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAlertView.swift; sourceTree = "<group>"; };
 		800E613F213015B500B43B52 /* WLDrawerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLDrawerHeaderView.swift; sourceTree = "<group>"; };
 		800E6141213015DD00B43B52 /* WLDrawerHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLDrawerHeaderView.xib; sourceTree = "<group>"; };
+		804054DA2133980800FF9985 /* Sample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sample.storyboard; sourceTree = "<group>"; };
+		804054DD2133E9CC00FF9985 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		AA5395CAB2200CC5BEE30710 /* Pods_LikeUber.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeUber.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02D2C23326DE4FF580D5DD6 /* Pods-LikeUber.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeUber.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LikeUber/Pods-LikeUber.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1331,6 +1331,7 @@
 		3B2267C21ECE9743005E7ED6 /* LikeUber */ = {
 			isa = PBXGroup;
 			children = (
+				804054D9213397E500FF9985 /* Storyboard&xib */,
 				800E6134212FE51700B43B52 /* Service */,
 				3B798EFD1F5660A00038D20B /* Others */,
 				3B9B37521ED2D173006C7406 /* Utility */,
@@ -2085,8 +2086,6 @@
 			children = (
 				3B9B374A1ED2CE7E006C7406 /* WLSelectCountryViewController.xib */,
 				3B9B37491ED2CE7E006C7406 /* WLSelectCountryViewController.swift */,
-				3B6C4ACB1ED58461001A001D /* WLSettingsViewController.swift */,
-				3B6C4ACC1ED58461001A001D /* WLSettingsViewController.xib */,
 				3B2DF4101FFF1A6D00814540 /* WLSettingsCellModels.swift */,
 				3B2DF4121FFF200B00814540 /* WLChangeFontColor.swift */,
 				3B2DF4131FFF200B00814540 /* WLChangeFontColor.xib */,
@@ -2290,6 +2289,7 @@
 			isa = PBXGroup;
 			children = (
 				800E6131212FBDDE00B43B52 /* UIDevice+Extension.swift */,
+				804054DD2133E9CC00FF9985 /* UIView+Extension.swift */,
 			);
 			name = extension;
 			sourceTree = "<group>";
@@ -2309,6 +2309,14 @@
 				800E6139212FE79300B43B52 /* DBService+Authentication.swift */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		804054D9213397E500FF9985 /* Storyboard&xib */ = {
+			isa = PBXGroup;
+			children = (
+				804054DA2133980800FF9985 /* Sample.storyboard */,
+			);
+			path = "Storyboard&xib";
 			sourceTree = "<group>";
 		};
 		CEF6A06F76637E1A83582FED /* Pods */ = {
@@ -2477,7 +2485,6 @@
 				3B226B371ECEBE2E005E7ED6 /* logo-022@2x.png in Resources */,
 				3B226B2A1ECEBE2E005E7ED6 /* logo-018.png in Resources */,
 				3B226A671ECEBE2E005E7ED6 /* IS.png in Resources */,
-				3B6C4ACE1ED58461001A001D /* WLSettingsViewController.xib in Resources */,
 				3B226B7A1ECEBE2E005E7ED6 /* logo-044@3x.png in Resources */,
 				3B2267CE1ECE9743005E7ED6 /* LaunchScreen.storyboard in Resources */,
 				3B226AED1ECEBE2E005E7ED6 /* XK.png in Resources */,
@@ -2734,6 +2741,7 @@
 				3B226A1A1ECEBE2E005E7ED6 /* BS.png in Resources */,
 				3B226B521ECEBE2E005E7ED6 /* logo-031@2x.png in Resources */,
 				3B226A211ECEBE2E005E7ED6 /* CC.png in Resources */,
+				804054DB2133980800FF9985 /* Sample.storyboard in Resources */,
 				3B226AE51ECEBE2E005E7ED6 /* VC.png in Resources */,
 				3B3569FD1FB43007000D1A35 /* content_1@3x.png in Resources */,
 				3B2269FF1ECEBE2E005E7ED6 /* AG.png in Resources */,
@@ -2927,6 +2935,7 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/PermissionScope/PermissionScope.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -2944,6 +2953,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PermissionScope.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -2990,6 +3000,7 @@
 				3B27B2361F668A68007E92D9 /* WLAnnotation.swift in Sources */,
 				3B30E920204FD03D00EB4B36 /* WLPhotoSelectVC-AllPhotoCollectionView.swift in Sources */,
 				3B323D47206D02780046B804 /* WLPhotoItem.swift in Sources */,
+				804054DE2133E9CC00FF9985 /* UIView+Extension.swift in Sources */,
 				3BBE93FE1EF3B25700CEEF0C /* WLHomePage-Test.swift in Sources */,
 				3B2DF4081FFCD5FD00814540 /* SignUpViewModels.swift in Sources */,
 				3B6C4AC81ED5766A001A001D /* DrawerViewController.swift in Sources */,
@@ -3004,7 +3015,6 @@
 				3B349CF41ED6D576004CE7DE /* WLHomePage-Map.swift in Sources */,
 				3B8F68C92016D26E00ADAF9D /* WLPhotoSelectViewController.swift in Sources */,
 				3B30E91E204FC91D00EB4B36 /* WLPhotoSelectViewController-AllAlbumsTableView.swift in Sources */,
-				3B6C4ACD1ED58461001A001D /* WLSettingsViewController.swift in Sources */,
 				3B8F68CB2016D2BF00ADAF9D /* interactiveTransition.swift in Sources */,
 				3B52C2E01F580D0E000CBEA7 /* WLCarAnnotationView.swift in Sources */,
 				3B9F29431FB6CD25006BD15D /* CGRectEx.swift in Sources */,

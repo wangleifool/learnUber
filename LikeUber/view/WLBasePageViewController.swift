@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import RxGesture
 
 class WLBasePageViewController: WLBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.rx.swipeGesture(.down,
+                             numberOfTouchesRequired: 1,
+                             configuration: nil)
+            .takeUntil(self.rx.deallocated)
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] (_) in
+                self?.doBack()
+            })
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,30 +32,11 @@ class WLBasePageViewController: WLBaseViewController {
 
     @objc func doBack()
     {
-        if (self.navigationController?.viewControllers.count)! > 1 {
+        if (self.navigationController?.viewControllers.count) ?? 0  > 1 {
             self.navigationController?.popViewController(animated: true)
         }
         else {
             self.dismiss(animated: true, completion: nil)
         }
     }
-    
-    
-    func showAlertView(title :String, message :String) {
-        
-        
-        let alertController = UIAlertController(title: title,
-                                                message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        let okAction = UIAlertAction(title: "好的", style: UIAlertActionStyle.default,
-                                     handler: {
-                                        action in
-                                        
-        })
-        
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
-        
-    }
-
 }

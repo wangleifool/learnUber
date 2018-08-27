@@ -25,9 +25,7 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
         super.viewDidLoad()
         self.title = "建立基本资料"        
         setNavigationItem(title: "跳过", selector: #selector(skip), isRight: false)
-        
-//        textFieldSurName.becomeFirstResponder()
-        
+
         btNextStep.clipsToBounds = true
         btNextStep.layer.cornerRadius = btNextStep.bounds.height/2
         btNextStep.layer.addSublayer(UIColor.setGradualChangingColor(view: btNextStep, fromColor: "000000", toColor: "CBD2BD"))
@@ -66,6 +64,7 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
         let createAccountPage = SignUpViewController()
         createAccountPage.avatarImage = userHeadImage.image ?? #imageLiteral(resourceName: "camera")
         createAccountPage.hero.isEnabled = true
+        navigationController?.hero.isEnabled = true
         self.navigationController?.pushViewController(createAccountPage, animated: true)
     }
     

@@ -116,6 +116,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="duration">
                             <real key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="avatarImageView"/>
                     </userDefinedRuntimeAttributes>
                 </imageView>
             </subviews>

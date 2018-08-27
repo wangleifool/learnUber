@@ -12,10 +12,8 @@ import RxCocoa
 
 let defaultZoomLevel:Float = 18.0
 
-extension WLHomePageViewController: BMKRouteSearchDelegate {
+extension WLHomePageViewController: BMKRouteSearchDelegate, BMKMapViewDelegate, BMKLocationServiceDelegate,  BMKGeoCodeSearchDelegate {
 
-    
-    
     func addBaiduMapView() {
         if mapView == nil {
             mapView = BMKMapView(frame: self.view.bounds)
@@ -190,9 +188,9 @@ extension WLHomePageViewController: BMKRouteSearchDelegate {
     }
     
     @IBAction func btMyLocationPressed(_ sender: Any) {
-//        if ((localService?.userLocation.location) != nil)        {
+        //        if ((localService?.userLocation.location) != nil)        {
         updateLocation()
-        
+
     }
     
     @objc func updateLocation() {

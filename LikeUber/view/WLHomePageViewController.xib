@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLHomePageViewController" customModule="LikeUber" customModuleProvider="target">
             <connections>
-                <outlet property="btMyLocation" destination="dLG-Tf-gYr" id="Vgc-6L-z8g"/>
+                <outlet property="myLocationView" destination="ogB-Qh-ZAE" id="ORn-ai-iUp"/>
                 <outlet property="textFieldStartAddress" destination="Rjc-rW-IH3" id="pGq-29-5X7"/>
                 <outlet property="textFieldTargetAddress" destination="fUM-jo-VMw" id="KIK-hP-rR5"/>
                 <outlet property="topSearchView" destination="59P-F4-lbV" id="EuC-FR-IY0"/>
@@ -23,6 +23,49 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogB-Qh-ZAE" userLabel="shadowView">
+                    <rect key="frame" x="256" y="504" width="56" height="56"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STf-W3-poU" userLabel="radiusView">
+                            <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nC7-hW-NnA">
+                                    <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="youarehere"/>
+                                    <connections>
+                                        <action selector="btMyLocationPressed:" destination="-1" eventType="touchUpInside" id="M3b-cg-gcE"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="0.90178189210000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <integer key="value" value="28"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="1W6-WK-ezv"/>
+                        <constraint firstAttribute="bottom" secondItem="STf-W3-poU" secondAttribute="bottom" id="Fsu-qD-Saw"/>
+                        <constraint firstItem="STf-W3-poU" firstAttribute="leading" secondItem="ogB-Qh-ZAE" secondAttribute="leading" id="KJP-BH-XyY"/>
+                        <constraint firstItem="STf-W3-poU" firstAttribute="top" secondItem="ogB-Qh-ZAE" secondAttribute="top" id="RlJ-w0-abK"/>
+                        <constraint firstAttribute="trailing" secondItem="STf-W3-poU" secondAttribute="trailing" id="kj1-1V-zwW"/>
+                        <constraint firstAttribute="width" constant="56" id="t7H-ZI-hh3"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                            <size key="value" width="0.0" height="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59P-F4-lbV">
                     <rect key="frame" x="16" y="32" width="288" height="93"/>
                     <subviews>
@@ -85,22 +128,11 @@
                         <constraint firstAttribute="trailing" secondItem="fUM-jo-VMw" secondAttribute="trailing" id="zBW-ql-e3n"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLG-Tf-gYr" userLabel="myLocation">
-                    <rect key="frame" x="272" y="520" width="32" height="32"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="32" id="2rb-wU-zic"/>
-                        <constraint firstAttribute="height" constant="32" id="rxa-z9-LBu"/>
-                    </constraints>
-                    <state key="normal" image="myLocation"/>
-                    <connections>
-                        <action selector="btMyLocationPressed:" destination="-1" eventType="touchUpInside" id="xnq-9j-O2l"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="dLG-Tf-gYr" secondAttribute="bottom" constant="16" id="PmR-cV-7ZO"/>
-                <constraint firstAttribute="trailing" secondItem="dLG-Tf-gYr" secondAttribute="trailing" constant="16" id="Uwh-sm-12W"/>
+                <constraint firstAttribute="trailing" secondItem="ogB-Qh-ZAE" secondAttribute="trailing" constant="8" id="28g-C6-vd9"/>
+                <constraint firstAttribute="bottom" secondItem="ogB-Qh-ZAE" secondAttribute="bottom" constant="8" id="IST-mr-5Wz"/>
                 <constraint firstAttribute="trailing" secondItem="59P-F4-lbV" secondAttribute="trailing" constant="16" id="dcd-0K-gyk"/>
                 <constraint firstItem="59P-F4-lbV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="pqT-i5-F6D"/>
                 <constraint firstItem="59P-F4-lbV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="tsv-qI-IXC"/>
@@ -109,6 +141,6 @@
         </view>
     </objects>
     <resources>
-        <image name="myLocation" width="32" height="32"/>
+        <image name="youarehere" width="20" height="20"/>
     </resources>
 </document>

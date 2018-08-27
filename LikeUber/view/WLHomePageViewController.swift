@@ -7,16 +7,13 @@
 //
 
 import UIKit
-
 import RxSwift
 import RxCocoa
-
-
 
 //图钉针尖位置
 let TuDingTipScale:CGFloat = (1.52/5.36)
 
-class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UITextFieldDelegate,BMKPoiSearchDelegate,BMKCloudSearchDelegate,BMKSuggestionSearchDelegate {
+class WLHomePageViewController: WLBaseViewController,UITextFieldDelegate,BMKPoiSearchDelegate,BMKCloudSearchDelegate,BMKSuggestionSearchDelegate {
 
     var appDelegate:AppDelegate?
     var mapView:BMKMapView!
@@ -33,9 +30,8 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
     @IBOutlet weak var textFieldTargetAddress: UITextField!
     var isSearchStartAddress:Bool = true
     
-//    @IBOutlet weak var btTuDing: UIButton!
-    
-    @IBOutlet weak var btMyLocation: UIButton!
+//    @IBOutlet weak var btTuDing: UIButton!        
+    @IBOutlet weak var myLocationView: UIView!
     @IBOutlet weak var topSearchView: UIView!
     
     
@@ -102,7 +98,6 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
         self.navigationItem.title = "UBER"        
 //        setNavigationItem(title: "ic_menu@3x.png", selector: #selector(self.btShowMenuPressed(sender:)), isRight: false)
         setNavigationItem(title: "ic_menu@3x.png", selector: #selector(self.settingPressed(sender:)), isRight: false)
-        setNavigationItem(title: "Timer", selector: #selector(self.btTimerClicked(_:)), isRight: true)
                 
         //监控地址查询输入框中
         self.listenAddressTextFiledInput()
@@ -121,7 +116,7 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
         //view 上的子视图
         self.view.addSubview(self.btTuding)
         self.view.bringSubview(toFront: self.btTuding)
-        self.view.bringSubview(toFront: btMyLocation)
+        self.view.bringSubview(toFront: myLocationView)
         self.view.bringSubview(toFront: topSearchView)
         
         addAllMapServiceDelegate()
@@ -187,12 +182,4 @@ class WLHomePageViewController: WLBasePageViewController,BMKMapViewDelegate,BMKL
             }
         }
     }
-    
-    @IBAction func btTimerClicked(_ sender: Any) {
-        let timerVC = WLTimeCounterViewController()
-        self.navigationController?.pushViewController(timerVC, animated: true)
-    }
-    
-    
-
 }

@@ -9,6 +9,7 @@ target 'LikeUber' do
   # Pods for LikeUber
   pod 'RxSwift',    '~> 4.0'
   pod 'RxCocoa',    '~> 4.0'
+  pod 'RxGesture'
   pod 'SnapKit',    '~> 4.0.0'
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
   pod 'PermissionScope'

@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxGesture
 
-class WLTimeCounterViewController: UIViewController {
+class WLTimeCounterViewController: WLBasePageViewController {
 
     @IBOutlet weak var stopWatchHand: WLStopWatchHand!
     var isBreakWatch: Bool!
@@ -17,8 +20,6 @@ class WLTimeCounterViewController: UIViewController {
         super.viewDidLoad()
         
         self.isBreakWatch = false
-        
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
