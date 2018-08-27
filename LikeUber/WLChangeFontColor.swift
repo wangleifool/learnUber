@@ -13,6 +13,7 @@ class WLChangeFontColor: WLBasePageViewController {
 
     @IBOutlet weak var btChangeFont: UIButton!
     @IBOutlet weak var mainTextView: UITextView!
+    @IBOutlet weak var rootView: UIView!
     
     var fontNames = ["MFTongXin_Noncommercial-Regular", "MFJinHei_Noncommercial-Regular", "MFZhiHei_Noncommercial-Regular", "Gaspar Regular"]
     var fontIndex = 0

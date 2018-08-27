@@ -1,4 +1,5 @@
 import UIKit
+import Hero
 
 class DrawerViewController: UIViewController {
     var cellModels: [WLSettingsCellModels] = {
@@ -90,15 +91,16 @@ extension DrawerViewController: UITableViewDelegate {
         let cellItem = cellModels[indexPath.row]
         if let vcType = cellItem.destViewController {
             let targetVC = vcType.init()
-            self.present(targetVC, animated: true, completion: nil)
+            
+//            targetVC.hero.isEnabled = true
+            targetVC.hero.modalAnimationType = HeroDefaultAnimationType.pageOut(direction: .right)
+//            hero.replaceViewController(with: targetVC)
+            present(targetVC, animated: true, completion: nil)
             if let drawerController = parent as? KYDrawerController {
                 drawerController.setDrawerState(.closed, animated: false)
             }
             return
         }
-
-
-
 
         switch indexPath.row {
 //        case 0:

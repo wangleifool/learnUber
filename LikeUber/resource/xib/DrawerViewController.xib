@@ -10,6 +10,9 @@
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DrawerViewController" customModule="LikeUber" customModuleProvider="target">
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="tableView" destination="YRw-md-Ie3" id="q3U-QN-h7O"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Avg-IO-eZb"/>

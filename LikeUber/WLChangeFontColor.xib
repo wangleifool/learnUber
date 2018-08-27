@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="btChangeFont" destination="Pp9-Dq-7Kw" id="FXg-6q-Fgo"/>
                 <outlet property="mainTextView" destination="Ezw-I7-6Vb" id="t9Q-OI-vTO"/>
+                <outlet property="rootView" destination="9zK-xa-RKy" id="PsI-Wg-hnJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,52 +23,63 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ezw-I7-6Vb">
-                    <rect key="frame" x="16" y="84" width="343" height="200"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="200" id="EGd-Mg-bRj"/>
-                    </constraints>
-                    <string key="text">Like Uber 是一个仿造Uber和滴滴打车的自学应用，主要是熟悉swift编程和Cocoa框架。
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9zK-xa-RKy">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ezw-I7-6Vb">
+                            <rect key="frame" x="16" y="64" width="343" height="200"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="200" id="EGd-Mg-bRj"/>
+                            </constraints>
+                            <string key="text">Like Uber 是一个仿造Uber和滴滴打车的自学应用，主要是熟悉swift编程和Cocoa框架。
 
 
 Go fightting</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pp9-Dq-7Kw">
-                    <rect key="frame" x="139" y="499" width="96" height="96"/>
-                    <color key="backgroundColor" red="0.51784205436706543" green="0.58159953355789185" blue="0.58617168664932251" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pp9-Dq-7Kw">
+                            <rect key="frame" x="139" y="499" width="96" height="96"/>
+                            <color key="backgroundColor" red="0.51784205436706543" green="0.58159953355789185" blue="0.58617168664932251" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="96" id="4JF-Ew-bWG"/>
+                                <constraint firstAttribute="height" constant="96" id="pOU-7Y-Buh"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <state key="normal" title="更换字体">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="changeFontClicked:" destination="-1" eventType="touchUpInside" id="Qey-fl-Tbo"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWl-fc-VY4" customClass="WLZanAnimationButton" customModule="LikeUber" customModuleProvider="target">
+                            <rect key="frame" x="162" y="308" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="I4l-rG-VV5"/>
+                                <constraint firstAttribute="height" constant="50" id="SJc-OI-QmT"/>
+                            </constraints>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.1707773507" green="0.30895513299999999" blue="0.37797331810000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="96" id="4JF-Ew-bWG"/>
-                        <constraint firstAttribute="height" constant="96" id="pOU-7Y-Buh"/>
+                        <constraint firstItem="Ezw-I7-6Vb" firstAttribute="centerX" secondItem="9zK-xa-RKy" secondAttribute="centerX" id="1lC-8Q-OEX"/>
+                        <constraint firstAttribute="bottom" secondItem="Pp9-Dq-7Kw" secondAttribute="bottom" constant="72" id="8jn-ph-4Ks"/>
+                        <constraint firstItem="Pp9-Dq-7Kw" firstAttribute="centerX" secondItem="9zK-xa-RKy" secondAttribute="centerX" id="8jq-uc-PUJ"/>
+                        <constraint firstItem="CWl-fc-VY4" firstAttribute="centerY" secondItem="9zK-xa-RKy" secondAttribute="centerY" id="XNi-M7-9QD"/>
+                        <constraint firstItem="Ezw-I7-6Vb" firstAttribute="leading" secondItem="9zK-xa-RKy" secondAttribute="leading" constant="16" id="b3b-KJ-HEz"/>
+                        <constraint firstItem="CWl-fc-VY4" firstAttribute="centerX" secondItem="9zK-xa-RKy" secondAttribute="centerX" id="uQZ-fI-qvr"/>
+                        <constraint firstItem="Ezw-I7-6Vb" firstAttribute="top" secondItem="9zK-xa-RKy" secondAttribute="top" constant="64" id="ysY-xk-Xl2"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <state key="normal" title="更换字体">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <connections>
-                        <action selector="changeFontClicked:" destination="-1" eventType="touchUpInside" id="Qey-fl-Tbo"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWl-fc-VY4" customClass="WLZanAnimationButton" customModule="LikeUber" customModuleProvider="target">
-                    <rect key="frame" x="162" y="318.5" width="50" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="50" id="I4l-rG-VV5"/>
-                        <constraint firstAttribute="height" constant="50" id="SJc-OI-QmT"/>
-                    </constraints>
-                </button>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="0.17077735066413879" green="0.30895513296127319" blue="0.37797331809997559" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="Ezw-I7-6Vb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="3r2-7V-tRQ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Pp9-Dq-7Kw" secondAttribute="bottom" constant="72" id="CQI-kg-v86"/>
-                <constraint firstItem="Ezw-I7-6Vb" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="UqG-7l-God"/>
-                <constraint firstItem="Ezw-I7-6Vb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="64" id="Vwp-je-MfD"/>
-                <constraint firstItem="CWl-fc-VY4" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="bcS-2K-Xgw"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ezw-I7-6Vb" secondAttribute="trailing" constant="16" id="ifY-Oo-Gbq"/>
-                <constraint firstItem="CWl-fc-VY4" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="rjv-TS-Rsu"/>
-                <constraint firstItem="Pp9-Dq-7Kw" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="w5a-If-JAP"/>
+                <constraint firstAttribute="trailing" secondItem="9zK-xa-RKy" secondAttribute="trailing" id="51e-B8-EaF"/>
+                <constraint firstAttribute="bottom" secondItem="9zK-xa-RKy" secondAttribute="bottom" id="7Jv-2a-4aq"/>
+                <constraint firstItem="9zK-xa-RKy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jkA-8a-Wvu"/>
+                <constraint firstItem="9zK-xa-RKy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="x9X-Fs-G7t"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="24.5" y="51.5"/>

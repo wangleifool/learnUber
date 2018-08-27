@@ -10,9 +10,9 @@ import UIKit
 import AVFoundation
 import RxCocoa
 import RxSwift
+import Hero
 
-
-class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransitioningDelegate,UITextFieldDelegate {
+class WLGuidePageViewController: WLBaseViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var backView: UIView!
@@ -207,9 +207,10 @@ class WLGuidePageViewController: WLBasePageViewController,UIViewControllerTransi
             drawerController.mainViewController = UINavigationController(
                 rootViewController: mainViewController
             )
-            
             drawerController.drawerViewController = drawerViewController
-            self.present(drawerController, animated: true, completion: nil)
+            drawerController.hero.modalAnimationType = HeroDefaultAnimationType.uncover(direction: .up)
+            self.hero.replaceViewController(with: drawerController)
+//            self.present(drawerController, animated: true, completion: nil)
             self.appDelegate?.globalDrawerController = drawerController
         }
         
