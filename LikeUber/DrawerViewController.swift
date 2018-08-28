@@ -17,16 +17,17 @@ class DrawerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupView()
+        self.hero.isEnabled = true
+    }
+
+    private func setupView() {
         if let headerView = Bundle.main.loadNibNamed("WLDrawerHeaderView", owner: nil, options: nil)?.first as? WLDrawerHeaderView {
             headerView.frame = headerFrame
             tableView.tableHeaderView = headerView
         }
         let footerView = UIView()
         tableView.tableFooterView = footerView
-    }
-
-    private func setupView() {
-        
     }
 
     /// 更新数据源
@@ -95,10 +96,10 @@ extension DrawerViewController: UITableViewDelegate {
 //            targetVC.hero.isEnabled = true
             targetVC.hero.modalAnimationType = HeroDefaultAnimationType.pageOut(direction: .right)
 //            hero.replaceViewController(with: targetVC)
-            present(targetVC, animated: true, completion: nil)
             if let drawerController = parent as? KYDrawerController {
                 drawerController.setDrawerState(.closed, animated: false)
             }
+            present(targetVC, animated: true, completion: nil)
             return
         }
 

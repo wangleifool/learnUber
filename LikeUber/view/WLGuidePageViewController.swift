@@ -14,6 +14,8 @@ import Hero
 
 class WLGuidePageViewController: WLBaseViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var logoImageViewTop: NSLayoutConstraint!
+    @IBOutlet weak var logoImageViewBottom: NSLayoutConstraint!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var btLogin: TKTransitionSubmitButton!
@@ -133,13 +135,12 @@ class WLGuidePageViewController: WLBaseViewController, UIViewControllerTransitio
     }
     
     @objc func afterImageViewAnimateFinished() {
-     
-        UIView.animate(withDuration: 0.5, animations: {
-            self.backgroundImageView.alpha = 0
-            self.stackViewOfTwoTextfield.alpha = 1
-        }) { (complete) in
-//            self.backgroundImageView.removeFromSuperview()
-        }
+        UIView.animate(withDuration: 0.5, animations: { [weak self] in
+            self?.logoImageViewTop.constant = -ScreenHeight/3
+            self?.logoImageViewBottom.constant = ScreenHeight/3
+            self?.stackViewOfTwoTextfield.alpha = 1
+            self?.view.layoutIfNeeded()
+        })
     }
     
     //初始化视频层

@@ -15,6 +15,8 @@
                 <outlet property="backView" destination="4Gq-4a-mTo" id="GaO-Fb-tXH"/>
                 <outlet property="backgroundImageView" destination="4LM-HS-nhu" id="Ubz-hz-Dsz"/>
                 <outlet property="btLogin" destination="c0S-J3-qZp" id="cql-4v-tcw"/>
+                <outlet property="logoImageViewBottom" destination="8NK-d8-YVr" id="x7P-mS-uec"/>
+                <outlet property="logoImageViewTop" destination="75W-IM-uqo" id="uWt-3E-0od"/>
                 <outlet property="stackViewOfTwoTextfield" destination="A8x-hU-ncc" id="8xW-zV-YvU"/>
                 <outlet property="textfieldPasswd" destination="y8Q-OW-u0i" id="t3a-eK-8BK"/>
                 <outlet property="textfieldUserName" destination="bWD-LN-wMW" id="wIY-3i-umG"/>
