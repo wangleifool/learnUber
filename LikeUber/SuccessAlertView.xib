@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,14 +13,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SuccessAlertView" customModule="Renosys" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SuccessAlertView" customModule="LikeUber" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UVF-Z2-Mkd">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XrZ-DX-zn1">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                </view>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.54660744863013699" colorSpace="custom" customColorSpace="sRGB"/>
+                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9F-4K-dJz">
                     <rect key="frame" x="16" y="182.33333333333334" width="343" height="457.33333333333326"/>
                     <subviews>
@@ -63,17 +64,19 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="UVF-Z2-Mkd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="D1v-pr-E9X"/>
                 <constraint firstItem="Y9F-4K-dJz" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="D25-Nj-YPl"/>
-                <constraint firstAttribute="trailing" secondItem="UVF-Z2-Mkd" secondAttribute="trailing" id="H4C-kb-FiA"/>
-                <constraint firstAttribute="bottom" secondItem="UVF-Z2-Mkd" secondAttribute="bottom" id="HxZ-nt-VEx"/>
+                <constraint firstItem="XrZ-DX-zn1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="K5h-L4-J3F"/>
                 <constraint firstItem="Y9F-4K-dJz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Qa3-Bi-gN2"/>
                 <constraint firstItem="Y9F-4K-dJz" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="VvA-pX-3kR"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Y9F-4K-dJz" secondAttribute="trailing" constant="16" id="Z7e-DI-Gmh"/>
-                <constraint firstItem="UVF-Z2-Mkd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wTB-2u-vhW"/>
+                <constraint firstAttribute="trailing" secondItem="XrZ-DX-zn1" secondAttribute="trailing" id="l4c-qP-R2T"/>
+                <constraint firstAttribute="bottom" secondItem="XrZ-DX-zn1" secondAttribute="bottom" id="of1-Vg-MkQ"/>
+                <constraint firstItem="XrZ-DX-zn1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xWf-e2-CWZ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="alertView" destination="Y9F-4K-dJz" id="Guv-sJ-hyy"/>
+                <outlet property="backCoverView" destination="XrZ-DX-zn1" id="0iN-q3-mga"/>
                 <outlet property="closeButton" destination="aeK-Ew-AsG" id="OJR-DI-BJ3"/>
                 <outlet property="messageLabel" destination="AgF-g8-aa0" id="sO5-Ap-oSX"/>
             </connections>
