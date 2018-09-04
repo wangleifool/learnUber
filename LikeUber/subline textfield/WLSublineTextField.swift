@@ -17,7 +17,7 @@ class WLSublineTextField: UITextField {
         // Drawing code
         let contextRef:CGContext! = UIGraphicsGetCurrentContext();
         contextRef.setFillColor(UIColor.lightGray.cgColor);        
-        contextRef.fill(CGRect(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: 0.5));
+        contextRef.fill(CGRect(x: 0, y: self.frame.size.height - 8, width: self.frame.size.width, height: 0.5));
     }
 
     //- (void)drawPlaceholderInRect:(CGRect)rect {

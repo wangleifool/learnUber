@@ -135,9 +135,11 @@ class WLGuidePageViewController: WLBaseViewController, UIViewControllerTransitio
     }
     
     @objc func afterImageViewAnimateFinished() {
+
         UIView.animate(withDuration: 0.5, animations: { [weak self] in
-            self?.logoImageViewTop.constant = -ScreenHeight/3
-            self?.logoImageViewBottom.constant = ScreenHeight/3
+//            self?.logoImageViewTop.constant = -ScreenHeight/3
+//            self?.logoImageViewBottom.constant = ScreenHeight/3
+            self?.backgroundImageView.transform = CGAffineTransform(translationX: 0, y: -ScreenHeight/3)
             self?.stackViewOfTwoTextfield.alpha = 1
             self?.view.layoutIfNeeded()
         })
@@ -189,14 +191,21 @@ class WLGuidePageViewController: WLBaseViewController, UIViewControllerTransitio
     }
     
     func loginSuccToNext() {
-
         hideSubviews()
-        
+
+        UIView.animate(withDuration: 0.3,
+                       delay: 0,
+                       usingSpringWithDamping: 0.8,
+                       initialSpringVelocity: 0.8,
+                       options: UIViewAnimationOptions.curveEaseOut,
+                       animations: { [weak self] in
+                        self?.backgroundImageView.transform = CGAffineTransform.identity
+        },
+                       completion: nil)
+
         //登录按钮的动画，按钮扩展全面视图
         btLogin.animate(0.6) { [unowned self] in
             self.stackViewOfTwoTextfield.alpha = 0
-            self.backgroundImageView.alpha = 1
-            
 //            let homePage = WLHomePageViewController()
 //            let nav = UINavigationController(rootViewController: homePage)
 //            nav.transitioningDelegate = self

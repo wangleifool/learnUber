@@ -23,9 +23,9 @@ enum AnimationType: String, EnumCollection {
 }
 
 enum AnimationTimeType: String, EnumCollection {
-    case caseIn
-    case caseOut
-    case caseInOut
+    case easeIn
+    case easeOut
+    case easeInOut
     case spring
     case linear
 }
@@ -58,7 +58,7 @@ class WLAnimationLearnViewController: WLBasePageViewController {
 
     @IBOutlet weak var animationTypePickView: UIPickerView!
     private var selectedAnimationType: AnimationType = .shake
-    private var selectedAnimationTimeType: AnimationTimeType = .caseIn    
+    private var selectedAnimationTimeType: AnimationTimeType = .easeIn    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -117,23 +117,140 @@ class WLAnimationLearnViewController: WLBasePageViewController {
     }
 
     @IBAction func btResetOptionPressed(_ sender: Any) {
+
     }
     @IBAction func btCodePressed(_ sender: Any) {
 
     }
     @IBAction func btStartPressed(_ sender: Any) {
-        targetAnimationView.alpha = 0
-        targetAnimationView.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
+        // set the animation option
+        var animationOption: UIViewAnimationOptions = .curveEaseOut
+        switch selectedAnimationTimeType {
+        case .easeIn:
+            animationOption = .curveEaseIn
+        case .easeInOut:
+            animationOption = .curveEaseInOut
+        case .easeOut:
+            animationOption = .curveEaseOut
+        case .linear:
+            animationOption = .curveLinear
+        default:
+            break
+        }
 
-        UIView.animate(withDuration: TimeInterval(durationSlider.value),
-                       delay: TimeInterval(delaySlider.value),
-                       usingSpringWithDamping: CGFloat(dampingSlider.value),
-                       initialSpringVelocity: CGFloat(velocitySlider.value),
-                       options: UIViewAnimationOptions.curveEaseOut,
-                       animations: { [weak self] in
-                        self?.targetAnimationView.alpha = 1
-                        self?.targetAnimationView.transform = CGAffineTransform.identity
-        }, completion: nil)
+        // 默认动画动作
+        var animation = { [weak self] in
+            self?.targetAnimationView.alpha = 1
+            self?.targetAnimationView.transform = CGAffineTransform.identity
+        }
+        let completion: ((Bool) -> Void)? = nil
+        // 目前支持的所有动画
+        switch selectedAnimationType {
+        case .slideDown:
+            let offsetY = ScreenHeight
+            targetAnimationView.transform = CGAffineTransform(translationX: 0, y: -offsetY) //初始位置屏幕顶部
+        case .slideUp:
+            let offsetY = ScreenHeight
+            targetAnimationView.transform = CGAffineTransform(translationX: 0, y: offsetY) //初始位置屏幕底部
+        case .slideLeft:
+            let offsetX = ScreenWidth / 2 + targetAnimationView.bounds.width
+            targetAnimationView.transform = CGAffineTransform(translationX: offsetX, y: 0)
+        case .slideRight:
+            let offsetX = -(ScreenWidth / 2 + targetAnimationView.bounds.width)
+            targetAnimationView.transform = CGAffineTransform(translationX: offsetX, y: 0)
+        case .fall:
+            animation = { [weak self] in
+                let fallTransform = CGAffineTransform(translationX: 0, y: ScreenHeight)
+                let rotateTransform = CGAffineTransform(rotationAngle: CGFloat.pi / 4.0) // 27.5°
+                self?.targetAnimationView.transform = rotateTransform.concatenating(fallTransform)
+                self?.targetAnimationView.alpha = 0.5
+            }
+        case .zoomIn:
+            targetAnimationView.alpha = 0
+            let scale: CGFloat = scaleSlider.value == 1.0 ? 1.5 : CGFloat(scaleSlider.value)
+            targetAnimationView.transform = CGAffineTransform(scaleX: scale, y: scale)
+        case .zoomOut:
+            animation = { [weak self] in
+                self?.targetAnimationView.alpha = 0
+                self?.targetAnimationView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            }
+        case .shake:
+            shakeAnimation()
+            return
+        default:
+            targetAnimationView.alpha = 0
+            targetAnimationView.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
+            break
+        }
+
+        let duration = TimeInterval(durationSlider.value)
+        let delay = TimeInterval(delaySlider.value)
+        let damping = CGFloat(dampingSlider.value)
+        let velocity = CGFloat(velocitySlider.value)
+
+        switch selectedAnimationType {
+        case .zoomIn, .zoomOut:
+            if selectedAnimationTimeType != .spring {
+                UIView.animate(withDuration: duration,
+                               delay: delay,
+                               options: animationOption,
+                               animations: animation,
+                               completion: completion)
+            } else {
+                fallthrough
+            }
+        default:
+            UIView.animate(withDuration: duration,
+                           delay: delay,
+                           usingSpringWithDamping: damping,
+                           initialSpringVelocity: velocity,
+                           options: animationOption,
+                           animations: animation,
+                           completion: completion)
+        }
+    }
+
+    func shakeAnimation() {
+        // 获取到当前的View
+        let viewLayer: CALayer = targetAnimationView.layer
+
+        // 获取当前View的位置
+        let position = viewLayer.position
+
+        // 移动的两个终点位置
+        let rightOffset = CGPoint.init(x: position.x + 20, y: position.y)
+        let leftOffset = CGPoint.init(x: position.x - 20, y: position.y)
+
+        // 设置动画
+        let animation:CABasicAnimation = CABasicAnimation(keyPath: "position")
+
+        // 设置运动形式
+        var timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+        switch selectedAnimationTimeType {
+        case .easeIn:
+            timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        case .easeOut:
+            timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        case .easeInOut:
+            timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        case .linear:
+            timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        default:
+            break;
+        }
+        animation.timingFunction = timingFunction
+        // 设置开始位置
+        animation.fromValue = NSValue.init(cgPoint: rightOffset)
+        // 设置结束位置
+        animation.toValue = NSValue.init(cgPoint: leftOffset)
+        // 设置自动反转
+        animation.autoreverses = true
+        // 设置时间
+        animation.duration = TimeInterval(durationSlider.value)
+        // 设置次数
+        animation.repeatCount = 3
+        // 添加上动画
+        viewLayer.add(animation, forKey: nil)
     }
 
     // MARK: option view
