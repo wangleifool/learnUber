@@ -33,12 +33,29 @@ enum AnimationTimeType: String, EnumCollection {
 class WLAnimationLearnViewController: WLBasePageViewController {
 
     @IBOutlet weak var targetAnimationView: UIButton!
+
+    @IBOutlet weak var rootView: UIView!
     @IBOutlet weak var forceSlider: UISlider!
     @IBOutlet weak var durationSlider: UISlider!
     @IBOutlet weak var delaySlider: UISlider!
     @IBOutlet weak var forceLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var delayLabel: UILabel!
+
+    // Option view
+    @IBOutlet weak var optionView: UIView!
+    @IBOutlet weak var dampingSlider: UISlider!
+    @IBOutlet weak var dampingLabel: UILabel!
+    @IBOutlet weak var velocitySlider: UISlider!
+    @IBOutlet weak var velocityLabel: UILabel!
+    @IBOutlet weak var originXSlider: UISlider!
+    @IBOutlet weak var originXLabel: UILabel!
+    @IBOutlet weak var originYSlider: UISlider!
+    @IBOutlet weak var originYLabel: UILabel!
+    @IBOutlet weak var scaleSlider: UISlider!
+    @IBOutlet weak var scaleLabel: UILabel!
+    private var isOptionViewHide = true
+
     @IBOutlet weak var animationTypePickView: UIPickerView!
     private var selectedAnimationType: AnimationType = .shake
     private var selectedAnimationTimeType: AnimationTimeType = .caseIn    
@@ -70,6 +87,28 @@ class WLAnimationLearnViewController: WLBasePageViewController {
             .map { String(format: "Delay: %.1f", $0) }
             .bind(to: delayLabel.rx.text)
             .disposed(by: baseDisposeBag)
+
+        // Option View
+        dampingSlider.rx.value
+            .map { String(format: "Damping: %.1f", $0) }
+            .bind(to: dampingLabel.rx.text)
+            .disposed(by: baseDisposeBag)
+        velocitySlider.rx.value
+            .map { String(format: "Velocity: %.1f", $0) }
+            .bind(to: velocityLabel.rx.text)
+            .disposed(by: baseDisposeBag)
+        originXSlider.rx.value
+            .map { String(format: "X: %.1f", $0) }
+            .bind(to: originXLabel.rx.text)
+            .disposed(by: baseDisposeBag)
+        originYSlider.rx.value
+            .map { String(format: "Y: %.1f", $0) }
+            .bind(to: originYLabel.rx.text)
+            .disposed(by: baseDisposeBag)
+        scaleSlider.rx.value
+            .map { String(format: "Scale: %.1f", $0) }
+            .bind(to: scaleLabel.rx.text)
+            .disposed(by: baseDisposeBag)
     }
 
     func configurePickerView() {
@@ -77,26 +116,59 @@ class WLAnimationLearnViewController: WLBasePageViewController {
         animationTypePickView.delegate = self
     }
 
+    @IBAction func btResetOptionPressed(_ sender: Any) {
+    }
     @IBAction func btCodePressed(_ sender: Any) {
 
     }
     @IBAction func btStartPressed(_ sender: Any) {
         targetAnimationView.alpha = 0
         targetAnimationView.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
+
         UIView.animate(withDuration: TimeInterval(durationSlider.value),
+                       delay: TimeInterval(delaySlider.value),
+                       usingSpringWithDamping: CGFloat(dampingSlider.value),
+                       initialSpringVelocity: CGFloat(velocitySlider.value),
+                       options: UIViewAnimationOptions.curveEaseOut,
                        animations: { [weak self] in
                         self?.targetAnimationView.alpha = 1
-                        self?.targetAnimationView.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
-        }) { [weak self] _ in
-            UIView.animate(withDuration: TimeInterval(self?.durationSlider.value ?? 0.3),
-                           delay: 0,
-                           options: UIViewAnimationOptions.curveEaseOut,
-                           animations: { [weak self] in
-                            self?.targetAnimationView.transform = CGAffineTransform.identity
-                }, completion: nil)
+                        self?.targetAnimationView.transform = CGAffineTransform.identity
+        }, completion: nil)
+    }
+
+    // MARK: option view
+    @IBAction func btOptionPressed(_ sender: Any) {
+        let optionViewHeight = optionView.bounds.height
+        var transition = CGAffineTransform(translationX: 0, y: optionViewHeight)
+        var scaleTransform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        if isOptionViewHide {
+            transition = CGAffineTransform(translationX: 0, y: -optionViewHeight)
+            let scale = 1.0 - (Const.statusBarHeight * 2 / ScreenHeight)
+            scaleTransform = CGAffineTransform(scaleX: scale, y: scale)
+        }
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.8, // 0 ~ 1, 值越大，可弹性越小，但是会有延阻的效果
+                       initialSpringVelocity: 0.8, // 0~1 初始力度，值越大，初速度越大
+                       options: UIViewAnimationOptions.curveEaseOut,
+                       animations: { [weak self] in
+                        self?.optionView.transform = transition
+                        self?.rootView.transform = scaleTransform
+        }, completion: nil)
+        isOptionViewHide = !isOptionViewHide
+        setNeedsStatusBarAppearanceUpdate() // update status bar
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if isOptionViewHide {
+            return .default
+        } else {
+            return .lightContent
         }
     }
-    @IBAction func btOptionPressed(_ sender: Any) {
+
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .fade
     }
 }
 
