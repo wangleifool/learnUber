@@ -91,7 +91,7 @@ class SuccessAlertView: UIView {
 //            }, completion: nil)
         case .slideFromBottom:
             alertView.alpha = 1
-            let scale = CGAffineTransform(scaleX: 0.1, y: 0.1)
+            let scale = CGAffineTransform(scaleX: 0.01, y: 0.01)
             let translate = CGAffineTransform(translationX: 0, y: ScreenHeight - alertView.frame.y)
             alertView.transform = scale.concatenating(translate)
             UIView.animate(withDuration: viewAniamteTime,
@@ -112,17 +112,19 @@ class SuccessAlertView: UIView {
         case .zoomInOutCenter:
             UIView.animate(withDuration: viewAniamteTime,
                            animations: { [weak self] in
-                            self?.alertView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+                            self?.alertView.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
+                            self?.alertView.alpha = 0
                             self?.backCoverView.alpha = 0
             }) { [weak self] _ in
                 self?.removeFromSuperview()
             }
         case .slideFromBottom:
-            UIView.animate(withDuration: 0.1,
+            UIView.animate(withDuration: viewAniamteTime,
                            delay: 0,
                            options: UIViewAnimationOptions.curveEaseIn,
                            animations: { [weak self] in
-                            let translate = CGAffineTransform(translationX: 0, y: 600.0)
+                            let offsetY = ScreenHeight - (self?.alertView.frame.y ?? 200.0)
+                            let translate = CGAffineTransform(translationX: 0, y: offsetY)
                             let scale = CGAffineTransform(scaleX: 0.01, y: 0.01)
                             self?.alertView.transform = scale.concatenating(translate)
                             self?.backCoverView.alpha = 0

@@ -11,7 +11,8 @@ class DrawerViewController: UIViewController {
     let headerFrame = CGRect(x: 0, y: 0, width: Const.screenWidth * 305/375, height: 120)
     @IBOutlet weak var tableView: UITableView!
     var advanceCellModel = ["高级": [WLSettingsCellModels(titleName: "开始计时", destVC: WLTimeCounterViewController.self),
-                                       WLSettingsCellModels(titleName: "附近店铺", destVC: nil),
+                                       WLSettingsCellModels(titleName: "原生动画学习", destVC: WLAnimationLearnViewController.self),
+                                       WLSettingsCellModels(titleName: "附近店铺", destVC: WLTestViewController.self),
                                     WLSettingsCellModels(titleName: "关于App", destVC: nil)]]
 
     override func viewDidLoad() {
@@ -71,7 +72,7 @@ extension DrawerViewController: UITableViewDataSource {
 
         let model = cellModels[indexPath.row]
         cell?.textLabel?.text = model.title
-        cell?.textLabel?.textColor = model.canExpand ? UIColor.black : UIColor.lightGray
+        cell?.textLabel?.textColor = model.canExpand ? UIColor.black : UIColor.darkGray
 
         if let icon = model.icon {
             cell?.imageView?.image = UIImage(named: icon)
@@ -91,8 +92,15 @@ extension DrawerViewController: UITableViewDelegate {
 
         let cellItem = cellModels[indexPath.row]
         if let vcType = cellItem.destViewController {
-            let targetVC = vcType.init()
-            
+            var targetVC = vcType.init()
+            if vcType == WLAnimationLearnViewController.self {
+//                targetVC = UIStoryboard(name: "Menu", bundle: Bundle.main).instantiateViewController(withIdentifier: "WLAnimationLearnViewController")
+                targetVC = UIStoryboard.instantiateViewController(storyboard: .menu,
+                                                                  viewType: WLAnimationLearnViewController.self)
+            } else if vcType ==  WLTestViewController.self {
+                targetVC = UIStoryboard.instantiateViewController(storyboard: .menu,
+                                                                  viewType: WLTestViewController.self)
+            }
 //            targetVC.hero.isEnabled = true
             targetVC.hero.modalAnimationType = HeroDefaultAnimationType.pageOut(direction: .right)
 //            hero.replaceViewController(with: targetVC)

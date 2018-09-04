@@ -70,7 +70,7 @@ class WLUserInfoViewController: WLBasePageViewController,UIImagePickerController
     
     @IBAction func btNextStepPressed(_ sender: Any) {
 //        nextStep()
-        let alert = SuccessAlertView.instance(animationType: .slideFromBottom)
+        let alert = SuccessAlertView.instance(animationType: .zoomInOutCenter)
         alert.message = "注册成功"        
         alert.show()
     }

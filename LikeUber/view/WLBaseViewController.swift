@@ -123,3 +123,6 @@ class WLBaseViewController: UIViewController {
     }
 
 }
+
+// 遵循该协议，可以将自己的类描述文本作为identifier， Storyboard扩展里需要用到的方法。
+extension WLBaseViewController: StoryboardIdentifierable {}
