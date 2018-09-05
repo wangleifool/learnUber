@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -317,9 +318,57 @@
             </objects>
             <point key="canvasLocation" x="-247.82608695652175" y="169.56521739130437"/>
         </scene>
+        <!--Animation Table View Controller-->
+        <scene sceneID="3To-kc-fGe">
+            <objects>
+                <viewController storyboardIdentifier="WLAnimationTableViewController" id="pIO-ym-dSJ" customClass="WLAnimationTableViewController" customModule="LikeUber" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ds5-ly-KcK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aX3-nd-RWn">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="pIO-ym-dSJ" id="pFv-ij-e0V"/>
+                                    <outlet property="delegate" destination="pIO-ym-dSJ" id="yQo-r4-X03"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hfc-ls-hVm">
+                                <rect key="frame" x="8" y="28" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="dwU-ts-m6P"/>
+                                    <constraint firstAttribute="height" constant="48" id="sik-Jp-mEN"/>
+                                </constraints>
+                                <state key="normal" image="Close.png"/>
+                                <connections>
+                                    <action selector="closePage:" destination="pIO-ym-dSJ" eventType="touchUpInside" id="pbV-Zl-qmj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Hfc-ls-hVm" firstAttribute="leading" secondItem="SFz-g4-y20" secondAttribute="leading" constant="8" id="8KE-sh-E2D"/>
+                            <constraint firstItem="SFz-g4-y20" firstAttribute="trailing" secondItem="aX3-nd-RWn" secondAttribute="trailing" id="Ay1-N3-7AR"/>
+                            <constraint firstItem="Hfc-ls-hVm" firstAttribute="top" secondItem="SFz-g4-y20" secondAttribute="top" constant="8" id="H9Z-Qb-iP6"/>
+                            <constraint firstItem="aX3-nd-RWn" firstAttribute="leading" secondItem="SFz-g4-y20" secondAttribute="leading" id="KKA-nP-Kjc"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="aX3-nd-RWn" secondAttribute="bottom" id="jZQ-xW-5Tb"/>
+                            <constraint firstItem="aX3-nd-RWn" firstAttribute="top" secondItem="Ds5-ly-KcK" secondAttribute="topMargin" id="xte-49-Tjb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SFz-g4-y20"/>
+                    </view>
+                    <connections>
+                        <outlet property="mainTableView" destination="aX3-nd-RWn" id="mIJ-mU-CDf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Pw-Mk-YGW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-326" y="1158"/>
+        </scene>
         <!--Test View Controller-->
         <scene sceneID="NrB-nr-oKG">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cbe-cg-B9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="WLTestViewController" id="CJ6-Rh-gLJ" customClass="WLTestViewController" customModule="LikeUber" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cE4-ox-gbP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -328,9 +377,11 @@
                         <viewLayoutGuide key="safeArea" id="TTq-18-Rgb"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cbe-cg-B9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="543" y="85"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Close.png" width="20" height="20"/>
+    </resources>
 </document>

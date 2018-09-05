@@ -20,6 +20,9 @@ enum AnimationType: String, EnumCollection {
     case slideLeft
     case slideRight
     case fall
+
+    case verticalDelayShow
+    case horisonalDelayShow
 }
 
 enum AnimationTimeType: String, EnumCollection {
@@ -176,6 +179,12 @@ class WLAnimationLearnViewController: WLBasePageViewController {
             }
         case .shake:
             shakeAnimation()
+            return
+        case .verticalDelayShow, .horisonalDelayShow:
+            let vc = UIStoryboard.instantiateViewController(storyboard: .menu,
+                                                            viewType: WLAnimationTableViewController.self)
+            vc.animationType = selectedAnimationType
+            present(vc, animated: true, completion: nil)
             return
         default:
             targetAnimationView.alpha = 0
