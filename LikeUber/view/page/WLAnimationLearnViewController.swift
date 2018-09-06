@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import pop
 
 enum AnimationType: String, EnumCollection {
     case shake
@@ -37,6 +38,7 @@ class WLAnimationLearnViewController: WLBasePageViewController {
 
     @IBOutlet weak var targetAnimationView: UIButton!
 
+    @IBOutlet weak var usePopFrameworkSwitch: UISwitch!
     @IBOutlet weak var rootView: UIView!
     @IBOutlet weak var forceSlider: UISlider!
     @IBOutlet weak var durationSlider: UISlider!
@@ -126,6 +128,15 @@ class WLAnimationLearnViewController: WLBasePageViewController {
 
     }
     @IBAction func btStartPressed(_ sender: Any) {
+        if usePopFrameworkSwitch.isOn {
+            applyAnimationWithPop()
+        } else {
+            applyAnimationWithCA()
+        }
+    }
+
+    /// 使用原生的Core Animation来实现动画
+    func applyAnimationWithCA() {
         // set the animation option
         var animationOption: UIViewAnimationOptions = .curveEaseOut
         switch selectedAnimationTimeType {
@@ -216,6 +227,38 @@ class WLAnimationLearnViewController: WLBasePageViewController {
                            options: animationOption,
                            animations: animation,
                            completion: completion)
+        }
+    }
+
+    /// 使用Facebook开源的Pop框架
+    func applyAnimationWithPop() {
+        switch selectedAnimationType {
+        case .pop:
+            if let ani = targetAnimationView.pop_animation(forKey: AnimationType.pop.rawValue) as? POPSpringAnimation {
+                ani.toValue = 40.0
+            } else {
+                let scale = POPSpringAnimation()
+                scale.toValue = 40.0
+                scale.springBounciness = 17.0 // 0~20
+                scale.springSpeed = 16.0
+                targetAnimationView.pop_add(scale, forKey: AnimationType.pop.rawValue)
+            }
+        default:
+            if let ani = targetAnimationView.pop_animation(forKey: "scale") as? POPSpringAnimation {
+                if let toValue = ani.toValue as? NSValue,
+                    toValue == NSValue(cgPoint: CGPoint(x: 1.3, y: 1.3)) {
+                    ani.toValue = NSValue(cgPoint: CGPoint(x: 1.0, y: 1.0))
+                } else {
+                    ani.toValue = NSValue(cgPoint: CGPoint(x: 1.3, y: 1.3))
+                }
+
+            } else {
+                let scale = POPSpringAnimation(propertyNamed: kPOPViewScaleXY)
+                scale?.toValue = NSValue(cgPoint: CGPoint(x: 1.3, y: 1.3))
+                scale?.springBounciness = 17.0 // 0~20
+                scale?.springSpeed = 16.0
+                targetAnimationView.pop_add(scale, forKey: "scale")
+            }
         }
     }
 

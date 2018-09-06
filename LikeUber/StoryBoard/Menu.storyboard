@@ -130,13 +130,26 @@
                                                     <action selector="btCodePressed:" destination="wvC-VY-iZM" eventType="touchUpInside" id="UYz-JW-EhQ"/>
                                                 </connections>
                                             </button>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eVU-GW-9VA">
+                                                <rect key="frame" x="357" y="348" width="51" height="31"/>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pop Framework:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fk2-Ty-4Vf">
+                                                <rect key="frame" x="226.66666666666666" y="353.33333333333331" width="124.33333333333334" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="Mfl-Aa-KEU" secondAttribute="bottom" constant="8" id="2SO-Ts-HLA"/>
                                             <constraint firstAttribute="bottom" secondItem="Gmt-LL-X46" secondAttribute="bottom" constant="8" id="6XS-gl-JHf"/>
                                             <constraint firstItem="Mfl-Aa-KEU" firstAttribute="centerX" secondItem="zmo-to-7PU" secondAttribute="centerX" id="A2n-e2-bDC"/>
+                                            <constraint firstItem="eVU-GW-9VA" firstAttribute="leading" secondItem="Fk2-Ty-4Vf" secondAttribute="trailing" constant="6" id="DsJ-Te-QaW"/>
+                                            <constraint firstItem="Fk2-Ty-4Vf" firstAttribute="centerY" secondItem="eVU-GW-9VA" secondAttribute="centerY" id="H5k-Md-cz2"/>
+                                            <constraint firstItem="Gmt-LL-X46" firstAttribute="top" secondItem="eVU-GW-9VA" secondAttribute="bottom" constant="8" id="Llq-lI-1Yb"/>
                                             <constraint firstItem="WTb-GY-LfV" firstAttribute="centerY" secondItem="zmo-to-7PU" secondAttribute="centerY" id="Oe3-dg-vZr"/>
+                                            <constraint firstItem="eVU-GW-9VA" firstAttribute="trailing" secondItem="Gmt-LL-X46" secondAttribute="trailing" id="SkY-1P-ODy"/>
                                             <constraint firstAttribute="trailing" secondItem="Gmt-LL-X46" secondAttribute="trailing" constant="8" id="Vl8-nH-9of"/>
                                             <constraint firstItem="PDo-Kf-5O5" firstAttribute="leading" secondItem="zmo-to-7PU" secondAttribute="leading" constant="8" id="WaJ-nW-R4j"/>
                                             <constraint firstItem="WTb-GY-LfV" firstAttribute="centerX" secondItem="zmo-to-7PU" secondAttribute="centerX" id="cek-kA-Aqf"/>
@@ -310,6 +323,7 @@
                         <outlet property="scaleLabel" destination="los-A1-5kc" id="nvy-38-ijB"/>
                         <outlet property="scaleSlider" destination="yQ4-Kv-6l0" id="xPT-gF-ofJ"/>
                         <outlet property="targetAnimationView" destination="WTb-GY-LfV" id="AnL-Ku-8fj"/>
+                        <outlet property="usePopFrameworkSwitch" destination="eVU-GW-9VA" id="7zh-O0-Oyj"/>
                         <outlet property="velocityLabel" destination="MSm-wY-y4d" id="tS7-Yl-g7O"/>
                         <outlet property="velocitySlider" destination="dEZ-HJ-hkE" id="dUK-6m-zm3"/>
                     </connections>

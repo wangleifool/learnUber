@@ -20,5 +20,6 @@ target 'LikeUber' do
 
   pod 'Kingfisher', '4.8.0'
   pod 'SQLite.swift', '~> 0.11.5'
+  pod 'pop', '~> 1.0'
   
 end
