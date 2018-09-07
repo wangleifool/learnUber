@@ -616,6 +616,7 @@
 		800E6142213015DD00B43B52 /* WLDrawerHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800E6141213015DD00B43B52 /* WLDrawerHeaderView.xib */; };
 		804054DB2133980800FF9985 /* Sample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 804054DA2133980800FF9985 /* Sample.storyboard */; };
 		804054DE2133E9CC00FF9985 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804054DD2133E9CC00FF9985 /* UIView+Extension.swift */; };
+		8084CBA62142634E0077DBD4 /* WLLottieBrowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8084CBA52142634E0077DBD4 /* WLLottieBrowerViewController.swift */; };
 		80B7428B213E2AD60044AB62 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80B7428A213E2AD60044AB62 /* Menu.storyboard */; };
 		80B7428D213E2B490044AB62 /* WLAnimationLearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7428C213E2B490044AB62 /* WLAnimationLearnViewController.swift */; };
 		80B7428F213E37FB0044AB62 /* UIStoryBoard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7428E213E37FB0044AB62 /* UIStoryBoard+Extension.swift */; };
@@ -1247,6 +1248,7 @@
 		800E6141213015DD00B43B52 /* WLDrawerHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLDrawerHeaderView.xib; sourceTree = "<group>"; };
 		804054DA2133980800FF9985 /* Sample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sample.storyboard; sourceTree = "<group>"; };
 		804054DD2133E9CC00FF9985 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		8084CBA52142634E0077DBD4 /* WLLottieBrowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WLLottieBrowerViewController.swift; path = view/page/WLLottieBrowerViewController.swift; sourceTree = "<group>"; };
 		80B7428A213E2AD60044AB62 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		80B7428C213E2B490044AB62 /* WLAnimationLearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WLAnimationLearnViewController.swift; path = view/page/WLAnimationLearnViewController.swift; sourceTree = "<group>"; };
 		80B7428E213E37FB0044AB62 /* UIStoryBoard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+Extension.swift"; sourceTree = "<group>"; };
@@ -2072,6 +2074,7 @@
 				80B7428C213E2B490044AB62 /* WLAnimationLearnViewController.swift */,
 				80B74290213E3D5C0044AB62 /* WLTestViewController.swift */,
 				80ED1240213F809E000A6D07 /* WLAnimationTableViewController.swift */,
+				8084CBA52142634E0077DBD4 /* WLLottieBrowerViewController.swift */,
 			);
 			name = DrawerViewController;
 			sourceTree = "<group>";
@@ -3037,6 +3040,7 @@
 				3B9F29451FB6CD25006BD15D /* SpinerLayer.swift in Sources */,
 				3B301312206F5E9800D0104A /* WLPhotoBrowerViewController.swift in Sources */,
 				3B42BEAE2072126500CE239F /* ArrayExtension.swift in Sources */,
+				8084CBA62142634E0077DBD4 /* WLLottieBrowerViewController.swift in Sources */,
 				3B2FAB4A206B28A500585881 /* WLDevice.swift in Sources */,
 				3B9B37501ED2D0E0006C7406 /* CountryInfo.swift in Sources */,
 				3B2267E31ECEB565005E7ED6 /* WLGlobalDefine.swift in Sources */,

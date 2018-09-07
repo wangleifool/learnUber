@@ -134,7 +134,7 @@
                                                 <rect key="frame" x="357" y="348" width="51" height="31"/>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pop Framework:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fk2-Ty-4Vf">
-                                                <rect key="frame" x="226.66666666666666" y="353.33333333333331" width="124.33333333333334" height="20.333333333333314"/>
+                                                <rect key="frame" x="226.66666666666666" y="353.66666666666669" width="124.33333333333334" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -177,10 +177,10 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="59.666666666666664"/>
                                                 <subviews>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.69999999999999996" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="DkQ-AD-7fe">
-                                                        <rect key="frame" x="-2" y="0.0" width="187.33333333333334" height="60.666666666666664"/>
+                                                        <rect key="frame" x="-2" y="0.0" width="187" height="60.666666666666664"/>
                                                     </slider>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.69999999999999996" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="dEZ-HJ-hkE">
-                                                        <rect key="frame" x="197.33333333333337" y="0.0" width="186.66666666666663" height="60.666666666666664"/>
+                                                        <rect key="frame" x="197" y="0.0" width="187" height="60.666666666666664"/>
                                                     </slider>
                                                 </subviews>
                                                 <constraints>
@@ -214,10 +214,10 @@
                                                         <rect key="frame" x="-2" y="0.0" width="120.66666666666667" height="60.666666666666664"/>
                                                     </slider>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="9Eb-OP-PdI">
-                                                        <rect key="frame" x="130.66666666666666" y="0.0" width="120.66666666666666" height="60.666666666666664"/>
+                                                        <rect key="frame" x="130.66666666666666" y="0.0" width="121" height="60.666666666666664"/>
                                                     </slider>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="yQ4-Kv-6l0">
-                                                        <rect key="frame" x="263.33333333333331" y="0.0" width="120.66666666666669" height="60.666666666666664"/>
+                                                        <rect key="frame" x="263.66666666666669" y="0.0" width="120.33333333333331" height="60.666666666666664"/>
                                                     </slider>
                                                 </subviews>
                                                 <constraints>
@@ -235,13 +235,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Y: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1RW-C5-ydc">
-                                                        <rect key="frame" x="132.66666666666666" y="0.0" width="116.66666666666666" height="20.333333333333332"/>
+                                                        <rect key="frame" x="132.66666666666666" y="0.0" width="117" height="20.333333333333332"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scale: 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="los-A1-5kc">
-                                                        <rect key="frame" x="265.33333333333331" y="0.0" width="116.66666666666669" height="20.333333333333332"/>
+                                                        <rect key="frame" x="265.66666666666669" y="0.0" width="116.33333333333331" height="20.333333333333332"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -379,10 +379,77 @@
             </objects>
             <point key="canvasLocation" x="-326" y="1158"/>
         </scene>
+        <!--Lottie Brower View Controller-->
+        <scene sceneID="S8w-fM-5jO">
+            <objects>
+                <viewController storyboardIdentifier="WLLottieBrowerViewController" id="HMk-Qf-fqc" customClass="WLLottieBrowerViewController" customModule="LikeUber" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tgf-GO-KQR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hx5-jn-xO0">
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem width="13" style="plain" systemItem="fixedSpace" id="KUj-lD-NnY"/>
+                                    <barButtonItem systemItem="bookmarks" id="2FP-2F-XBz">
+                                        <connections>
+                                            <action selector="loadAnimationFile:" destination="HMk-Qf-fqc" id="24p-WX-h2M"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="DhE-o1-QK4"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="gEt-me-h90"/>
+                                    <barButtonItem systemItem="refresh" id="eBx-It-zSd">
+                                        <connections>
+                                            <action selector="changeRepeatPressed:" destination="HMk-Qf-fqc" id="KaS-wI-ZMz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Qvw-eT-6rP"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="xYV-e5-8xb"/>
+                                    <barButtonItem systemItem="play" id="NJX-t4-w9F">
+                                        <connections>
+                                            <action selector="playAnimation:" destination="HMk-Qf-fqc" id="WwX-mM-hKE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Sac-r7-fex"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="S0j-6j-vku"/>
+                                    <barButtonItem systemItem="stop" id="abH-6z-uMh">
+                                        <connections>
+                                            <action selector="closePage:" destination="HMk-Qf-fqc" id="Ro3-ht-PPj"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </toolbar>
+                            <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hjD-ya-oxB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="T1U-ak-1pt"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="HMk-Qf-fqc" id="gGn-uS-Uqw"/>
+                                    <outlet property="delegate" destination="HMk-Qf-fqc" id="Ju3-Vx-1ao"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hjD-ya-oxB" firstAttribute="trailing" secondItem="GtT-xu-8bz" secondAttribute="trailing" id="Leg-w1-RRa"/>
+                            <constraint firstItem="hjD-ya-oxB" firstAttribute="leading" secondItem="GtT-xu-8bz" secondAttribute="leading" id="ngY-nA-cEI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GtT-xu-8bz"/>
+                    </view>
+                    <connections>
+                        <outlet property="animationPickerView" destination="hjD-ya-oxB" id="RdG-TE-5GZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="doc-gm-BWC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="660.86956521739137" y="1173.913043478261"/>
+        </scene>
         <!--Test View Controller-->
         <scene sceneID="NrB-nr-oKG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cbe-cg-B9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="WLTestViewController" id="CJ6-Rh-gLJ" customClass="WLTestViewController" customModule="LikeUber" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cE4-ox-gbP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -391,6 +458,7 @@
                         <viewLayoutGuide key="safeArea" id="TTq-18-Rgb"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cbe-cg-B9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="543" y="85"/>
         </scene>

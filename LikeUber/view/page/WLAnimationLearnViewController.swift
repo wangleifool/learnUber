@@ -21,7 +21,9 @@ enum AnimationType: String, EnumCollection {
     case slideLeft
     case slideRight
     case fall
-
+    case rotate
+    case flipX
+    case flipY
     case verticalDelayShow
     case horisonalDelayShow
 }
@@ -191,6 +193,17 @@ class WLAnimationLearnViewController: WLBasePageViewController {
         case .shake:
             shakeAnimation()
             return
+        case .flipX:
+            flipXAnimation()
+            return
+        case .flipY:
+            flipYAnimation()
+            return
+        case .rotate:
+            targetAnimationView.transform = CGAffineTransform.identity
+            animation = { [weak self] in
+                self?.targetAnimationView.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 3)
+            }
         case .verticalDelayShow, .horisonalDelayShow:
             let vc = UIStoryboard.instantiateViewController(storyboard: .menu,
                                                             viewType: WLAnimationTableViewController.self)
@@ -243,6 +256,76 @@ class WLAnimationLearnViewController: WLBasePageViewController {
                 scale.springSpeed = 16.0
                 targetAnimationView.pop_add(scale, forKey: AnimationType.pop.rawValue)
             }
+        case .slideDown:
+            if let ani = targetAnimationView.pop_animation(forKey: AnimationType.slideDown.rawValue) as? POPSpringAnimation {
+                ani.toValue = targetAnimationView.frame.y + 100.0
+            } else {
+                let animation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+                animation?.toValue = targetAnimationView.frame.y + 100.0
+                animation?.springBounciness = 17.0 // 0~20
+                animation?.springSpeed = 16.0
+                targetAnimationView.pop_add(animation, forKey: AnimationType.slideDown.rawValue)
+            }
+        case .slideUp:
+            if let ani = targetAnimationView.pop_animation(forKey: AnimationType.slideUp.rawValue) as? POPSpringAnimation {
+                ani.toValue = targetAnimationView.frame.y - 100.0
+            } else {
+                let animation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+                animation?.toValue = targetAnimationView.frame.y - 100.0
+                animation?.springBounciness = 17.0 // 0~20
+                animation?.springSpeed = 16.0
+                targetAnimationView.pop_add(animation, forKey: AnimationType.slideUp.rawValue)
+            }
+        case .slideLeft:
+            if let ani = targetAnimationView.pop_animation(forKey: AnimationType.slideLeft.rawValue) as? POPSpringAnimation {
+                ani.toValue = targetAnimationView.frame.x - 100.0
+            } else {
+                let animation = POPSpringAnimation(propertyNamed: kPOPLayerPositionX)
+                animation?.toValue = targetAnimationView.frame.x - 100.0
+                animation?.springBounciness = 17.0 // 0~20
+                animation?.springSpeed = 16.0
+                targetAnimationView.pop_add(animation, forKey: AnimationType.slideLeft.rawValue)
+            }
+        case .slideRight:
+            if let ani = targetAnimationView.pop_animation(forKey: AnimationType.slideRight.rawValue) as? POPSpringAnimation {
+                ani.toValue = targetAnimationView.frame.x + 100.0
+            } else {
+                let animation = POPSpringAnimation(propertyNamed: kPOPLayerPositionX)
+                animation?.toValue = targetAnimationView.frame.x + 100.0
+                animation?.springBounciness = 17.0 // 0~20
+                animation?.springSpeed = 16.0
+                targetAnimationView.pop_add(animation, forKey: AnimationType.slideRight.rawValue)
+            }
+        case .rotate:
+            if let ani = targetAnimationView.layer.pop_animation(forKey: AnimationType.rotate.rawValue) as? POPSpringAnimation {
+                ani.toValue = Float.pi * 2
+            } else {
+                let animation = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
+                animation?.toValue = Float.pi * 2
+                animation?.springBounciness = 17.0 // 0~20
+                animation?.springSpeed = 16.0
+                targetAnimationView.layer.pop_add(animation, forKey: AnimationType.rotate.rawValue)
+            }
+        case .flipX:
+            if let ani = targetAnimationView.layer.pop_animation(forKey: AnimationType.flipX.rawValue) as? POPSpringAnimation {
+                ani.toValue = Float.pi
+            } else {
+                let animation = POPSpringAnimation(propertyNamed: kPOPLayerRotationX)
+                animation?.toValue = Float.pi
+                animation?.springBounciness = 17.0 // 0~20
+                animation?.springSpeed = 16.0
+                targetAnimationView.layer.pop_add(animation, forKey: AnimationType.flipX.rawValue)
+            }
+        case .flipY:
+            if let ani = targetAnimationView.layer.pop_animation(forKey: AnimationType.flipY.rawValue) as? POPSpringAnimation {
+                ani.toValue = Float.pi
+            } else {
+                let animation = POPSpringAnimation(propertyNamed: kPOPLayerRotationY)
+                animation?.toValue = Float.pi
+                animation?.springBounciness = 17.0 // 0~20
+                animation?.springSpeed = 16.0
+                targetAnimationView.layer.pop_add(animation, forKey: AnimationType.flipY.rawValue)
+            }
         default:
             if let ani = targetAnimationView.pop_animation(forKey: "scale") as? POPSpringAnimation {
                 if let toValue = ani.toValue as? NSValue,
@@ -260,6 +343,23 @@ class WLAnimationLearnViewController: WLBasePageViewController {
                 targetAnimationView.pop_add(scale, forKey: "scale")
             }
         }
+    }
+
+    func flipXAnimation() {
+        let animation = CABasicAnimation(keyPath: "transform.rotation.x")
+        animation.fromValue = 0
+        animation.toValue = Double.pi * 2
+        animation.duration = TimeInterval(durationSlider.value)
+        targetAnimationView.layer.add(animation, forKey: "flipX")
+    }
+
+    func flipYAnimation() {
+        let animation = CABasicAnimation(keyPath: "transform.rotation.y")
+        animation.fromValue = 0
+        animation.toValue = Double.pi * 2
+        animation.duration = TimeInterval(durationSlider.value)
+
+        targetAnimationView.layer.add(animation, forKey: "flipY")
     }
 
     func shakeAnimation() {
