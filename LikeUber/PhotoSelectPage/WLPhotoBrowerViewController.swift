@@ -36,9 +36,9 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
     var selectedPhotosIndex: Array = Array<Int>()
     var photosIndex: Array = Array<Int>() //在可见照片数量和总数量不一致时，单独记录可见照片的index
     
-    lazy var mainScrollView: UIScrollView = {
+    lazy var mainScrollView: WLScrollView = {
         let frame = self.view.bounds
-        let scroll = UIScrollView(frame: frame)
+        let scroll = WLScrollView(frame: frame)
         scroll.isPagingEnabled = true
         scroll.showsHorizontalScrollIndicator = false
         scroll.delegate = self
@@ -96,7 +96,7 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
     }()
     
     private lazy var btSelect: UIButton = {
-        var frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+        var frame = CGRect(x: 0, y: 0, width: 44, height: 44)
 //        frame.y = self.view.bounds.height - frame.height
 //        frame.x = self.view.bounds.width - frame.width
         let bt = UIButton(frame: frame)
@@ -392,11 +392,14 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
     private func addGesture() {
         let doubleTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.doubleTap(gesture:)))
         doubleTapGesture.numberOfTapsRequired = 2
+        doubleTapGesture.delegate = self
         self.view.addGestureRecognizer(doubleTapGesture)
         
         let oneTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.oneTap(gesture:)))
         oneTapGesture.numberOfTapsRequired = 1
+        doubleTapGesture.delegate = self
         self.view.addGestureRecognizer(oneTapGesture)
+        oneTapGesture.require(toFail: doubleTapGesture) // 单击手势 依赖于 双击手势 识别失败后，避免同时响应 点击和双击手势
         
         let panGesture: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.didPan(gesture:)))
         self.view.addGestureRecognizer(panGesture)
@@ -631,4 +634,15 @@ class WLPhotoBrowerViewController: UIViewController,UIViewControllerTransitionin
     
     
     
+}
+
+// MARK: - tap/ double tap gesture delegate
+extension WLPhotoBrowerViewController: UIGestureRecognizerDelegate {
+    // 解决点击事件 传递 到UIButton有延时的问题， 提前判断过滤掉不应该让tap gesture recognizer处理的地方
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if touch.view is UIButton {
+            return false
+        }
+        return true
+    }
 }
