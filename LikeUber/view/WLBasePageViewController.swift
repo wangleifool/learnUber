@@ -33,6 +33,12 @@ class WLBasePageViewController: WLBaseViewController {
         let edgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(dealPan(gesture:)))
         edgeGesture.edges = .left
         view.addGestureRecognizer(edgeGesture)
+
+        // 禁止使用系统的 边沿优化 pop 手势, 怕和Hero的转场手势冲突了。
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        hero.isEnabled = true
+        hero.modalAnimationType = HeroDefaultAnimationType.zoomSlide(direction: .left)
+
 //        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dealPan(gesture:)))
 //        view.addGestureRecognizer(panGesture)
     }
@@ -48,12 +54,12 @@ class WLBasePageViewController: WLBaseViewController {
         let progress = translation.x / view.bounds.width
         switch gesture.state {
         case .began:
-//            hero.dismissViewController()
-            dismiss(animated: true, completion: nil)
+            hero.modalAnimationType = HeroDefaultAnimationType.zoomSlide(direction: .right)
+            hero.dismissViewController()
         case .changed:
             Hero.shared.update(progress)
         default:
-            // end the transition when user ended their touch
+            // end the transition when user ended their touchheroModalAnimationType
             if progress + gesture.velocity(in: nil).x / view.bounds.width > 0.5 {
                 Hero.shared.finish()
             } else {

@@ -102,8 +102,8 @@ extension DrawerViewController: UITableViewDelegate {
                                                                   viewType: WLTestViewController.self)
             }
 //            targetVC.hero.isEnabled = true
-            targetVC.hero.modalAnimationType = HeroDefaultAnimationType.pageOut(direction: .right)
-//            hero.replaceViewController(with: targetVC)
+//            targetVC.hero.modalAnimationType = HeroDefaultAnimationType.zoomSlide(direction: .right)
+
             if let drawerController = parent as? KYDrawerController {
                 drawerController.setDrawerState(.closed, animated: false)
             }
