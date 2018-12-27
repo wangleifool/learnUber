@@ -131,11 +131,11 @@ extension DrawerViewController: UITableViewDelegate {
                 if curCellItem.isExpand {
                     curCellItem.isExpand = false
                     cellModels.removeSubrange(indexPath.row + 1...indexPath.row + updatedDataTuple.0.count)
-                    tableView.deleteRows(at: updatedDataTuple.1, with: .right)
+                    tableView.deleteRows(at: updatedDataTuple.1, with: .fade)
                 } else { // 需要展开
                     curCellItem.isExpand = true
                     cellModels.insert(contentsOf: updatedDataTuple.0, at: indexPath.row + 1)
-                    tableView.insertRows(at: updatedDataTuple.1, with: .bottom)
+                    tableView.insertRows(at: updatedDataTuple.1, with: .fade)
                 }
             }
         default:

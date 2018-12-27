@@ -26,6 +26,7 @@ enum AnimationType: String, EnumCollection {
     case flipY
     case verticalDelayShow
     case horisonalDelayShow
+    case rotateFallBounce
 }
 
 enum AnimationTimeType: String, EnumCollection {
@@ -65,7 +66,10 @@ class WLAnimationLearnViewController: WLBasePageViewController {
 
     @IBOutlet weak var animationTypePickView: UIPickerView!
     private var selectedAnimationType: AnimationType = .shake
-    private var selectedAnimationTimeType: AnimationTimeType = .easeIn    
+    private var selectedAnimationTimeType: AnimationTimeType = .easeIn
+
+    var disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -129,7 +133,21 @@ class WLAnimationLearnViewController: WLBasePageViewController {
     @IBAction func btCodePressed(_ sender: Any) {
 
     }
+
     @IBAction func btStartPressed(_ sender: Any) {
+        // 练习使用RxSwift串联动画
+        if selectedAnimationType == .rotateFallBounce {
+            targetAnimationView.rx.rotate(times: 5, durationPerTimes: 0.1)
+                .andThen(targetAnimationView.rx.shift(offset: CGPoint(x: 0, y: 150), duration: 0.5))
+                .andThen(targetAnimationView.rx.fade(duration: 0.5))
+                .andThen(targetAnimationView.rx.appear(duration: 0.5))
+                .andThen(targetAnimationView.rx.shift(offset: CGPoint(x: 0, y: -150), duration: 0.5))
+                .andThen(targetAnimationView.rx.rotateEndless(duration: 0.1).take(5))
+                .subscribe()
+                .disposed(by: disposeBag)
+            return
+        }
+
         if usePopFrameworkSwitch.isOn {
             applyAnimationWithPop()
         } else {
@@ -374,7 +392,7 @@ class WLAnimationLearnViewController: WLBasePageViewController {
         let leftOffset = CGPoint.init(x: position.x - 20, y: position.y)
 
         // 设置动画
-        let animation:CABasicAnimation = CABasicAnimation(keyPath: "position")
+        let animation: CABasicAnimation = CABasicAnimation(keyPath: "position")
 
         // 设置运动形式
         var timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)

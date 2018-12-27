@@ -616,6 +616,7 @@
 		800E6142213015DD00B43B52 /* WLDrawerHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800E6141213015DD00B43B52 /* WLDrawerHeaderView.xib */; };
 		804054DB2133980800FF9985 /* Sample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 804054DA2133980800FF9985 /* Sample.storyboard */; };
 		804054DE2133E9CC00FF9985 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804054DD2133E9CC00FF9985 /* UIView+Extension.swift */; };
+		80529D3921D4A38000247197 /* UIView+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80529D3821D4A38000247197 /* UIView+Reactive.swift */; };
 		8084CBA62142634E0077DBD4 /* WLLottieBrowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8084CBA52142634E0077DBD4 /* WLLottieBrowerViewController.swift */; };
 		8085B469218FEE9100DFA5D8 /* WLScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8085B468218FEE9100DFA5D8 /* WLScrollView.swift */; };
 		80B7428B213E2AD60044AB62 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80B7428A213E2AD60044AB62 /* Menu.storyboard */; };
@@ -1249,6 +1250,7 @@
 		800E6141213015DD00B43B52 /* WLDrawerHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLDrawerHeaderView.xib; sourceTree = "<group>"; };
 		804054DA2133980800FF9985 /* Sample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sample.storyboard; sourceTree = "<group>"; };
 		804054DD2133E9CC00FF9985 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		80529D3821D4A38000247197 /* UIView+Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Reactive.swift"; sourceTree = "<group>"; };
 		8084CBA52142634E0077DBD4 /* WLLottieBrowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WLLottieBrowerViewController.swift; path = view/page/WLLottieBrowerViewController.swift; sourceTree = "<group>"; };
 		8085B468218FEE9100DFA5D8 /* WLScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLScrollView.swift; sourceTree = "<group>"; };
 		80B7428A213E2AD60044AB62 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
@@ -1343,16 +1345,16 @@
 		3B2267C21ECE9743005E7ED6 /* LikeUber */ = {
 			isa = PBXGroup;
 			children = (
+				80529D3621D4A2A400247197 /* Utils */,
+				80529D3521D4A28400247197 /* Others */,
 				80B74289213E2AB90044AB62 /* StoryBoard */,
 				804054D9213397E500FF9985 /* Storyboard&xib */,
 				800E6134212FE51700B43B52 /* Service */,
-				3B798EFD1F5660A00038D20B /* Others */,
 				3B9B37521ED2D173006C7406 /* Utility */,
 				3B2267DC1ECEB4D9005E7ED6 /* Resource */,
 				3B2267DB1ECEB4C3005E7ED6 /* Global */,
 				3B2267DA1ECEB4A5005E7ED6 /* ThirdSDK */,
 				3B2267D71ECEB493005E7ED6 /* View */,
-				3B2267D61ECEB481005E7ED6 /* Operation */,
 				3B2267D51ECEB479005E7ED6 /* Model */,
 			);
 			path = LikeUber;
@@ -1366,13 +1368,6 @@
 				3B27B2351F668A68007E92D9 /* WLAnnotation.swift */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		3B2267D61ECEB481005E7ED6 /* Operation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Operation;
 			sourceTree = "<group>";
 		};
 		3B2267D71ECEB493005E7ED6 /* View */ = {
@@ -1400,7 +1395,6 @@
 		3B2267DB1ECEB4C3005E7ED6 /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				800E6130212FBDCD00B43B52 /* extension */,
 				3B2267E21ECEB565005E7ED6 /* WLGlobalDefine.swift */,
 				3B9B37371ED2B2BF006C7406 /* WLLocation.swift */,
 				3B2FAB49206B28A500585881 /* WLDevice.swift */,
@@ -2086,9 +2080,9 @@
 			isa = PBXGroup;
 			children = (
 				3B9B374A1ED2CE7E006C7406 /* WLSelectCountryViewController.xib */,
+				3B2DF4121FFF200B00814540 /* WLChangeFontColor.swift */,
 				3B9B37491ED2CE7E006C7406 /* WLSelectCountryViewController.swift */,
 				3B2DF4101FFF1A6D00814540 /* WLSettingsCellModels.swift */,
-				3B2DF4121FFF200B00814540 /* WLChangeFontColor.swift */,
 				3B2DF4131FFF200B00814540 /* WLChangeFontColor.xib */,
 				3B9B37571ED2DA37006C7406 /* WLUserInfoViewController.xib */,
 				3B9B37561ED2DA37006C7406 /* WLUserInfoViewController.swift */,
@@ -2199,15 +2193,6 @@
 			path = ThirdSDK/baiduMap;
 			sourceTree = "<group>";
 		};
-		3B798EFD1F5660A00038D20B /* Others */ = {
-			isa = PBXGroup;
-			children = (
-				3B2267C31ECE9743005E7ED6 /* AppDelegate.swift */,
-				3B9B37391ED2BA57006C7406 /* LikeUber-Bridging-Header.h */,
-			);
-			name = Others;
-			sourceTree = "<group>";
-		};
 		3B798F001F5688BC0038D20B /* uncorrelatedLearningPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -2286,16 +2271,6 @@
 			name = custom;
 			sourceTree = "<group>";
 		};
-		800E6130212FBDCD00B43B52 /* extension */ = {
-			isa = PBXGroup;
-			children = (
-				800E6131212FBDDE00B43B52 /* UIDevice+Extension.swift */,
-				804054DD2133E9CC00FF9985 /* UIView+Extension.swift */,
-				80B7428E213E37FB0044AB62 /* UIStoryBoard+Extension.swift */,
-			);
-			name = extension;
-			sourceTree = "<group>";
-		};
 		800E6134212FE51700B43B52 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -2319,6 +2294,34 @@
 				804054DA2133980800FF9985 /* Sample.storyboard */,
 			);
 			path = "Storyboard&xib";
+			sourceTree = "<group>";
+		};
+		80529D3521D4A28400247197 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				3B2267C31ECE9743005E7ED6 /* AppDelegate.swift */,
+				3B9B37391ED2BA57006C7406 /* LikeUber-Bridging-Header.h */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		80529D3621D4A2A400247197 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				80529D3721D4A2D400247197 /* extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		80529D3721D4A2D400247197 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				80529D3821D4A38000247197 /* UIView+Reactive.swift */,
+				800E6131212FBDDE00B43B52 /* UIDevice+Extension.swift */,
+				804054DD2133E9CC00FF9985 /* UIView+Extension.swift */,
+				80B7428E213E37FB0044AB62 /* UIStoryBoard+Extension.swift */,
+			);
+			path = extension;
 			sourceTree = "<group>";
 		};
 		8085B467218FEE8300DFA5D8 /* Base */ = {
@@ -3067,6 +3070,7 @@
 				3B9B37381ED2B2BF006C7406 /* WLLocation.swift in Sources */,
 				3B2DF4061FFCD5FD00814540 /* Protocols.swift in Sources */,
 				8085B469218FEE9100DFA5D8 /* WLScrollView.swift in Sources */,
+				80529D3921D4A38000247197 /* UIView+Reactive.swift in Sources */,
 				3B9B374B1ED2CE7E006C7406 /* WLSelectCountryViewController.swift in Sources */,
 				3B6C4AC51ED5765A001A001D /* KYEmbedDrawerControllerSegue.swift in Sources */,
 				80ED1241213F809E000A6D07 /* WLAnimationTableViewController.swift in Sources */,
@@ -3224,7 +3228,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.burgett.LikeUber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "LikeUber/LikeUber-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "LikeUber/Others/LikeUber-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3255,7 +3259,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.burgett.LikeUber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "LikeUber/LikeUber-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "LikeUber/Others/LikeUber-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
